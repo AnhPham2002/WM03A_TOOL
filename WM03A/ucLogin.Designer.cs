@@ -1,0 +1,163 @@
+﻿namespace WM03A
+{
+    partial class ucLogin
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.lblModulePassword = new System.Windows.Forms.Label();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnRefreshCom = new System.Windows.Forms.Button();
+            this.btnOpenCom = new System.Windows.Forms.Button();
+            this.lblSelectCom = new System.Windows.Forms.Label();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
+            this.cmbCom = new System.Windows.Forms.ComboBox();
+            this.SuspendLayout();
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(215, 318);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(300, 20);
+            this.textBox1.TabIndex = 13;
+            this.textBox1.UseSystemPasswordChar = true;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(49, 238);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(37, 13);
+            this.lblRole.TabIndex = 11;
+            this.lblRole.Text = "Vai trò";
+            // 
+            // lblModulePassword
+            // 
+            this.lblModulePassword.AutoSize = true;
+            this.lblModulePassword.Location = new System.Drawing.Point(49, 321);
+            this.lblModulePassword.Name = "lblModulePassword";
+            this.lblModulePassword.Size = new System.Drawing.Size(135, 13);
+            this.lblModulePassword.TabIndex = 12;
+            this.lblModulePassword.Text = "Nhập mật khẩu của thiết bị";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(542, 316);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(94, 23);
+            this.btnConnect.TabIndex = 8;
+            this.btnConnect.Text = "Kết nối";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // btnRefreshCom
+            // 
+            this.btnRefreshCom.Location = new System.Drawing.Point(542, 125);
+            this.btnRefreshCom.Name = "btnRefreshCom";
+            this.btnRefreshCom.Size = new System.Drawing.Size(94, 23);
+            this.btnRefreshCom.TabIndex = 9;
+            this.btnRefreshCom.Text = "Làm mới COM";
+            this.btnRefreshCom.UseVisualStyleBackColor = true;
+            this.btnRefreshCom.Click += new System.EventHandler(this.btnRefreshCom_Click);
+            // 
+            // btnOpenCom
+            // 
+            this.btnOpenCom.Location = new System.Drawing.Point(661, 125);
+            this.btnOpenCom.Name = "btnOpenCom";
+            this.btnOpenCom.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenCom.TabIndex = 10;
+            this.btnOpenCom.Text = "Mở COM";
+            this.btnOpenCom.UseVisualStyleBackColor = true;
+            this.btnOpenCom.Click += new System.EventHandler(this.btnOpenCom_Click);
+            // 
+            // lblSelectCom
+            // 
+            this.lblSelectCom.AutoSize = true;
+            this.lblSelectCom.Location = new System.Drawing.Point(49, 132);
+            this.lblSelectCom.Name = "lblSelectCom";
+            this.lblSelectCom.Size = new System.Drawing.Size(59, 13);
+            this.lblSelectCom.TabIndex = 7;
+            this.lblSelectCom.Text = "Chọn COM";
+            // 
+            // cmbRole
+            // 
+            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Items.AddRange(new object[] {
+            "Người xem",
+            "Kỹ thuật viên",
+            "Quản trị viên"});
+            this.cmbRole.Location = new System.Drawing.Point(114, 235);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(401, 21);
+            this.cmbRole.TabIndex = 5;
+            // 
+            // cmbCom
+            // 
+            this.cmbCom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCom.FormattingEnabled = true;
+            this.cmbCom.Location = new System.Drawing.Point(114, 127);
+            this.cmbCom.Name = "cmbCom";
+            this.cmbCom.Size = new System.Drawing.Size(401, 21);
+            this.cmbCom.TabIndex = 6;
+            // 
+            // ucLogin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblRole);
+            this.Controls.Add(this.lblModulePassword);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.btnRefreshCom);
+            this.Controls.Add(this.btnOpenCom);
+            this.Controls.Add(this.lblSelectCom);
+            this.Controls.Add(this.cmbRole);
+            this.Controls.Add(this.cmbCom);
+            this.Name = "ucLogin";
+            this.Size = new System.Drawing.Size(800, 500);
+            this.Load += new System.EventHandler(this.ucLogin_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Label lblModulePassword;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnRefreshCom;
+        private System.Windows.Forms.Button btnOpenCom;
+        private System.Windows.Forms.Label lblSelectCom;
+        private System.Windows.Forms.ComboBox cmbRole;
+        private System.Windows.Forms.ComboBox cmbCom;
+    }
+}

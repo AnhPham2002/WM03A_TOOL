@@ -1,6 +1,6 @@
 ﻿namespace WM03A
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.SuspendLayout();
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Location = new System.Drawing.Point(12, 12);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(800, 500);
+            this.pnlContent.TabIndex = 0;
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Controls.Add(this.pnlContent);
+            this.Name = "frmMain";
+            this.Text = "Giao diện chính";
+            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlContent;
     }
 }
-
