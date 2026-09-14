@@ -1,20 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WM03A
 {
     public partial class frmMain : Form
     {
+        private SerialPortManager _serialPortManager;
+        private frmSerialMonitor _serialMonitor;
+
         public frmMain()
         {
             InitializeComponent();
+
+            _serialPortManager = new SerialPortManager();
+
+            _serialMonitor = new frmSerialMonitor(_serialPortManager);
+            _serialMonitor.Show();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -26,29 +27,53 @@ namespace WM03A
         {
             pnlContent.Controls.Clear();
 
-            ucLogin login = new ucLogin();
+            ucLogin login = new ucLogin(_serialPortManager);
 
             login.Dock = DockStyle.Fill;
-
             login.LoginSucceeded += Login_LoginSucceeded;
 
             pnlContent.Controls.Add(login);
         }
 
-        private void Login_LoginSucceeded(object sender, EventArgs e)
+        private void Login_LoginSucceeded(
+            object sender,
+            Protocol.AccessId accessId)
         {
-            ShowMain();
+            ShowMain(accessId);
         }
 
-        private void ShowMain()
+        private void ShowMain(Protocol.AccessId accessId)
         {
             pnlContent.Controls.Clear();
 
-            ucMain main = new ucMain();
+            ucMain main = new ucMain(accessId);
 
             main.Dock = DockStyle.Fill;
+            main.LogoutRequested += Main_LogoutRequested;
 
             pnlContent.Controls.Add(main);
+        }
+
+        private void Main_LogoutRequested(
+            object sender,
+            EventArgs e)
+        {
+            ShowLogin();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (_serialMonitor != null && !_serialMonitor.IsDisposed)
+            {
+                _serialMonitor.Close();
+            }
+
+            if (_serialPortManager != null)
+            {
+                _serialPortManager.Close();
+            }
+
+            base.OnFormClosing(e);
         }
     }
 }

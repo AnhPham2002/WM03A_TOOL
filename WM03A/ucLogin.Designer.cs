@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtModulePassword = new System.Windows.Forms.TextBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblModulePassword = new System.Windows.Forms.Label();
-            this.btnConnect = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.btnRefreshCom = new System.Windows.Forms.Button();
             this.btnOpenCom = new System.Windows.Forms.Button();
             this.lblSelectCom = new System.Windows.Forms.Label();
@@ -39,14 +39,14 @@
             this.cmbCom = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtModulePassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(215, 318);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(300, 20);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtModulePassword.Location = new System.Drawing.Point(215, 318);
+            this.txtModulePassword.Name = "txtModulePassword";
+            this.txtModulePassword.PasswordChar = '*';
+            this.txtModulePassword.Size = new System.Drawing.Size(300, 20);
+            this.txtModulePassword.TabIndex = 13;
+            this.txtModulePassword.UseSystemPasswordChar = true;
             // 
             // lblRole
             // 
@@ -66,15 +66,15 @@
             this.lblModulePassword.TabIndex = 12;
             this.lblModulePassword.Text = "Nhập mật khẩu của thiết bị";
             // 
-            // btnConnect
+            // btnLogin
             // 
-            this.btnConnect.Location = new System.Drawing.Point(542, 316);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(94, 23);
-            this.btnConnect.TabIndex = 8;
-            this.btnConnect.Text = "Kết nối";
-            this.btnConnect.UseVisualStyleBackColor = true;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            this.btnLogin.Location = new System.Drawing.Point(542, 316);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(94, 23);
+            this.btnLogin.TabIndex = 8;
+            this.btnLogin.Text = "Đăng nhập";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnRefreshCom
             // 
@@ -131,10 +131,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtModulePassword);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblModulePassword);
-            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnRefreshCom);
             this.Controls.Add(this.btnOpenCom);
             this.Controls.Add(this.lblSelectCom);
@@ -150,10 +150,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtModulePassword;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblModulePassword;
-        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnRefreshCom;
         private System.Windows.Forms.Button btnOpenCom;
         private System.Windows.Forms.Label lblSelectCom;

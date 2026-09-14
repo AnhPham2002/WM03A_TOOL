@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Communication\Aes128.cs" />
     <Compile Include="Communication\ComPortInfo.cs" />
     <Compile Include="Communication\Crc.cs" />
     <Compile Include="Communication\Crypto.cs" />
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSerialMonitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSerialMonitor.Designer.cs">
+      <DependentUpon>frmSerialMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +81,9 @@
     </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSerialMonitor.resx">
+      <DependentUpon>frmSerialMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
