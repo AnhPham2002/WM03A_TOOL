@@ -11,7 +11,7 @@ namespace WM03A
         public const byte PROTOCOL_MODULE_SERIAL_COMMON = 0x00;
 
         // Key mặc định
-        private static readonly byte[] Au8Key = new byte[]
+        private static readonly byte[] AesKey = new byte[]
         {
             0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
             0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F
@@ -138,56 +138,43 @@ namespace WM03A
 
 
         // ============================================================
-        // PUBLIC API (bạn có thể gọi từ bên ngoài)
+        // PUBLIC API
         // ============================================================
 
         public static bool Pack(bool encrypt, ulong serial, byte cmd, byte id,
-                                byte[] payload, out byte[] frame)
+                        byte[] payload, out byte[] frame)
         {
-            return PackInternal(encrypt, serial, cmd, id, payload, out frame);
-        }
+            frame = null;
 
-        public static ProtocolErrCode Unpack(byte[] frame,
-                                             out ulong serial, out byte cmd, out byte id,
-                                             out byte[] payload)
-        {
-            return UnpackInternal(frame, out serial, out cmd, out id, out payload);
-        }
-
-        // ============================================================
-        // PRIVATE IMPLEMENTATION
-        // ============================================================
-
-        private static bool PackInternal(bool bEncrypt, ulong u64Serial, byte u8Cmd, byte u8Id,
-                                         byte[] pPayload, out byte[] pFrame)
-        {
-            pFrame = null;
-
-            int headerSize = Marshal.SizeOf<ProtocolHeader>(); // 14
+            int headerSize = Marshal.SizeOf<ProtocolHeader>(); // 14 
 
             ushort ciphertextLen;
             byte[] ciphertextBuf;
+            ushort ciphertextCrc;
 
-            if (pPayload == null || pPayload.Length == 0)
+            if (payload == null || payload.Length == 0)
             {
                 ciphertextLen = 0;
                 ciphertextBuf = Array.Empty<byte>();
             }
             else
             {
-                // Plaintext = 2 bytes length + payload
-                int plaintextLen = sizeof(ushort) + pPayload.Length;
-                ciphertextBuf = new byte[Align16(plaintextLen)]; // đủ chỗ cho padding
+                // Plaintext = 2 bytes length + payload + 2 bytes inner CRC16 
+                int plaintextLen = sizeof(ushort) + payload.Length + sizeof(ushort);
+                ciphertextBuf = new byte[Align16(plaintextLen)]; // đủ chỗ cho padding 
 
-                // Copy length (little-endian)
-                BitConverter.GetBytes((ushort)pPayload.Length).CopyTo(ciphertextBuf, 0);
-                // Copy payload
-                Buffer.BlockCopy(pPayload, 0, ciphertextBuf, sizeof(ushort), pPayload.Length);
+                // Copy length (little-endian) 
+                BitConverter.GetBytes((ushort)payload.Length).CopyTo(ciphertextBuf, 0);
+                // Copy payload 
+                Buffer.BlockCopy(payload, 0, ciphertextBuf, sizeof(ushort), payload.Length);
+                // Calculate and copy inner CRC16 
+                ciphertextCrc = Crc.CalculateCrc16(ciphertextBuf, (ushort)(sizeof(ushort) + payload.Length));
+                BitConverter.GetBytes(ciphertextCrc).CopyTo(ciphertextBuf, sizeof(ushort) + payload.Length);
 
-                if (bEncrypt)
+                if (encrypt)
                 {
                     ciphertextLen = (ushort)Align16(plaintextLen);
-                    Aes128.Encrypt(Au8Key, ciphertextBuf, (ushort)plaintextLen);
+                    Aes128.Encrypt(AesKey, ciphertextBuf, (ushort)plaintextLen);
                 }
                 else
                 {
@@ -195,104 +182,110 @@ namespace WM03A
                 }
             }
 
-            // Frame = Header + Ciphertext + CRC16
+            // Frame = Header + Ciphertext + CRC16 
             int packetLen = headerSize + ciphertextLen;
-            pFrame = new byte[packetLen + sizeof(ushort)];
+            frame = new byte[packetLen + sizeof(ushort)];
 
-            // Ghi header
+            // Ghi header 
             var header = new ProtocolHeader
             {
                 StartOfFrame = PROTOCOL_START_OF_FRAME,
                 ModuleType = PROTOCOL_MODULE_TYPE,
-                ModuleSerial = u64Serial,
-                CmdCode = u8Cmd,
-                IdCode = u8Id,
+                ModuleSerial = serial,
+                CmdCode = cmd,
+                IdCode = id,
                 CiphertextLen = ciphertextLen
             };
 
             byte[] headerBytes = StructureToBytes(header);
-            Buffer.BlockCopy(headerBytes, 0, pFrame, 0, headerSize);
+            Buffer.BlockCopy(headerBytes, 0, frame, 0, headerSize);
 
-            // Copy ciphertext
+            // Copy ciphertext 
             if (ciphertextLen > 0)
             {
-                Buffer.BlockCopy(ciphertextBuf, 0, pFrame, headerSize, ciphertextLen);
+                Buffer.BlockCopy(ciphertextBuf, 0, frame, headerSize, ciphertextLen);
             }
 
-            // CRC16 trên Header + Ciphertext
-            ushort crc = Crc.CalculateCrc16(pFrame, (ushort)packetLen);
-            BitConverter.GetBytes(crc).CopyTo(pFrame, packetLen);
+            // CRC16 trên Header + Ciphertext 
+            ushort crc = Crc.CalculateCrc16(frame, (ushort)packetLen);
+            BitConverter.GetBytes(crc).CopyTo(frame, packetLen);
 
             return true;
         }
 
-        private static ProtocolErrCode UnpackInternal(byte[] pFrame,
-                                                      out ulong u64Serial, out byte u8Cmd, out byte u8Id,
-                                                      out byte[] pPayload)
+        public static ProtocolErrCode Unpack(byte[] frame,
+                                             out ulong serial, out byte cmd, out byte id,
+                                             out byte[] payload)
         {
-            u64Serial = 0;
-            u8Cmd = 0;
-            u8Id = 0;
-            pPayload = null;
+            serial = PROTOCOL_MODULE_SERIAL_COMMON;
+            cmd = 0;
+            id = 0;
+            payload = null;
 
-            if (pFrame == null)
+            if (frame == null)
                 return ProtocolErrCode.NullPointer;
 
             int headerSize = Marshal.SizeOf<ProtocolHeader>();
 
-            if (pFrame.Length < headerSize + 2)
+            if (frame.Length < headerSize + 2)
                 return ProtocolErrCode.FrameInvalid;
 
-            var header = BytesToStructure<ProtocolHeader>(pFrame, 0);
+            var header = BytesToStructure<ProtocolHeader>(frame, 0);
 
             if (header.StartOfFrame != PROTOCOL_START_OF_FRAME)
                 return ProtocolErrCode.FrameInvalid;
 
-            if (header.CiphertextLen > pFrame.Length - headerSize - sizeof(ushort))
+            if (header.CiphertextLen > frame.Length - headerSize - sizeof(ushort))
                 return ProtocolErrCode.FrameInvalid;
 
-            int packetLen = pFrame.Length - sizeof(ushort);
+            int packetLen = frame.Length - sizeof(ushort);
 
-            // Kiểm tra CRC
-            ushort crcCalc = Crc.CalculateCrc16(pFrame, (ushort)packetLen);
-            ushort crcFrame = BitConverter.ToUInt16(pFrame, packetLen);
+            // Kiểm tra CRC 
+            ushort crcFrameCalc = Crc.CalculateCrc16(frame, (ushort)packetLen);
+            ushort crcFrame = BitConverter.ToUInt16(frame, packetLen);
 
-            if (crcCalc != crcFrame)
+            if (crcFrameCalc != crcFrame)
                 return ProtocolErrCode.Crc16Invalid;
 
-            u64Serial = header.ModuleSerial;
-            u8Cmd = header.CmdCode;
-            u8Id = header.IdCode;
+            serial = header.ModuleSerial;
+            cmd = header.CmdCode;
+            id = header.IdCode;
 
             if (header.CiphertextLen == 0)
             {
-                pPayload = Array.Empty<byte>();
+                payload = Array.Empty<byte>();
                 return ProtocolErrCode.Success;
             }
 
-            // Copy ciphertext ra buffer tạm
+            // Copy ciphertext ra buffer tạm 
             byte[] temp = new byte[header.CiphertextLen];
-            Buffer.BlockCopy(pFrame, headerSize, temp, 0, header.CiphertextLen);
+            Buffer.BlockCopy(frame, headerSize, temp, 0, header.CiphertextLen);
 
-            // Decrypt nếu >= 16 byte
+            // Decrypt nếu >= 16 byte 
             if (header.CiphertextLen >= 16)
             {
-                Aes128.Decrypt(Au8Key, temp, header.CiphertextLen);
+                Aes128.Decrypt(AesKey, temp, header.CiphertextLen);
             }
 
-            // Lấy payload length (2 byte đầu)
+            // Lấy payload length (2 byte đầu) 
             if (temp.Length < sizeof(ushort))
                 return ProtocolErrCode.FrameInvalid;
 
             ushort payloadLen = BitConverter.ToUInt16(temp, 0);
 
-            // Bảo vệ overflow
+            // Bảo vệ overflow 
             if (payloadLen >= header.CiphertextLen)
                 return ProtocolErrCode.FrameInvalid;
 
-            // Copy payload thật
-            pPayload = new byte[payloadLen];
-            Buffer.BlockCopy(temp, sizeof(ushort), pPayload, 0, payloadLen);
+            // Kiểm tra inner CRC16 
+            ushort crcInnerCalc = Crc.CalculateCrc16(temp, (ushort)(sizeof(ushort) + payloadLen));
+            ushort crcInner = BitConverter.ToUInt16(temp, sizeof(ushort) + payloadLen);
+            if (crcInnerCalc != crcInner)
+                return ProtocolErrCode.FrameInvalid;
+
+            // Copy payload thật 
+            payload = new byte[payloadLen];
+            Buffer.BlockCopy(temp, sizeof(ushort), payload, 0, payloadLen);
 
             return ProtocolErrCode.Success;
         }
@@ -337,7 +330,7 @@ namespace WM03A
         {
             return Pack(
                 encrypt: true,                  // Access thường được mã hóa
-                serial: 0,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Access,
                 id: (byte)id,
                 payload: password ?? Array.Empty<byte>(),
