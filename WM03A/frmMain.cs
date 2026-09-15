@@ -46,7 +46,7 @@ namespace WM03A
         {
             pnlContent.Controls.Clear();
 
-            ucMain main = new ucMain(accessId);
+            ucMain main = new ucMain(_serialPortManager, accessId);
 
             main.Dock = DockStyle.Fill;
             main.LogoutRequested += Main_LogoutRequested;

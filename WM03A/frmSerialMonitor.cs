@@ -89,7 +89,7 @@ namespace WM03A
 
         private void btnClearMonitor_Click(object sender, EventArgs e)
         {
-
+            rtbLog.Clear();
         }
     }
 }

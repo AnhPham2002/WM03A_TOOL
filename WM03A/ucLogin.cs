@@ -141,31 +141,10 @@ namespace WM03A
                     password,
                     out txFrame);
 
-                // Gửi frame Access
-                _serialPortManager.Send(txFrame);
-
-                // Chờ frame phản hồi
                 byte[] rxFrame = null;
 
-                const int timeoutMs = 300;
-                const int pollingIntervalMs = 10;
-
-                int elapsedMs = 0;
-
-                while (elapsedMs < timeoutMs)
-                {
-                    if (_serialPortManager.Receive(out rxFrame))
-                    {
-                        break;
-                    }
-
-                    Thread.Sleep(pollingIntervalMs);
-
-                    elapsedMs += pollingIntervalMs;
-                }
-
                 // Không nhận được frame
-                if (rxFrame == null)
+                if (!_serialPortManager.Communicate(txFrame, out rxFrame))
                 {
                     MessageBox.Show(
                         "Không nhận được phản hồi từ thiết bị.",

@@ -125,6 +125,31 @@ namespace WM03A
             }
         }
 
+        public bool Communicate(byte[] txFrame, out byte[] rxFrame)
+        {
+            rxFrame = null;
+
+            Send(txFrame);
+
+            const int timeoutMs = 300;
+            const int pollingIntervalMs = 10;
+
+            int elapsedMs = 0;
+
+            while (elapsedMs < timeoutMs)
+            {
+                if (Receive(out rxFrame))
+                {
+                    return true;
+                }
+
+                Thread.Sleep(pollingIntervalMs);
+                elapsedMs += pollingIntervalMs;
+            }
+
+            return false;
+        }
+
         private void SerialPort_DataReceived(
             object sender,
             SerialDataReceivedEventArgs e)

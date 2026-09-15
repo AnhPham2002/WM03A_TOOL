@@ -47,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Communication\Aes128.cs" />
-    <Compile Include="Communication\ComPortInfo.cs" />
-    <Compile Include="Communication\Crc.cs" />
-    <Compile Include="Communication\Crypto.cs" />
-    <Compile Include="Communication\Protocol.cs" />
-    <Compile Include="Communication\SerialPortManager.cs" />
+    <Compile Include="Users\ProtocolCommands\GetCommands.cs" />
+    <Compile Include="Users\ProtocolParser\GetParser.cs" />
+    <Compile Include="Users\Protocol\Aes128.cs" />
+    <Compile Include="Users\Communication\ComPortInfo.cs" />
+    <Compile Include="Users\Protocol\Crc.cs" />
+    <Compile Include="Users\Communication\Crypto.cs" />
+    <Compile Include="Users\Protocol\Protocol.cs" />
+    <Compile Include="Users\Communication\SerialPortManager.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>

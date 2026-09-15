@@ -41,7 +41,7 @@
             // 
             // txtModulePassword
             // 
-            this.txtModulePassword.Location = new System.Drawing.Point(215, 318);
+            this.txtModulePassword.Location = new System.Drawing.Point(273, 403);
             this.txtModulePassword.Name = "txtModulePassword";
             this.txtModulePassword.PasswordChar = '*';
             this.txtModulePassword.Size = new System.Drawing.Size(300, 20);
@@ -51,7 +51,7 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(49, 238);
+            this.lblRole.Location = new System.Drawing.Point(107, 323);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(37, 13);
             this.lblRole.TabIndex = 11;
@@ -60,7 +60,7 @@
             // lblModulePassword
             // 
             this.lblModulePassword.AutoSize = true;
-            this.lblModulePassword.Location = new System.Drawing.Point(49, 321);
+            this.lblModulePassword.Location = new System.Drawing.Point(107, 406);
             this.lblModulePassword.Name = "lblModulePassword";
             this.lblModulePassword.Size = new System.Drawing.Size(135, 13);
             this.lblModulePassword.TabIndex = 12;
@@ -68,7 +68,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(542, 316);
+            this.btnLogin.Location = new System.Drawing.Point(600, 401);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(94, 23);
             this.btnLogin.TabIndex = 8;
@@ -78,7 +78,7 @@
             // 
             // btnRefreshCom
             // 
-            this.btnRefreshCom.Location = new System.Drawing.Point(542, 125);
+            this.btnRefreshCom.Location = new System.Drawing.Point(600, 210);
             this.btnRefreshCom.Name = "btnRefreshCom";
             this.btnRefreshCom.Size = new System.Drawing.Size(94, 23);
             this.btnRefreshCom.TabIndex = 9;
@@ -88,7 +88,7 @@
             // 
             // btnOpenCom
             // 
-            this.btnOpenCom.Location = new System.Drawing.Point(661, 125);
+            this.btnOpenCom.Location = new System.Drawing.Point(719, 210);
             this.btnOpenCom.Name = "btnOpenCom";
             this.btnOpenCom.Size = new System.Drawing.Size(75, 23);
             this.btnOpenCom.TabIndex = 10;
@@ -99,7 +99,7 @@
             // lblSelectCom
             // 
             this.lblSelectCom.AutoSize = true;
-            this.lblSelectCom.Location = new System.Drawing.Point(49, 132);
+            this.lblSelectCom.Location = new System.Drawing.Point(107, 217);
             this.lblSelectCom.Name = "lblSelectCom";
             this.lblSelectCom.Size = new System.Drawing.Size(59, 13);
             this.lblSelectCom.TabIndex = 7;
@@ -113,7 +113,7 @@
             "Người xem",
             "Kỹ thuật viên",
             "Quản trị viên"});
-            this.cmbRole.Location = new System.Drawing.Point(114, 235);
+            this.cmbRole.Location = new System.Drawing.Point(172, 320);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(401, 21);
             this.cmbRole.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             this.cmbCom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCom.FormattingEnabled = true;
-            this.cmbCom.Location = new System.Drawing.Point(114, 127);
+            this.cmbCom.Location = new System.Drawing.Point(172, 212);
             this.cmbCom.Name = "cmbCom";
             this.cmbCom.Size = new System.Drawing.Size(401, 21);
             this.cmbCom.TabIndex = 6;
@@ -141,7 +141,7 @@
             this.Controls.Add(this.cmbRole);
             this.Controls.Add(this.cmbCom);
             this.Name = "ucLogin";
-            this.Size = new System.Drawing.Size(800, 500);
+            this.Size = new System.Drawing.Size(960, 750);
             this.Load += new System.EventHandler(this.ucLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace WM03A
 {
@@ -78,15 +79,16 @@ namespace WM03A
         public enum ConfigId : byte
         {
             ModuleSerial = 0x00,
-            Time = 0x01,
-            IpEndpoint = 0x02,
-            Module = 0x03,
-            PulseMeter = 0x04,
-            ModbusMeter = 0x05,
-            PressureSensor = 0x06,
-            Reboot = 0x07,
-            ResetSetting = 0x08,
-            ChangePassword = 0x09,
+            ModuleActivationStatus = 0x01,
+            Time = 0x02,
+            IpEndpoint = 0x03,
+            Module = 0x04,
+            PulseMeter = 0x05,
+            ModbusMeter = 0x06,
+            PressureSensor = 0x07,
+            Reboot = 0x08,
+            ResetSetting = 0x09,
+            ChangePassword = 0x0A,
             ResetPassword = 0x10,
             McuResetCount = 0x11,
             EraseMeasurementData = 0x12,
@@ -107,9 +109,13 @@ namespace WM03A
             FirmwareVersion = 0x01,
             PowerSupplyInfo = 0x02,
             SimNetworkInfo = 0x03,
-            Latch = 0x04,
-            Event = 0x05,
-            Log = 0x06
+            PulseMeterData = 0x04,
+            ModbusMeterData = 0x05,
+            PressureSensorData = 0x06,
+            Latch = 0x07,
+            Event = 0x08,
+            PushStatus = 0x09,
+            Log = 0x0A
         }
 
         // ============================================================
@@ -134,6 +140,59 @@ namespace WM03A
             UpdateRequest = 0x00,
             SendInfo = 0x01,
             SendPacket = 0x02
+        }
+
+        // ============================================================
+        // CONFIG CODE
+        // ============================================================
+        public enum ConfigModuleId : byte
+        {
+            LatchPeriod = 0,
+            PushPeriod,
+            Timezone
+        }
+
+        public enum ConfigPulseMeterId : byte
+        {
+            SerialNumber = 0,
+            PulseFactor,
+            Pin1,
+            Pin2,
+            PulseType,
+            EdgeType
+        }
+
+        public enum ConfigModbusMeterId : byte
+        {
+            SerialNumber = 0,
+            SlaveAddress,
+            Baudrate,
+            SerialConfig,
+            ReadFuncCode,
+            ForwardTotalEnable,
+            ForwardTotalRegAddr,
+            ForwardTotalDataType,
+            ForwardTotalWordSwap,
+            ForwardTotalMultiplier,
+            ReverseTotalEnable,
+            ReverseTotalRegAddr,
+            ReverseTotalDataType,
+            ReverseTotalWordSwap,
+            ReverseTotalMultiplier,
+            FlowRateEnable,
+            FlowRateTotalRegAddr,
+            FlowRateTotalDataType,
+            FlowRateTotalWordSwap,
+            FlowRateTotalMultiplier
+        }
+
+        public enum ConfigPressureSensorId : byte
+        {
+            SerialNumber = 0,
+            MinCurrent,
+            MaxCurrent,
+            MinPressure,
+            MaxPressure
         }
 
 
@@ -320,6 +379,10 @@ namespace WM03A
                 out frame);
         }
 
+        // ============================================================
+        // COMMUNICATION FRAME PACKING
+        // ============================================================
+
         /// <summary>
         /// Pack lệnh Access (CMD = 0x00)
         /// </summary>
@@ -335,7 +398,7 @@ namespace WM03A
                 id: (byte)id,
                 payload: password ?? Array.Empty<byte>(),
                 out frame);
-        }
+        }        
 
         // ============================================================
         // Helper

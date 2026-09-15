@@ -35,15 +35,16 @@
             // 
             this.pnlContent.Location = new System.Drawing.Point(12, 12);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(800, 500);
+            this.pnlContent.Size = new System.Drawing.Size(960, 750);
             this.pnlContent.TabIndex = 0;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 511);
+            this.ClientSize = new System.Drawing.Size(984, 761);
             this.Controls.Add(this.pnlContent);
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Giao diện chính";
             this.Load += new System.EventHandler(this.frmMain_Load);
