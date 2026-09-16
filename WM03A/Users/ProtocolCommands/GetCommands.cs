@@ -56,7 +56,7 @@ namespace WM03A
         public static bool LatchPeriod(out byte[] frame)
         {
             return Pack(
-                encrypt: false,
+                encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Get,
                 id: (byte)ConfigId.Module,
@@ -67,7 +67,7 @@ namespace WM03A
         public static bool PushPeriod(out byte[] frame)
         {
             return Pack(
-                encrypt: false,
+                encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Get,
                 id: (byte)ConfigId.Module,
@@ -78,7 +78,7 @@ namespace WM03A
         public static bool Timezone(out byte[] frame)
         {
             return Pack(
-                encrypt: false,
+                encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Get,
                 id: (byte)ConfigId.Module,

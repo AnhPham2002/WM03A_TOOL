@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Users\ProtocolCommands\GetCommands.cs" />
+    <Compile Include="Users\ProtocolCommands\QueryCommands.cs" />
     <Compile Include="Users\ProtocolParser\GetParser.cs" />
+    <Compile Include="Users\ProtocolParser\QueryParser.cs" />
     <Compile Include="Users\Protocol\Aes128.cs" />
     <Compile Include="Users\Communication\ComPortInfo.cs" />
     <Compile Include="Users\Protocol\Crc.cs" />

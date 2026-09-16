@@ -33,16 +33,17 @@
             // 
             // pnlContent
             // 
-            this.pnlContent.Location = new System.Drawing.Point(12, 12);
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(0, 0);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(960, 750);
+            this.pnlContent.Size = new System.Drawing.Size(984, 811);
             this.pnlContent.TabIndex = 0;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 761);
+            this.ClientSize = new System.Drawing.Size(984, 811);
             this.Controls.Add(this.pnlContent);
             this.MaximizeBox = false;
             this.Name = "frmMain";

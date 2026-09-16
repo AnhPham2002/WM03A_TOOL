@@ -113,7 +113,7 @@ namespace WM03A
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             if (!_serialPortManager.IsOpen)
             {
@@ -141,10 +141,9 @@ namespace WM03A
                     password,
                     out txFrame);
 
-                byte[] rxFrame = null;
-
                 // Không nhận được frame
-                if (!_serialPortManager.Communicate(txFrame, out rxFrame))
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+                if (!ok)
                 {
                     MessageBox.Show(
                         "Không nhận được phản hồi từ thiết bị.",
