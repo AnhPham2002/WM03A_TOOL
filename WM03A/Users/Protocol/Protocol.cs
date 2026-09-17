@@ -154,7 +154,8 @@ namespace WM03A
 
         public enum ConfigPulseMeterId : byte
         {
-            SerialNumber = 0,
+            MeterEnable = 0,
+            SerialNumber,
             PulseFactor,
             Pin1,
             Pin2,
@@ -164,7 +165,8 @@ namespace WM03A
 
         public enum ConfigModbusMeterId : byte
         {
-            SerialNumber = 0,
+            MeterEnable = 0,
+            SerialNumber,
             SlaveAddress,
             Baudrate,
             SerialConfig,
@@ -188,7 +190,8 @@ namespace WM03A
 
         public enum ConfigPressureSensorId : byte
         {
-            SerialNumber = 0,
+            MeterEnable = 0,
+            SerialNumber,
             MinCurrent,
             MaxCurrent,
             MinPressure,
@@ -352,7 +355,7 @@ namespace WM03A
         /// <summary>
         /// Pack ACK frame: DateTime (6 bytes) + ErrorCode (1 byte)
         /// </summary>
-        private static bool PackAck(byte cmd, byte id, Protocol.ProtocolErrCode errCode, out byte[] frame)
+        public static bool PackAck(byte cmd, byte id, Protocol.ProtocolErrCode errCode, out byte[] frame)
         {
             // Payload: Year, Month, Day, Hour, Minute, Second, ErrorCode
             byte[] payload = new byte[7];
@@ -377,6 +380,50 @@ namespace WM03A
                 id: id,
                 payload: payload,
                 out frame);
+        }
+
+        public static ProtocolErrCode UnpackAck(byte[] rxFrame, out DateTime dateTime, out byte cmd, out byte id, out Protocol.ProtocolErrCode errCode)
+        {
+            dateTime = default;
+            cmd = 0;
+            id = 0;
+            errCode = Protocol.ProtocolErrCode.FrameInvalid;
+
+            Protocol.ProtocolErrCode result = Protocol.Unpack(
+                rxFrame,
+                out ulong serial,
+                out cmd,
+                out id,
+                out byte[] payload);
+
+            if (result != Protocol.ProtocolErrCode.Success)
+            {
+                return result;
+            }
+
+            if (payload == null || payload.Length != 7)
+            {
+                return Protocol.ProtocolErrCode.FrameInvalid;
+            }
+
+            try
+            {
+                dateTime = new DateTime(
+                    2000 + payload[0],
+                    payload[1],
+                    payload[2],
+                    payload[3],
+                    payload[4],
+                    payload[5]);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return Protocol.ProtocolErrCode.FrameInvalid;
+            }
+
+            errCode = (Protocol.ProtocolErrCode)payload[6];
+
+            return Protocol.ProtocolErrCode.Success;
         }
 
         // ============================================================

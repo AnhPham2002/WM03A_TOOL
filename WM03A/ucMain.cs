@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WM03A.Users.ProtocolCommands;
+using WM03A.Users.ProtocolParser;
+using static WM03A.Protocol;
 
 namespace WM03A
 {
@@ -16,6 +20,9 @@ namespace WM03A
         private SerialPortManager _serialPortManager;
 
         private bool _isReading = false;
+
+        private const int DEVICE_TIME_HEIGHT_PC = 60;
+        private const int DEVICE_TIME_HEIGHT_MANUAL = 90;
 
         public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId)
         {
@@ -30,6 +37,10 @@ namespace WM03A
 
         private void ucMain_Load(object sender, EventArgs e)
         {
+            cmbWriteTimezoneSetting.SelectedIndex = 0;
+            rdoPcTimeSetting.Checked = true;
+            lblTimeSettingStatus.Text = string.Empty;
+            lblModuleSettingStatus.Text = string.Empty;
         }
 
         private void ApplyAccessControl()
@@ -46,6 +57,15 @@ namespace WM03A
                     break;
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LogoutRequested?.Invoke(this, EventArgs.Empty);
+        }
+
+        // ----------------------------------------------------------------------
+        // Overall Tab
+        // ----------------------------------------------------------------------
 
         private async void btnReadModuleInfoOverall_Click(object sender, EventArgs e)
         {
@@ -214,9 +234,266 @@ namespace WM03A
             ClearPressureSensorOverall();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        // ----------------------------------------------------------------------
+        // Setting Tab
+        // ----------------------------------------------------------------------
+
+        private void rdoManualTimeSetting_CheckedChanged(object sender, EventArgs e)
         {
-            LogoutRequested?.Invoke(this, EventArgs.Empty);
+            if (!rdoManualTimeSetting.Checked)
+            {
+                return;
+            }
+
+            grpTimeSetting.Height = DEVICE_TIME_HEIGHT_MANUAL;
+            dtpWriteTimeSetting.Visible = true;
+        }
+
+        private void rdoPcTimeSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!rdoPcTimeSetting.Checked)
+            {
+                return;
+            }
+
+            grpTimeSetting.Height = DEVICE_TIME_HEIGHT_PC;
+            dtpWriteTimeSetting.Visible = false;
+        }
+
+        private async void btnReadTimeSetting_Click(object sender, EventArgs e)
+        {
+            txtReadTimeSetting.Clear();
+            GetCommands.DateTime(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok && GetParser.DateTime(rxFrame, out DateTime dateTime))
+            {
+                txtReadTimeSetting.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+            }
+        }
+
+        private async void btnWriteTimeSetting_Click(object sender, EventArgs e)
+        {
+            DateTime dateTime;
+            if (rdoPcTimeSetting.Checked)
+            {
+                dateTime = DateTime.Now;
+            }
+            else
+            {
+                dateTime = dtpWriteTimeSetting.Value;
+            }
+
+            SetCommands.DateTime(dateTime, out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+            if (ok && SetParser.DateTime(rxFrame))
+            {
+                lblTimeSettingStatus.Text = "Ghi thành công";
+                await Task.Delay(1000);
+                lblTimeSettingStatus.Text = string.Empty;
+                return;
+            }
+
+            lblTimeSettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblTimeSettingStatus.Text = string.Empty;
+            return;
+        }
+
+        private async void btnReadModuleSetting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            txtReadIpSetting.Clear();
+            txtReadPortSetting.Clear();
+            txtReadLatchSetting.Clear();
+            txtReadPushSetting.Clear();
+            txtReadTimezoneSetting.Clear();
+
+            // Read IP Endpoint
+            GetCommands.IpEndpoint(out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok && GetParser.IpEndpoint(rxFrame, out string ip, out string port))
+            {
+                txtReadIpSetting.Text = ip;
+                txtReadPortSetting.Text = port;
+            }
+
+            // Read Latch Period
+            GetCommands.LatchPeriod(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok)
+            {
+                ushort latchPeriod = GetParser.LatchPeriod(rxFrame);
+                txtReadLatchSetting.Text = latchPeriod.ToString();
+            }
+
+            // Read Push Period
+            GetCommands.PushPeriod(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok)
+            {
+                ushort PushPeriod = GetParser.PushPeriod(rxFrame);
+                txtReadPushSetting.Text = PushPeriod.ToString();
+            }
+
+            // Read Timezone
+            GetCommands.Timezone(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok)
+            {
+                float Timezone = GetParser.Timezone(rxFrame);
+                txtReadTimezoneSetting.Text = GetTimezoneText(Timezone);
+            }
+        }
+
+        private void txtWriteIpSetting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsControl(e.KeyChar) && textBox.Text.Length >= 15 && textBox.SelectionLength == 0)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtWritePortSetting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!char.IsControl(e.KeyChar))
+            {
+                string newText = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength);
+                newText = newText.Insert(textBox.SelectionStart, e.KeyChar.ToString());
+
+                if (!ushort.TryParse(newText, out ushort value) || value > 65535)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void txtWriteLatchSetting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtWritePushSetting_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cboWriteTimezoneSetting_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
+            {
+                cmbWriteTimezoneSetting.SelectedIndex = 0;
+                e.Handled = true;
+            }
+        }
+
+        private async void btnWriteModuleSetting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool writeStatus = true;
+
+            if (!string.IsNullOrWhiteSpace(txtWriteIpSetting.Text) != !string.IsNullOrWhiteSpace(txtWritePortSetting.Text))
+            {
+                MessageBox.Show(
+                "Vui lòng nhập đầy đủ IP và Port, hoặc xóa cả hai trường.",
+                "Thông tin không hợp lệ",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtWriteLatchSetting.Text))
+            {
+                if (!ushort.TryParse(txtWriteLatchSetting.Text, out ushort value) || value < 1 || value > 2440)
+                {
+                    MessageBox.Show(
+                        "Chu kỳ chốt phải nằm trong khoảng từ 1 đến 2440.",
+                        "Dữ liệu không hợp lệ",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtWritePushSetting.Text))
+            {
+                if (!ushort.TryParse(txtWritePushSetting.Text, out ushort value) || value < 1 || value > 2440)
+                {
+                    MessageBox.Show(
+                        "Chu kỳ đẩy phải nằm trong khoảng từ 1 đến 2440.",
+                        "Dữ liệu không hợp lệ",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+            }
+
+            if (!TryGetTimezone(out string timezone))
+            {
+                MessageBox.Show(
+                    "Múi giờ không hợp lệ.",
+                    "Dữ liệu không hợp lệ",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (SetCommands.IpEndpoint(txtWriteIpSetting.Text, txtWritePortSetting.Text, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+                if (!ok || !SetParser.IpEndpoint(rxFrame))
+                {
+                    writeStatus = false;
+                }
+            }
+
+            if (SetCommands.ModuleConfig(txtWriteLatchSetting.Text, txtWritePushSetting.Text, timezone, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+                if (!ok || !SetParser.ModuleConfig(rxFrame))
+                {
+                    writeStatus = false;
+                }
+            }
+
+            if (writeStatus)
+            {
+                lblModuleSettingStatus.Text = "Ghi thành công";
+                await Task.Delay(1000);
+                lblModuleSettingStatus.Text = string.Empty;
+                return;
+            }
+
+            lblModuleSettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblModuleSettingStatus.Text = string.Empty;
+            return;
         }
 
         // ----------------------------------------------------------------------
@@ -294,7 +571,7 @@ namespace WM03A
             if (ok)
             {
                 float Timezone = GetParser.Timezone(rxFrame);
-                txtTimezoneOverall.Text = Timezone.ToString();
+                txtTimezoneOverall.Text = GetTimezoneText(Timezone);
             }
         }
 
@@ -512,6 +789,85 @@ namespace WM03A
                 txtPressureSensorSerial2Overall.Text = Encoding.ASCII.GetString(meterSerial).TrimEnd('\0');
                 txtPressure2Overall.Text = pressure.ToString();
             }
+        }
+
+        private bool TryGetTimezone(out string timezone)
+        {
+            timezone = string.Empty;
+
+            if (cmbWriteTimezoneSetting.SelectedIndex == 0)
+            {
+                return true;
+            }
+
+            string text = cmbWriteTimezoneSetting.Text;
+
+            if (!text.StartsWith("UTC") || text.Length != 9)
+            {
+                return false;
+            }
+
+            char sign = text[3];
+
+            if (sign != '+' && sign != '-')
+            {
+                return false;
+            }
+
+            if (!int.TryParse(text.Substring(4, 2), out int hours) ||
+                !int.TryParse(text.Substring(7, 2), out int minutes))
+            {
+                return false;
+            }
+
+            if (minutes != 0 && minutes != 30 && minutes != 45)
+            {
+                return false;
+            }
+
+            timezone = $"{(sign == '-' ? "-" : "")}{hours + minutes / 60.0f}";
+
+            return true;
+        }
+
+        private string GetTimezoneText(float timezone)
+        {
+            int hours = (int)Math.Abs(timezone);
+            int minutes = (int)Math.Round((Math.Abs(timezone) - hours) * 60);
+
+            string sign = timezone < 0 ? "-" : "+";
+
+            return $"UTC{sign}{hours:D2}:{minutes:D2}";
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
