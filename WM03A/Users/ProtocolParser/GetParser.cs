@@ -188,5 +188,256 @@ namespace WM03A
 
             return true;
         }
+
+
+        public static bool ModbusMeter(byte[] frame, out ModbusMeterConfig config)
+        {
+            config = null;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length < 1)
+            {
+                return false;
+            }
+
+            config = new ModbusMeterConfig
+            {
+                ForwardTotal = new ModbusParameterConfig(),
+                ReverseTotal = new ModbusParameterConfig(),
+                FlowRate = new ModbusParameterConfig()
+            };
+
+            int offset = 0;
+
+            while (offset < payload.Length)
+            {
+                ConfigModbusMeterId parameterId = (ConfigModbusMeterId)payload[offset++];
+
+                switch (parameterId)
+                {
+                    case ConfigModbusMeterId.MeterEnable:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.MeterEnable = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.SerialNumber:
+                        if (offset + METER_SERIAL_SIZE > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.SerialNumber = Encoding.ASCII.GetString(payload, offset, METER_SERIAL_SIZE).TrimEnd('\0');
+                        offset += METER_SERIAL_SIZE;
+                        break;
+
+                    case ConfigModbusMeterId.SlaveAddress:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.SlaveAddress = payload[offset++];
+                        break;
+
+                    case ConfigModbusMeterId.Baudrate:
+                        if (offset + sizeof(uint) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.BaudRate = BitConverter.ToUInt32(payload, offset);
+                        offset += sizeof(uint);
+                        break;
+
+                    case ConfigModbusMeterId.SerialConfig:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.SerialConfig = payload[offset++];
+                        break;
+
+                    case ConfigModbusMeterId.ReadFuncCode:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ReadFuncCode = payload[offset++];
+                        break;
+
+                    case ConfigModbusMeterId.ForwardTotalEnable:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ForwardTotal.ParameterEnable = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.ForwardTotalRegAddr:
+                        if (offset + sizeof(ushort) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ForwardTotal.RegisterAddress = BitConverter.ToUInt16(payload, offset);
+                        offset += sizeof(ushort);
+                        break;
+
+                    case ConfigModbusMeterId.ForwardTotalDataType:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ForwardTotal.DataType = payload[offset++];
+                        break;
+
+                    case ConfigModbusMeterId.ForwardTotalWordSwap:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ForwardTotal.WordSwap = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.ForwardTotalMultiplier:
+                        if (offset + sizeof(sbyte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ForwardTotal.Multiplier = unchecked((sbyte)payload[offset++]);
+                        break;
+
+                    case ConfigModbusMeterId.ReverseTotalEnable:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ReverseTotal.ParameterEnable = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.ReverseTotalRegAddr:
+                        if (offset + sizeof(ushort) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ReverseTotal.RegisterAddress = BitConverter.ToUInt16(payload, offset);
+                        offset += sizeof(ushort);
+                        break;
+
+                    case ConfigModbusMeterId.ReverseTotalDataType:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ReverseTotal.DataType = payload[offset++];
+                        break;
+
+                    case ConfigModbusMeterId.ReverseTotalWordSwap:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ReverseTotal.WordSwap = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.ReverseTotalMultiplier:
+                        if (offset + sizeof(sbyte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.ReverseTotal.Multiplier = unchecked((sbyte)payload[offset++]);
+                        break;
+
+                    case ConfigModbusMeterId.FlowRateEnable:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.FlowRate.ParameterEnable = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.FlowRateRegAddr:
+                        if (offset + sizeof(ushort) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.FlowRate.RegisterAddress = BitConverter.ToUInt16(payload, offset);
+                        offset += sizeof(ushort);
+                        break;
+
+                    case ConfigModbusMeterId.FlowRateDataType:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.FlowRate.DataType = payload[offset++];
+                        break;
+
+                    case ConfigModbusMeterId.FlowRateWordSwap:
+                        if (offset + sizeof(byte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.FlowRate.WordSwap = payload[offset++] != 0;
+                        break;
+
+                    case ConfigModbusMeterId.FlowRateMultiplier:
+                        if (offset + sizeof(sbyte) > payload.Length)
+                        {
+                            config = null;
+                            return false;
+                        }
+
+                        config.FlowRate.Multiplier = unchecked((sbyte)payload[offset++]);
+                        break;
+
+                    default:
+                        config = null;
+                        return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

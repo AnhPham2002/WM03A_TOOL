@@ -225,5 +225,238 @@ namespace WM03A.Users.ProtocolCommands
                 payload: payload.ToArray(),
                 out frame);
         }
+
+        public static bool ModbusMeter(byte meterIndex, bool? enabled, string serialNumber, byte? slaveAddress, uint? baudRate, byte? serialConfig, byte? readFuncCode,
+            bool? forwardEnable, ushort? forwardRegAddr, byte? forwardDataType, bool? forwardWordSwap, sbyte? forwardMultiplier,
+            bool? reverseEnable, ushort? reverseRegAddr, byte? reverseDataType, bool? reverseWordSwap, sbyte? reverseMultiplier,
+            bool? flowEnable, ushort? flowRegAddr, byte? flowDataType, bool? flowWordSwap, sbyte? flowMultiplier, out byte[] frame)
+        {
+            frame = null;
+
+            List<byte> payload = new List<byte>();
+            payload.Add(meterIndex);
+
+            if (enabled.HasValue && !enabled.Value)
+            {
+                payload.Add((byte)ConfigModbusMeterId.MeterEnable);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.SerialNumber);
+                for (int i = 0; i < METER_SERIAL_SIZE; i++)
+                {
+                    payload.Add(0x00);
+                }
+
+                payload.Add((byte)ConfigModbusMeterId.SlaveAddress);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.Baudrate);
+                payload.AddRange(new byte[sizeof(uint)]);
+
+                payload.Add((byte)ConfigModbusMeterId.SerialConfig);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ReadFuncCode);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ForwardTotalEnable);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ForwardTotalRegAddr);
+                payload.AddRange(new byte[sizeof(ushort)]);
+
+                payload.Add((byte)ConfigModbusMeterId.ForwardTotalDataType);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ForwardTotalWordSwap);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ForwardTotalMultiplier);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ReverseTotalEnable);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ReverseTotalRegAddr);
+                payload.AddRange(new byte[sizeof(ushort)]);
+
+                payload.Add((byte)ConfigModbusMeterId.ReverseTotalDataType);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ReverseTotalWordSwap);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.ReverseTotalMultiplier);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.FlowRateEnable);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.FlowRateRegAddr);
+                payload.AddRange(new byte[sizeof(ushort)]);
+
+                payload.Add((byte)ConfigModbusMeterId.FlowRateDataType);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.FlowRateWordSwap);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigModbusMeterId.FlowRateMultiplier);
+                payload.Add(0x00);
+            }
+            else
+            {
+                if (enabled.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.MeterEnable);
+                    payload.Add(enabled.Value ? (byte)1 : (byte)0);
+                }
+
+                if (!string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    byte[] serialBytes = Encoding.ASCII.GetBytes(serialNumber.Trim());
+
+                    if (serialBytes.Length > METER_SERIAL_SIZE)
+                    {
+                        return false;
+                    }
+
+                    payload.Add((byte)ConfigModbusMeterId.SerialNumber);
+                    payload.AddRange(serialBytes);
+
+                    for (int i = serialBytes.Length; i < METER_SERIAL_SIZE; i++)
+                    {
+                        payload.Add(0x00);
+                    }
+                }
+
+                if (slaveAddress.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.SlaveAddress);
+                    payload.Add(slaveAddress.Value);
+                }
+
+                if (baudRate.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.Baudrate);
+                    payload.AddRange(BitConverter.GetBytes(baudRate.Value));
+                }
+
+                if (serialConfig.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.SerialConfig);
+                    payload.Add(serialConfig.Value);
+                }
+
+                if (readFuncCode.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ReadFuncCode);
+                    payload.Add(readFuncCode.Value);
+                }
+
+                if (forwardEnable.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ForwardTotalEnable);
+                    payload.Add(forwardEnable.Value ? (byte)1 : (byte)0);
+                }
+
+                if (forwardRegAddr.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ForwardTotalRegAddr);
+                    payload.AddRange(BitConverter.GetBytes(forwardRegAddr.Value));
+                }
+
+                if (forwardDataType.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ForwardTotalDataType);
+                    payload.Add(forwardDataType.Value);
+                }
+
+                if (forwardWordSwap.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ForwardTotalWordSwap);
+                    payload.Add(forwardWordSwap.Value ? (byte)1 : (byte)0);
+                }
+
+                if (forwardMultiplier.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ForwardTotalMultiplier);
+                    payload.Add(unchecked((byte)forwardMultiplier.Value));
+                }
+
+                if (reverseEnable.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ReverseTotalEnable);
+                    payload.Add(reverseEnable.Value ? (byte)1 : (byte)0);
+                }
+
+                if (reverseRegAddr.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ReverseTotalRegAddr);
+                    payload.AddRange(BitConverter.GetBytes(reverseRegAddr.Value));
+                }
+
+                if (reverseDataType.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ReverseTotalDataType);
+                    payload.Add(reverseDataType.Value);
+                }
+
+                if (reverseWordSwap.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ReverseTotalWordSwap);
+                    payload.Add(reverseWordSwap.Value ? (byte)1 : (byte)0);
+                }
+
+                if (reverseMultiplier.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.ReverseTotalMultiplier);
+                    payload.Add(unchecked((byte)reverseMultiplier.Value));
+                }
+
+                if (flowEnable.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.FlowRateEnable);
+                    payload.Add(flowEnable.Value ? (byte)1 : (byte)0);
+                }
+
+                if (flowRegAddr.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.FlowRateRegAddr);
+                    payload.AddRange(BitConverter.GetBytes(flowRegAddr.Value));
+                }
+
+                if (flowDataType.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.FlowRateDataType);
+                    payload.Add(flowDataType.Value);
+                }
+
+                if (flowWordSwap.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.FlowRateWordSwap);
+                    payload.Add(flowWordSwap.Value ? (byte)1 : (byte)0);
+                }
+
+                if (flowMultiplier.HasValue)
+                {
+                    payload.Add((byte)ConfigModbusMeterId.FlowRateMultiplier);
+                    payload.Add(unchecked((byte)flowMultiplier.Value));
+                }
+            }
+
+            if (payload.Count <= 1)
+            {
+                return false;
+            }
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.ModbusMeter,
+                payload: payload.ToArray(),
+                out frame);
+        }
     }
 }

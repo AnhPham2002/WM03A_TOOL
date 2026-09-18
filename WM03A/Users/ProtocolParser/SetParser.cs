@@ -40,5 +40,13 @@ namespace WM03A.Users.ProtocolParser
                 return false;
             return true;
         }
+
+        public static bool ModbusMeter(byte[] frame)
+        {
+            ProtocolErrCode errCodeUnpack = UnpackAck(frame, out DateTime dateTime, out byte cmd, out byte id, out ProtocolErrCode errCode);
+            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.ModbusMeter))
+                return false;
+            return true;
+        }
     }
 }

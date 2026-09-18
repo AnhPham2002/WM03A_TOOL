@@ -46,6 +46,10 @@ namespace WM03A
             lblPulseMeter2SettingStatus.Text = string.Empty;
             lblPulseMeter3SettingStatus.Text = string.Empty;
             lblPulseMeter4SettingStatus.Text = string.Empty;
+            lblModbusMeter1SettingStatus.Text = string.Empty;
+            lblModbusMeter2SettingStatus.Text = string.Empty;
+            lblModbusMeter3SettingStatus.Text = string.Empty;
+            lblModbusMeter4SettingStatus.Text = string.Empty;
 
             cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
             cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
@@ -67,10 +71,55 @@ namespace WM03A
             cmbPulseMeter4TypeSetting.SelectedIndex = 0;
             cmbPulseMeter4EdgeSetting.SelectedIndex = 0;
 
+            cmbModbus1BaudSetting.SelectedIndex = 0;
+            cmbModbus1FrameFormatSetting.SelectedIndex = 0;
+            cmbModbus1FunctionCodeSetting.SelectedIndex = 0;
+            cmbForward1DataTypeSetting.SelectedIndex = 0;
+            cmbForward1WordSwapSetting.SelectedIndex = 0;
+            cmbReverse1DataTypeSetting.SelectedIndex = 0;
+            cmbReverse1WordSwapSetting.SelectedIndex= 0;
+            cmbFlow1DataTypeSetting.SelectedIndex = 0;
+            cmbFlow1WordSwapSetting.SelectedIndex = 0;
+
+            cmbModbus2BaudSetting.SelectedIndex = 0;
+            cmbModbus2FrameFormatSetting.SelectedIndex = 0;
+            cmbModbus2FunctionCodeSetting.SelectedIndex = 0;
+            cmbForward2DataTypeSetting.SelectedIndex = 0;
+            cmbForward2WordSwapSetting.SelectedIndex = 0;
+            cmbReverse2DataTypeSetting.SelectedIndex = 0;
+            cmbReverse2WordSwapSetting.SelectedIndex = 0;
+            cmbFlow2DataTypeSetting.SelectedIndex = 0;
+            cmbFlow2WordSwapSetting.SelectedIndex = 0;
+
+            cmbModbus3BaudSetting.SelectedIndex = 0;
+            cmbModbus3FrameFormatSetting.SelectedIndex = 0;
+            cmbModbus3FunctionCodeSetting.SelectedIndex = 0;
+            cmbForward3DataTypeSetting.SelectedIndex = 0;
+            cmbForward3WordSwapSetting.SelectedIndex = 0;
+            cmbReverse3DataTypeSetting.SelectedIndex = 0;
+            cmbReverse3WordSwapSetting.SelectedIndex = 0;
+            cmbFlow3DataTypeSetting.SelectedIndex = 0;
+            cmbFlow3WordSwapSetting.SelectedIndex = 0;
+
+            cmbModbus4BaudSetting.SelectedIndex = 0;
+            cmbModbus4FrameFormatSetting.SelectedIndex = 0;
+            cmbModbus4FunctionCodeSetting.SelectedIndex = 0;
+            cmbForward4DataTypeSetting.SelectedIndex = 0;
+            cmbForward4WordSwapSetting.SelectedIndex = 0;
+            cmbReverse4DataTypeSetting.SelectedIndex = 0;
+            cmbReverse4WordSwapSetting.SelectedIndex = 0;
+            cmbFlow4DataTypeSetting.SelectedIndex = 0;
+            cmbFlow4WordSwapSetting.SelectedIndex = 0;
+
             UpdatePulseMeter1Control();
             UpdatePulseMeter2Control();
             UpdatePulseMeter3Control();
             UpdatePulseMeter4Control();
+
+            UpdateModbusMeter1Control();
+            UpdateModbusMeter2Control();
+            UpdateModbusMeter3Control();
+            UpdateModbusMeter4Control();
         }
 
         private void ApplyAccessControl()
@@ -509,6 +558,29 @@ namespace WM03A
 
         //-----------------------Pulse Meter Setting--------------------------------//
 
+        private void chkPulseMeter1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter1Control();
+        }
+        private void cmbPulseMeter1TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter1Control();
+        }
+        private void btnPulseMeter1CopySetting_Click(object sender, EventArgs e)
+        {
+            chkPulseMeter1UseSetting.Checked = txtReadPulseMeter1UseSetting.Text == "Đang sử dụng";
+
+            txtWritePulseMeter1SerialSetting.Text = txtReadPulseMeter1SerialSetting.Text;
+            txtWritePulseMeter1PulseFactorSetting.Text = txtReadPulseMeter1PulseFactorSetting.Text;
+            cmbPulseMeter1TypeSetting.Text = txtReadPulseMeter1TypeSetting.Text;
+            cmbPulseMeter1Pin1Setting.Text = txtReadPulseMeter1Pin1Setting.Text;
+            cmbPulseMeter1Pin2Setting.Text = txtReadPulseMeter1Pin2Setting.Text;
+            cmbPulseMeter1EdgeSetting.Text = txtReadPulseMeter1EdgeSetting.Text;
+            txtWritePulseMeter1ForwardSetting.Text = txtReadPulseMeter1ForwardSetting.Text;
+            txtWritePulseMeter1ReverseSetting.Text = txtReadPulseMeter1ReverseSetting.Text;
+
+            UpdatePulseMeter1Control();
+        }
         private async void btnReadPulseMeter1Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -573,17 +645,6 @@ namespace WM03A
                 txtReadPulseMeter1ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
-
-        private void chkPulseMeter1UseSetting_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter1Control();
-        }
-
-        private void cmbPulseMeter1TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter1Control();
-        }
-
         private async void btnWritePulseMeter1Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -663,8 +724,30 @@ namespace WM03A
         }
 
 
+        private void chkPulseMeter2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter2Control();
+        }
 
+        private void cmbPulseMeter2TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter2Control();
+        }
+        private void btnPulseMeter2CopySetting_Click(object sender, EventArgs e)
+        {
+            chkPulseMeter2UseSetting.Checked = txtReadPulseMeter2UseSetting.Text == "Đang sử dụng";
 
+            txtWritePulseMeter2SerialSetting.Text = txtReadPulseMeter2SerialSetting.Text;
+            txtWritePulseMeter2PulseFactorSetting.Text = txtReadPulseMeter2PulseFactorSetting.Text;
+            cmbPulseMeter2TypeSetting.Text = txtReadPulseMeter2TypeSetting.Text;
+            cmbPulseMeter2Pin1Setting.Text = txtReadPulseMeter2Pin1Setting.Text;
+            cmbPulseMeter2Pin2Setting.Text = txtReadPulseMeter2Pin2Setting.Text;
+            cmbPulseMeter2EdgeSetting.Text = txtReadPulseMeter2EdgeSetting.Text;
+            txtWritePulseMeter2ForwardSetting.Text = txtReadPulseMeter2ForwardSetting.Text;
+            txtWritePulseMeter2ReverseSetting.Text = txtReadPulseMeter2ReverseSetting.Text;
+
+            UpdatePulseMeter2Control();
+        }
         private async void btnReadPulseMeter2Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -729,16 +812,6 @@ namespace WM03A
                 txtReadPulseMeter2ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
-        private void chkPulseMeter2UseSetting_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter2Control();
-        }
-
-        private void cmbPulseMeter2TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter2Control();
-        }
-
         private async void btnWritePulseMeter2Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -817,6 +890,30 @@ namespace WM03A
             lblPulseMeter2SettingStatus.Text = string.Empty;
         }
 
+
+        private void chkPulseMeter3UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter3Control();
+        }
+        private void cmbPulseMeter3TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter3Control();
+        }
+        private void btnPulseMeter3CopySetting_Click(object sender, EventArgs e)
+        {
+            chkPulseMeter3UseSetting.Checked = txtReadPulseMeter3UseSetting.Text == "Đang sử dụng";
+
+            txtWritePulseMeter3SerialSetting.Text = txtReadPulseMeter3SerialSetting.Text;
+            txtWritePulseMeter3PulseFactorSetting.Text = txtReadPulseMeter3PulseFactorSetting.Text;
+            cmbPulseMeter3TypeSetting.Text = txtReadPulseMeter3TypeSetting.Text;
+            cmbPulseMeter3Pin1Setting.Text = txtReadPulseMeter3Pin1Setting.Text;
+            cmbPulseMeter3Pin2Setting.Text = txtReadPulseMeter3Pin2Setting.Text;
+            cmbPulseMeter3EdgeSetting.Text = txtReadPulseMeter3EdgeSetting.Text;
+            txtWritePulseMeter3ForwardSetting.Text = txtReadPulseMeter3ForwardSetting.Text;
+            txtWritePulseMeter3ReverseSetting.Text = txtReadPulseMeter3ReverseSetting.Text;
+
+            UpdatePulseMeter3Control();
+        }
         private async void btnReadPulseMeter3Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -881,17 +978,6 @@ namespace WM03A
                 txtReadPulseMeter3ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
-
-        private void chkPulseMeter3UseSetting_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter3Control();
-        }
-
-        private void cmbPulseMeter3TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter3Control();
-        }
-
         private async void btnWritePulseMeter3Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -971,6 +1057,30 @@ namespace WM03A
         }
 
 
+        private void chkPulseMeter4UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter4Control();
+        }
+
+        private void cmbPulseMeter4TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter4Control();
+        }
+        private void btnPulseMeter4CopySetting_Click(object sender, EventArgs e)
+        {
+            chkPulseMeter4UseSetting.Checked = txtReadPulseMeter4UseSetting.Text == "Đang sử dụng";
+
+            txtWritePulseMeter4SerialSetting.Text = txtReadPulseMeter4SerialSetting.Text;
+            txtWritePulseMeter4PulseFactorSetting.Text = txtReadPulseMeter4PulseFactorSetting.Text;
+            cmbPulseMeter4TypeSetting.Text = txtReadPulseMeter4TypeSetting.Text;
+            cmbPulseMeter4Pin1Setting.Text = txtReadPulseMeter4Pin1Setting.Text;
+            cmbPulseMeter4Pin2Setting.Text = txtReadPulseMeter4Pin2Setting.Text;
+            cmbPulseMeter4EdgeSetting.Text = txtReadPulseMeter4EdgeSetting.Text;
+            txtWritePulseMeter4ForwardSetting.Text = txtReadPulseMeter4ForwardSetting.Text;
+            txtWritePulseMeter4ReverseSetting.Text = txtReadPulseMeter4ReverseSetting.Text;
+
+            UpdatePulseMeter4Control();
+        }
         private async void btnReadPulseMeter4Setting_Click(object sender, EventArgs e)
         {
             byte[] txFrame;
@@ -1034,16 +1144,6 @@ namespace WM03A
                 txtReadPulseMeter4ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
                 txtReadPulseMeter4ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
-        }
-
-        private void chkPulseMeter4UseSetting_CheckedChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter4Control();
-        }
-
-        private void cmbPulseMeter4TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdatePulseMeter4Control();
         }
         private async void btnWritePulseMeter4Setting_Click(object sender, EventArgs e)
         {
@@ -1121,6 +1221,1710 @@ namespace WM03A
             lblPulseMeter4SettingStatus.Text = "Ghi thất bại";
             await Task.Delay(1000);
             lblPulseMeter4SettingStatus.Text = string.Empty;
+        }
+
+
+        //-----------------------Modbus Meter Setting--------------------------------//
+
+        private void chkModbus1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void chkForward1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void chkReverse1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void chkFlow1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void btnModbusMeter1CopySetting_Click(object sender, EventArgs e)
+        {
+            chkModbus1UseSetting.Checked = txtReadModbus1UseSetting.Text == "Đang sử dụng";
+
+            txtWriteModbus1SerialSetting.Text = txtReadModbus1SerialSetting.Text;
+            txtWriteModbus1SlaveAddrSetting.Text = txtReadModbus1SlaveAddrSetting.Text;
+
+            cmbModbus1BaudSetting.Text = txtReadModbus1BaudSetting.Text;
+            cmbModbus1FrameFormatSetting.Text = txtReadModbus1FrameFormatSetting.Text;
+            cmbModbus1FunctionCodeSetting.Text = txtReadModbus1FunctionCodeSetting.Text;
+
+            chkForward1UseSetting.Checked = txtReadForward1UseSetting.Text == "Đang sử dụng";
+            txtWriteForward1RegAddrSetting.Text = txtReadForward1RegAddrSetting.Text;
+            cmbForward1DataTypeSetting.Text = txtReadForward1DataTypeSetting.Text;
+            cmbForward1WordSwapSetting.Text = txtReadForward1WordSwapSetting.Text;
+            txtWriteForward1MultiplierSetting.Text = txtReadForward1MultiplierSetting.Text;
+
+            chkReverse1UseSetting.Checked = txtReadReverse1UseSetting.Text == "Đang sử dụng";
+            txtWriteReverse1RegAddrSetting.Text = txtReadReverse1RegAddrSetting.Text;
+            cmbReverse1DataTypeSetting.Text = txtReadReverse1DataTypeSetting.Text;
+            cmbReverse1WordSwapSetting.Text = txtReadReverse1WordSwapSetting.Text;
+            txtWriteReverse1MultiplierSetting.Text = txtReadReverse1MultiplierSetting.Text;
+
+            chkFlow1UseSetting.Checked = txtReadFlow1UseSetting.Text == "Đang sử dụng";
+            txtWriteFlow1RegAddrSetting.Text = txtReadFlow1RegAddrSetting.Text;
+            cmbFlow1DataTypeSetting.Text = txtReadFlow1DataTypeSetting.Text;
+            cmbFlow1WordSwapSetting.Text = txtReadFlow1WordSwapSetting.Text;
+            txtWriteFlow1MultiplierSetting.Text = txtReadFlow1MultiplierSetting.Text;
+
+            UpdateModbusMeter1Control();
+        }
+
+        private async void btnReadModbusMeter1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+                (byte)ConfigModbusMeterId.MeterEnable,
+                (byte)ConfigModbusMeterId.SerialNumber,
+                (byte)ConfigModbusMeterId.SlaveAddress,
+                (byte)ConfigModbusMeterId.Baudrate,
+                (byte)ConfigModbusMeterId.SerialConfig,
+                (byte)ConfigModbusMeterId.ReadFuncCode,
+                (byte)ConfigModbusMeterId.ForwardTotalEnable,
+                (byte)ConfigModbusMeterId.ForwardTotalRegAddr,
+                (byte)ConfigModbusMeterId.ForwardTotalDataType,
+                (byte)ConfigModbusMeterId.ForwardTotalWordSwap,
+                (byte)ConfigModbusMeterId.ForwardTotalMultiplier,
+                (byte)ConfigModbusMeterId.ReverseTotalEnable,
+                (byte)ConfigModbusMeterId.ReverseTotalRegAddr,
+                (byte)ConfigModbusMeterId.ReverseTotalDataType,
+                (byte)ConfigModbusMeterId.ReverseTotalWordSwap,
+                (byte)ConfigModbusMeterId.ReverseTotalMultiplier,
+                (byte)ConfigModbusMeterId.FlowRateEnable,
+                (byte)ConfigModbusMeterId.FlowRateRegAddr,
+                (byte)ConfigModbusMeterId.FlowRateDataType,
+                (byte)ConfigModbusMeterId.FlowRateWordSwap,
+                (byte)ConfigModbusMeterId.FlowRateMultiplier
+            };
+
+            txtReadModbus1UseSetting.Clear();
+            txtReadModbus1SerialSetting.Clear();
+            txtReadModbus1SlaveAddrSetting.Clear();
+            txtReadModbus1BaudSetting.Clear();
+            txtReadModbus1FrameFormatSetting.Clear();
+            txtReadModbus1FunctionCodeSetting.Clear();
+            txtReadForward1UseSetting.Clear();
+            txtReadForward1RegAddrSetting.Clear();
+            txtReadForward1DataTypeSetting.Clear();
+            txtReadForward1WordSwapSetting.Clear();
+            txtReadForward1MultiplierSetting.Clear();
+            txtReadReverse1UseSetting.Clear();
+            txtReadReverse1RegAddrSetting.Clear();
+            txtReadReverse1DataTypeSetting.Clear();
+            txtReadReverse1WordSwapSetting.Clear();
+            txtReadReverse1MultiplierSetting.Clear();
+            txtReadFlow1UseSetting.Clear();
+            txtReadFlow1RegAddrSetting.Clear();
+            txtReadFlow1DataTypeSetting.Clear();
+            txtReadFlow1WordSwapSetting.Clear();
+            txtReadFlow1MultiplierSetting.Clear();
+
+            GetCommands.ModbusMeter(0, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
+            {
+                if (!modbusMeterConfig.MeterEnable)
+                {
+                    txtReadModbus1UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadModbus1UseSetting.Text = "Đang sử dụng";
+                    txtReadModbus1SerialSetting.Text = modbusMeterConfig.SerialNumber;
+                    txtReadModbus1SlaveAddrSetting.Text = modbusMeterConfig.SlaveAddress.ToString();
+                    txtReadModbus1BaudSetting.Text = modbusMeterConfig.BaudRate.ToString();
+                    switch (modbusMeterConfig.SerialConfig)
+                    {
+                        case ((byte)ModbusSerialConfig.Modbus_8N1):
+                            txtReadModbus1FrameFormatSetting.Text = "8N1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8O1):
+                            txtReadModbus1FrameFormatSetting.Text = "8O1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8E1):
+                            txtReadModbus1FrameFormatSetting.Text = "8E1";
+                            break;
+
+                        default:
+                            break;
+                    }
+                    txtReadModbus1FunctionCodeSetting.Text = $"0x{modbusMeterConfig.ReadFuncCode:X2}";
+
+                    if (!modbusMeterConfig.ForwardTotal.ParameterEnable)
+                    {
+                        txtReadForward1UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadForward1UseSetting.Text = "Đang sử dụng";
+                        txtReadForward1RegAddrSetting.Text = modbusMeterConfig.ForwardTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ForwardTotal.DataType != 0)
+                        {
+                            txtReadForward1DataTypeSetting.Text = cmbForward1DataTypeSetting.Items[modbusMeterConfig.ForwardTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ForwardTotal.WordSwap)
+                        {
+                            txtReadForward1WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadForward1WordSwapSetting.Text = "Không";
+                        }
+                        txtReadForward1MultiplierSetting.Text = modbusMeterConfig.ForwardTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.ReverseTotal.ParameterEnable)
+                    {
+                        txtReadReverse1UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadReverse1UseSetting.Text = "Đang sử dụng";
+                        txtReadReverse1RegAddrSetting.Text = modbusMeterConfig.ReverseTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ReverseTotal.DataType != 0)
+                        {
+                            txtReadReverse1DataTypeSetting.Text = cmbReverse1DataTypeSetting.Items[modbusMeterConfig.ReverseTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ReverseTotal.WordSwap)
+                        {
+                            txtReadReverse1WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadReverse1WordSwapSetting.Text = "Không";
+                        }
+                        txtReadReverse1MultiplierSetting.Text = modbusMeterConfig.ReverseTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.FlowRate.ParameterEnable)
+                    {
+                        txtReadFlow1UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadFlow1UseSetting.Text = "Đang sử dụng";
+                        txtReadFlow1RegAddrSetting.Text = modbusMeterConfig.FlowRate.RegisterAddress.ToString();
+                        if (modbusMeterConfig.FlowRate.DataType != 0)
+                        {
+                            txtReadFlow1DataTypeSetting.Text = cmbFlow1DataTypeSetting.Items[modbusMeterConfig.FlowRate.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.FlowRate.WordSwap)
+                        {
+                            txtReadFlow1WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadFlow1WordSwapSetting.Text = "Không";
+                        }
+                        txtReadFlow1MultiplierSetting.Text = modbusMeterConfig.FlowRate.Multiplier.ToString();
+                    }
+
+                }
+            }
+        }
+
+        private async void btnWriteModbusMeter1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkModbus1UseSetting.Checked;
+
+            string serialNumber = txtWriteModbus1SerialSetting.Text.Trim();
+            byte? slaveAddress = null;
+            uint? baudRate = null;
+            byte? serialConfig = null;
+            byte? readFuncCode = null;
+
+            bool? forwardEnable = null;
+            ushort? forwardRegAddr = null;
+            byte? forwardDataType = null;
+            bool? forwardWordSwap = null;
+            sbyte? forwardMultiplier = null;
+
+            bool? reverseEnable = null;
+            ushort? reverseRegAddr = null;
+            byte? reverseDataType = null;
+            bool? reverseWordSwap = null;
+            sbyte? reverseMultiplier = null;
+
+            bool? flowEnable = null;
+            ushort? flowRegAddr = null;
+            byte? flowDataType = null;
+            bool? flowWordSwap = null;
+            sbyte? flowMultiplier = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblModbusMeter1SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!byte.TryParse(txtWriteModbus1SlaveAddrSetting.Text, out byte slaveAddressValue))
+                {
+                    lblModbusMeter1SettingStatus.Text = "Slave Address không hợp lệ.";
+                    return;
+                }
+
+                if (!uint.TryParse(cmbModbus1BaudSetting.Text, out uint baudRateValue))
+                {
+                    lblModbusMeter1SettingStatus.Text = "Baud Rate không hợp lệ.";
+                    return;
+                }
+
+                if (cmbModbus1FrameFormatSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                    return;
+                }
+
+                if (cmbModbus1FunctionCodeSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+
+                slaveAddress = slaveAddressValue;
+                baudRate = baudRateValue;
+                switch (cmbModbus1FrameFormatSetting.Text)
+                {
+                    case "8N1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8N1;
+                        break;
+
+                    case "8O1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8O1;
+                        break;
+
+                    case "8E1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8E1;
+                        break;
+
+                    default:
+                        lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                        return;
+                }
+                if (!byte.TryParse(cmbModbus1FunctionCodeSetting.Text.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber, null, out byte functionCode))
+                {
+                    lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+                readFuncCode = functionCode;
+
+                forwardEnable = chkForward1UseSetting.Checked;
+                reverseEnable = chkReverse1UseSetting.Checked;
+                flowEnable = chkFlow1UseSetting.Checked;
+
+                if (forwardEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteForward1RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Forward Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    forwardRegAddr = value;
+
+                    if (cmbForward1DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Forward Data Type.";
+                        return;
+                    }
+
+                    forwardDataType = (byte)cmbForward1DataTypeSetting.SelectedIndex;
+                    forwardWordSwap = cmbForward1WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteForward1MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Forward Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    forwardMultiplier = multiplier;
+                }
+
+                if (reverseEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteReverse1RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Reverse Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    reverseRegAddr = value;
+
+                    if (cmbReverse1DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Reverse Data Type.";
+                        return;
+                    }
+
+                    reverseDataType = (byte)cmbReverse1DataTypeSetting.SelectedIndex;
+                    reverseWordSwap = cmbReverse1WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteReverse1MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Reverse Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    reverseMultiplier = multiplier;
+                }
+
+                if (flowEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteFlow1RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Flow Rate Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    flowRegAddr = value;
+
+                    if (cmbFlow1DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Vui lòng chọn Flow Rate Data Type.";
+                        return;
+                    }
+
+                    flowDataType = (byte)cmbFlow1DataTypeSetting.SelectedIndex;
+                    flowWordSwap = cmbFlow1WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteFlow1MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter1SettingStatus.Text = "Flow Rate Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    flowMultiplier = multiplier;
+                }
+            }
+
+            if (SetCommands.ModbusMeter(
+                0,
+                enabled,
+                serialNumber,
+                slaveAddress,
+                baudRate,
+                serialConfig,
+                readFuncCode,
+                forwardEnable,
+                forwardRegAddr,
+                forwardDataType,
+                forwardWordSwap,
+                forwardMultiplier,
+                reverseEnable,
+                reverseRegAddr,
+                reverseDataType,
+                reverseWordSwap,
+                reverseMultiplier,
+                flowEnable,
+                flowRegAddr,
+                flowDataType,
+                flowWordSwap,
+                flowMultiplier,
+                out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.ModbusMeter(rxFrame))
+                {
+                    lblModbusMeter1SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblModbusMeter1SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblModbusMeter1SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblModbusMeter1SettingStatus.Text = string.Empty;
+        }
+
+        private void chkModbus2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter2Control();
+        }
+
+        private void chkForward2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter2Control();
+        }
+
+        private void chkReverse2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter2Control();
+        }
+
+        private void chkFlow2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter2Control();
+        }
+
+        private void btnModbusMeter2CopySetting_Click(object sender, EventArgs e)
+        {
+            chkModbus2UseSetting.Checked = txtReadModbus2UseSetting.Text == "Đang sử dụng";
+
+            txtWriteModbus2SerialSetting.Text = txtReadModbus2SerialSetting.Text;
+            txtWriteModbus2SlaveAddrSetting.Text = txtReadModbus2SlaveAddrSetting.Text;
+
+            cmbModbus2BaudSetting.Text = txtReadModbus2BaudSetting.Text;
+            cmbModbus2FrameFormatSetting.Text = txtReadModbus2FrameFormatSetting.Text;
+            cmbModbus2FunctionCodeSetting.Text = txtReadModbus2FunctionCodeSetting.Text;
+
+            chkForward2UseSetting.Checked = txtReadForward2UseSetting.Text == "Đang sử dụng";
+            txtWriteForward2RegAddrSetting.Text = txtReadForward2RegAddrSetting.Text;
+            cmbForward2DataTypeSetting.Text = txtReadForward2DataTypeSetting.Text;
+            cmbForward2WordSwapSetting.Text = txtReadForward2WordSwapSetting.Text;
+            txtWriteForward2MultiplierSetting.Text = txtReadForward2MultiplierSetting.Text;
+
+            chkReverse2UseSetting.Checked = txtReadReverse2UseSetting.Text == "Đang sử dụng";
+            txtWriteReverse2RegAddrSetting.Text = txtReadReverse2RegAddrSetting.Text;
+            cmbReverse2DataTypeSetting.Text = txtReadReverse2DataTypeSetting.Text;
+            cmbReverse2WordSwapSetting.Text = txtReadReverse2WordSwapSetting.Text;
+            txtWriteReverse2MultiplierSetting.Text = txtReadReverse2MultiplierSetting.Text;
+
+            chkFlow2UseSetting.Checked = txtReadFlow2UseSetting.Text == "Đang sử dụng";
+            txtWriteFlow2RegAddrSetting.Text = txtReadFlow2RegAddrSetting.Text;
+            cmbFlow2DataTypeSetting.Text = txtReadFlow2DataTypeSetting.Text;
+            cmbFlow2WordSwapSetting.Text = txtReadFlow2WordSwapSetting.Text;
+            txtWriteFlow2MultiplierSetting.Text = txtReadFlow2MultiplierSetting.Text;
+
+            UpdateModbusMeter2Control();
+        }
+
+        private async void btnReadModbusMeter2Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+        (byte)ConfigModbusMeterId.MeterEnable,
+        (byte)ConfigModbusMeterId.SerialNumber,
+        (byte)ConfigModbusMeterId.SlaveAddress,
+        (byte)ConfigModbusMeterId.Baudrate,
+        (byte)ConfigModbusMeterId.SerialConfig,
+        (byte)ConfigModbusMeterId.ReadFuncCode,
+        (byte)ConfigModbusMeterId.ForwardTotalEnable,
+        (byte)ConfigModbusMeterId.ForwardTotalRegAddr,
+        (byte)ConfigModbusMeterId.ForwardTotalDataType,
+        (byte)ConfigModbusMeterId.ForwardTotalWordSwap,
+        (byte)ConfigModbusMeterId.ForwardTotalMultiplier,
+        (byte)ConfigModbusMeterId.ReverseTotalEnable,
+        (byte)ConfigModbusMeterId.ReverseTotalRegAddr,
+        (byte)ConfigModbusMeterId.ReverseTotalDataType,
+        (byte)ConfigModbusMeterId.ReverseTotalWordSwap,
+        (byte)ConfigModbusMeterId.ReverseTotalMultiplier,
+        (byte)ConfigModbusMeterId.FlowRateEnable,
+        (byte)ConfigModbusMeterId.FlowRateRegAddr,
+        (byte)ConfigModbusMeterId.FlowRateDataType,
+        (byte)ConfigModbusMeterId.FlowRateWordSwap,
+        (byte)ConfigModbusMeterId.FlowRateMultiplier
+    };
+
+            txtReadModbus2UseSetting.Clear();
+            txtReadModbus2SerialSetting.Clear();
+            txtReadModbus2SlaveAddrSetting.Clear();
+            txtReadModbus2BaudSetting.Clear();
+            txtReadModbus2FrameFormatSetting.Clear();
+            txtReadModbus2FunctionCodeSetting.Clear();
+            txtReadForward2UseSetting.Clear();
+            txtReadForward2RegAddrSetting.Clear();
+            txtReadForward2DataTypeSetting.Clear();
+            txtReadForward2WordSwapSetting.Clear();
+            txtReadForward2MultiplierSetting.Clear();
+            txtReadReverse2UseSetting.Clear();
+            txtReadReverse2RegAddrSetting.Clear();
+            txtReadReverse2DataTypeSetting.Clear();
+            txtReadReverse2WordSwapSetting.Clear();
+            txtReadReverse2MultiplierSetting.Clear();
+            txtReadFlow2UseSetting.Clear();
+            txtReadFlow2RegAddrSetting.Clear();
+            txtReadFlow2DataTypeSetting.Clear();
+            txtReadFlow2WordSwapSetting.Clear();
+            txtReadFlow2MultiplierSetting.Clear();
+
+            GetCommands.ModbusMeter(1, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
+            {
+                if (!modbusMeterConfig.MeterEnable)
+                {
+                    txtReadModbus2UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadModbus2UseSetting.Text = "Đang sử dụng";
+                    txtReadModbus2SerialSetting.Text = modbusMeterConfig.SerialNumber;
+                    txtReadModbus2SlaveAddrSetting.Text = modbusMeterConfig.SlaveAddress.ToString();
+                    txtReadModbus2BaudSetting.Text = modbusMeterConfig.BaudRate.ToString();
+                    switch (modbusMeterConfig.SerialConfig)
+                    {
+                        case ((byte)ModbusSerialConfig.Modbus_8N1):
+                            txtReadModbus2FrameFormatSetting.Text = "8N1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8O1):
+                            txtReadModbus2FrameFormatSetting.Text = "8O1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8E1):
+                            txtReadModbus2FrameFormatSetting.Text = "8E1";
+                            break;
+
+                        default:
+                            break;
+                    }
+                    txtReadModbus2FunctionCodeSetting.Text = $"0x{modbusMeterConfig.ReadFuncCode:X2}";
+
+                    if (!modbusMeterConfig.ForwardTotal.ParameterEnable)
+                    {
+                        txtReadForward2UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadForward2UseSetting.Text = "Đang sử dụng";
+                        txtReadForward2RegAddrSetting.Text = modbusMeterConfig.ForwardTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ForwardTotal.DataType != 0)
+                        {
+                            txtReadForward2DataTypeSetting.Text = cmbForward2DataTypeSetting.Items[modbusMeterConfig.ForwardTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ForwardTotal.WordSwap)
+                        {
+                            txtReadForward2WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadForward2WordSwapSetting.Text = "Không";
+                        }
+                        txtReadForward2MultiplierSetting.Text = modbusMeterConfig.ForwardTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.ReverseTotal.ParameterEnable)
+                    {
+                        txtReadReverse2UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadReverse2UseSetting.Text = "Đang sử dụng";
+                        txtReadReverse2RegAddrSetting.Text = modbusMeterConfig.ReverseTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ReverseTotal.DataType != 0)
+                        {
+                            txtReadReverse2DataTypeSetting.Text = cmbReverse2DataTypeSetting.Items[modbusMeterConfig.ReverseTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ReverseTotal.WordSwap)
+                        {
+                            txtReadReverse2WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadReverse2WordSwapSetting.Text = "Không";
+                        }
+                        txtReadReverse2MultiplierSetting.Text = modbusMeterConfig.ReverseTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.FlowRate.ParameterEnable)
+                    {
+                        txtReadFlow2UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadFlow2UseSetting.Text = "Đang sử dụng";
+                        txtReadFlow2RegAddrSetting.Text = modbusMeterConfig.FlowRate.RegisterAddress.ToString();
+                        if (modbusMeterConfig.FlowRate.DataType != 0)
+                        {
+                            txtReadFlow2DataTypeSetting.Text = cmbFlow2DataTypeSetting.Items[modbusMeterConfig.FlowRate.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.FlowRate.WordSwap)
+                        {
+                            txtReadFlow2WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadFlow2WordSwapSetting.Text = "Không";
+                        }
+                        txtReadFlow2MultiplierSetting.Text = modbusMeterConfig.FlowRate.Multiplier.ToString();
+                    }
+                }
+            }
+        }
+
+        private async void btnWriteModbusMeter2Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkModbus2UseSetting.Checked;
+
+            string serialNumber = txtWriteModbus2SerialSetting.Text.Trim();
+            byte? slaveAddress = null;
+            uint? baudRate = null;
+            byte? serialConfig = null;
+            byte? readFuncCode = null;
+
+            bool? forwardEnable = null;
+            ushort? forwardRegAddr = null;
+            byte? forwardDataType = null;
+            bool? forwardWordSwap = null;
+            sbyte? forwardMultiplier = null;
+
+            bool? reverseEnable = null;
+            ushort? reverseRegAddr = null;
+            byte? reverseDataType = null;
+            bool? reverseWordSwap = null;
+            sbyte? reverseMultiplier = null;
+
+            bool? flowEnable = null;
+            ushort? flowRegAddr = null;
+            byte? flowDataType = null;
+            bool? flowWordSwap = null;
+            sbyte? flowMultiplier = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblModbusMeter2SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!byte.TryParse(txtWriteModbus2SlaveAddrSetting.Text, out byte slaveAddressValue))
+                {
+                    lblModbusMeter2SettingStatus.Text = "Slave Address không hợp lệ.";
+                    return;
+                }
+
+                if (!uint.TryParse(cmbModbus2BaudSetting.Text, out uint baudRateValue))
+                {
+                    lblModbusMeter2SettingStatus.Text = "Baud Rate không hợp lệ.";
+                    return;
+                }
+
+                if (cmbModbus2FrameFormatSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                    return;
+                }
+
+                if (cmbModbus2FunctionCodeSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+
+                slaveAddress = slaveAddressValue;
+                baudRate = baudRateValue;
+                switch (cmbModbus2FrameFormatSetting.Text)
+                {
+                    case "8N1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8N1;
+                        break;
+
+                    case "8O1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8O1;
+                        break;
+
+                    case "8E1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8E1;
+                        break;
+
+                    default:
+                        lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                        return;
+                }
+                if (!byte.TryParse(cmbModbus2FunctionCodeSetting.Text.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber, null, out byte functionCode))
+                {
+                    lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+                readFuncCode = functionCode;
+
+                forwardEnable = chkForward2UseSetting.Checked;
+                reverseEnable = chkReverse2UseSetting.Checked;
+                flowEnable = chkFlow2UseSetting.Checked;
+
+                if (forwardEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteForward2RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Forward Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    forwardRegAddr = value;
+
+                    if (cmbForward2DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Forward Data Type.";
+                        return;
+                    }
+
+                    forwardDataType = (byte)cmbForward2DataTypeSetting.SelectedIndex;
+                    forwardWordSwap = cmbForward2WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteForward2MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Forward Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    forwardMultiplier = multiplier;
+                }
+
+                if (reverseEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteReverse2RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Reverse Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    reverseRegAddr = value;
+
+                    if (cmbReverse2DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Reverse Data Type.";
+                        return;
+                    }
+
+                    reverseDataType = (byte)cmbReverse2DataTypeSetting.SelectedIndex;
+                    reverseWordSwap = cmbReverse2WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteReverse2MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Reverse Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    reverseMultiplier = multiplier;
+                }
+
+                if (flowEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteFlow2RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Flow Rate Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    flowRegAddr = value;
+
+                    if (cmbFlow2DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Vui lòng chọn Flow Rate Data Type.";
+                        return;
+                    }
+
+                    flowDataType = (byte)cmbFlow2DataTypeSetting.SelectedIndex;
+                    flowWordSwap = cmbFlow2WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteFlow2MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter2SettingStatus.Text = "Flow Rate Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    flowMultiplier = multiplier;
+                }
+            }
+
+            if (SetCommands.ModbusMeter(
+                1,
+                enabled,
+                serialNumber,
+                slaveAddress,
+                baudRate,
+                serialConfig,
+                readFuncCode,
+                forwardEnable,
+                forwardRegAddr,
+                forwardDataType,
+                forwardWordSwap,
+                forwardMultiplier,
+                reverseEnable,
+                reverseRegAddr,
+                reverseDataType,
+                reverseWordSwap,
+                reverseMultiplier,
+                flowEnable,
+                flowRegAddr,
+                flowDataType,
+                flowWordSwap,
+                flowMultiplier,
+                out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.ModbusMeter(rxFrame))
+                {
+                    lblModbusMeter2SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblModbusMeter2SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblModbusMeter2SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblModbusMeter2SettingStatus.Text = string.Empty;
+        }
+
+        private void chkModbus3UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter3Control();
+        }
+
+        private void chkForward3UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter3Control();
+        }
+
+        private void chkReverse3UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter3Control();
+        }
+
+        private void chkFlow3UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter3Control();
+        }
+
+        private void btnModbusMeter3CopySetting_Click(object sender, EventArgs e)
+        {
+            chkModbus3UseSetting.Checked = txtReadModbus3UseSetting.Text == "Đang sử dụng";
+
+            txtWriteModbus3SerialSetting.Text = txtReadModbus3SerialSetting.Text;
+            txtWriteModbus3SlaveAddrSetting.Text = txtReadModbus3SlaveAddrSetting.Text;
+
+            cmbModbus3BaudSetting.Text = txtReadModbus3BaudSetting.Text;
+            cmbModbus3FrameFormatSetting.Text = txtReadModbus3FrameFormatSetting.Text;
+            cmbModbus3FunctionCodeSetting.Text = txtReadModbus3FunctionCodeSetting.Text;
+
+            chkForward3UseSetting.Checked = txtReadForward3UseSetting.Text == "Đang sử dụng";
+            txtWriteForward3RegAddrSetting.Text = txtReadForward3RegAddrSetting.Text;
+            cmbForward3DataTypeSetting.Text = txtReadForward3DataTypeSetting.Text;
+            cmbForward3WordSwapSetting.Text = txtReadForward3WordSwapSetting.Text;
+            txtWriteForward3MultiplierSetting.Text = txtReadForward3MultiplierSetting.Text;
+
+            chkReverse3UseSetting.Checked = txtReadReverse3UseSetting.Text == "Đang sử dụng";
+            txtWriteReverse3RegAddrSetting.Text = txtReadReverse3RegAddrSetting.Text;
+            cmbReverse3DataTypeSetting.Text = txtReadReverse3DataTypeSetting.Text;
+            cmbReverse3WordSwapSetting.Text = txtReadReverse3WordSwapSetting.Text;
+            txtWriteReverse3MultiplierSetting.Text = txtReadReverse3MultiplierSetting.Text;
+
+            chkFlow3UseSetting.Checked = txtReadFlow3UseSetting.Text == "Đang sử dụng";
+            txtWriteFlow3RegAddrSetting.Text = txtReadFlow3RegAddrSetting.Text;
+            cmbFlow3DataTypeSetting.Text = txtReadFlow3DataTypeSetting.Text;
+            cmbFlow3WordSwapSetting.Text = txtReadFlow3WordSwapSetting.Text;
+            txtWriteFlow3MultiplierSetting.Text = txtReadFlow3MultiplierSetting.Text;
+
+            UpdateModbusMeter3Control();
+        }
+
+        private async void btnReadModbusMeter3Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+        (byte)ConfigModbusMeterId.MeterEnable,
+        (byte)ConfigModbusMeterId.SerialNumber,
+        (byte)ConfigModbusMeterId.SlaveAddress,
+        (byte)ConfigModbusMeterId.Baudrate,
+        (byte)ConfigModbusMeterId.SerialConfig,
+        (byte)ConfigModbusMeterId.ReadFuncCode,
+        (byte)ConfigModbusMeterId.ForwardTotalEnable,
+        (byte)ConfigModbusMeterId.ForwardTotalRegAddr,
+        (byte)ConfigModbusMeterId.ForwardTotalDataType,
+        (byte)ConfigModbusMeterId.ForwardTotalWordSwap,
+        (byte)ConfigModbusMeterId.ForwardTotalMultiplier,
+        (byte)ConfigModbusMeterId.ReverseTotalEnable,
+        (byte)ConfigModbusMeterId.ReverseTotalRegAddr,
+        (byte)ConfigModbusMeterId.ReverseTotalDataType,
+        (byte)ConfigModbusMeterId.ReverseTotalWordSwap,
+        (byte)ConfigModbusMeterId.ReverseTotalMultiplier,
+        (byte)ConfigModbusMeterId.FlowRateEnable,
+        (byte)ConfigModbusMeterId.FlowRateRegAddr,
+        (byte)ConfigModbusMeterId.FlowRateDataType,
+        (byte)ConfigModbusMeterId.FlowRateWordSwap,
+        (byte)ConfigModbusMeterId.FlowRateMultiplier
+    };
+
+            txtReadModbus3UseSetting.Clear();
+            txtReadModbus3SerialSetting.Clear();
+            txtReadModbus3SlaveAddrSetting.Clear();
+            txtReadModbus3BaudSetting.Clear();
+            txtReadModbus3FrameFormatSetting.Clear();
+            txtReadModbus3FunctionCodeSetting.Clear();
+            txtReadForward3UseSetting.Clear();
+            txtReadForward3RegAddrSetting.Clear();
+            txtReadForward3DataTypeSetting.Clear();
+            txtReadForward3WordSwapSetting.Clear();
+            txtReadForward3MultiplierSetting.Clear();
+            txtReadReverse3UseSetting.Clear();
+            txtReadReverse3RegAddrSetting.Clear();
+            txtReadReverse3DataTypeSetting.Clear();
+            txtReadReverse3WordSwapSetting.Clear();
+            txtReadReverse3MultiplierSetting.Clear();
+            txtReadFlow3UseSetting.Clear();
+            txtReadFlow3RegAddrSetting.Clear();
+            txtReadFlow3DataTypeSetting.Clear();
+            txtReadFlow3WordSwapSetting.Clear();
+            txtReadFlow3MultiplierSetting.Clear();
+
+            GetCommands.ModbusMeter(2, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
+            {
+                if (!modbusMeterConfig.MeterEnable)
+                {
+                    txtReadModbus3UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadModbus3UseSetting.Text = "Đang sử dụng";
+                    txtReadModbus3SerialSetting.Text = modbusMeterConfig.SerialNumber;
+                    txtReadModbus3SlaveAddrSetting.Text = modbusMeterConfig.SlaveAddress.ToString();
+                    txtReadModbus3BaudSetting.Text = modbusMeterConfig.BaudRate.ToString();
+                    switch (modbusMeterConfig.SerialConfig)
+                    {
+                        case ((byte)ModbusSerialConfig.Modbus_8N1):
+                            txtReadModbus3FrameFormatSetting.Text = "8N1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8O1):
+                            txtReadModbus3FrameFormatSetting.Text = "8O1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8E1):
+                            txtReadModbus3FrameFormatSetting.Text = "8E1";
+                            break;
+
+                        default:
+                            break;
+                    }
+                    txtReadModbus3FunctionCodeSetting.Text = $"0x{modbusMeterConfig.ReadFuncCode:X2}";
+
+                    if (!modbusMeterConfig.ForwardTotal.ParameterEnable)
+                    {
+                        txtReadForward3UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadForward3UseSetting.Text = "Đang sử dụng";
+                        txtReadForward3RegAddrSetting.Text = modbusMeterConfig.ForwardTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ForwardTotal.DataType != 0)
+                        {
+                            txtReadForward3DataTypeSetting.Text = cmbForward3DataTypeSetting.Items[modbusMeterConfig.ForwardTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ForwardTotal.WordSwap)
+                        {
+                            txtReadForward3WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadForward3WordSwapSetting.Text = "Không";
+                        }
+                        txtReadForward3MultiplierSetting.Text = modbusMeterConfig.ForwardTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.ReverseTotal.ParameterEnable)
+                    {
+                        txtReadReverse3UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadReverse3UseSetting.Text = "Đang sử dụng";
+                        txtReadReverse3RegAddrSetting.Text = modbusMeterConfig.ReverseTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ReverseTotal.DataType != 0)
+                        {
+                            txtReadReverse3DataTypeSetting.Text = cmbReverse3DataTypeSetting.Items[modbusMeterConfig.ReverseTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ReverseTotal.WordSwap)
+                        {
+                            txtReadReverse3WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadReverse3WordSwapSetting.Text = "Không";
+                        }
+                        txtReadReverse3MultiplierSetting.Text = modbusMeterConfig.ReverseTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.FlowRate.ParameterEnable)
+                    {
+                        txtReadFlow3UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadFlow3UseSetting.Text = "Đang sử dụng";
+                        txtReadFlow3RegAddrSetting.Text = modbusMeterConfig.FlowRate.RegisterAddress.ToString();
+                        if (modbusMeterConfig.FlowRate.DataType != 0)
+                        {
+                            txtReadFlow3DataTypeSetting.Text = cmbFlow3DataTypeSetting.Items[modbusMeterConfig.FlowRate.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.FlowRate.WordSwap)
+                        {
+                            txtReadFlow3WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadFlow3WordSwapSetting.Text = "Không";
+                        }
+                        txtReadFlow3MultiplierSetting.Text = modbusMeterConfig.FlowRate.Multiplier.ToString();
+                    }
+                }
+            }
+        }
+
+        private async void btnWriteModbusMeter3Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkModbus3UseSetting.Checked;
+
+            string serialNumber = txtWriteModbus3SerialSetting.Text.Trim();
+            byte? slaveAddress = null;
+            uint? baudRate = null;
+            byte? serialConfig = null;
+            byte? readFuncCode = null;
+
+            bool? forwardEnable = null;
+            ushort? forwardRegAddr = null;
+            byte? forwardDataType = null;
+            bool? forwardWordSwap = null;
+            sbyte? forwardMultiplier = null;
+
+            bool? reverseEnable = null;
+            ushort? reverseRegAddr = null;
+            byte? reverseDataType = null;
+            bool? reverseWordSwap = null;
+            sbyte? reverseMultiplier = null;
+
+            bool? flowEnable = null;
+            ushort? flowRegAddr = null;
+            byte? flowDataType = null;
+            bool? flowWordSwap = null;
+            sbyte? flowMultiplier = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblModbusMeter3SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!byte.TryParse(txtWriteModbus3SlaveAddrSetting.Text, out byte slaveAddressValue))
+                {
+                    lblModbusMeter3SettingStatus.Text = "Slave Address không hợp lệ.";
+                    return;
+                }
+
+                if (!uint.TryParse(cmbModbus3BaudSetting.Text, out uint baudRateValue))
+                {
+                    lblModbusMeter3SettingStatus.Text = "Baud Rate không hợp lệ.";
+                    return;
+                }
+
+                if (cmbModbus3FrameFormatSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                    return;
+                }
+
+                if (cmbModbus3FunctionCodeSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+
+                slaveAddress = slaveAddressValue;
+                baudRate = baudRateValue;
+                switch (cmbModbus3FrameFormatSetting.Text)
+                {
+                    case "8N1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8N1;
+                        break;
+
+                    case "8O1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8O1;
+                        break;
+
+                    case "8E1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8E1;
+                        break;
+
+                    default:
+                        lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                        return;
+                }
+                if (!byte.TryParse(cmbModbus3FunctionCodeSetting.Text.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber, null, out byte functionCode))
+                {
+                    lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+                readFuncCode = functionCode;
+
+                forwardEnable = chkForward3UseSetting.Checked;
+                reverseEnable = chkReverse3UseSetting.Checked;
+                flowEnable = chkFlow3UseSetting.Checked;
+
+                if (forwardEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteForward3RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Forward Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    forwardRegAddr = value;
+
+                    if (cmbForward3DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Forward Data Type.";
+                        return;
+                    }
+
+                    forwardDataType = (byte)cmbForward3DataTypeSetting.SelectedIndex;
+                    forwardWordSwap = cmbForward3WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteForward3MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Forward Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    forwardMultiplier = multiplier;
+                }
+
+                if (reverseEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteReverse3RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Reverse Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    reverseRegAddr = value;
+
+                    if (cmbReverse3DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Reverse Data Type.";
+                        return;
+                    }
+
+                    reverseDataType = (byte)cmbReverse3DataTypeSetting.SelectedIndex;
+                    reverseWordSwap = cmbReverse3WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteReverse3MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Reverse Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    reverseMultiplier = multiplier;
+                }
+
+                if (flowEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteFlow3RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Flow Rate Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    flowRegAddr = value;
+
+                    if (cmbFlow3DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Vui lòng chọn Flow Rate Data Type.";
+                        return;
+                    }
+
+                    flowDataType = (byte)cmbFlow3DataTypeSetting.SelectedIndex;
+                    flowWordSwap = cmbFlow3WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteFlow3MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter3SettingStatus.Text = "Flow Rate Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    flowMultiplier = multiplier;
+                }
+            }
+
+            if (SetCommands.ModbusMeter(
+                2,
+                enabled,
+                serialNumber,
+                slaveAddress,
+                baudRate,
+                serialConfig,
+                readFuncCode,
+                forwardEnable,
+                forwardRegAddr,
+                forwardDataType,
+                forwardWordSwap,
+                forwardMultiplier,
+                reverseEnable,
+                reverseRegAddr,
+                reverseDataType,
+                reverseWordSwap,
+                reverseMultiplier,
+                flowEnable,
+                flowRegAddr,
+                flowDataType,
+                flowWordSwap,
+                flowMultiplier,
+                out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.ModbusMeter(rxFrame))
+                {
+                    lblModbusMeter3SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblModbusMeter3SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblModbusMeter3SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblModbusMeter3SettingStatus.Text = string.Empty;
+        }
+
+        private void chkModbus4UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter4Control();
+        }
+
+        private void chkForward4UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter4Control();
+        }
+
+        private void chkReverse4UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter4Control();
+        }
+
+        private void chkFlow4UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter4Control();
+        }
+
+        private void btnModbusMeter4CopySetting_Click(object sender, EventArgs e)
+        {
+            chkModbus4UseSetting.Checked = txtReadModbus4UseSetting.Text == "Đang sử dụng";
+
+            txtWriteModbus4SerialSetting.Text = txtReadModbus4SerialSetting.Text;
+            txtWriteModbus4SlaveAddrSetting.Text = txtReadModbus4SlaveAddrSetting.Text;
+
+            cmbModbus4BaudSetting.Text = txtReadModbus4BaudSetting.Text;
+            cmbModbus4FrameFormatSetting.Text = txtReadModbus4FrameFormatSetting.Text;
+            cmbModbus4FunctionCodeSetting.Text = txtReadModbus4FunctionCodeSetting.Text;
+
+            chkForward4UseSetting.Checked = txtReadForward4UseSetting.Text == "Đang sử dụng";
+            txtWriteForward4RegAddrSetting.Text = txtReadForward4RegAddrSetting.Text;
+            cmbForward4DataTypeSetting.Text = txtReadForward4DataTypeSetting.Text;
+            cmbForward4WordSwapSetting.Text = txtReadForward4WordSwapSetting.Text;
+            txtWriteForward4MultiplierSetting.Text = txtReadForward4MultiplierSetting.Text;
+
+            chkReverse4UseSetting.Checked = txtReadReverse4UseSetting.Text == "Đang sử dụng";
+            txtWriteReverse4RegAddrSetting.Text = txtReadReverse4RegAddrSetting.Text;
+            cmbReverse4DataTypeSetting.Text = txtReadReverse4DataTypeSetting.Text;
+            cmbReverse4WordSwapSetting.Text = txtReadReverse4WordSwapSetting.Text;
+            txtWriteReverse4MultiplierSetting.Text = txtReadReverse4MultiplierSetting.Text;
+
+            chkFlow4UseSetting.Checked = txtReadFlow4UseSetting.Text == "Đang sử dụng";
+            txtWriteFlow4RegAddrSetting.Text = txtReadFlow4RegAddrSetting.Text;
+            cmbFlow4DataTypeSetting.Text = txtReadFlow4DataTypeSetting.Text;
+            cmbFlow4WordSwapSetting.Text = txtReadFlow4WordSwapSetting.Text;
+            txtWriteFlow4MultiplierSetting.Text = txtReadFlow4MultiplierSetting.Text;
+
+            UpdateModbusMeter4Control();
+        }
+
+        private async void btnReadModbusMeter4Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+        (byte)ConfigModbusMeterId.MeterEnable,
+        (byte)ConfigModbusMeterId.SerialNumber,
+        (byte)ConfigModbusMeterId.SlaveAddress,
+        (byte)ConfigModbusMeterId.Baudrate,
+        (byte)ConfigModbusMeterId.SerialConfig,
+        (byte)ConfigModbusMeterId.ReadFuncCode,
+        (byte)ConfigModbusMeterId.ForwardTotalEnable,
+        (byte)ConfigModbusMeterId.ForwardTotalRegAddr,
+        (byte)ConfigModbusMeterId.ForwardTotalDataType,
+        (byte)ConfigModbusMeterId.ForwardTotalWordSwap,
+        (byte)ConfigModbusMeterId.ForwardTotalMultiplier,
+        (byte)ConfigModbusMeterId.ReverseTotalEnable,
+        (byte)ConfigModbusMeterId.ReverseTotalRegAddr,
+        (byte)ConfigModbusMeterId.ReverseTotalDataType,
+        (byte)ConfigModbusMeterId.ReverseTotalWordSwap,
+        (byte)ConfigModbusMeterId.ReverseTotalMultiplier,
+        (byte)ConfigModbusMeterId.FlowRateEnable,
+        (byte)ConfigModbusMeterId.FlowRateRegAddr,
+        (byte)ConfigModbusMeterId.FlowRateDataType,
+        (byte)ConfigModbusMeterId.FlowRateWordSwap,
+        (byte)ConfigModbusMeterId.FlowRateMultiplier
+    };
+
+            txtReadModbus4UseSetting.Clear();
+            txtReadModbus4SerialSetting.Clear();
+            txtReadModbus4SlaveAddrSetting.Clear();
+            txtReadModbus4BaudSetting.Clear();
+            txtReadModbus4FrameFormatSetting.Clear();
+            txtReadModbus4FunctionCodeSetting.Clear();
+            txtReadForward4UseSetting.Clear();
+            txtReadForward4RegAddrSetting.Clear();
+            txtReadForward4DataTypeSetting.Clear();
+            txtReadForward4WordSwapSetting.Clear();
+            txtReadForward4MultiplierSetting.Clear();
+            txtReadReverse4UseSetting.Clear();
+            txtReadReverse4RegAddrSetting.Clear();
+            txtReadReverse4DataTypeSetting.Clear();
+            txtReadReverse4WordSwapSetting.Clear();
+            txtReadReverse4MultiplierSetting.Clear();
+            txtReadFlow4UseSetting.Clear();
+            txtReadFlow4RegAddrSetting.Clear();
+            txtReadFlow4DataTypeSetting.Clear();
+            txtReadFlow4WordSwapSetting.Clear();
+            txtReadFlow4MultiplierSetting.Clear();
+
+            GetCommands.ModbusMeter(3, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
+            {
+                if (!modbusMeterConfig.MeterEnable)
+                {
+                    txtReadModbus4UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadModbus4UseSetting.Text = "Đang sử dụng";
+                    txtReadModbus4SerialSetting.Text = modbusMeterConfig.SerialNumber;
+                    txtReadModbus4SlaveAddrSetting.Text = modbusMeterConfig.SlaveAddress.ToString();
+                    txtReadModbus4BaudSetting.Text = modbusMeterConfig.BaudRate.ToString();
+                    switch (modbusMeterConfig.SerialConfig)
+                    {
+                        case ((byte)ModbusSerialConfig.Modbus_8N1):
+                            txtReadModbus4FrameFormatSetting.Text = "8N1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8O1):
+                            txtReadModbus4FrameFormatSetting.Text = "8O1";
+                            break;
+
+                        case ((byte)ModbusSerialConfig.Modbus_8E1):
+                            txtReadModbus4FrameFormatSetting.Text = "8E1";
+                            break;
+
+                        default:
+                            break;
+                    }
+                    txtReadModbus4FunctionCodeSetting.Text = $"0x{modbusMeterConfig.ReadFuncCode:X2}";
+
+                    if (!modbusMeterConfig.ForwardTotal.ParameterEnable)
+                    {
+                        txtReadForward4UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadForward4UseSetting.Text = "Đang sử dụng";
+                        txtReadForward4RegAddrSetting.Text = modbusMeterConfig.ForwardTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ForwardTotal.DataType != 0)
+                        {
+                            txtReadForward4DataTypeSetting.Text = cmbForward4DataTypeSetting.Items[modbusMeterConfig.ForwardTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ForwardTotal.WordSwap)
+                        {
+                            txtReadForward4WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadForward4WordSwapSetting.Text = "Không";
+                        }
+                        txtReadForward4MultiplierSetting.Text = modbusMeterConfig.ForwardTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.ReverseTotal.ParameterEnable)
+                    {
+                        txtReadReverse4UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadReverse4UseSetting.Text = "Đang sử dụng";
+                        txtReadReverse4RegAddrSetting.Text = modbusMeterConfig.ReverseTotal.RegisterAddress.ToString();
+                        if (modbusMeterConfig.ReverseTotal.DataType != 0)
+                        {
+                            txtReadReverse4DataTypeSetting.Text = cmbReverse4DataTypeSetting.Items[modbusMeterConfig.ReverseTotal.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.ReverseTotal.WordSwap)
+                        {
+                            txtReadReverse4WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadReverse4WordSwapSetting.Text = "Không";
+                        }
+                        txtReadReverse4MultiplierSetting.Text = modbusMeterConfig.ReverseTotal.Multiplier.ToString();
+                    }
+
+                    if (!modbusMeterConfig.FlowRate.ParameterEnable)
+                    {
+                        txtReadFlow4UseSetting.Text = "Không sử dụng";
+                    }
+                    else
+                    {
+                        txtReadFlow4UseSetting.Text = "Đang sử dụng";
+                        txtReadFlow4RegAddrSetting.Text = modbusMeterConfig.FlowRate.RegisterAddress.ToString();
+                        if (modbusMeterConfig.FlowRate.DataType != 0)
+                        {
+                            txtReadFlow4DataTypeSetting.Text = cmbFlow4DataTypeSetting.Items[modbusMeterConfig.FlowRate.DataType].ToString();
+                        }
+                        if (modbusMeterConfig.FlowRate.WordSwap)
+                        {
+                            txtReadFlow4WordSwapSetting.Text = "Có";
+                        }
+                        else
+                        {
+                            txtReadFlow4WordSwapSetting.Text = "Không";
+                        }
+                        txtReadFlow4MultiplierSetting.Text = modbusMeterConfig.FlowRate.Multiplier.ToString();
+                    }
+                }
+            }
+        }
+
+        private async void btnWriteModbusMeter4Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkModbus4UseSetting.Checked;
+
+            string serialNumber = txtWriteModbus4SerialSetting.Text.Trim();
+            byte? slaveAddress = null;
+            uint? baudRate = null;
+            byte? serialConfig = null;
+            byte? readFuncCode = null;
+
+            bool? forwardEnable = null;
+            ushort? forwardRegAddr = null;
+            byte? forwardDataType = null;
+            bool? forwardWordSwap = null;
+            sbyte? forwardMultiplier = null;
+
+            bool? reverseEnable = null;
+            ushort? reverseRegAddr = null;
+            byte? reverseDataType = null;
+            bool? reverseWordSwap = null;
+            sbyte? reverseMultiplier = null;
+
+            bool? flowEnable = null;
+            ushort? flowRegAddr = null;
+            byte? flowDataType = null;
+            bool? flowWordSwap = null;
+            sbyte? flowMultiplier = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblModbusMeter4SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!byte.TryParse(txtWriteModbus4SlaveAddrSetting.Text, out byte slaveAddressValue))
+                {
+                    lblModbusMeter4SettingStatus.Text = "Slave Address không hợp lệ.";
+                    return;
+                }
+
+                if (!uint.TryParse(cmbModbus4BaudSetting.Text, out uint baudRateValue))
+                {
+                    lblModbusMeter4SettingStatus.Text = "Baud Rate không hợp lệ.";
+                    return;
+                }
+
+                if (cmbModbus4FrameFormatSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                    return;
+                }
+
+                if (cmbModbus4FunctionCodeSetting.SelectedIndex == 0)
+                {
+                    lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+
+                slaveAddress = slaveAddressValue;
+                baudRate = baudRateValue;
+                switch (cmbModbus4FrameFormatSetting.Text)
+                {
+                    case "8N1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8N1;
+                        break;
+
+                    case "8O1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8O1;
+                        break;
+
+                    case "8E1":
+                        serialConfig = (byte)ModbusSerialConfig.Modbus_8E1;
+                        break;
+
+                    default:
+                        lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Frame Format.";
+                        return;
+                }
+                if (!byte.TryParse(cmbModbus4FunctionCodeSetting.Text.Replace("0x", ""), System.Globalization.NumberStyles.HexNumber, null, out byte functionCode))
+                {
+                    lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Function Code.";
+                    return;
+                }
+                readFuncCode = functionCode;
+
+                forwardEnable = chkForward4UseSetting.Checked;
+                reverseEnable = chkReverse4UseSetting.Checked;
+                flowEnable = chkFlow4UseSetting.Checked;
+
+                if (forwardEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteForward4RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Forward Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    forwardRegAddr = value;
+
+                    if (cmbForward4DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Forward Data Type.";
+                        return;
+                    }
+
+                    forwardDataType = (byte)cmbForward4DataTypeSetting.SelectedIndex;
+                    forwardWordSwap = cmbForward4WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteForward4MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Forward Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    forwardMultiplier = multiplier;
+                }
+
+                if (reverseEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteReverse4RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Reverse Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    reverseRegAddr = value;
+
+                    if (cmbReverse4DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Reverse Data Type.";
+                        return;
+                    }
+
+                    reverseDataType = (byte)cmbReverse4DataTypeSetting.SelectedIndex;
+                    reverseWordSwap = cmbReverse4WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteReverse4MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Reverse Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    reverseMultiplier = multiplier;
+                }
+
+                if (flowEnable.Value)
+                {
+                    if (!ushort.TryParse(txtWriteFlow4RegAddrSetting.Text, out ushort value))
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Flow Rate Register Address không hợp lệ.";
+                        return;
+                    }
+
+                    flowRegAddr = value;
+
+                    if (cmbFlow4DataTypeSetting.SelectedIndex == 0)
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Vui lòng chọn Flow Rate Data Type.";
+                        return;
+                    }
+
+                    flowDataType = (byte)cmbFlow4DataTypeSetting.SelectedIndex;
+                    flowWordSwap = cmbFlow4WordSwapSetting.SelectedIndex != 0;
+
+                    if (!sbyte.TryParse(txtWriteFlow4MultiplierSetting.Text, out sbyte multiplier))
+                    {
+                        lblModbusMeter4SettingStatus.Text = "Flow Rate Multiplier không hợp lệ.";
+                        return;
+                    }
+
+                    flowMultiplier = multiplier;
+                }
+            }
+
+            if (SetCommands.ModbusMeter(
+                3,
+                enabled,
+                serialNumber,
+                slaveAddress,
+                baudRate,
+                serialConfig,
+                readFuncCode,
+                forwardEnable,
+                forwardRegAddr,
+                forwardDataType,
+                forwardWordSwap,
+                forwardMultiplier,
+                reverseEnable,
+                reverseRegAddr,
+                reverseDataType,
+                reverseWordSwap,
+                reverseMultiplier,
+                flowEnable,
+                flowRegAddr,
+                flowDataType,
+                flowWordSwap,
+                flowMultiplier,
+                out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.ModbusMeter(rxFrame))
+                {
+                    lblModbusMeter4SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblModbusMeter4SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblModbusMeter4SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblModbusMeter4SettingStatus.Text = string.Empty;
         }
 
 
@@ -1616,34 +3420,104 @@ namespace WM03A
             }
         }
 
-        private void label29_Click(object sender, EventArgs e)
+        private void UpdateModbusMeter1Control()
         {
-
+            bool enabled = chkModbus1UseSetting.Checked;
+            txtWriteModbus1SerialSetting.Enabled = enabled;
+            txtWriteModbus1SlaveAddrSetting.Enabled = enabled;
+            cmbModbus1BaudSetting.Enabled = enabled;
+            cmbModbus1FrameFormatSetting.Enabled = enabled;
+            cmbModbus1FunctionCodeSetting.Enabled = enabled;
+            chkForward1UseSetting.Enabled = enabled;
+            txtWriteForward1RegAddrSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            cmbForward1DataTypeSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            cmbForward1WordSwapSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            txtWriteForward1MultiplierSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            chkReverse1UseSetting.Enabled = enabled;
+            txtWriteReverse1RegAddrSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            cmbReverse1DataTypeSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            cmbReverse1WordSwapSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            txtWriteReverse1MultiplierSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            chkFlow1UseSetting.Enabled = enabled;
+            txtWriteFlow1RegAddrSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
+            cmbFlow1DataTypeSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
+            cmbFlow1WordSwapSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
+            txtWriteFlow1MultiplierSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
         }
 
-        private void label28_Click(object sender, EventArgs e)
+        private void UpdateModbusMeter2Control()
         {
-
+            bool enabled = chkModbus2UseSetting.Checked;
+            txtWriteModbus2SerialSetting.Enabled = enabled;
+            txtWriteModbus2SlaveAddrSetting.Enabled = enabled;
+            cmbModbus2BaudSetting.Enabled = enabled;
+            cmbModbus2FrameFormatSetting.Enabled = enabled;
+            cmbModbus2FunctionCodeSetting.Enabled = enabled;
+            chkForward2UseSetting.Enabled = enabled;
+            txtWriteForward2RegAddrSetting.Enabled = enabled && chkForward2UseSetting.Checked;
+            cmbForward2DataTypeSetting.Enabled = enabled && chkForward2UseSetting.Checked;
+            cmbForward2WordSwapSetting.Enabled = enabled && chkForward2UseSetting.Checked;
+            txtWriteForward2MultiplierSetting.Enabled = enabled && chkForward2UseSetting.Checked;
+            chkReverse2UseSetting.Enabled = enabled;
+            txtWriteReverse2RegAddrSetting.Enabled = enabled && chkReverse2UseSetting.Checked;
+            cmbReverse2DataTypeSetting.Enabled = enabled && chkReverse2UseSetting.Checked;
+            cmbReverse2WordSwapSetting.Enabled = enabled && chkReverse2UseSetting.Checked;
+            txtWriteReverse2MultiplierSetting.Enabled = enabled && chkReverse2UseSetting.Checked;
+            chkFlow2UseSetting.Enabled = enabled;
+            txtWriteFlow2RegAddrSetting.Enabled = enabled && chkFlow2UseSetting.Checked;
+            cmbFlow2DataTypeSetting.Enabled = enabled && chkFlow2UseSetting.Checked;
+            cmbFlow2WordSwapSetting.Enabled = enabled && chkFlow2UseSetting.Checked;
+            txtWriteFlow2MultiplierSetting.Enabled = enabled && chkFlow2UseSetting.Checked;
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void UpdateModbusMeter3Control()
         {
-
+            bool enabled = chkModbus3UseSetting.Checked;
+            txtWriteModbus3SerialSetting.Enabled = enabled;
+            txtWriteModbus3SlaveAddrSetting.Enabled = enabled;
+            cmbModbus3BaudSetting.Enabled = enabled;
+            cmbModbus3FrameFormatSetting.Enabled = enabled;
+            cmbModbus3FunctionCodeSetting.Enabled = enabled;
+            chkForward3UseSetting.Enabled = enabled;
+            txtWriteForward3RegAddrSetting.Enabled = enabled && chkForward3UseSetting.Checked;
+            cmbForward3DataTypeSetting.Enabled = enabled && chkForward3UseSetting.Checked;
+            cmbForward3WordSwapSetting.Enabled = enabled && chkForward3UseSetting.Checked;
+            txtWriteForward3MultiplierSetting.Enabled = enabled && chkForward3UseSetting.Checked;
+            chkReverse3UseSetting.Enabled = enabled;
+            txtWriteReverse3RegAddrSetting.Enabled = enabled && chkReverse3UseSetting.Checked;
+            cmbReverse3DataTypeSetting.Enabled = enabled && chkReverse3UseSetting.Checked;
+            cmbReverse3WordSwapSetting.Enabled = enabled && chkReverse3UseSetting.Checked;
+            txtWriteReverse3MultiplierSetting.Enabled = enabled && chkReverse3UseSetting.Checked;
+            chkFlow3UseSetting.Enabled = enabled;
+            txtWriteFlow3RegAddrSetting.Enabled = enabled && chkFlow3UseSetting.Checked;
+            cmbFlow3DataTypeSetting.Enabled = enabled && chkFlow3UseSetting.Checked;
+            cmbFlow3WordSwapSetting.Enabled = enabled && chkFlow3UseSetting.Checked;
+            txtWriteFlow3MultiplierSetting.Enabled = enabled && chkFlow3UseSetting.Checked;
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)
+        private void UpdateModbusMeter4Control()
         {
-
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
+            bool enabled = chkModbus4UseSetting.Checked;
+            txtWriteModbus4SerialSetting.Enabled = enabled;
+            txtWriteModbus4SlaveAddrSetting.Enabled = enabled;
+            cmbModbus4BaudSetting.Enabled = enabled;
+            cmbModbus4FrameFormatSetting.Enabled = enabled;
+            cmbModbus4FunctionCodeSetting.Enabled = enabled;
+            chkForward4UseSetting.Enabled = enabled;
+            txtWriteForward4RegAddrSetting.Enabled = enabled && chkForward4UseSetting.Checked;
+            cmbForward4DataTypeSetting.Enabled = enabled && chkForward4UseSetting.Checked;
+            cmbForward4WordSwapSetting.Enabled = enabled && chkForward4UseSetting.Checked;
+            txtWriteForward4MultiplierSetting.Enabled = enabled && chkForward4UseSetting.Checked;
+            chkReverse4UseSetting.Enabled = enabled;
+            txtWriteReverse4RegAddrSetting.Enabled = enabled && chkReverse4UseSetting.Checked;
+            cmbReverse4DataTypeSetting.Enabled = enabled && chkReverse4UseSetting.Checked;
+            cmbReverse4WordSwapSetting.Enabled = enabled && chkReverse4UseSetting.Checked;
+            txtWriteReverse4MultiplierSetting.Enabled = enabled && chkReverse4UseSetting.Checked;
+            chkFlow4UseSetting.Enabled = enabled;
+            txtWriteFlow4RegAddrSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
+            cmbFlow4DataTypeSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
+            cmbFlow4WordSwapSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
+            txtWriteFlow4MultiplierSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
         }
     }
 }

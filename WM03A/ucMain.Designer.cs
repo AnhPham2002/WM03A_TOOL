@@ -307,6 +307,77 @@
             this.txtWritePulseMeter1ReverseSetting = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.tabModbusMeterConfig = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.txtReadFlow1MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label88 = new System.Windows.Forms.Label();
+            this.chkFlow1UseSetting = new System.Windows.Forms.CheckBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.txtReadFlow1UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadFlow1WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.txtReadFlow1RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow1WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadFlow1DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow1MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow1RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow1DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnReadModbusMeter1Setting = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.txtReadReverse1MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.chkReverse1UseSetting = new System.Windows.Forms.CheckBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.txtReadReverse1UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadReverse1WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.txtReadReverse1RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse1WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadReverse1DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse1MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse1RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse1DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnWriteModbusMeter1Setting = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.txtReadForward1MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label80 = new System.Windows.Forms.Label();
+            this.chkForward1UseSetting = new System.Windows.Forms.CheckBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.txtReadForward1UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadForward1WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.txtReadForward1RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward1WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadForward1DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward1MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward1RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward1DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.chkModbus1UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbModbus1FunctionCodeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadModbus1SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.lblModbusMeter1SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadModbus1UseSetting = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.txtReadModbus1FunctionCodeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus1SerialSetting = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.txtReadModbus1FrameFormatSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus1BaudSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteModbus1SerialSetting = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.cmbModbus1FrameFormatSetting = new System.Windows.Forms.ComboBox();
+            this.cmbModbus1BaudSetting = new System.Windows.Forms.ComboBox();
+            this.txtWriteModbus1SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.label79 = new System.Windows.Forms.Label();
             this.tabPressureSensorConfig = new System.Windows.Forms.TabPage();
             this.tabOTA = new System.Windows.Forms.TabPage();
             this.tabChangePassword = new System.Windows.Forms.TabPage();
@@ -318,6 +389,225 @@
             this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker6 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.txtReadFlow2MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.chkFlow2UseSetting = new System.Windows.Forms.CheckBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.txtReadFlow2UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadFlow2WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.txtReadFlow2RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow2WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadFlow2DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow2MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow2RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow2DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnReadModbusMeter2Setting = new System.Windows.Forms.Button();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.txtReadReverse2MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.chkReverse2UseSetting = new System.Windows.Forms.CheckBox();
+            this.label98 = new System.Windows.Forms.Label();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.txtReadReverse2UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadReverse2WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.txtReadReverse2RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse2WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadReverse2DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse2MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse2RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse2DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnWriteModbusMeter2Setting = new System.Windows.Forms.Button();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.txtReadForward2MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label102 = new System.Windows.Forms.Label();
+            this.chkForward2UseSetting = new System.Windows.Forms.CheckBox();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label104 = new System.Windows.Forms.Label();
+            this.label105 = new System.Windows.Forms.Label();
+            this.txtReadForward2UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadForward2WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label106 = new System.Windows.Forms.Label();
+            this.txtReadForward2RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward2WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadForward2DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward2MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward2RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward2DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.chkModbus2UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbModbus2FunctionCodeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadModbus2SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.lblModbusMeter2SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadModbus2UseSetting = new System.Windows.Forms.TextBox();
+            this.label108 = new System.Windows.Forms.Label();
+            this.txtReadModbus2FunctionCodeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus2SerialSetting = new System.Windows.Forms.TextBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.label110 = new System.Windows.Forms.Label();
+            this.txtReadModbus2FrameFormatSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus2BaudSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteModbus2SerialSetting = new System.Windows.Forms.TextBox();
+            this.label111 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
+            this.cmbModbus2FrameFormatSetting = new System.Windows.Forms.ComboBox();
+            this.cmbModbus2BaudSetting = new System.Windows.Forms.ComboBox();
+            this.txtWriteModbus2SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.label113 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.txtReadFlow4MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label114 = new System.Windows.Forms.Label();
+            this.chkFlow4UseSetting = new System.Windows.Forms.CheckBox();
+            this.label115 = new System.Windows.Forms.Label();
+            this.label116 = new System.Windows.Forms.Label();
+            this.label117 = new System.Windows.Forms.Label();
+            this.txtReadFlow4UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadFlow4WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label118 = new System.Windows.Forms.Label();
+            this.txtReadFlow4RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow4WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadFlow4DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow4MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow4RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow4DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnReadModbusMeter4Setting = new System.Windows.Forms.Button();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.txtReadReverse4MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label119 = new System.Windows.Forms.Label();
+            this.chkReverse4UseSetting = new System.Windows.Forms.CheckBox();
+            this.label120 = new System.Windows.Forms.Label();
+            this.label121 = new System.Windows.Forms.Label();
+            this.label122 = new System.Windows.Forms.Label();
+            this.txtReadReverse4UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadReverse4WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label123 = new System.Windows.Forms.Label();
+            this.txtReadReverse4RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse4WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadReverse4DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse4MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse4RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse4DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnWriteModbusMeter4Setting = new System.Windows.Forms.Button();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.txtReadForward4MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label124 = new System.Windows.Forms.Label();
+            this.chkForward4UseSetting = new System.Windows.Forms.CheckBox();
+            this.label125 = new System.Windows.Forms.Label();
+            this.label126 = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
+            this.txtReadForward4UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadForward4WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label128 = new System.Windows.Forms.Label();
+            this.txtReadForward4RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward4WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadForward4DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward4MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward4RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward4DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.chkModbus4UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbModbus4FunctionCodeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadModbus4SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.lblModbusMeter4SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadModbus4UseSetting = new System.Windows.Forms.TextBox();
+            this.label130 = new System.Windows.Forms.Label();
+            this.txtReadModbus4FunctionCodeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus4SerialSetting = new System.Windows.Forms.TextBox();
+            this.label131 = new System.Windows.Forms.Label();
+            this.label132 = new System.Windows.Forms.Label();
+            this.txtReadModbus4FrameFormatSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus4BaudSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteModbus4SerialSetting = new System.Windows.Forms.TextBox();
+            this.label133 = new System.Windows.Forms.Label();
+            this.label134 = new System.Windows.Forms.Label();
+            this.cmbModbus4FrameFormatSetting = new System.Windows.Forms.ComboBox();
+            this.cmbModbus4BaudSetting = new System.Windows.Forms.ComboBox();
+            this.txtWriteModbus4SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.label135 = new System.Windows.Forms.Label();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.txtReadFlow3MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label136 = new System.Windows.Forms.Label();
+            this.chkFlow3UseSetting = new System.Windows.Forms.CheckBox();
+            this.label137 = new System.Windows.Forms.Label();
+            this.label138 = new System.Windows.Forms.Label();
+            this.label139 = new System.Windows.Forms.Label();
+            this.txtReadFlow3UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadFlow3WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label140 = new System.Windows.Forms.Label();
+            this.txtReadFlow3RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow3WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadFlow3DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow3MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteFlow3RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbFlow3DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnReadModbusMeter3Setting = new System.Windows.Forms.Button();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.txtReadReverse3MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label141 = new System.Windows.Forms.Label();
+            this.chkReverse3UseSetting = new System.Windows.Forms.CheckBox();
+            this.label142 = new System.Windows.Forms.Label();
+            this.label143 = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
+            this.txtReadReverse3UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadReverse3WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label145 = new System.Windows.Forms.Label();
+            this.txtReadReverse3RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse3WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadReverse3DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse3MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteReverse3RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbReverse3DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.btnWriteModbusMeter3Setting = new System.Windows.Forms.Button();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.txtReadForward3MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.label146 = new System.Windows.Forms.Label();
+            this.chkForward3UseSetting = new System.Windows.Forms.CheckBox();
+            this.label147 = new System.Windows.Forms.Label();
+            this.label148 = new System.Windows.Forms.Label();
+            this.label149 = new System.Windows.Forms.Label();
+            this.txtReadForward3UseSetting = new System.Windows.Forms.TextBox();
+            this.txtReadForward3WordSwapSetting = new System.Windows.Forms.TextBox();
+            this.label150 = new System.Windows.Forms.Label();
+            this.txtReadForward3RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward3WordSwapSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadForward3DataTypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward3MultiplierSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteForward3RegAddrSetting = new System.Windows.Forms.TextBox();
+            this.cmbForward3DataTypeSetting = new System.Windows.Forms.ComboBox();
+            this.chkModbus3UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbModbus3FunctionCodeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadModbus3SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.lblModbusMeter3SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadModbus3UseSetting = new System.Windows.Forms.TextBox();
+            this.label152 = new System.Windows.Forms.Label();
+            this.txtReadModbus3FunctionCodeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus3SerialSetting = new System.Windows.Forms.TextBox();
+            this.label153 = new System.Windows.Forms.Label();
+            this.label154 = new System.Windows.Forms.Label();
+            this.txtReadModbus3FrameFormatSetting = new System.Windows.Forms.TextBox();
+            this.txtReadModbus3BaudSetting = new System.Windows.Forms.TextBox();
+            this.txtWriteModbus3SerialSetting = new System.Windows.Forms.TextBox();
+            this.label155 = new System.Windows.Forms.Label();
+            this.label156 = new System.Windows.Forms.Label();
+            this.cmbModbus3FrameFormatSetting = new System.Windows.Forms.ComboBox();
+            this.cmbModbus3BaudSetting = new System.Windows.Forms.ComboBox();
+            this.txtWriteModbus3SlaveAddrSetting = new System.Windows.Forms.TextBox();
+            this.label157 = new System.Windows.Forms.Label();
+            this.btnModbusMeter4CopySetting = new System.Windows.Forms.Button();
+            this.btnModbusMeter3CopySetting = new System.Windows.Forms.Button();
+            this.btnModbusMeter2CopySetting = new System.Windows.Forms.Button();
+            this.btnModbusMeter1CopySetting = new System.Windows.Forms.Button();
+            this.btnPulseMeter1CopySetting = new System.Windows.Forms.Button();
+            this.btnPulseMeter2CopySetting = new System.Windows.Forms.Button();
+            this.btnPulseMeter4CopySetting = new System.Windows.Forms.Button();
+            this.btnPulseMeter3CopySetting = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -338,6 +628,25 @@
             this.panel1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.tabModbusMeterConfig.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.groupBox19.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.groupBox21.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox23.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -1608,7 +1917,6 @@
             this.label35.Size = new System.Drawing.Size(26, 13);
             this.label35.TabIndex = 2;
             this.label35.Text = "Port";
-            this.label35.Click += new System.EventHandler(this.label27_Click);
             // 
             // label27
             // 
@@ -1618,7 +1926,6 @@
             this.label27.Size = new System.Drawing.Size(26, 13);
             this.label27.TabIndex = 2;
             this.label27.Text = "Port";
-            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -1628,7 +1935,6 @@
             this.label28.Size = new System.Drawing.Size(53, 13);
             this.label28.TabIndex = 3;
             this.label28.Text = "Địa chỉ IP";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // btnWriteModuleSetting
             // 
@@ -1672,7 +1978,6 @@
             this.txtWritePortSetting.Name = "txtWritePortSetting";
             this.txtWritePortSetting.Size = new System.Drawing.Size(54, 20);
             this.txtWritePortSetting.TabIndex = 10;
-            this.txtWritePortSetting.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             this.txtWritePortSetting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWritePortSetting_KeyPress);
             // 
             // txtReadPushSetting
@@ -1689,7 +1994,6 @@
             this.txtWriteIpSetting.Name = "txtWriteIpSetting";
             this.txtWriteIpSetting.Size = new System.Drawing.Size(98, 20);
             this.txtWriteIpSetting.TabIndex = 11;
-            this.txtWriteIpSetting.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.txtWriteIpSetting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWriteIpSetting_KeyPress);
             // 
             // txtReadPortSetting
@@ -1699,7 +2003,6 @@
             this.txtReadPortSetting.ReadOnly = true;
             this.txtReadPortSetting.Size = new System.Drawing.Size(54, 20);
             this.txtReadPortSetting.TabIndex = 10;
-            this.txtReadPortSetting.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtWriteLatchSetting
             // 
@@ -1716,7 +2019,6 @@
             this.txtReadIpSetting.ReadOnly = true;
             this.txtReadIpSetting.Size = new System.Drawing.Size(98, 20);
             this.txtReadIpSetting.TabIndex = 11;
-            this.txtReadIpSetting.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // txtReadLatchSetting
             // 
@@ -1844,7 +2146,6 @@
             this.label36.Size = new System.Drawing.Size(87, 13);
             this.label36.TabIndex = 4;
             this.label36.Text = "Thời gian cài đặt";
-            this.label36.Click += new System.EventHandler(this.label29_Click);
             // 
             // label29
             // 
@@ -1854,7 +2155,6 @@
             this.label29.Size = new System.Drawing.Size(88, 13);
             this.label29.TabIndex = 4;
             this.label29.Text = "Thời gian hiện tại";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // txtReadTimeSetting
             // 
@@ -1863,7 +2163,6 @@
             this.txtReadTimeSetting.ReadOnly = true;
             this.txtReadTimeSetting.Size = new System.Drawing.Size(245, 20);
             this.txtReadTimeSetting.TabIndex = 13;
-            this.txtReadTimeSetting.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // tabPulseMeterConfig
             // 
@@ -1889,6 +2188,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btnPulseMeter4CopySetting);
             this.groupBox6.Controls.Add(this.chkPulseMeter4UseSetting);
             this.groupBox6.Controls.Add(this.cmbPulseMeter4Pin1Setting);
             this.groupBox6.Controls.Add(this.txtReadPulseMeter4EdgeSetting);
@@ -2209,6 +2509,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.btnPulseMeter3CopySetting);
             this.groupBox7.Controls.Add(this.chkPulseMeter3UseSetting);
             this.groupBox7.Controls.Add(this.cmbPulseMeter3Pin1Setting);
             this.groupBox7.Controls.Add(this.txtReadPulseMeter3EdgeSetting);
@@ -2539,6 +2840,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnPulseMeter2CopySetting);
             this.groupBox5.Controls.Add(this.chkPulseMeter2UseSetting);
             this.groupBox5.Controls.Add(this.cmbPulseMeter2Pin1Setting);
             this.groupBox5.Controls.Add(this.txtReadPulseMeter2EdgeSetting);
@@ -2859,6 +3161,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnPulseMeter1CopySetting);
             this.groupBox4.Controls.Add(this.chkPulseMeter1UseSetting);
             this.groupBox4.Controls.Add(this.cmbPulseMeter1Pin1Setting);
             this.groupBox4.Controls.Add(this.txtReadPulseMeter1EdgeSetting);
@@ -3181,12 +3484,757 @@
             // 
             // tabModbusMeterConfig
             // 
+            this.tabModbusMeterConfig.AutoScroll = true;
+            this.tabModbusMeterConfig.Controls.Add(this.panel4);
+            this.tabModbusMeterConfig.Controls.Add(this.panel3);
             this.tabModbusMeterConfig.Location = new System.Drawing.Point(4, 22);
             this.tabModbusMeterConfig.Name = "tabModbusMeterConfig";
             this.tabModbusMeterConfig.Size = new System.Drawing.Size(938, 717);
             this.tabModbusMeterConfig.TabIndex = 2;
             this.tabModbusMeterConfig.Text = "Đồng hồ modbus";
             this.tabModbusMeterConfig.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.groupBox12);
+            this.panel3.Controls.Add(this.groupBox8);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(921, 689);
+            this.panel3.TabIndex = 4;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.btnModbusMeter1CopySetting);
+            this.groupBox8.Controls.Add(this.groupBox11);
+            this.groupBox8.Controls.Add(this.btnReadModbusMeter1Setting);
+            this.groupBox8.Controls.Add(this.groupBox10);
+            this.groupBox8.Controls.Add(this.btnWriteModbusMeter1Setting);
+            this.groupBox8.Controls.Add(this.groupBox9);
+            this.groupBox8.Controls.Add(this.chkModbus1UseSetting);
+            this.groupBox8.Controls.Add(this.cmbModbus1FunctionCodeSetting);
+            this.groupBox8.Controls.Add(this.txtReadModbus1SlaveAddrSetting);
+            this.groupBox8.Controls.Add(this.lblModbusMeter1SettingStatus);
+            this.groupBox8.Controls.Add(this.txtReadModbus1UseSetting);
+            this.groupBox8.Controls.Add(this.label54);
+            this.groupBox8.Controls.Add(this.txtReadModbus1FunctionCodeSetting);
+            this.groupBox8.Controls.Add(this.txtReadModbus1SerialSetting);
+            this.groupBox8.Controls.Add(this.label64);
+            this.groupBox8.Controls.Add(this.label76);
+            this.groupBox8.Controls.Add(this.txtReadModbus1FrameFormatSetting);
+            this.groupBox8.Controls.Add(this.txtReadModbus1BaudSetting);
+            this.groupBox8.Controls.Add(this.txtWriteModbus1SerialSetting);
+            this.groupBox8.Controls.Add(this.label82);
+            this.groupBox8.Controls.Add(this.label78);
+            this.groupBox8.Controls.Add(this.cmbModbus1FrameFormatSetting);
+            this.groupBox8.Controls.Add(this.cmbModbus1BaudSetting);
+            this.groupBox8.Controls.Add(this.txtWriteModbus1SlaveAddrSetting);
+            this.groupBox8.Controls.Add(this.label79);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox8.Location = new System.Drawing.Point(0, 0);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(458, 689);
+            this.groupBox8.TabIndex = 3;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Đồng hồ 1";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.txtReadFlow1MultiplierSetting);
+            this.groupBox11.Controls.Add(this.label88);
+            this.groupBox11.Controls.Add(this.chkFlow1UseSetting);
+            this.groupBox11.Controls.Add(this.label89);
+            this.groupBox11.Controls.Add(this.label90);
+            this.groupBox11.Controls.Add(this.label91);
+            this.groupBox11.Controls.Add(this.txtReadFlow1UseSetting);
+            this.groupBox11.Controls.Add(this.txtReadFlow1WordSwapSetting);
+            this.groupBox11.Controls.Add(this.label92);
+            this.groupBox11.Controls.Add(this.txtReadFlow1RegAddrSetting);
+            this.groupBox11.Controls.Add(this.cmbFlow1WordSwapSetting);
+            this.groupBox11.Controls.Add(this.txtReadFlow1DataTypeSetting);
+            this.groupBox11.Controls.Add(this.txtWriteFlow1MultiplierSetting);
+            this.groupBox11.Controls.Add(this.txtWriteFlow1RegAddrSetting);
+            this.groupBox11.Controls.Add(this.cmbFlow1DataTypeSetting);
+            this.groupBox11.Location = new System.Drawing.Point(41, 502);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(377, 149);
+            this.groupBox11.TabIndex = 20;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadFlow1MultiplierSetting
+            // 
+            this.txtReadFlow1MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadFlow1MultiplierSetting.Name = "txtReadFlow1MultiplierSetting";
+            this.txtReadFlow1MultiplierSetting.ReadOnly = true;
+            this.txtReadFlow1MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow1MultiplierSetting.TabIndex = 13;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(11, 23);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(77, 13);
+            this.label88.TabIndex = 1;
+            this.label88.Text = "Trạng thái đọc";
+            // 
+            // chkFlow1UseSetting
+            // 
+            this.chkFlow1UseSetting.AutoSize = true;
+            this.chkFlow1UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkFlow1UseSetting.Name = "chkFlow1UseSetting";
+            this.chkFlow1UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkFlow1UseSetting.TabIndex = 14;
+            this.chkFlow1UseSetting.Text = "Sử dụng";
+            this.chkFlow1UseSetting.UseVisualStyleBackColor = true;
+            this.chkFlow1UseSetting.CheckedChanged += new System.EventHandler(this.chkFlow1UseSetting_CheckedChanged);
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(11, 48);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(87, 13);
+            this.label89.TabIndex = 1;
+            this.label89.Text = "Địa chỉ thanh ghi";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(11, 73);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(62, 13);
+            this.label90.TabIndex = 1;
+            this.label90.Text = "Kiểu dữ liệu";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(11, 123);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(62, 13);
+            this.label91.TabIndex = 1;
+            this.label91.Text = "Hệ số nhân";
+            // 
+            // txtReadFlow1UseSetting
+            // 
+            this.txtReadFlow1UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadFlow1UseSetting.Name = "txtReadFlow1UseSetting";
+            this.txtReadFlow1UseSetting.ReadOnly = true;
+            this.txtReadFlow1UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow1UseSetting.TabIndex = 13;
+            // 
+            // txtReadFlow1WordSwapSetting
+            // 
+            this.txtReadFlow1WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadFlow1WordSwapSetting.Name = "txtReadFlow1WordSwapSetting";
+            this.txtReadFlow1WordSwapSetting.ReadOnly = true;
+            this.txtReadFlow1WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow1WordSwapSetting.TabIndex = 13;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(11, 98);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(61, 13);
+            this.label92.TabIndex = 1;
+            this.label92.Text = "Word swap";
+            // 
+            // txtReadFlow1RegAddrSetting
+            // 
+            this.txtReadFlow1RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadFlow1RegAddrSetting.Name = "txtReadFlow1RegAddrSetting";
+            this.txtReadFlow1RegAddrSetting.ReadOnly = true;
+            this.txtReadFlow1RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow1RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbFlow1WordSwapSetting
+            // 
+            this.cmbFlow1WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow1WordSwapSetting.FormattingEnabled = true;
+            this.cmbFlow1WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbFlow1WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbFlow1WordSwapSetting.Name = "cmbFlow1WordSwapSetting";
+            this.cmbFlow1WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow1WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadFlow1DataTypeSetting
+            // 
+            this.txtReadFlow1DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadFlow1DataTypeSetting.Name = "txtReadFlow1DataTypeSetting";
+            this.txtReadFlow1DataTypeSetting.ReadOnly = true;
+            this.txtReadFlow1DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow1DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteFlow1MultiplierSetting
+            // 
+            this.txtWriteFlow1MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteFlow1MultiplierSetting.Name = "txtWriteFlow1MultiplierSetting";
+            this.txtWriteFlow1MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow1MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteFlow1RegAddrSetting
+            // 
+            this.txtWriteFlow1RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteFlow1RegAddrSetting.Name = "txtWriteFlow1RegAddrSetting";
+            this.txtWriteFlow1RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow1RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbFlow1DataTypeSetting
+            // 
+            this.cmbFlow1DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow1DataTypeSetting.FormattingEnabled = true;
+            this.cmbFlow1DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbFlow1DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbFlow1DataTypeSetting.Name = "cmbFlow1DataTypeSetting";
+            this.cmbFlow1DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow1DataTypeSetting.TabIndex = 6;
+            // 
+            // btnReadModbusMeter1Setting
+            // 
+            this.btnReadModbusMeter1Setting.Location = new System.Drawing.Point(189, 652);
+            this.btnReadModbusMeter1Setting.Name = "btnReadModbusMeter1Setting";
+            this.btnReadModbusMeter1Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadModbusMeter1Setting.TabIndex = 14;
+            this.btnReadModbusMeter1Setting.Text = "Đọc";
+            this.btnReadModbusMeter1Setting.UseVisualStyleBackColor = true;
+            this.btnReadModbusMeter1Setting.Click += new System.EventHandler(this.btnReadModbusMeter1Setting_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.txtReadReverse1MultiplierSetting);
+            this.groupBox10.Controls.Add(this.label83);
+            this.groupBox10.Controls.Add(this.chkReverse1UseSetting);
+            this.groupBox10.Controls.Add(this.label84);
+            this.groupBox10.Controls.Add(this.label85);
+            this.groupBox10.Controls.Add(this.label86);
+            this.groupBox10.Controls.Add(this.txtReadReverse1UseSetting);
+            this.groupBox10.Controls.Add(this.txtReadReverse1WordSwapSetting);
+            this.groupBox10.Controls.Add(this.label87);
+            this.groupBox10.Controls.Add(this.txtReadReverse1RegAddrSetting);
+            this.groupBox10.Controls.Add(this.cmbReverse1WordSwapSetting);
+            this.groupBox10.Controls.Add(this.txtReadReverse1DataTypeSetting);
+            this.groupBox10.Controls.Add(this.txtWriteReverse1MultiplierSetting);
+            this.groupBox10.Controls.Add(this.txtWriteReverse1RegAddrSetting);
+            this.groupBox10.Controls.Add(this.cmbReverse1DataTypeSetting);
+            this.groupBox10.Location = new System.Drawing.Point(41, 347);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(377, 149);
+            this.groupBox10.TabIndex = 20;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadReverse1MultiplierSetting
+            // 
+            this.txtReadReverse1MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadReverse1MultiplierSetting.Name = "txtReadReverse1MultiplierSetting";
+            this.txtReadReverse1MultiplierSetting.ReadOnly = true;
+            this.txtReadReverse1MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse1MultiplierSetting.TabIndex = 13;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(11, 23);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(77, 13);
+            this.label83.TabIndex = 1;
+            this.label83.Text = "Trạng thái đọc";
+            // 
+            // chkReverse1UseSetting
+            // 
+            this.chkReverse1UseSetting.AutoSize = true;
+            this.chkReverse1UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkReverse1UseSetting.Name = "chkReverse1UseSetting";
+            this.chkReverse1UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkReverse1UseSetting.TabIndex = 14;
+            this.chkReverse1UseSetting.Text = "Sử dụng";
+            this.chkReverse1UseSetting.UseVisualStyleBackColor = true;
+            this.chkReverse1UseSetting.CheckedChanged += new System.EventHandler(this.chkReverse1UseSetting_CheckedChanged);
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(11, 48);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(87, 13);
+            this.label84.TabIndex = 1;
+            this.label84.Text = "Địa chỉ thanh ghi";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(11, 73);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(62, 13);
+            this.label85.TabIndex = 1;
+            this.label85.Text = "Kiểu dữ liệu";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(11, 123);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(62, 13);
+            this.label86.TabIndex = 1;
+            this.label86.Text = "Hệ số nhân";
+            // 
+            // txtReadReverse1UseSetting
+            // 
+            this.txtReadReverse1UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadReverse1UseSetting.Name = "txtReadReverse1UseSetting";
+            this.txtReadReverse1UseSetting.ReadOnly = true;
+            this.txtReadReverse1UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse1UseSetting.TabIndex = 13;
+            // 
+            // txtReadReverse1WordSwapSetting
+            // 
+            this.txtReadReverse1WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadReverse1WordSwapSetting.Name = "txtReadReverse1WordSwapSetting";
+            this.txtReadReverse1WordSwapSetting.ReadOnly = true;
+            this.txtReadReverse1WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse1WordSwapSetting.TabIndex = 13;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(11, 98);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(61, 13);
+            this.label87.TabIndex = 1;
+            this.label87.Text = "Word swap";
+            // 
+            // txtReadReverse1RegAddrSetting
+            // 
+            this.txtReadReverse1RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadReverse1RegAddrSetting.Name = "txtReadReverse1RegAddrSetting";
+            this.txtReadReverse1RegAddrSetting.ReadOnly = true;
+            this.txtReadReverse1RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse1RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbReverse1WordSwapSetting
+            // 
+            this.cmbReverse1WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse1WordSwapSetting.FormattingEnabled = true;
+            this.cmbReverse1WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbReverse1WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbReverse1WordSwapSetting.Name = "cmbReverse1WordSwapSetting";
+            this.cmbReverse1WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse1WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadReverse1DataTypeSetting
+            // 
+            this.txtReadReverse1DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadReverse1DataTypeSetting.Name = "txtReadReverse1DataTypeSetting";
+            this.txtReadReverse1DataTypeSetting.ReadOnly = true;
+            this.txtReadReverse1DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse1DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteReverse1MultiplierSetting
+            // 
+            this.txtWriteReverse1MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteReverse1MultiplierSetting.Name = "txtWriteReverse1MultiplierSetting";
+            this.txtWriteReverse1MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse1MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteReverse1RegAddrSetting
+            // 
+            this.txtWriteReverse1RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteReverse1RegAddrSetting.Name = "txtWriteReverse1RegAddrSetting";
+            this.txtWriteReverse1RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse1RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbReverse1DataTypeSetting
+            // 
+            this.cmbReverse1DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse1DataTypeSetting.FormattingEnabled = true;
+            this.cmbReverse1DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbReverse1DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbReverse1DataTypeSetting.Name = "cmbReverse1DataTypeSetting";
+            this.cmbReverse1DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse1DataTypeSetting.TabIndex = 6;
+            // 
+            // btnWriteModbusMeter1Setting
+            // 
+            this.btnWriteModbusMeter1Setting.Location = new System.Drawing.Point(308, 652);
+            this.btnWriteModbusMeter1Setting.Name = "btnWriteModbusMeter1Setting";
+            this.btnWriteModbusMeter1Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteModbusMeter1Setting.TabIndex = 15;
+            this.btnWriteModbusMeter1Setting.Text = "Ghi";
+            this.btnWriteModbusMeter1Setting.UseVisualStyleBackColor = true;
+            this.btnWriteModbusMeter1Setting.Click += new System.EventHandler(this.btnWriteModbusMeter1Setting_Click);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtReadForward1MultiplierSetting);
+            this.groupBox9.Controls.Add(this.label80);
+            this.groupBox9.Controls.Add(this.chkForward1UseSetting);
+            this.groupBox9.Controls.Add(this.label74);
+            this.groupBox9.Controls.Add(this.label75);
+            this.groupBox9.Controls.Add(this.label81);
+            this.groupBox9.Controls.Add(this.txtReadForward1UseSetting);
+            this.groupBox9.Controls.Add(this.txtReadForward1WordSwapSetting);
+            this.groupBox9.Controls.Add(this.label77);
+            this.groupBox9.Controls.Add(this.txtReadForward1RegAddrSetting);
+            this.groupBox9.Controls.Add(this.cmbForward1WordSwapSetting);
+            this.groupBox9.Controls.Add(this.txtReadForward1DataTypeSetting);
+            this.groupBox9.Controls.Add(this.txtWriteForward1MultiplierSetting);
+            this.groupBox9.Controls.Add(this.txtWriteForward1RegAddrSetting);
+            this.groupBox9.Controls.Add(this.cmbForward1DataTypeSetting);
+            this.groupBox9.Location = new System.Drawing.Point(41, 192);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(377, 149);
+            this.groupBox9.TabIndex = 20;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadForward1MultiplierSetting
+            // 
+            this.txtReadForward1MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadForward1MultiplierSetting.Name = "txtReadForward1MultiplierSetting";
+            this.txtReadForward1MultiplierSetting.ReadOnly = true;
+            this.txtReadForward1MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward1MultiplierSetting.TabIndex = 13;
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(11, 23);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(77, 13);
+            this.label80.TabIndex = 1;
+            this.label80.Text = "Trạng thái đọc";
+            // 
+            // chkForward1UseSetting
+            // 
+            this.chkForward1UseSetting.AutoSize = true;
+            this.chkForward1UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkForward1UseSetting.Name = "chkForward1UseSetting";
+            this.chkForward1UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkForward1UseSetting.TabIndex = 14;
+            this.chkForward1UseSetting.Text = "Sử dụng";
+            this.chkForward1UseSetting.UseVisualStyleBackColor = true;
+            this.chkForward1UseSetting.CheckedChanged += new System.EventHandler(this.chkForward1UseSetting_CheckedChanged);
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(11, 48);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(87, 13);
+            this.label74.TabIndex = 1;
+            this.label74.Text = "Địa chỉ thanh ghi";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(11, 73);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(62, 13);
+            this.label75.TabIndex = 1;
+            this.label75.Text = "Kiểu dữ liệu";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(11, 123);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(62, 13);
+            this.label81.TabIndex = 1;
+            this.label81.Text = "Hệ số nhân";
+            // 
+            // txtReadForward1UseSetting
+            // 
+            this.txtReadForward1UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadForward1UseSetting.Name = "txtReadForward1UseSetting";
+            this.txtReadForward1UseSetting.ReadOnly = true;
+            this.txtReadForward1UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward1UseSetting.TabIndex = 13;
+            // 
+            // txtReadForward1WordSwapSetting
+            // 
+            this.txtReadForward1WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadForward1WordSwapSetting.Name = "txtReadForward1WordSwapSetting";
+            this.txtReadForward1WordSwapSetting.ReadOnly = true;
+            this.txtReadForward1WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward1WordSwapSetting.TabIndex = 13;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(11, 98);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(61, 13);
+            this.label77.TabIndex = 1;
+            this.label77.Text = "Word swap";
+            // 
+            // txtReadForward1RegAddrSetting
+            // 
+            this.txtReadForward1RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadForward1RegAddrSetting.Name = "txtReadForward1RegAddrSetting";
+            this.txtReadForward1RegAddrSetting.ReadOnly = true;
+            this.txtReadForward1RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward1RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbForward1WordSwapSetting
+            // 
+            this.cmbForward1WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward1WordSwapSetting.FormattingEnabled = true;
+            this.cmbForward1WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbForward1WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbForward1WordSwapSetting.Name = "cmbForward1WordSwapSetting";
+            this.cmbForward1WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward1WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadForward1DataTypeSetting
+            // 
+            this.txtReadForward1DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadForward1DataTypeSetting.Name = "txtReadForward1DataTypeSetting";
+            this.txtReadForward1DataTypeSetting.ReadOnly = true;
+            this.txtReadForward1DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward1DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteForward1MultiplierSetting
+            // 
+            this.txtWriteForward1MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteForward1MultiplierSetting.Name = "txtWriteForward1MultiplierSetting";
+            this.txtWriteForward1MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward1MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteForward1RegAddrSetting
+            // 
+            this.txtWriteForward1RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteForward1RegAddrSetting.Name = "txtWriteForward1RegAddrSetting";
+            this.txtWriteForward1RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward1RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbForward1DataTypeSetting
+            // 
+            this.cmbForward1DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward1DataTypeSetting.FormattingEnabled = true;
+            this.cmbForward1DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbForward1DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbForward1DataTypeSetting.Name = "cmbForward1DataTypeSetting";
+            this.cmbForward1DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward1DataTypeSetting.TabIndex = 6;
+            // 
+            // chkModbus1UseSetting
+            // 
+            this.chkModbus1UseSetting.AutoSize = true;
+            this.chkModbus1UseSetting.Location = new System.Drawing.Point(312, 35);
+            this.chkModbus1UseSetting.Name = "chkModbus1UseSetting";
+            this.chkModbus1UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkModbus1UseSetting.TabIndex = 14;
+            this.chkModbus1UseSetting.Text = "Sử dụng";
+            this.chkModbus1UseSetting.UseVisualStyleBackColor = true;
+            this.chkModbus1UseSetting.CheckedChanged += new System.EventHandler(this.chkModbus1UseSetting_CheckedChanged);
+            // 
+            // cmbModbus1FunctionCodeSetting
+            // 
+            this.cmbModbus1FunctionCodeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus1FunctionCodeSetting.FormattingEnabled = true;
+            this.cmbModbus1FunctionCodeSetting.Items.AddRange(new object[] {
+            "-- Chọn mã hàm --",
+            "0x03",
+            "0x04"});
+            this.cmbModbus1FunctionCodeSetting.Location = new System.Drawing.Point(291, 158);
+            this.cmbModbus1FunctionCodeSetting.Name = "cmbModbus1FunctionCodeSetting";
+            this.cmbModbus1FunctionCodeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus1FunctionCodeSetting.TabIndex = 6;
+            // 
+            // txtReadModbus1SlaveAddrSetting
+            // 
+            this.txtReadModbus1SlaveAddrSetting.Location = new System.Drawing.Point(172, 83);
+            this.txtReadModbus1SlaveAddrSetting.Name = "txtReadModbus1SlaveAddrSetting";
+            this.txtReadModbus1SlaveAddrSetting.ReadOnly = true;
+            this.txtReadModbus1SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus1SlaveAddrSetting.TabIndex = 13;
+            // 
+            // lblModbusMeter1SettingStatus
+            // 
+            this.lblModbusMeter1SettingStatus.AutoSize = true;
+            this.lblModbusMeter1SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModbusMeter1SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblModbusMeter1SettingStatus.Location = new System.Drawing.Point(194, 13);
+            this.lblModbusMeter1SettingStatus.Name = "lblModbusMeter1SettingStatus";
+            this.lblModbusMeter1SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblModbusMeter1SettingStatus.TabIndex = 19;
+            this.lblModbusMeter1SettingStatus.Text = "Trạng thái ghi";
+            this.lblModbusMeter1SettingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtReadModbus1UseSetting
+            // 
+            this.txtReadModbus1UseSetting.Location = new System.Drawing.Point(172, 33);
+            this.txtReadModbus1UseSetting.Name = "txtReadModbus1UseSetting";
+            this.txtReadModbus1UseSetting.ReadOnly = true;
+            this.txtReadModbus1UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus1UseSetting.TabIndex = 13;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(52, 62);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(67, 13);
+            this.label54.TabIndex = 1;
+            this.label54.Text = "Serial thiết bị";
+            // 
+            // txtReadModbus1FunctionCodeSetting
+            // 
+            this.txtReadModbus1FunctionCodeSetting.Location = new System.Drawing.Point(172, 158);
+            this.txtReadModbus1FunctionCodeSetting.Name = "txtReadModbus1FunctionCodeSetting";
+            this.txtReadModbus1FunctionCodeSetting.ReadOnly = true;
+            this.txtReadModbus1FunctionCodeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus1FunctionCodeSetting.TabIndex = 13;
+            // 
+            // txtReadModbus1SerialSetting
+            // 
+            this.txtReadModbus1SerialSetting.Location = new System.Drawing.Point(172, 58);
+            this.txtReadModbus1SerialSetting.Name = "txtReadModbus1SerialSetting";
+            this.txtReadModbus1SerialSetting.ReadOnly = true;
+            this.txtReadModbus1SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus1SerialSetting.TabIndex = 13;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(52, 37);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(96, 13);
+            this.label64.TabIndex = 1;
+            this.label64.Text = "Trạng thái sử dụng";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(52, 87);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(74, 13);
+            this.label76.TabIndex = 1;
+            this.label76.Text = "Địa chỉ thiết bị";
+            // 
+            // txtReadModbus1FrameFormatSetting
+            // 
+            this.txtReadModbus1FrameFormatSetting.Location = new System.Drawing.Point(172, 133);
+            this.txtReadModbus1FrameFormatSetting.Name = "txtReadModbus1FrameFormatSetting";
+            this.txtReadModbus1FrameFormatSetting.ReadOnly = true;
+            this.txtReadModbus1FrameFormatSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus1FrameFormatSetting.TabIndex = 13;
+            // 
+            // txtReadModbus1BaudSetting
+            // 
+            this.txtReadModbus1BaudSetting.Location = new System.Drawing.Point(172, 108);
+            this.txtReadModbus1BaudSetting.Name = "txtReadModbus1BaudSetting";
+            this.txtReadModbus1BaudSetting.ReadOnly = true;
+            this.txtReadModbus1BaudSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus1BaudSetting.TabIndex = 13;
+            // 
+            // txtWriteModbus1SerialSetting
+            // 
+            this.txtWriteModbus1SerialSetting.Location = new System.Drawing.Point(291, 58);
+            this.txtWriteModbus1SerialSetting.Name = "txtWriteModbus1SerialSetting";
+            this.txtWriteModbus1SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus1SerialSetting.TabIndex = 12;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(52, 137);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(85, 13);
+            this.label82.TabIndex = 1;
+            this.label82.Text = "Định dạng frame";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(52, 112);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(107, 13);
+            this.label78.TabIndex = 1;
+            this.label78.Text = "Tốc độ truyền (baud)";
+            // 
+            // cmbModbus1FrameFormatSetting
+            // 
+            this.cmbModbus1FrameFormatSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus1FrameFormatSetting.FormattingEnabled = true;
+            this.cmbModbus1FrameFormatSetting.Items.AddRange(new object[] {
+            "-- Chọn dạng frame --",
+            "8N1",
+            "8O1",
+            "8E1"});
+            this.cmbModbus1FrameFormatSetting.Location = new System.Drawing.Point(291, 133);
+            this.cmbModbus1FrameFormatSetting.Name = "cmbModbus1FrameFormatSetting";
+            this.cmbModbus1FrameFormatSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus1FrameFormatSetting.TabIndex = 6;
+            // 
+            // cmbModbus1BaudSetting
+            // 
+            this.cmbModbus1BaudSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus1BaudSetting.FormattingEnabled = true;
+            this.cmbModbus1BaudSetting.Items.AddRange(new object[] {
+            "-- Chọn tốc độ truyền --",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbModbus1BaudSetting.Location = new System.Drawing.Point(291, 108);
+            this.cmbModbus1BaudSetting.Name = "cmbModbus1BaudSetting";
+            this.cmbModbus1BaudSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus1BaudSetting.TabIndex = 6;
+            // 
+            // txtWriteModbus1SlaveAddrSetting
+            // 
+            this.txtWriteModbus1SlaveAddrSetting.Location = new System.Drawing.Point(291, 83);
+            this.txtWriteModbus1SlaveAddrSetting.Name = "txtWriteModbus1SlaveAddrSetting";
+            this.txtWriteModbus1SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus1SlaveAddrSetting.TabIndex = 12;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(52, 162);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(67, 13);
+            this.label79.TabIndex = 1;
+            this.label79.Text = "Mã hàm đọc";
             // 
             // tabPressureSensorConfig
             // 
@@ -3235,6 +4283,2292 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.btnModbusMeter2CopySetting);
+            this.groupBox12.Controls.Add(this.groupBox13);
+            this.groupBox12.Controls.Add(this.btnReadModbusMeter2Setting);
+            this.groupBox12.Controls.Add(this.groupBox14);
+            this.groupBox12.Controls.Add(this.btnWriteModbusMeter2Setting);
+            this.groupBox12.Controls.Add(this.groupBox15);
+            this.groupBox12.Controls.Add(this.chkModbus2UseSetting);
+            this.groupBox12.Controls.Add(this.cmbModbus2FunctionCodeSetting);
+            this.groupBox12.Controls.Add(this.txtReadModbus2SlaveAddrSetting);
+            this.groupBox12.Controls.Add(this.lblModbusMeter2SettingStatus);
+            this.groupBox12.Controls.Add(this.txtReadModbus2UseSetting);
+            this.groupBox12.Controls.Add(this.label108);
+            this.groupBox12.Controls.Add(this.txtReadModbus2FunctionCodeSetting);
+            this.groupBox12.Controls.Add(this.txtReadModbus2SerialSetting);
+            this.groupBox12.Controls.Add(this.label109);
+            this.groupBox12.Controls.Add(this.label110);
+            this.groupBox12.Controls.Add(this.txtReadModbus2FrameFormatSetting);
+            this.groupBox12.Controls.Add(this.txtReadModbus2BaudSetting);
+            this.groupBox12.Controls.Add(this.txtWriteModbus2SerialSetting);
+            this.groupBox12.Controls.Add(this.label111);
+            this.groupBox12.Controls.Add(this.label112);
+            this.groupBox12.Controls.Add(this.cmbModbus2FrameFormatSetting);
+            this.groupBox12.Controls.Add(this.cmbModbus2BaudSetting);
+            this.groupBox12.Controls.Add(this.txtWriteModbus2SlaveAddrSetting);
+            this.groupBox12.Controls.Add(this.label113);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox12.Location = new System.Drawing.Point(463, 0);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(458, 689);
+            this.groupBox12.TabIndex = 4;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Đồng hồ 2";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.txtReadFlow2MultiplierSetting);
+            this.groupBox13.Controls.Add(this.label44);
+            this.groupBox13.Controls.Add(this.chkFlow2UseSetting);
+            this.groupBox13.Controls.Add(this.label93);
+            this.groupBox13.Controls.Add(this.label94);
+            this.groupBox13.Controls.Add(this.label95);
+            this.groupBox13.Controls.Add(this.txtReadFlow2UseSetting);
+            this.groupBox13.Controls.Add(this.txtReadFlow2WordSwapSetting);
+            this.groupBox13.Controls.Add(this.label96);
+            this.groupBox13.Controls.Add(this.txtReadFlow2RegAddrSetting);
+            this.groupBox13.Controls.Add(this.cmbFlow2WordSwapSetting);
+            this.groupBox13.Controls.Add(this.txtReadFlow2DataTypeSetting);
+            this.groupBox13.Controls.Add(this.txtWriteFlow2MultiplierSetting);
+            this.groupBox13.Controls.Add(this.txtWriteFlow2RegAddrSetting);
+            this.groupBox13.Controls.Add(this.cmbFlow2DataTypeSetting);
+            this.groupBox13.Location = new System.Drawing.Point(41, 502);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(377, 149);
+            this.groupBox13.TabIndex = 20;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadFlow2MultiplierSetting
+            // 
+            this.txtReadFlow2MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadFlow2MultiplierSetting.Name = "txtReadFlow2MultiplierSetting";
+            this.txtReadFlow2MultiplierSetting.ReadOnly = true;
+            this.txtReadFlow2MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow2MultiplierSetting.TabIndex = 13;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(11, 23);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(77, 13);
+            this.label44.TabIndex = 1;
+            this.label44.Text = "Trạng thái đọc";
+            // 
+            // chkFlow2UseSetting
+            // 
+            this.chkFlow2UseSetting.AutoSize = true;
+            this.chkFlow2UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkFlow2UseSetting.Name = "chkFlow2UseSetting";
+            this.chkFlow2UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkFlow2UseSetting.TabIndex = 14;
+            this.chkFlow2UseSetting.Text = "Sử dụng";
+            this.chkFlow2UseSetting.UseVisualStyleBackColor = true;
+            this.chkFlow2UseSetting.CheckedChanged += new System.EventHandler(this.chkFlow2UseSetting_CheckedChanged);
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(11, 48);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(87, 13);
+            this.label93.TabIndex = 1;
+            this.label93.Text = "Địa chỉ thanh ghi";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(11, 73);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(62, 13);
+            this.label94.TabIndex = 1;
+            this.label94.Text = "Kiểu dữ liệu";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(11, 123);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(62, 13);
+            this.label95.TabIndex = 1;
+            this.label95.Text = "Hệ số nhân";
+            // 
+            // txtReadFlow2UseSetting
+            // 
+            this.txtReadFlow2UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadFlow2UseSetting.Name = "txtReadFlow2UseSetting";
+            this.txtReadFlow2UseSetting.ReadOnly = true;
+            this.txtReadFlow2UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow2UseSetting.TabIndex = 13;
+            // 
+            // txtReadFlow2WordSwapSetting
+            // 
+            this.txtReadFlow2WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadFlow2WordSwapSetting.Name = "txtReadFlow2WordSwapSetting";
+            this.txtReadFlow2WordSwapSetting.ReadOnly = true;
+            this.txtReadFlow2WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow2WordSwapSetting.TabIndex = 13;
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(11, 98);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(61, 13);
+            this.label96.TabIndex = 1;
+            this.label96.Text = "Word swap";
+            // 
+            // txtReadFlow2RegAddrSetting
+            // 
+            this.txtReadFlow2RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadFlow2RegAddrSetting.Name = "txtReadFlow2RegAddrSetting";
+            this.txtReadFlow2RegAddrSetting.ReadOnly = true;
+            this.txtReadFlow2RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow2RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbFlow2WordSwapSetting
+            // 
+            this.cmbFlow2WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow2WordSwapSetting.FormattingEnabled = true;
+            this.cmbFlow2WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbFlow2WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbFlow2WordSwapSetting.Name = "cmbFlow2WordSwapSetting";
+            this.cmbFlow2WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow2WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadFlow2DataTypeSetting
+            // 
+            this.txtReadFlow2DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadFlow2DataTypeSetting.Name = "txtReadFlow2DataTypeSetting";
+            this.txtReadFlow2DataTypeSetting.ReadOnly = true;
+            this.txtReadFlow2DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow2DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteFlow2MultiplierSetting
+            // 
+            this.txtWriteFlow2MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteFlow2MultiplierSetting.Name = "txtWriteFlow2MultiplierSetting";
+            this.txtWriteFlow2MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow2MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteFlow2RegAddrSetting
+            // 
+            this.txtWriteFlow2RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteFlow2RegAddrSetting.Name = "txtWriteFlow2RegAddrSetting";
+            this.txtWriteFlow2RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow2RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbFlow2DataTypeSetting
+            // 
+            this.cmbFlow2DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow2DataTypeSetting.FormattingEnabled = true;
+            this.cmbFlow2DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbFlow2DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbFlow2DataTypeSetting.Name = "cmbFlow2DataTypeSetting";
+            this.cmbFlow2DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow2DataTypeSetting.TabIndex = 6;
+            // 
+            // btnReadModbusMeter2Setting
+            // 
+            this.btnReadModbusMeter2Setting.Location = new System.Drawing.Point(189, 652);
+            this.btnReadModbusMeter2Setting.Name = "btnReadModbusMeter2Setting";
+            this.btnReadModbusMeter2Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadModbusMeter2Setting.TabIndex = 14;
+            this.btnReadModbusMeter2Setting.Text = "Đọc";
+            this.btnReadModbusMeter2Setting.UseVisualStyleBackColor = true;
+            this.btnReadModbusMeter2Setting.Click += new System.EventHandler(this.btnReadModbusMeter2Setting_Click);
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.txtReadReverse2MultiplierSetting);
+            this.groupBox14.Controls.Add(this.label97);
+            this.groupBox14.Controls.Add(this.chkReverse2UseSetting);
+            this.groupBox14.Controls.Add(this.label98);
+            this.groupBox14.Controls.Add(this.label99);
+            this.groupBox14.Controls.Add(this.label100);
+            this.groupBox14.Controls.Add(this.txtReadReverse2UseSetting);
+            this.groupBox14.Controls.Add(this.txtReadReverse2WordSwapSetting);
+            this.groupBox14.Controls.Add(this.label101);
+            this.groupBox14.Controls.Add(this.txtReadReverse2RegAddrSetting);
+            this.groupBox14.Controls.Add(this.cmbReverse2WordSwapSetting);
+            this.groupBox14.Controls.Add(this.txtReadReverse2DataTypeSetting);
+            this.groupBox14.Controls.Add(this.txtWriteReverse2MultiplierSetting);
+            this.groupBox14.Controls.Add(this.txtWriteReverse2RegAddrSetting);
+            this.groupBox14.Controls.Add(this.cmbReverse2DataTypeSetting);
+            this.groupBox14.Location = new System.Drawing.Point(41, 347);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(377, 149);
+            this.groupBox14.TabIndex = 20;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadReverse2MultiplierSetting
+            // 
+            this.txtReadReverse2MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadReverse2MultiplierSetting.Name = "txtReadReverse2MultiplierSetting";
+            this.txtReadReverse2MultiplierSetting.ReadOnly = true;
+            this.txtReadReverse2MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse2MultiplierSetting.TabIndex = 13;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(11, 23);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(77, 13);
+            this.label97.TabIndex = 1;
+            this.label97.Text = "Trạng thái đọc";
+            // 
+            // chkReverse2UseSetting
+            // 
+            this.chkReverse2UseSetting.AutoSize = true;
+            this.chkReverse2UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkReverse2UseSetting.Name = "chkReverse2UseSetting";
+            this.chkReverse2UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkReverse2UseSetting.TabIndex = 14;
+            this.chkReverse2UseSetting.Text = "Sử dụng";
+            this.chkReverse2UseSetting.UseVisualStyleBackColor = true;
+            this.chkReverse2UseSetting.CheckedChanged += new System.EventHandler(this.chkReverse2UseSetting_CheckedChanged);
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(11, 48);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(87, 13);
+            this.label98.TabIndex = 1;
+            this.label98.Text = "Địa chỉ thanh ghi";
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(11, 73);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(62, 13);
+            this.label99.TabIndex = 1;
+            this.label99.Text = "Kiểu dữ liệu";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(11, 123);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(62, 13);
+            this.label100.TabIndex = 1;
+            this.label100.Text = "Hệ số nhân";
+            // 
+            // txtReadReverse2UseSetting
+            // 
+            this.txtReadReverse2UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadReverse2UseSetting.Name = "txtReadReverse2UseSetting";
+            this.txtReadReverse2UseSetting.ReadOnly = true;
+            this.txtReadReverse2UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse2UseSetting.TabIndex = 13;
+            // 
+            // txtReadReverse2WordSwapSetting
+            // 
+            this.txtReadReverse2WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadReverse2WordSwapSetting.Name = "txtReadReverse2WordSwapSetting";
+            this.txtReadReverse2WordSwapSetting.ReadOnly = true;
+            this.txtReadReverse2WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse2WordSwapSetting.TabIndex = 13;
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(11, 98);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(61, 13);
+            this.label101.TabIndex = 1;
+            this.label101.Text = "Word swap";
+            // 
+            // txtReadReverse2RegAddrSetting
+            // 
+            this.txtReadReverse2RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadReverse2RegAddrSetting.Name = "txtReadReverse2RegAddrSetting";
+            this.txtReadReverse2RegAddrSetting.ReadOnly = true;
+            this.txtReadReverse2RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse2RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbReverse2WordSwapSetting
+            // 
+            this.cmbReverse2WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse2WordSwapSetting.FormattingEnabled = true;
+            this.cmbReverse2WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbReverse2WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbReverse2WordSwapSetting.Name = "cmbReverse2WordSwapSetting";
+            this.cmbReverse2WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse2WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadReverse2DataTypeSetting
+            // 
+            this.txtReadReverse2DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadReverse2DataTypeSetting.Name = "txtReadReverse2DataTypeSetting";
+            this.txtReadReverse2DataTypeSetting.ReadOnly = true;
+            this.txtReadReverse2DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse2DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteReverse2MultiplierSetting
+            // 
+            this.txtWriteReverse2MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteReverse2MultiplierSetting.Name = "txtWriteReverse2MultiplierSetting";
+            this.txtWriteReverse2MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse2MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteReverse2RegAddrSetting
+            // 
+            this.txtWriteReverse2RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteReverse2RegAddrSetting.Name = "txtWriteReverse2RegAddrSetting";
+            this.txtWriteReverse2RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse2RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbReverse2DataTypeSetting
+            // 
+            this.cmbReverse2DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse2DataTypeSetting.FormattingEnabled = true;
+            this.cmbReverse2DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbReverse2DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbReverse2DataTypeSetting.Name = "cmbReverse2DataTypeSetting";
+            this.cmbReverse2DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse2DataTypeSetting.TabIndex = 6;
+            // 
+            // btnWriteModbusMeter2Setting
+            // 
+            this.btnWriteModbusMeter2Setting.Location = new System.Drawing.Point(308, 652);
+            this.btnWriteModbusMeter2Setting.Name = "btnWriteModbusMeter2Setting";
+            this.btnWriteModbusMeter2Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteModbusMeter2Setting.TabIndex = 15;
+            this.btnWriteModbusMeter2Setting.Text = "Ghi";
+            this.btnWriteModbusMeter2Setting.UseVisualStyleBackColor = true;
+            this.btnWriteModbusMeter2Setting.Click += new System.EventHandler(this.btnWriteModbusMeter2Setting_Click);
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.txtReadForward2MultiplierSetting);
+            this.groupBox15.Controls.Add(this.label102);
+            this.groupBox15.Controls.Add(this.chkForward2UseSetting);
+            this.groupBox15.Controls.Add(this.label103);
+            this.groupBox15.Controls.Add(this.label104);
+            this.groupBox15.Controls.Add(this.label105);
+            this.groupBox15.Controls.Add(this.txtReadForward2UseSetting);
+            this.groupBox15.Controls.Add(this.txtReadForward2WordSwapSetting);
+            this.groupBox15.Controls.Add(this.label106);
+            this.groupBox15.Controls.Add(this.txtReadForward2RegAddrSetting);
+            this.groupBox15.Controls.Add(this.cmbForward2WordSwapSetting);
+            this.groupBox15.Controls.Add(this.txtReadForward2DataTypeSetting);
+            this.groupBox15.Controls.Add(this.txtWriteForward2MultiplierSetting);
+            this.groupBox15.Controls.Add(this.txtWriteForward2RegAddrSetting);
+            this.groupBox15.Controls.Add(this.cmbForward2DataTypeSetting);
+            this.groupBox15.Location = new System.Drawing.Point(41, 192);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(377, 149);
+            this.groupBox15.TabIndex = 20;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadForward2MultiplierSetting
+            // 
+            this.txtReadForward2MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadForward2MultiplierSetting.Name = "txtReadForward2MultiplierSetting";
+            this.txtReadForward2MultiplierSetting.ReadOnly = true;
+            this.txtReadForward2MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward2MultiplierSetting.TabIndex = 13;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(11, 23);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(77, 13);
+            this.label102.TabIndex = 1;
+            this.label102.Text = "Trạng thái đọc";
+            // 
+            // chkForward2UseSetting
+            // 
+            this.chkForward2UseSetting.AutoSize = true;
+            this.chkForward2UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkForward2UseSetting.Name = "chkForward2UseSetting";
+            this.chkForward2UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkForward2UseSetting.TabIndex = 14;
+            this.chkForward2UseSetting.Text = "Sử dụng";
+            this.chkForward2UseSetting.UseVisualStyleBackColor = true;
+            this.chkForward2UseSetting.CheckedChanged += new System.EventHandler(this.chkForward2UseSetting_CheckedChanged);
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(11, 48);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(87, 13);
+            this.label103.TabIndex = 1;
+            this.label103.Text = "Địa chỉ thanh ghi";
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(11, 73);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(62, 13);
+            this.label104.TabIndex = 1;
+            this.label104.Text = "Kiểu dữ liệu";
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Location = new System.Drawing.Point(11, 123);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(62, 13);
+            this.label105.TabIndex = 1;
+            this.label105.Text = "Hệ số nhân";
+            // 
+            // txtReadForward2UseSetting
+            // 
+            this.txtReadForward2UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadForward2UseSetting.Name = "txtReadForward2UseSetting";
+            this.txtReadForward2UseSetting.ReadOnly = true;
+            this.txtReadForward2UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward2UseSetting.TabIndex = 13;
+            // 
+            // txtReadForward2WordSwapSetting
+            // 
+            this.txtReadForward2WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadForward2WordSwapSetting.Name = "txtReadForward2WordSwapSetting";
+            this.txtReadForward2WordSwapSetting.ReadOnly = true;
+            this.txtReadForward2WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward2WordSwapSetting.TabIndex = 13;
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.Location = new System.Drawing.Point(11, 98);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(61, 13);
+            this.label106.TabIndex = 1;
+            this.label106.Text = "Word swap";
+            // 
+            // txtReadForward2RegAddrSetting
+            // 
+            this.txtReadForward2RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadForward2RegAddrSetting.Name = "txtReadForward2RegAddrSetting";
+            this.txtReadForward2RegAddrSetting.ReadOnly = true;
+            this.txtReadForward2RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward2RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbForward2WordSwapSetting
+            // 
+            this.cmbForward2WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward2WordSwapSetting.FormattingEnabled = true;
+            this.cmbForward2WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbForward2WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbForward2WordSwapSetting.Name = "cmbForward2WordSwapSetting";
+            this.cmbForward2WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward2WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadForward2DataTypeSetting
+            // 
+            this.txtReadForward2DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadForward2DataTypeSetting.Name = "txtReadForward2DataTypeSetting";
+            this.txtReadForward2DataTypeSetting.ReadOnly = true;
+            this.txtReadForward2DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward2DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteForward2MultiplierSetting
+            // 
+            this.txtWriteForward2MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteForward2MultiplierSetting.Name = "txtWriteForward2MultiplierSetting";
+            this.txtWriteForward2MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward2MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteForward2RegAddrSetting
+            // 
+            this.txtWriteForward2RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteForward2RegAddrSetting.Name = "txtWriteForward2RegAddrSetting";
+            this.txtWriteForward2RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward2RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbForward2DataTypeSetting
+            // 
+            this.cmbForward2DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward2DataTypeSetting.FormattingEnabled = true;
+            this.cmbForward2DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbForward2DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbForward2DataTypeSetting.Name = "cmbForward2DataTypeSetting";
+            this.cmbForward2DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward2DataTypeSetting.TabIndex = 6;
+            // 
+            // chkModbus2UseSetting
+            // 
+            this.chkModbus2UseSetting.AutoSize = true;
+            this.chkModbus2UseSetting.Location = new System.Drawing.Point(312, 35);
+            this.chkModbus2UseSetting.Name = "chkModbus2UseSetting";
+            this.chkModbus2UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkModbus2UseSetting.TabIndex = 14;
+            this.chkModbus2UseSetting.Text = "Sử dụng";
+            this.chkModbus2UseSetting.UseVisualStyleBackColor = true;
+            this.chkModbus2UseSetting.CheckedChanged += new System.EventHandler(this.chkModbus2UseSetting_CheckedChanged);
+            // 
+            // cmbModbus2FunctionCodeSetting
+            // 
+            this.cmbModbus2FunctionCodeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus2FunctionCodeSetting.FormattingEnabled = true;
+            this.cmbModbus2FunctionCodeSetting.Items.AddRange(new object[] {
+            "-- Chọn mã hàm --",
+            "0x03",
+            "0x04"});
+            this.cmbModbus2FunctionCodeSetting.Location = new System.Drawing.Point(291, 158);
+            this.cmbModbus2FunctionCodeSetting.Name = "cmbModbus2FunctionCodeSetting";
+            this.cmbModbus2FunctionCodeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus2FunctionCodeSetting.TabIndex = 6;
+            // 
+            // txtReadModbus2SlaveAddrSetting
+            // 
+            this.txtReadModbus2SlaveAddrSetting.Location = new System.Drawing.Point(172, 83);
+            this.txtReadModbus2SlaveAddrSetting.Name = "txtReadModbus2SlaveAddrSetting";
+            this.txtReadModbus2SlaveAddrSetting.ReadOnly = true;
+            this.txtReadModbus2SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus2SlaveAddrSetting.TabIndex = 13;
+            // 
+            // lblModbusMeter2SettingStatus
+            // 
+            this.lblModbusMeter2SettingStatus.AutoSize = true;
+            this.lblModbusMeter2SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModbusMeter2SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblModbusMeter2SettingStatus.Location = new System.Drawing.Point(194, 13);
+            this.lblModbusMeter2SettingStatus.Name = "lblModbusMeter2SettingStatus";
+            this.lblModbusMeter2SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblModbusMeter2SettingStatus.TabIndex = 19;
+            this.lblModbusMeter2SettingStatus.Text = "Trạng thái ghi";
+            this.lblModbusMeter2SettingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtReadModbus2UseSetting
+            // 
+            this.txtReadModbus2UseSetting.Location = new System.Drawing.Point(172, 33);
+            this.txtReadModbus2UseSetting.Name = "txtReadModbus2UseSetting";
+            this.txtReadModbus2UseSetting.ReadOnly = true;
+            this.txtReadModbus2UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus2UseSetting.TabIndex = 13;
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Location = new System.Drawing.Point(52, 62);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(67, 13);
+            this.label108.TabIndex = 1;
+            this.label108.Text = "Serial thiết bị";
+            // 
+            // txtReadModbus2FunctionCodeSetting
+            // 
+            this.txtReadModbus2FunctionCodeSetting.Location = new System.Drawing.Point(172, 158);
+            this.txtReadModbus2FunctionCodeSetting.Name = "txtReadModbus2FunctionCodeSetting";
+            this.txtReadModbus2FunctionCodeSetting.ReadOnly = true;
+            this.txtReadModbus2FunctionCodeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus2FunctionCodeSetting.TabIndex = 13;
+            // 
+            // txtReadModbus2SerialSetting
+            // 
+            this.txtReadModbus2SerialSetting.Location = new System.Drawing.Point(172, 58);
+            this.txtReadModbus2SerialSetting.Name = "txtReadModbus2SerialSetting";
+            this.txtReadModbus2SerialSetting.ReadOnly = true;
+            this.txtReadModbus2SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus2SerialSetting.TabIndex = 13;
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Location = new System.Drawing.Point(52, 37);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(96, 13);
+            this.label109.TabIndex = 1;
+            this.label109.Text = "Trạng thái sử dụng";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(52, 87);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(74, 13);
+            this.label110.TabIndex = 1;
+            this.label110.Text = "Địa chỉ thiết bị";
+            // 
+            // txtReadModbus2FrameFormatSetting
+            // 
+            this.txtReadModbus2FrameFormatSetting.Location = new System.Drawing.Point(172, 133);
+            this.txtReadModbus2FrameFormatSetting.Name = "txtReadModbus2FrameFormatSetting";
+            this.txtReadModbus2FrameFormatSetting.ReadOnly = true;
+            this.txtReadModbus2FrameFormatSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus2FrameFormatSetting.TabIndex = 13;
+            // 
+            // txtReadModbus2BaudSetting
+            // 
+            this.txtReadModbus2BaudSetting.Location = new System.Drawing.Point(172, 108);
+            this.txtReadModbus2BaudSetting.Name = "txtReadModbus2BaudSetting";
+            this.txtReadModbus2BaudSetting.ReadOnly = true;
+            this.txtReadModbus2BaudSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus2BaudSetting.TabIndex = 13;
+            // 
+            // txtWriteModbus2SerialSetting
+            // 
+            this.txtWriteModbus2SerialSetting.Location = new System.Drawing.Point(291, 58);
+            this.txtWriteModbus2SerialSetting.Name = "txtWriteModbus2SerialSetting";
+            this.txtWriteModbus2SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus2SerialSetting.TabIndex = 12;
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(52, 137);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(85, 13);
+            this.label111.TabIndex = 1;
+            this.label111.Text = "Định dạng frame";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(52, 112);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(107, 13);
+            this.label112.TabIndex = 1;
+            this.label112.Text = "Tốc độ truyền (baud)";
+            // 
+            // cmbModbus2FrameFormatSetting
+            // 
+            this.cmbModbus2FrameFormatSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus2FrameFormatSetting.FormattingEnabled = true;
+            this.cmbModbus2FrameFormatSetting.Items.AddRange(new object[] {
+            "-- Chọn dạng frame --",
+            "8N1",
+            "8O1",
+            "8E1"});
+            this.cmbModbus2FrameFormatSetting.Location = new System.Drawing.Point(291, 133);
+            this.cmbModbus2FrameFormatSetting.Name = "cmbModbus2FrameFormatSetting";
+            this.cmbModbus2FrameFormatSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus2FrameFormatSetting.TabIndex = 6;
+            // 
+            // cmbModbus2BaudSetting
+            // 
+            this.cmbModbus2BaudSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus2BaudSetting.FormattingEnabled = true;
+            this.cmbModbus2BaudSetting.Items.AddRange(new object[] {
+            "-- Chọn tốc độ truyền --",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbModbus2BaudSetting.Location = new System.Drawing.Point(291, 108);
+            this.cmbModbus2BaudSetting.Name = "cmbModbus2BaudSetting";
+            this.cmbModbus2BaudSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus2BaudSetting.TabIndex = 6;
+            // 
+            // txtWriteModbus2SlaveAddrSetting
+            // 
+            this.txtWriteModbus2SlaveAddrSetting.Location = new System.Drawing.Point(291, 83);
+            this.txtWriteModbus2SlaveAddrSetting.Name = "txtWriteModbus2SlaveAddrSetting";
+            this.txtWriteModbus2SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus2SlaveAddrSetting.TabIndex = 12;
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Location = new System.Drawing.Point(52, 162);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(67, 13);
+            this.label113.TabIndex = 1;
+            this.label113.Text = "Mã hàm đọc";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.groupBox16);
+            this.panel4.Controls.Add(this.groupBox20);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 689);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(921, 689);
+            this.panel4.TabIndex = 5;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.btnModbusMeter4CopySetting);
+            this.groupBox16.Controls.Add(this.groupBox17);
+            this.groupBox16.Controls.Add(this.btnReadModbusMeter4Setting);
+            this.groupBox16.Controls.Add(this.groupBox18);
+            this.groupBox16.Controls.Add(this.btnWriteModbusMeter4Setting);
+            this.groupBox16.Controls.Add(this.groupBox19);
+            this.groupBox16.Controls.Add(this.chkModbus4UseSetting);
+            this.groupBox16.Controls.Add(this.cmbModbus4FunctionCodeSetting);
+            this.groupBox16.Controls.Add(this.txtReadModbus4SlaveAddrSetting);
+            this.groupBox16.Controls.Add(this.lblModbusMeter4SettingStatus);
+            this.groupBox16.Controls.Add(this.txtReadModbus4UseSetting);
+            this.groupBox16.Controls.Add(this.label130);
+            this.groupBox16.Controls.Add(this.txtReadModbus4FunctionCodeSetting);
+            this.groupBox16.Controls.Add(this.txtReadModbus4SerialSetting);
+            this.groupBox16.Controls.Add(this.label131);
+            this.groupBox16.Controls.Add(this.label132);
+            this.groupBox16.Controls.Add(this.txtReadModbus4FrameFormatSetting);
+            this.groupBox16.Controls.Add(this.txtReadModbus4BaudSetting);
+            this.groupBox16.Controls.Add(this.txtWriteModbus4SerialSetting);
+            this.groupBox16.Controls.Add(this.label133);
+            this.groupBox16.Controls.Add(this.label134);
+            this.groupBox16.Controls.Add(this.cmbModbus4FrameFormatSetting);
+            this.groupBox16.Controls.Add(this.cmbModbus4BaudSetting);
+            this.groupBox16.Controls.Add(this.txtWriteModbus4SlaveAddrSetting);
+            this.groupBox16.Controls.Add(this.label135);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox16.Location = new System.Drawing.Point(463, 0);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(458, 689);
+            this.groupBox16.TabIndex = 4;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Đồng hồ 4";
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.txtReadFlow4MultiplierSetting);
+            this.groupBox17.Controls.Add(this.label114);
+            this.groupBox17.Controls.Add(this.chkFlow4UseSetting);
+            this.groupBox17.Controls.Add(this.label115);
+            this.groupBox17.Controls.Add(this.label116);
+            this.groupBox17.Controls.Add(this.label117);
+            this.groupBox17.Controls.Add(this.txtReadFlow4UseSetting);
+            this.groupBox17.Controls.Add(this.txtReadFlow4WordSwapSetting);
+            this.groupBox17.Controls.Add(this.label118);
+            this.groupBox17.Controls.Add(this.txtReadFlow4RegAddrSetting);
+            this.groupBox17.Controls.Add(this.cmbFlow4WordSwapSetting);
+            this.groupBox17.Controls.Add(this.txtReadFlow4DataTypeSetting);
+            this.groupBox17.Controls.Add(this.txtWriteFlow4MultiplierSetting);
+            this.groupBox17.Controls.Add(this.txtWriteFlow4RegAddrSetting);
+            this.groupBox17.Controls.Add(this.cmbFlow4DataTypeSetting);
+            this.groupBox17.Location = new System.Drawing.Point(41, 502);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(377, 149);
+            this.groupBox17.TabIndex = 20;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadFlow4MultiplierSetting
+            // 
+            this.txtReadFlow4MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadFlow4MultiplierSetting.Name = "txtReadFlow4MultiplierSetting";
+            this.txtReadFlow4MultiplierSetting.ReadOnly = true;
+            this.txtReadFlow4MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow4MultiplierSetting.TabIndex = 13;
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(11, 23);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(77, 13);
+            this.label114.TabIndex = 1;
+            this.label114.Text = "Trạng thái đọc";
+            // 
+            // chkFlow4UseSetting
+            // 
+            this.chkFlow4UseSetting.AutoSize = true;
+            this.chkFlow4UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkFlow4UseSetting.Name = "chkFlow4UseSetting";
+            this.chkFlow4UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkFlow4UseSetting.TabIndex = 14;
+            this.chkFlow4UseSetting.Text = "Sử dụng";
+            this.chkFlow4UseSetting.UseVisualStyleBackColor = true;
+            this.chkFlow4UseSetting.CheckedChanged += new System.EventHandler(this.chkFlow4UseSetting_CheckedChanged);
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Location = new System.Drawing.Point(11, 48);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(87, 13);
+            this.label115.TabIndex = 1;
+            this.label115.Text = "Địa chỉ thanh ghi";
+            // 
+            // label116
+            // 
+            this.label116.AutoSize = true;
+            this.label116.Location = new System.Drawing.Point(11, 73);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(62, 13);
+            this.label116.TabIndex = 1;
+            this.label116.Text = "Kiểu dữ liệu";
+            // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Location = new System.Drawing.Point(11, 123);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(62, 13);
+            this.label117.TabIndex = 1;
+            this.label117.Text = "Hệ số nhân";
+            // 
+            // txtReadFlow4UseSetting
+            // 
+            this.txtReadFlow4UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadFlow4UseSetting.Name = "txtReadFlow4UseSetting";
+            this.txtReadFlow4UseSetting.ReadOnly = true;
+            this.txtReadFlow4UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow4UseSetting.TabIndex = 13;
+            // 
+            // txtReadFlow4WordSwapSetting
+            // 
+            this.txtReadFlow4WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadFlow4WordSwapSetting.Name = "txtReadFlow4WordSwapSetting";
+            this.txtReadFlow4WordSwapSetting.ReadOnly = true;
+            this.txtReadFlow4WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow4WordSwapSetting.TabIndex = 13;
+            // 
+            // label118
+            // 
+            this.label118.AutoSize = true;
+            this.label118.Location = new System.Drawing.Point(11, 98);
+            this.label118.Name = "label118";
+            this.label118.Size = new System.Drawing.Size(61, 13);
+            this.label118.TabIndex = 1;
+            this.label118.Text = "Word swap";
+            // 
+            // txtReadFlow4RegAddrSetting
+            // 
+            this.txtReadFlow4RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadFlow4RegAddrSetting.Name = "txtReadFlow4RegAddrSetting";
+            this.txtReadFlow4RegAddrSetting.ReadOnly = true;
+            this.txtReadFlow4RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow4RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbFlow4WordSwapSetting
+            // 
+            this.cmbFlow4WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow4WordSwapSetting.FormattingEnabled = true;
+            this.cmbFlow4WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbFlow4WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbFlow4WordSwapSetting.Name = "cmbFlow4WordSwapSetting";
+            this.cmbFlow4WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow4WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadFlow4DataTypeSetting
+            // 
+            this.txtReadFlow4DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadFlow4DataTypeSetting.Name = "txtReadFlow4DataTypeSetting";
+            this.txtReadFlow4DataTypeSetting.ReadOnly = true;
+            this.txtReadFlow4DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow4DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteFlow4MultiplierSetting
+            // 
+            this.txtWriteFlow4MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteFlow4MultiplierSetting.Name = "txtWriteFlow4MultiplierSetting";
+            this.txtWriteFlow4MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow4MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteFlow4RegAddrSetting
+            // 
+            this.txtWriteFlow4RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteFlow4RegAddrSetting.Name = "txtWriteFlow4RegAddrSetting";
+            this.txtWriteFlow4RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow4RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbFlow4DataTypeSetting
+            // 
+            this.cmbFlow4DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow4DataTypeSetting.FormattingEnabled = true;
+            this.cmbFlow4DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbFlow4DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbFlow4DataTypeSetting.Name = "cmbFlow4DataTypeSetting";
+            this.cmbFlow4DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow4DataTypeSetting.TabIndex = 6;
+            // 
+            // btnReadModbusMeter4Setting
+            // 
+            this.btnReadModbusMeter4Setting.Location = new System.Drawing.Point(189, 652);
+            this.btnReadModbusMeter4Setting.Name = "btnReadModbusMeter4Setting";
+            this.btnReadModbusMeter4Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadModbusMeter4Setting.TabIndex = 14;
+            this.btnReadModbusMeter4Setting.Text = "Đọc";
+            this.btnReadModbusMeter4Setting.UseVisualStyleBackColor = true;
+            this.btnReadModbusMeter4Setting.Click += new System.EventHandler(this.btnReadModbusMeter4Setting_Click);
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.txtReadReverse4MultiplierSetting);
+            this.groupBox18.Controls.Add(this.label119);
+            this.groupBox18.Controls.Add(this.chkReverse4UseSetting);
+            this.groupBox18.Controls.Add(this.label120);
+            this.groupBox18.Controls.Add(this.label121);
+            this.groupBox18.Controls.Add(this.label122);
+            this.groupBox18.Controls.Add(this.txtReadReverse4UseSetting);
+            this.groupBox18.Controls.Add(this.txtReadReverse4WordSwapSetting);
+            this.groupBox18.Controls.Add(this.label123);
+            this.groupBox18.Controls.Add(this.txtReadReverse4RegAddrSetting);
+            this.groupBox18.Controls.Add(this.cmbReverse4WordSwapSetting);
+            this.groupBox18.Controls.Add(this.txtReadReverse4DataTypeSetting);
+            this.groupBox18.Controls.Add(this.txtWriteReverse4MultiplierSetting);
+            this.groupBox18.Controls.Add(this.txtWriteReverse4RegAddrSetting);
+            this.groupBox18.Controls.Add(this.cmbReverse4DataTypeSetting);
+            this.groupBox18.Location = new System.Drawing.Point(41, 347);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(377, 149);
+            this.groupBox18.TabIndex = 20;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadReverse4MultiplierSetting
+            // 
+            this.txtReadReverse4MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadReverse4MultiplierSetting.Name = "txtReadReverse4MultiplierSetting";
+            this.txtReadReverse4MultiplierSetting.ReadOnly = true;
+            this.txtReadReverse4MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse4MultiplierSetting.TabIndex = 13;
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Location = new System.Drawing.Point(11, 23);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(77, 13);
+            this.label119.TabIndex = 1;
+            this.label119.Text = "Trạng thái đọc";
+            // 
+            // chkReverse4UseSetting
+            // 
+            this.chkReverse4UseSetting.AutoSize = true;
+            this.chkReverse4UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkReverse4UseSetting.Name = "chkReverse4UseSetting";
+            this.chkReverse4UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkReverse4UseSetting.TabIndex = 14;
+            this.chkReverse4UseSetting.Text = "Sử dụng";
+            this.chkReverse4UseSetting.UseVisualStyleBackColor = true;
+            this.chkReverse4UseSetting.CheckedChanged += new System.EventHandler(this.chkReverse4UseSetting_CheckedChanged);
+            // 
+            // label120
+            // 
+            this.label120.AutoSize = true;
+            this.label120.Location = new System.Drawing.Point(11, 48);
+            this.label120.Name = "label120";
+            this.label120.Size = new System.Drawing.Size(87, 13);
+            this.label120.TabIndex = 1;
+            this.label120.Text = "Địa chỉ thanh ghi";
+            // 
+            // label121
+            // 
+            this.label121.AutoSize = true;
+            this.label121.Location = new System.Drawing.Point(11, 73);
+            this.label121.Name = "label121";
+            this.label121.Size = new System.Drawing.Size(62, 13);
+            this.label121.TabIndex = 1;
+            this.label121.Text = "Kiểu dữ liệu";
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Location = new System.Drawing.Point(11, 123);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(62, 13);
+            this.label122.TabIndex = 1;
+            this.label122.Text = "Hệ số nhân";
+            // 
+            // txtReadReverse4UseSetting
+            // 
+            this.txtReadReverse4UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadReverse4UseSetting.Name = "txtReadReverse4UseSetting";
+            this.txtReadReverse4UseSetting.ReadOnly = true;
+            this.txtReadReverse4UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse4UseSetting.TabIndex = 13;
+            // 
+            // txtReadReverse4WordSwapSetting
+            // 
+            this.txtReadReverse4WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadReverse4WordSwapSetting.Name = "txtReadReverse4WordSwapSetting";
+            this.txtReadReverse4WordSwapSetting.ReadOnly = true;
+            this.txtReadReverse4WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse4WordSwapSetting.TabIndex = 13;
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Location = new System.Drawing.Point(11, 98);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(61, 13);
+            this.label123.TabIndex = 1;
+            this.label123.Text = "Word swap";
+            // 
+            // txtReadReverse4RegAddrSetting
+            // 
+            this.txtReadReverse4RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadReverse4RegAddrSetting.Name = "txtReadReverse4RegAddrSetting";
+            this.txtReadReverse4RegAddrSetting.ReadOnly = true;
+            this.txtReadReverse4RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse4RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbReverse4WordSwapSetting
+            // 
+            this.cmbReverse4WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse4WordSwapSetting.FormattingEnabled = true;
+            this.cmbReverse4WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbReverse4WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbReverse4WordSwapSetting.Name = "cmbReverse4WordSwapSetting";
+            this.cmbReverse4WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse4WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadReverse4DataTypeSetting
+            // 
+            this.txtReadReverse4DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadReverse4DataTypeSetting.Name = "txtReadReverse4DataTypeSetting";
+            this.txtReadReverse4DataTypeSetting.ReadOnly = true;
+            this.txtReadReverse4DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse4DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteReverse4MultiplierSetting
+            // 
+            this.txtWriteReverse4MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteReverse4MultiplierSetting.Name = "txtWriteReverse4MultiplierSetting";
+            this.txtWriteReverse4MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse4MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteReverse4RegAddrSetting
+            // 
+            this.txtWriteReverse4RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteReverse4RegAddrSetting.Name = "txtWriteReverse4RegAddrSetting";
+            this.txtWriteReverse4RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse4RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbReverse4DataTypeSetting
+            // 
+            this.cmbReverse4DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse4DataTypeSetting.FormattingEnabled = true;
+            this.cmbReverse4DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbReverse4DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbReverse4DataTypeSetting.Name = "cmbReverse4DataTypeSetting";
+            this.cmbReverse4DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse4DataTypeSetting.TabIndex = 6;
+            // 
+            // btnWriteModbusMeter4Setting
+            // 
+            this.btnWriteModbusMeter4Setting.Location = new System.Drawing.Point(308, 652);
+            this.btnWriteModbusMeter4Setting.Name = "btnWriteModbusMeter4Setting";
+            this.btnWriteModbusMeter4Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteModbusMeter4Setting.TabIndex = 15;
+            this.btnWriteModbusMeter4Setting.Text = "Ghi";
+            this.btnWriteModbusMeter4Setting.UseVisualStyleBackColor = true;
+            this.btnWriteModbusMeter4Setting.Click += new System.EventHandler(this.btnWriteModbusMeter4Setting_Click);
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.txtReadForward4MultiplierSetting);
+            this.groupBox19.Controls.Add(this.label124);
+            this.groupBox19.Controls.Add(this.chkForward4UseSetting);
+            this.groupBox19.Controls.Add(this.label125);
+            this.groupBox19.Controls.Add(this.label126);
+            this.groupBox19.Controls.Add(this.label127);
+            this.groupBox19.Controls.Add(this.txtReadForward4UseSetting);
+            this.groupBox19.Controls.Add(this.txtReadForward4WordSwapSetting);
+            this.groupBox19.Controls.Add(this.label128);
+            this.groupBox19.Controls.Add(this.txtReadForward4RegAddrSetting);
+            this.groupBox19.Controls.Add(this.cmbForward4WordSwapSetting);
+            this.groupBox19.Controls.Add(this.txtReadForward4DataTypeSetting);
+            this.groupBox19.Controls.Add(this.txtWriteForward4MultiplierSetting);
+            this.groupBox19.Controls.Add(this.txtWriteForward4RegAddrSetting);
+            this.groupBox19.Controls.Add(this.cmbForward4DataTypeSetting);
+            this.groupBox19.Location = new System.Drawing.Point(41, 192);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(377, 149);
+            this.groupBox19.TabIndex = 20;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadForward4MultiplierSetting
+            // 
+            this.txtReadForward4MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadForward4MultiplierSetting.Name = "txtReadForward4MultiplierSetting";
+            this.txtReadForward4MultiplierSetting.ReadOnly = true;
+            this.txtReadForward4MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward4MultiplierSetting.TabIndex = 13;
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.Location = new System.Drawing.Point(11, 23);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(77, 13);
+            this.label124.TabIndex = 1;
+            this.label124.Text = "Trạng thái đọc";
+            // 
+            // chkForward4UseSetting
+            // 
+            this.chkForward4UseSetting.AutoSize = true;
+            this.chkForward4UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkForward4UseSetting.Name = "chkForward4UseSetting";
+            this.chkForward4UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkForward4UseSetting.TabIndex = 14;
+            this.chkForward4UseSetting.Text = "Sử dụng";
+            this.chkForward4UseSetting.UseVisualStyleBackColor = true;
+            this.chkForward4UseSetting.CheckedChanged += new System.EventHandler(this.chkForward4UseSetting_CheckedChanged);
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(11, 48);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(87, 13);
+            this.label125.TabIndex = 1;
+            this.label125.Text = "Địa chỉ thanh ghi";
+            // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Location = new System.Drawing.Point(11, 73);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(62, 13);
+            this.label126.TabIndex = 1;
+            this.label126.Text = "Kiểu dữ liệu";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(11, 123);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(62, 13);
+            this.label127.TabIndex = 1;
+            this.label127.Text = "Hệ số nhân";
+            // 
+            // txtReadForward4UseSetting
+            // 
+            this.txtReadForward4UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadForward4UseSetting.Name = "txtReadForward4UseSetting";
+            this.txtReadForward4UseSetting.ReadOnly = true;
+            this.txtReadForward4UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward4UseSetting.TabIndex = 13;
+            // 
+            // txtReadForward4WordSwapSetting
+            // 
+            this.txtReadForward4WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadForward4WordSwapSetting.Name = "txtReadForward4WordSwapSetting";
+            this.txtReadForward4WordSwapSetting.ReadOnly = true;
+            this.txtReadForward4WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward4WordSwapSetting.TabIndex = 13;
+            // 
+            // label128
+            // 
+            this.label128.AutoSize = true;
+            this.label128.Location = new System.Drawing.Point(11, 98);
+            this.label128.Name = "label128";
+            this.label128.Size = new System.Drawing.Size(61, 13);
+            this.label128.TabIndex = 1;
+            this.label128.Text = "Word swap";
+            // 
+            // txtReadForward4RegAddrSetting
+            // 
+            this.txtReadForward4RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadForward4RegAddrSetting.Name = "txtReadForward4RegAddrSetting";
+            this.txtReadForward4RegAddrSetting.ReadOnly = true;
+            this.txtReadForward4RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward4RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbForward4WordSwapSetting
+            // 
+            this.cmbForward4WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward4WordSwapSetting.FormattingEnabled = true;
+            this.cmbForward4WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbForward4WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbForward4WordSwapSetting.Name = "cmbForward4WordSwapSetting";
+            this.cmbForward4WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward4WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadForward4DataTypeSetting
+            // 
+            this.txtReadForward4DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadForward4DataTypeSetting.Name = "txtReadForward4DataTypeSetting";
+            this.txtReadForward4DataTypeSetting.ReadOnly = true;
+            this.txtReadForward4DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward4DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteForward4MultiplierSetting
+            // 
+            this.txtWriteForward4MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteForward4MultiplierSetting.Name = "txtWriteForward4MultiplierSetting";
+            this.txtWriteForward4MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward4MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteForward4RegAddrSetting
+            // 
+            this.txtWriteForward4RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteForward4RegAddrSetting.Name = "txtWriteForward4RegAddrSetting";
+            this.txtWriteForward4RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward4RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbForward4DataTypeSetting
+            // 
+            this.cmbForward4DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward4DataTypeSetting.FormattingEnabled = true;
+            this.cmbForward4DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbForward4DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbForward4DataTypeSetting.Name = "cmbForward4DataTypeSetting";
+            this.cmbForward4DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward4DataTypeSetting.TabIndex = 6;
+            // 
+            // chkModbus4UseSetting
+            // 
+            this.chkModbus4UseSetting.AutoSize = true;
+            this.chkModbus4UseSetting.Location = new System.Drawing.Point(312, 35);
+            this.chkModbus4UseSetting.Name = "chkModbus4UseSetting";
+            this.chkModbus4UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkModbus4UseSetting.TabIndex = 14;
+            this.chkModbus4UseSetting.Text = "Sử dụng";
+            this.chkModbus4UseSetting.UseVisualStyleBackColor = true;
+            this.chkModbus4UseSetting.CheckedChanged += new System.EventHandler(this.chkModbus4UseSetting_CheckedChanged);
+            // 
+            // cmbModbus4FunctionCodeSetting
+            // 
+            this.cmbModbus4FunctionCodeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus4FunctionCodeSetting.FormattingEnabled = true;
+            this.cmbModbus4FunctionCodeSetting.Items.AddRange(new object[] {
+            "-- Chọn mã hàm --",
+            "0x03",
+            "0x04"});
+            this.cmbModbus4FunctionCodeSetting.Location = new System.Drawing.Point(291, 158);
+            this.cmbModbus4FunctionCodeSetting.Name = "cmbModbus4FunctionCodeSetting";
+            this.cmbModbus4FunctionCodeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus4FunctionCodeSetting.TabIndex = 6;
+            // 
+            // txtReadModbus4SlaveAddrSetting
+            // 
+            this.txtReadModbus4SlaveAddrSetting.Location = new System.Drawing.Point(172, 83);
+            this.txtReadModbus4SlaveAddrSetting.Name = "txtReadModbus4SlaveAddrSetting";
+            this.txtReadModbus4SlaveAddrSetting.ReadOnly = true;
+            this.txtReadModbus4SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus4SlaveAddrSetting.TabIndex = 13;
+            // 
+            // lblModbusMeter4SettingStatus
+            // 
+            this.lblModbusMeter4SettingStatus.AutoSize = true;
+            this.lblModbusMeter4SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModbusMeter4SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblModbusMeter4SettingStatus.Location = new System.Drawing.Point(194, 13);
+            this.lblModbusMeter4SettingStatus.Name = "lblModbusMeter4SettingStatus";
+            this.lblModbusMeter4SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblModbusMeter4SettingStatus.TabIndex = 19;
+            this.lblModbusMeter4SettingStatus.Text = "Trạng thái ghi";
+            this.lblModbusMeter4SettingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtReadModbus4UseSetting
+            // 
+            this.txtReadModbus4UseSetting.Location = new System.Drawing.Point(172, 33);
+            this.txtReadModbus4UseSetting.Name = "txtReadModbus4UseSetting";
+            this.txtReadModbus4UseSetting.ReadOnly = true;
+            this.txtReadModbus4UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus4UseSetting.TabIndex = 13;
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(52, 62);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(67, 13);
+            this.label130.TabIndex = 1;
+            this.label130.Text = "Serial thiết bị";
+            // 
+            // txtReadModbus4FunctionCodeSetting
+            // 
+            this.txtReadModbus4FunctionCodeSetting.Location = new System.Drawing.Point(172, 158);
+            this.txtReadModbus4FunctionCodeSetting.Name = "txtReadModbus4FunctionCodeSetting";
+            this.txtReadModbus4FunctionCodeSetting.ReadOnly = true;
+            this.txtReadModbus4FunctionCodeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus4FunctionCodeSetting.TabIndex = 13;
+            // 
+            // txtReadModbus4SerialSetting
+            // 
+            this.txtReadModbus4SerialSetting.Location = new System.Drawing.Point(172, 58);
+            this.txtReadModbus4SerialSetting.Name = "txtReadModbus4SerialSetting";
+            this.txtReadModbus4SerialSetting.ReadOnly = true;
+            this.txtReadModbus4SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus4SerialSetting.TabIndex = 13;
+            // 
+            // label131
+            // 
+            this.label131.AutoSize = true;
+            this.label131.Location = new System.Drawing.Point(52, 37);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(96, 13);
+            this.label131.TabIndex = 1;
+            this.label131.Text = "Trạng thái sử dụng";
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(52, 87);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(74, 13);
+            this.label132.TabIndex = 1;
+            this.label132.Text = "Địa chỉ thiết bị";
+            // 
+            // txtReadModbus4FrameFormatSetting
+            // 
+            this.txtReadModbus4FrameFormatSetting.Location = new System.Drawing.Point(172, 133);
+            this.txtReadModbus4FrameFormatSetting.Name = "txtReadModbus4FrameFormatSetting";
+            this.txtReadModbus4FrameFormatSetting.ReadOnly = true;
+            this.txtReadModbus4FrameFormatSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus4FrameFormatSetting.TabIndex = 13;
+            // 
+            // txtReadModbus4BaudSetting
+            // 
+            this.txtReadModbus4BaudSetting.Location = new System.Drawing.Point(172, 108);
+            this.txtReadModbus4BaudSetting.Name = "txtReadModbus4BaudSetting";
+            this.txtReadModbus4BaudSetting.ReadOnly = true;
+            this.txtReadModbus4BaudSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus4BaudSetting.TabIndex = 13;
+            // 
+            // txtWriteModbus4SerialSetting
+            // 
+            this.txtWriteModbus4SerialSetting.Location = new System.Drawing.Point(291, 58);
+            this.txtWriteModbus4SerialSetting.Name = "txtWriteModbus4SerialSetting";
+            this.txtWriteModbus4SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus4SerialSetting.TabIndex = 12;
+            // 
+            // label133
+            // 
+            this.label133.AutoSize = true;
+            this.label133.Location = new System.Drawing.Point(52, 137);
+            this.label133.Name = "label133";
+            this.label133.Size = new System.Drawing.Size(85, 13);
+            this.label133.TabIndex = 1;
+            this.label133.Text = "Định dạng frame";
+            // 
+            // label134
+            // 
+            this.label134.AutoSize = true;
+            this.label134.Location = new System.Drawing.Point(52, 112);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(107, 13);
+            this.label134.TabIndex = 1;
+            this.label134.Text = "Tốc độ truyền (baud)";
+            // 
+            // cmbModbus4FrameFormatSetting
+            // 
+            this.cmbModbus4FrameFormatSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus4FrameFormatSetting.FormattingEnabled = true;
+            this.cmbModbus4FrameFormatSetting.Items.AddRange(new object[] {
+            "-- Chọn dạng frame --",
+            "8N1",
+            "8O1",
+            "8E1"});
+            this.cmbModbus4FrameFormatSetting.Location = new System.Drawing.Point(291, 133);
+            this.cmbModbus4FrameFormatSetting.Name = "cmbModbus4FrameFormatSetting";
+            this.cmbModbus4FrameFormatSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus4FrameFormatSetting.TabIndex = 6;
+            // 
+            // cmbModbus4BaudSetting
+            // 
+            this.cmbModbus4BaudSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus4BaudSetting.FormattingEnabled = true;
+            this.cmbModbus4BaudSetting.Items.AddRange(new object[] {
+            "-- Chọn tốc độ truyền --",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbModbus4BaudSetting.Location = new System.Drawing.Point(291, 108);
+            this.cmbModbus4BaudSetting.Name = "cmbModbus4BaudSetting";
+            this.cmbModbus4BaudSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus4BaudSetting.TabIndex = 6;
+            // 
+            // txtWriteModbus4SlaveAddrSetting
+            // 
+            this.txtWriteModbus4SlaveAddrSetting.Location = new System.Drawing.Point(291, 83);
+            this.txtWriteModbus4SlaveAddrSetting.Name = "txtWriteModbus4SlaveAddrSetting";
+            this.txtWriteModbus4SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus4SlaveAddrSetting.TabIndex = 12;
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Location = new System.Drawing.Point(52, 162);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(67, 13);
+            this.label135.TabIndex = 1;
+            this.label135.Text = "Mã hàm đọc";
+            // 
+            // groupBox20
+            // 
+            this.groupBox20.Controls.Add(this.btnModbusMeter3CopySetting);
+            this.groupBox20.Controls.Add(this.groupBox21);
+            this.groupBox20.Controls.Add(this.btnReadModbusMeter3Setting);
+            this.groupBox20.Controls.Add(this.groupBox22);
+            this.groupBox20.Controls.Add(this.btnWriteModbusMeter3Setting);
+            this.groupBox20.Controls.Add(this.groupBox23);
+            this.groupBox20.Controls.Add(this.chkModbus3UseSetting);
+            this.groupBox20.Controls.Add(this.cmbModbus3FunctionCodeSetting);
+            this.groupBox20.Controls.Add(this.txtReadModbus3SlaveAddrSetting);
+            this.groupBox20.Controls.Add(this.lblModbusMeter3SettingStatus);
+            this.groupBox20.Controls.Add(this.txtReadModbus3UseSetting);
+            this.groupBox20.Controls.Add(this.label152);
+            this.groupBox20.Controls.Add(this.txtReadModbus3FunctionCodeSetting);
+            this.groupBox20.Controls.Add(this.txtReadModbus3SerialSetting);
+            this.groupBox20.Controls.Add(this.label153);
+            this.groupBox20.Controls.Add(this.label154);
+            this.groupBox20.Controls.Add(this.txtReadModbus3FrameFormatSetting);
+            this.groupBox20.Controls.Add(this.txtReadModbus3BaudSetting);
+            this.groupBox20.Controls.Add(this.txtWriteModbus3SerialSetting);
+            this.groupBox20.Controls.Add(this.label155);
+            this.groupBox20.Controls.Add(this.label156);
+            this.groupBox20.Controls.Add(this.cmbModbus3FrameFormatSetting);
+            this.groupBox20.Controls.Add(this.cmbModbus3BaudSetting);
+            this.groupBox20.Controls.Add(this.txtWriteModbus3SlaveAddrSetting);
+            this.groupBox20.Controls.Add(this.label157);
+            this.groupBox20.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox20.Location = new System.Drawing.Point(0, 0);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(458, 689);
+            this.groupBox20.TabIndex = 3;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Đồng hồ 3";
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.txtReadFlow3MultiplierSetting);
+            this.groupBox21.Controls.Add(this.label136);
+            this.groupBox21.Controls.Add(this.chkFlow3UseSetting);
+            this.groupBox21.Controls.Add(this.label137);
+            this.groupBox21.Controls.Add(this.label138);
+            this.groupBox21.Controls.Add(this.label139);
+            this.groupBox21.Controls.Add(this.txtReadFlow3UseSetting);
+            this.groupBox21.Controls.Add(this.txtReadFlow3WordSwapSetting);
+            this.groupBox21.Controls.Add(this.label140);
+            this.groupBox21.Controls.Add(this.txtReadFlow3RegAddrSetting);
+            this.groupBox21.Controls.Add(this.cmbFlow3WordSwapSetting);
+            this.groupBox21.Controls.Add(this.txtReadFlow3DataTypeSetting);
+            this.groupBox21.Controls.Add(this.txtWriteFlow3MultiplierSetting);
+            this.groupBox21.Controls.Add(this.txtWriteFlow3RegAddrSetting);
+            this.groupBox21.Controls.Add(this.cmbFlow3DataTypeSetting);
+            this.groupBox21.Location = new System.Drawing.Point(41, 502);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(377, 149);
+            this.groupBox21.TabIndex = 20;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadFlow3MultiplierSetting
+            // 
+            this.txtReadFlow3MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadFlow3MultiplierSetting.Name = "txtReadFlow3MultiplierSetting";
+            this.txtReadFlow3MultiplierSetting.ReadOnly = true;
+            this.txtReadFlow3MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow3MultiplierSetting.TabIndex = 13;
+            // 
+            // label136
+            // 
+            this.label136.AutoSize = true;
+            this.label136.Location = new System.Drawing.Point(11, 23);
+            this.label136.Name = "label136";
+            this.label136.Size = new System.Drawing.Size(77, 13);
+            this.label136.TabIndex = 1;
+            this.label136.Text = "Trạng thái đọc";
+            // 
+            // chkFlow3UseSetting
+            // 
+            this.chkFlow3UseSetting.AutoSize = true;
+            this.chkFlow3UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkFlow3UseSetting.Name = "chkFlow3UseSetting";
+            this.chkFlow3UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkFlow3UseSetting.TabIndex = 14;
+            this.chkFlow3UseSetting.Text = "Sử dụng";
+            this.chkFlow3UseSetting.UseVisualStyleBackColor = true;
+            this.chkFlow3UseSetting.CheckedChanged += new System.EventHandler(this.chkFlow3UseSetting_CheckedChanged);
+            // 
+            // label137
+            // 
+            this.label137.AutoSize = true;
+            this.label137.Location = new System.Drawing.Point(11, 48);
+            this.label137.Name = "label137";
+            this.label137.Size = new System.Drawing.Size(87, 13);
+            this.label137.TabIndex = 1;
+            this.label137.Text = "Địa chỉ thanh ghi";
+            // 
+            // label138
+            // 
+            this.label138.AutoSize = true;
+            this.label138.Location = new System.Drawing.Point(11, 73);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(62, 13);
+            this.label138.TabIndex = 1;
+            this.label138.Text = "Kiểu dữ liệu";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Location = new System.Drawing.Point(11, 123);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(62, 13);
+            this.label139.TabIndex = 1;
+            this.label139.Text = "Hệ số nhân";
+            // 
+            // txtReadFlow3UseSetting
+            // 
+            this.txtReadFlow3UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadFlow3UseSetting.Name = "txtReadFlow3UseSetting";
+            this.txtReadFlow3UseSetting.ReadOnly = true;
+            this.txtReadFlow3UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow3UseSetting.TabIndex = 13;
+            // 
+            // txtReadFlow3WordSwapSetting
+            // 
+            this.txtReadFlow3WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadFlow3WordSwapSetting.Name = "txtReadFlow3WordSwapSetting";
+            this.txtReadFlow3WordSwapSetting.ReadOnly = true;
+            this.txtReadFlow3WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow3WordSwapSetting.TabIndex = 13;
+            // 
+            // label140
+            // 
+            this.label140.AutoSize = true;
+            this.label140.Location = new System.Drawing.Point(11, 98);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(61, 13);
+            this.label140.TabIndex = 1;
+            this.label140.Text = "Word swap";
+            // 
+            // txtReadFlow3RegAddrSetting
+            // 
+            this.txtReadFlow3RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadFlow3RegAddrSetting.Name = "txtReadFlow3RegAddrSetting";
+            this.txtReadFlow3RegAddrSetting.ReadOnly = true;
+            this.txtReadFlow3RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow3RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbFlow3WordSwapSetting
+            // 
+            this.cmbFlow3WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow3WordSwapSetting.FormattingEnabled = true;
+            this.cmbFlow3WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbFlow3WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbFlow3WordSwapSetting.Name = "cmbFlow3WordSwapSetting";
+            this.cmbFlow3WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow3WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadFlow3DataTypeSetting
+            // 
+            this.txtReadFlow3DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadFlow3DataTypeSetting.Name = "txtReadFlow3DataTypeSetting";
+            this.txtReadFlow3DataTypeSetting.ReadOnly = true;
+            this.txtReadFlow3DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadFlow3DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteFlow3MultiplierSetting
+            // 
+            this.txtWriteFlow3MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteFlow3MultiplierSetting.Name = "txtWriteFlow3MultiplierSetting";
+            this.txtWriteFlow3MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow3MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteFlow3RegAddrSetting
+            // 
+            this.txtWriteFlow3RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteFlow3RegAddrSetting.Name = "txtWriteFlow3RegAddrSetting";
+            this.txtWriteFlow3RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteFlow3RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbFlow3DataTypeSetting
+            // 
+            this.cmbFlow3DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFlow3DataTypeSetting.FormattingEnabled = true;
+            this.cmbFlow3DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbFlow3DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbFlow3DataTypeSetting.Name = "cmbFlow3DataTypeSetting";
+            this.cmbFlow3DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbFlow3DataTypeSetting.TabIndex = 6;
+            // 
+            // btnReadModbusMeter3Setting
+            // 
+            this.btnReadModbusMeter3Setting.Location = new System.Drawing.Point(189, 652);
+            this.btnReadModbusMeter3Setting.Name = "btnReadModbusMeter3Setting";
+            this.btnReadModbusMeter3Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadModbusMeter3Setting.TabIndex = 14;
+            this.btnReadModbusMeter3Setting.Text = "Đọc";
+            this.btnReadModbusMeter3Setting.UseVisualStyleBackColor = true;
+            this.btnReadModbusMeter3Setting.Click += new System.EventHandler(this.btnReadModbusMeter3Setting_Click);
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.txtReadReverse3MultiplierSetting);
+            this.groupBox22.Controls.Add(this.label141);
+            this.groupBox22.Controls.Add(this.chkReverse3UseSetting);
+            this.groupBox22.Controls.Add(this.label142);
+            this.groupBox22.Controls.Add(this.label143);
+            this.groupBox22.Controls.Add(this.label144);
+            this.groupBox22.Controls.Add(this.txtReadReverse3UseSetting);
+            this.groupBox22.Controls.Add(this.txtReadReverse3WordSwapSetting);
+            this.groupBox22.Controls.Add(this.label145);
+            this.groupBox22.Controls.Add(this.txtReadReverse3RegAddrSetting);
+            this.groupBox22.Controls.Add(this.cmbReverse3WordSwapSetting);
+            this.groupBox22.Controls.Add(this.txtReadReverse3DataTypeSetting);
+            this.groupBox22.Controls.Add(this.txtWriteReverse3MultiplierSetting);
+            this.groupBox22.Controls.Add(this.txtWriteReverse3RegAddrSetting);
+            this.groupBox22.Controls.Add(this.cmbReverse3DataTypeSetting);
+            this.groupBox22.Location = new System.Drawing.Point(41, 347);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(377, 149);
+            this.groupBox22.TabIndex = 20;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadReverse3MultiplierSetting
+            // 
+            this.txtReadReverse3MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadReverse3MultiplierSetting.Name = "txtReadReverse3MultiplierSetting";
+            this.txtReadReverse3MultiplierSetting.ReadOnly = true;
+            this.txtReadReverse3MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse3MultiplierSetting.TabIndex = 13;
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Location = new System.Drawing.Point(11, 23);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(77, 13);
+            this.label141.TabIndex = 1;
+            this.label141.Text = "Trạng thái đọc";
+            // 
+            // chkReverse3UseSetting
+            // 
+            this.chkReverse3UseSetting.AutoSize = true;
+            this.chkReverse3UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkReverse3UseSetting.Name = "chkReverse3UseSetting";
+            this.chkReverse3UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkReverse3UseSetting.TabIndex = 14;
+            this.chkReverse3UseSetting.Text = "Sử dụng";
+            this.chkReverse3UseSetting.UseVisualStyleBackColor = true;
+            this.chkReverse3UseSetting.CheckedChanged += new System.EventHandler(this.chkReverse3UseSetting_CheckedChanged);
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.label142.Location = new System.Drawing.Point(11, 48);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(87, 13);
+            this.label142.TabIndex = 1;
+            this.label142.Text = "Địa chỉ thanh ghi";
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Location = new System.Drawing.Point(11, 73);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(62, 13);
+            this.label143.TabIndex = 1;
+            this.label143.Text = "Kiểu dữ liệu";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Location = new System.Drawing.Point(11, 123);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(62, 13);
+            this.label144.TabIndex = 1;
+            this.label144.Text = "Hệ số nhân";
+            // 
+            // txtReadReverse3UseSetting
+            // 
+            this.txtReadReverse3UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadReverse3UseSetting.Name = "txtReadReverse3UseSetting";
+            this.txtReadReverse3UseSetting.ReadOnly = true;
+            this.txtReadReverse3UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse3UseSetting.TabIndex = 13;
+            // 
+            // txtReadReverse3WordSwapSetting
+            // 
+            this.txtReadReverse3WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadReverse3WordSwapSetting.Name = "txtReadReverse3WordSwapSetting";
+            this.txtReadReverse3WordSwapSetting.ReadOnly = true;
+            this.txtReadReverse3WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse3WordSwapSetting.TabIndex = 13;
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Location = new System.Drawing.Point(11, 98);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(61, 13);
+            this.label145.TabIndex = 1;
+            this.label145.Text = "Word swap";
+            // 
+            // txtReadReverse3RegAddrSetting
+            // 
+            this.txtReadReverse3RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadReverse3RegAddrSetting.Name = "txtReadReverse3RegAddrSetting";
+            this.txtReadReverse3RegAddrSetting.ReadOnly = true;
+            this.txtReadReverse3RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse3RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbReverse3WordSwapSetting
+            // 
+            this.cmbReverse3WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse3WordSwapSetting.FormattingEnabled = true;
+            this.cmbReverse3WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbReverse3WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbReverse3WordSwapSetting.Name = "cmbReverse3WordSwapSetting";
+            this.cmbReverse3WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse3WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadReverse3DataTypeSetting
+            // 
+            this.txtReadReverse3DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadReverse3DataTypeSetting.Name = "txtReadReverse3DataTypeSetting";
+            this.txtReadReverse3DataTypeSetting.ReadOnly = true;
+            this.txtReadReverse3DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadReverse3DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteReverse3MultiplierSetting
+            // 
+            this.txtWriteReverse3MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteReverse3MultiplierSetting.Name = "txtWriteReverse3MultiplierSetting";
+            this.txtWriteReverse3MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse3MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteReverse3RegAddrSetting
+            // 
+            this.txtWriteReverse3RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteReverse3RegAddrSetting.Name = "txtWriteReverse3RegAddrSetting";
+            this.txtWriteReverse3RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteReverse3RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbReverse3DataTypeSetting
+            // 
+            this.cmbReverse3DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReverse3DataTypeSetting.FormattingEnabled = true;
+            this.cmbReverse3DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbReverse3DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbReverse3DataTypeSetting.Name = "cmbReverse3DataTypeSetting";
+            this.cmbReverse3DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbReverse3DataTypeSetting.TabIndex = 6;
+            // 
+            // btnWriteModbusMeter3Setting
+            // 
+            this.btnWriteModbusMeter3Setting.Location = new System.Drawing.Point(308, 652);
+            this.btnWriteModbusMeter3Setting.Name = "btnWriteModbusMeter3Setting";
+            this.btnWriteModbusMeter3Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteModbusMeter3Setting.TabIndex = 15;
+            this.btnWriteModbusMeter3Setting.Text = "Ghi";
+            this.btnWriteModbusMeter3Setting.UseVisualStyleBackColor = true;
+            this.btnWriteModbusMeter3Setting.Click += new System.EventHandler(this.btnWriteModbusMeter3Setting_Click);
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.txtReadForward3MultiplierSetting);
+            this.groupBox23.Controls.Add(this.label146);
+            this.groupBox23.Controls.Add(this.chkForward3UseSetting);
+            this.groupBox23.Controls.Add(this.label147);
+            this.groupBox23.Controls.Add(this.label148);
+            this.groupBox23.Controls.Add(this.label149);
+            this.groupBox23.Controls.Add(this.txtReadForward3UseSetting);
+            this.groupBox23.Controls.Add(this.txtReadForward3WordSwapSetting);
+            this.groupBox23.Controls.Add(this.label150);
+            this.groupBox23.Controls.Add(this.txtReadForward3RegAddrSetting);
+            this.groupBox23.Controls.Add(this.cmbForward3WordSwapSetting);
+            this.groupBox23.Controls.Add(this.txtReadForward3DataTypeSetting);
+            this.groupBox23.Controls.Add(this.txtWriteForward3MultiplierSetting);
+            this.groupBox23.Controls.Add(this.txtWriteForward3RegAddrSetting);
+            this.groupBox23.Controls.Add(this.cmbForward3DataTypeSetting);
+            this.groupBox23.Location = new System.Drawing.Point(41, 192);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(377, 149);
+            this.groupBox23.TabIndex = 20;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Tổng lưu lượng xuôi";
+            // 
+            // txtReadForward3MultiplierSetting
+            // 
+            this.txtReadForward3MultiplierSetting.Location = new System.Drawing.Point(131, 119);
+            this.txtReadForward3MultiplierSetting.Name = "txtReadForward3MultiplierSetting";
+            this.txtReadForward3MultiplierSetting.ReadOnly = true;
+            this.txtReadForward3MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward3MultiplierSetting.TabIndex = 13;
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Location = new System.Drawing.Point(11, 23);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(77, 13);
+            this.label146.TabIndex = 1;
+            this.label146.Text = "Trạng thái đọc";
+            // 
+            // chkForward3UseSetting
+            // 
+            this.chkForward3UseSetting.AutoSize = true;
+            this.chkForward3UseSetting.Location = new System.Drawing.Point(271, 21);
+            this.chkForward3UseSetting.Name = "chkForward3UseSetting";
+            this.chkForward3UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkForward3UseSetting.TabIndex = 14;
+            this.chkForward3UseSetting.Text = "Sử dụng";
+            this.chkForward3UseSetting.UseVisualStyleBackColor = true;
+            this.chkForward3UseSetting.CheckedChanged += new System.EventHandler(this.chkForward3UseSetting_CheckedChanged);
+            // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Location = new System.Drawing.Point(11, 48);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(87, 13);
+            this.label147.TabIndex = 1;
+            this.label147.Text = "Địa chỉ thanh ghi";
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Location = new System.Drawing.Point(11, 73);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(62, 13);
+            this.label148.TabIndex = 1;
+            this.label148.Text = "Kiểu dữ liệu";
+            // 
+            // label149
+            // 
+            this.label149.AutoSize = true;
+            this.label149.Location = new System.Drawing.Point(11, 123);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(62, 13);
+            this.label149.TabIndex = 1;
+            this.label149.Text = "Hệ số nhân";
+            // 
+            // txtReadForward3UseSetting
+            // 
+            this.txtReadForward3UseSetting.Location = new System.Drawing.Point(131, 19);
+            this.txtReadForward3UseSetting.Name = "txtReadForward3UseSetting";
+            this.txtReadForward3UseSetting.ReadOnly = true;
+            this.txtReadForward3UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward3UseSetting.TabIndex = 13;
+            // 
+            // txtReadForward3WordSwapSetting
+            // 
+            this.txtReadForward3WordSwapSetting.Location = new System.Drawing.Point(131, 94);
+            this.txtReadForward3WordSwapSetting.Name = "txtReadForward3WordSwapSetting";
+            this.txtReadForward3WordSwapSetting.ReadOnly = true;
+            this.txtReadForward3WordSwapSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward3WordSwapSetting.TabIndex = 13;
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(11, 98);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(61, 13);
+            this.label150.TabIndex = 1;
+            this.label150.Text = "Word swap";
+            // 
+            // txtReadForward3RegAddrSetting
+            // 
+            this.txtReadForward3RegAddrSetting.Location = new System.Drawing.Point(131, 44);
+            this.txtReadForward3RegAddrSetting.Name = "txtReadForward3RegAddrSetting";
+            this.txtReadForward3RegAddrSetting.ReadOnly = true;
+            this.txtReadForward3RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward3RegAddrSetting.TabIndex = 13;
+            // 
+            // cmbForward3WordSwapSetting
+            // 
+            this.cmbForward3WordSwapSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward3WordSwapSetting.FormattingEnabled = true;
+            this.cmbForward3WordSwapSetting.Items.AddRange(new object[] {
+            "Không",
+            "Có"});
+            this.cmbForward3WordSwapSetting.Location = new System.Drawing.Point(250, 94);
+            this.cmbForward3WordSwapSetting.Name = "cmbForward3WordSwapSetting";
+            this.cmbForward3WordSwapSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward3WordSwapSetting.TabIndex = 6;
+            // 
+            // txtReadForward3DataTypeSetting
+            // 
+            this.txtReadForward3DataTypeSetting.Location = new System.Drawing.Point(131, 69);
+            this.txtReadForward3DataTypeSetting.Name = "txtReadForward3DataTypeSetting";
+            this.txtReadForward3DataTypeSetting.ReadOnly = true;
+            this.txtReadForward3DataTypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadForward3DataTypeSetting.TabIndex = 13;
+            // 
+            // txtWriteForward3MultiplierSetting
+            // 
+            this.txtWriteForward3MultiplierSetting.Location = new System.Drawing.Point(250, 119);
+            this.txtWriteForward3MultiplierSetting.Name = "txtWriteForward3MultiplierSetting";
+            this.txtWriteForward3MultiplierSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward3MultiplierSetting.TabIndex = 12;
+            // 
+            // txtWriteForward3RegAddrSetting
+            // 
+            this.txtWriteForward3RegAddrSetting.Location = new System.Drawing.Point(250, 44);
+            this.txtWriteForward3RegAddrSetting.Name = "txtWriteForward3RegAddrSetting";
+            this.txtWriteForward3RegAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteForward3RegAddrSetting.TabIndex = 12;
+            // 
+            // cmbForward3DataTypeSetting
+            // 
+            this.cmbForward3DataTypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbForward3DataTypeSetting.FormattingEnabled = true;
+            this.cmbForward3DataTypeSetting.Items.AddRange(new object[] {
+            "-- Chọn kiểu dữ liệu --",
+            "int16",
+            "uint16",
+            "int32",
+            "uint32",
+            "float",
+            "uint64",
+            "double"});
+            this.cmbForward3DataTypeSetting.Location = new System.Drawing.Point(250, 69);
+            this.cmbForward3DataTypeSetting.Name = "cmbForward3DataTypeSetting";
+            this.cmbForward3DataTypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbForward3DataTypeSetting.TabIndex = 6;
+            // 
+            // chkModbus3UseSetting
+            // 
+            this.chkModbus3UseSetting.AutoSize = true;
+            this.chkModbus3UseSetting.Location = new System.Drawing.Point(312, 35);
+            this.chkModbus3UseSetting.Name = "chkModbus3UseSetting";
+            this.chkModbus3UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkModbus3UseSetting.TabIndex = 14;
+            this.chkModbus3UseSetting.Text = "Sử dụng";
+            this.chkModbus3UseSetting.UseVisualStyleBackColor = true;
+            this.chkModbus3UseSetting.CheckedChanged += new System.EventHandler(this.chkModbus3UseSetting_CheckedChanged);
+            // 
+            // cmbModbus3FunctionCodeSetting
+            // 
+            this.cmbModbus3FunctionCodeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus3FunctionCodeSetting.FormattingEnabled = true;
+            this.cmbModbus3FunctionCodeSetting.Items.AddRange(new object[] {
+            "-- Chọn mã hàm --",
+            "0x03",
+            "0x04"});
+            this.cmbModbus3FunctionCodeSetting.Location = new System.Drawing.Point(291, 158);
+            this.cmbModbus3FunctionCodeSetting.Name = "cmbModbus3FunctionCodeSetting";
+            this.cmbModbus3FunctionCodeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus3FunctionCodeSetting.TabIndex = 6;
+            // 
+            // txtReadModbus3SlaveAddrSetting
+            // 
+            this.txtReadModbus3SlaveAddrSetting.Location = new System.Drawing.Point(172, 83);
+            this.txtReadModbus3SlaveAddrSetting.Name = "txtReadModbus3SlaveAddrSetting";
+            this.txtReadModbus3SlaveAddrSetting.ReadOnly = true;
+            this.txtReadModbus3SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus3SlaveAddrSetting.TabIndex = 13;
+            // 
+            // lblModbusMeter3SettingStatus
+            // 
+            this.lblModbusMeter3SettingStatus.AutoSize = true;
+            this.lblModbusMeter3SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModbusMeter3SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblModbusMeter3SettingStatus.Location = new System.Drawing.Point(194, 13);
+            this.lblModbusMeter3SettingStatus.Name = "lblModbusMeter3SettingStatus";
+            this.lblModbusMeter3SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblModbusMeter3SettingStatus.TabIndex = 19;
+            this.lblModbusMeter3SettingStatus.Text = "Trạng thái ghi";
+            this.lblModbusMeter3SettingStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtReadModbus3UseSetting
+            // 
+            this.txtReadModbus3UseSetting.Location = new System.Drawing.Point(172, 33);
+            this.txtReadModbus3UseSetting.Name = "txtReadModbus3UseSetting";
+            this.txtReadModbus3UseSetting.ReadOnly = true;
+            this.txtReadModbus3UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus3UseSetting.TabIndex = 13;
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Location = new System.Drawing.Point(52, 62);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(67, 13);
+            this.label152.TabIndex = 1;
+            this.label152.Text = "Serial thiết bị";
+            // 
+            // txtReadModbus3FunctionCodeSetting
+            // 
+            this.txtReadModbus3FunctionCodeSetting.Location = new System.Drawing.Point(172, 158);
+            this.txtReadModbus3FunctionCodeSetting.Name = "txtReadModbus3FunctionCodeSetting";
+            this.txtReadModbus3FunctionCodeSetting.ReadOnly = true;
+            this.txtReadModbus3FunctionCodeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus3FunctionCodeSetting.TabIndex = 13;
+            // 
+            // txtReadModbus3SerialSetting
+            // 
+            this.txtReadModbus3SerialSetting.Location = new System.Drawing.Point(172, 58);
+            this.txtReadModbus3SerialSetting.Name = "txtReadModbus3SerialSetting";
+            this.txtReadModbus3SerialSetting.ReadOnly = true;
+            this.txtReadModbus3SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus3SerialSetting.TabIndex = 13;
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Location = new System.Drawing.Point(52, 37);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(96, 13);
+            this.label153.TabIndex = 1;
+            this.label153.Text = "Trạng thái sử dụng";
+            // 
+            // label154
+            // 
+            this.label154.AutoSize = true;
+            this.label154.Location = new System.Drawing.Point(52, 87);
+            this.label154.Name = "label154";
+            this.label154.Size = new System.Drawing.Size(74, 13);
+            this.label154.TabIndex = 1;
+            this.label154.Text = "Địa chỉ thiết bị";
+            // 
+            // txtReadModbus3FrameFormatSetting
+            // 
+            this.txtReadModbus3FrameFormatSetting.Location = new System.Drawing.Point(172, 133);
+            this.txtReadModbus3FrameFormatSetting.Name = "txtReadModbus3FrameFormatSetting";
+            this.txtReadModbus3FrameFormatSetting.ReadOnly = true;
+            this.txtReadModbus3FrameFormatSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus3FrameFormatSetting.TabIndex = 13;
+            // 
+            // txtReadModbus3BaudSetting
+            // 
+            this.txtReadModbus3BaudSetting.Location = new System.Drawing.Point(172, 108);
+            this.txtReadModbus3BaudSetting.Name = "txtReadModbus3BaudSetting";
+            this.txtReadModbus3BaudSetting.ReadOnly = true;
+            this.txtReadModbus3BaudSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadModbus3BaudSetting.TabIndex = 13;
+            // 
+            // txtWriteModbus3SerialSetting
+            // 
+            this.txtWriteModbus3SerialSetting.Location = new System.Drawing.Point(291, 58);
+            this.txtWriteModbus3SerialSetting.Name = "txtWriteModbus3SerialSetting";
+            this.txtWriteModbus3SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus3SerialSetting.TabIndex = 12;
+            // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Location = new System.Drawing.Point(52, 137);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(85, 13);
+            this.label155.TabIndex = 1;
+            this.label155.Text = "Định dạng frame";
+            // 
+            // label156
+            // 
+            this.label156.AutoSize = true;
+            this.label156.Location = new System.Drawing.Point(52, 112);
+            this.label156.Name = "label156";
+            this.label156.Size = new System.Drawing.Size(107, 13);
+            this.label156.TabIndex = 1;
+            this.label156.Text = "Tốc độ truyền (baud)";
+            // 
+            // cmbModbus3FrameFormatSetting
+            // 
+            this.cmbModbus3FrameFormatSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus3FrameFormatSetting.FormattingEnabled = true;
+            this.cmbModbus3FrameFormatSetting.Items.AddRange(new object[] {
+            "-- Chọn dạng frame --",
+            "8N1",
+            "8O1",
+            "8E1"});
+            this.cmbModbus3FrameFormatSetting.Location = new System.Drawing.Point(291, 133);
+            this.cmbModbus3FrameFormatSetting.Name = "cmbModbus3FrameFormatSetting";
+            this.cmbModbus3FrameFormatSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus3FrameFormatSetting.TabIndex = 6;
+            // 
+            // cmbModbus3BaudSetting
+            // 
+            this.cmbModbus3BaudSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModbus3BaudSetting.FormattingEnabled = true;
+            this.cmbModbus3BaudSetting.Items.AddRange(new object[] {
+            "-- Chọn tốc độ truyền --",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200"});
+            this.cmbModbus3BaudSetting.Location = new System.Drawing.Point(291, 108);
+            this.cmbModbus3BaudSetting.Name = "cmbModbus3BaudSetting";
+            this.cmbModbus3BaudSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbModbus3BaudSetting.TabIndex = 6;
+            // 
+            // txtWriteModbus3SlaveAddrSetting
+            // 
+            this.txtWriteModbus3SlaveAddrSetting.Location = new System.Drawing.Point(291, 83);
+            this.txtWriteModbus3SlaveAddrSetting.Name = "txtWriteModbus3SlaveAddrSetting";
+            this.txtWriteModbus3SlaveAddrSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWriteModbus3SlaveAddrSetting.TabIndex = 12;
+            // 
+            // label157
+            // 
+            this.label157.AutoSize = true;
+            this.label157.Location = new System.Drawing.Point(52, 162);
+            this.label157.Name = "label157";
+            this.label157.Size = new System.Drawing.Size(67, 13);
+            this.label157.TabIndex = 1;
+            this.label157.Text = "Mã hàm đọc";
+            // 
+            // btnModbusMeter4CopySetting
+            // 
+            this.btnModbusMeter4CopySetting.Location = new System.Drawing.Point(272, 652);
+            this.btnModbusMeter4CopySetting.Name = "btnModbusMeter4CopySetting";
+            this.btnModbusMeter4CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnModbusMeter4CopySetting.TabIndex = 21;
+            this.btnModbusMeter4CopySetting.Text = "→";
+            this.btnModbusMeter4CopySetting.UseVisualStyleBackColor = true;
+            this.btnModbusMeter4CopySetting.Click += new System.EventHandler(this.btnModbusMeter4CopySetting_Click);
+            // 
+            // btnModbusMeter3CopySetting
+            // 
+            this.btnModbusMeter3CopySetting.Location = new System.Drawing.Point(272, 652);
+            this.btnModbusMeter3CopySetting.Name = "btnModbusMeter3CopySetting";
+            this.btnModbusMeter3CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnModbusMeter3CopySetting.TabIndex = 21;
+            this.btnModbusMeter3CopySetting.Text = "→";
+            this.btnModbusMeter3CopySetting.UseVisualStyleBackColor = true;
+            this.btnModbusMeter3CopySetting.Click += new System.EventHandler(this.btnModbusMeter3CopySetting_Click);
+            // 
+            // btnModbusMeter2CopySetting
+            // 
+            this.btnModbusMeter2CopySetting.Location = new System.Drawing.Point(272, 652);
+            this.btnModbusMeter2CopySetting.Name = "btnModbusMeter2CopySetting";
+            this.btnModbusMeter2CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnModbusMeter2CopySetting.TabIndex = 22;
+            this.btnModbusMeter2CopySetting.Text = "→";
+            this.btnModbusMeter2CopySetting.UseVisualStyleBackColor = true;
+            this.btnModbusMeter2CopySetting.Click += new System.EventHandler(this.btnModbusMeter2CopySetting_Click);
+            // 
+            // btnModbusMeter1CopySetting
+            // 
+            this.btnModbusMeter1CopySetting.Location = new System.Drawing.Point(272, 652);
+            this.btnModbusMeter1CopySetting.Name = "btnModbusMeter1CopySetting";
+            this.btnModbusMeter1CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnModbusMeter1CopySetting.TabIndex = 22;
+            this.btnModbusMeter1CopySetting.Text = "→";
+            this.btnModbusMeter1CopySetting.UseVisualStyleBackColor = true;
+            this.btnModbusMeter1CopySetting.Click += new System.EventHandler(this.btnModbusMeter1CopySetting_Click);
+            // 
+            // btnPulseMeter1CopySetting
+            // 
+            this.btnPulseMeter1CopySetting.Location = new System.Drawing.Point(275, 255);
+            this.btnPulseMeter1CopySetting.Name = "btnPulseMeter1CopySetting";
+            this.btnPulseMeter1CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnPulseMeter1CopySetting.TabIndex = 23;
+            this.btnPulseMeter1CopySetting.Text = "→";
+            this.btnPulseMeter1CopySetting.UseVisualStyleBackColor = true;
+            this.btnPulseMeter1CopySetting.Click += new System.EventHandler(this.btnPulseMeter1CopySetting_Click);
+            // 
+            // btnPulseMeter2CopySetting
+            // 
+            this.btnPulseMeter2CopySetting.Location = new System.Drawing.Point(275, 256);
+            this.btnPulseMeter2CopySetting.Name = "btnPulseMeter2CopySetting";
+            this.btnPulseMeter2CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnPulseMeter2CopySetting.TabIndex = 23;
+            this.btnPulseMeter2CopySetting.Text = "→";
+            this.btnPulseMeter2CopySetting.UseVisualStyleBackColor = true;
+            this.btnPulseMeter2CopySetting.Click += new System.EventHandler(this.btnPulseMeter2CopySetting_Click);
+            // 
+            // btnPulseMeter4CopySetting
+            // 
+            this.btnPulseMeter4CopySetting.Location = new System.Drawing.Point(273, 256);
+            this.btnPulseMeter4CopySetting.Name = "btnPulseMeter4CopySetting";
+            this.btnPulseMeter4CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnPulseMeter4CopySetting.TabIndex = 23;
+            this.btnPulseMeter4CopySetting.Text = "→";
+            this.btnPulseMeter4CopySetting.UseVisualStyleBackColor = true;
+            this.btnPulseMeter4CopySetting.Click += new System.EventHandler(this.btnPulseMeter4CopySetting_Click);
+            // 
+            // btnPulseMeter3CopySetting
+            // 
+            this.btnPulseMeter3CopySetting.Location = new System.Drawing.Point(273, 256);
+            this.btnPulseMeter3CopySetting.Name = "btnPulseMeter3CopySetting";
+            this.btnPulseMeter3CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnPulseMeter3CopySetting.TabIndex = 23;
+            this.btnPulseMeter3CopySetting.Text = "→";
+            this.btnPulseMeter3CopySetting.UseVisualStyleBackColor = true;
+            this.btnPulseMeter3CopySetting.Click += new System.EventHandler(this.btnPulseMeter3CopySetting_Click);
+            // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3276,6 +6610,41 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabModbusMeterConfig.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3573,5 +6942,295 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TextBox txtWritePulseMeter2ReverseSetting;
         private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.CheckBox chkModbus1UseSetting;
+        private System.Windows.Forms.ComboBox cmbModbus1FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadForward1RegAddrSetting;
+        private System.Windows.Forms.TextBox txtReadForward1UseSetting;
+        private System.Windows.Forms.TextBox txtReadModbus1SlaveAddrSetting;
+        private System.Windows.Forms.Label lblModbusMeter1SettingStatus;
+        private System.Windows.Forms.TextBox txtReadModbus1UseSetting;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.TextBox txtReadModbus1FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus1SerialSetting;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Button btnWriteModbusMeter1Setting;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Button btnReadModbusMeter1Setting;
+        private System.Windows.Forms.TextBox txtReadModbus1BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus1SerialSetting;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.ComboBox cmbModbus1BaudSetting;
+        private System.Windows.Forms.TextBox txtReadForward1DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus1SlaveAddrSetting;
+        private System.Windows.Forms.TextBox txtReadForward1WordSwapSetting;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.TextBox txtReadModbus1FrameFormatSetting;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.ComboBox cmbModbus1FrameFormatSetting;
+        private System.Windows.Forms.CheckBox chkForward1UseSetting;
+        private System.Windows.Forms.ComboBox cmbForward1WordSwapSetting;
+        private System.Windows.Forms.ComboBox cmbForward1DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteForward1RegAddrSetting;
+        private System.Windows.Forms.TextBox txtWriteForward1MultiplierSetting;
+        private System.Windows.Forms.TextBox txtReadForward1MultiplierSetting;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.TextBox txtReadFlow1MultiplierSetting;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.CheckBox chkFlow1UseSetting;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.TextBox txtReadFlow1UseSetting;
+        private System.Windows.Forms.TextBox txtReadFlow1WordSwapSetting;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.TextBox txtReadFlow1RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow1WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadFlow1DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow1MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow1RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow1DataTypeSetting;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox txtReadReverse1MultiplierSetting;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.CheckBox chkReverse1UseSetting;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.TextBox txtReadReverse1UseSetting;
+        private System.Windows.Forms.TextBox txtReadReverse1WordSwapSetting;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.TextBox txtReadReverse1RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse1WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadReverse1DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse1MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse1RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse1DataTypeSetting;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.TextBox txtReadFlow2MultiplierSetting;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.CheckBox chkFlow2UseSetting;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.TextBox txtReadFlow2UseSetting;
+        private System.Windows.Forms.TextBox txtReadFlow2WordSwapSetting;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.TextBox txtReadFlow2RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow2WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadFlow2DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow2MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow2RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow2DataTypeSetting;
+        private System.Windows.Forms.Button btnReadModbusMeter2Setting;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.TextBox txtReadReverse2MultiplierSetting;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.CheckBox chkReverse2UseSetting;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.TextBox txtReadReverse2UseSetting;
+        private System.Windows.Forms.TextBox txtReadReverse2WordSwapSetting;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.TextBox txtReadReverse2RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse2WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadReverse2DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse2MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse2RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse2DataTypeSetting;
+        private System.Windows.Forms.Button btnWriteModbusMeter2Setting;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.TextBox txtReadForward2MultiplierSetting;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.CheckBox chkForward2UseSetting;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.Label label104;
+        private System.Windows.Forms.Label label105;
+        private System.Windows.Forms.TextBox txtReadForward2UseSetting;
+        private System.Windows.Forms.TextBox txtReadForward2WordSwapSetting;
+        private System.Windows.Forms.Label label106;
+        private System.Windows.Forms.TextBox txtReadForward2RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbForward2WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadForward2DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteForward2MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteForward2RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbForward2DataTypeSetting;
+        private System.Windows.Forms.CheckBox chkModbus2UseSetting;
+        private System.Windows.Forms.ComboBox cmbModbus2FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus2SlaveAddrSetting;
+        private System.Windows.Forms.Label lblModbusMeter2SettingStatus;
+        private System.Windows.Forms.TextBox txtReadModbus2UseSetting;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.TextBox txtReadModbus2FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus2SerialSetting;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.TextBox txtReadModbus2FrameFormatSetting;
+        private System.Windows.Forms.TextBox txtReadModbus2BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus2SerialSetting;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.ComboBox cmbModbus2FrameFormatSetting;
+        private System.Windows.Forms.ComboBox cmbModbus2BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus2SlaveAddrSetting;
+        private System.Windows.Forms.Label label113;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.TextBox txtReadFlow4MultiplierSetting;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.CheckBox chkFlow4UseSetting;
+        private System.Windows.Forms.Label label115;
+        private System.Windows.Forms.Label label116;
+        private System.Windows.Forms.Label label117;
+        private System.Windows.Forms.TextBox txtReadFlow4UseSetting;
+        private System.Windows.Forms.TextBox txtReadFlow4WordSwapSetting;
+        private System.Windows.Forms.Label label118;
+        private System.Windows.Forms.TextBox txtReadFlow4RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow4WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadFlow4DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow4MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow4RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow4DataTypeSetting;
+        private System.Windows.Forms.Button btnReadModbusMeter4Setting;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.TextBox txtReadReverse4MultiplierSetting;
+        private System.Windows.Forms.Label label119;
+        private System.Windows.Forms.CheckBox chkReverse4UseSetting;
+        private System.Windows.Forms.Label label120;
+        private System.Windows.Forms.Label label121;
+        private System.Windows.Forms.Label label122;
+        private System.Windows.Forms.TextBox txtReadReverse4UseSetting;
+        private System.Windows.Forms.TextBox txtReadReverse4WordSwapSetting;
+        private System.Windows.Forms.Label label123;
+        private System.Windows.Forms.TextBox txtReadReverse4RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse4WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadReverse4DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse4MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse4RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse4DataTypeSetting;
+        private System.Windows.Forms.Button btnWriteModbusMeter4Setting;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.TextBox txtReadForward4MultiplierSetting;
+        private System.Windows.Forms.Label label124;
+        private System.Windows.Forms.CheckBox chkForward4UseSetting;
+        private System.Windows.Forms.Label label125;
+        private System.Windows.Forms.Label label126;
+        private System.Windows.Forms.Label label127;
+        private System.Windows.Forms.TextBox txtReadForward4UseSetting;
+        private System.Windows.Forms.TextBox txtReadForward4WordSwapSetting;
+        private System.Windows.Forms.Label label128;
+        private System.Windows.Forms.TextBox txtReadForward4RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbForward4WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadForward4DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteForward4MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteForward4RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbForward4DataTypeSetting;
+        private System.Windows.Forms.CheckBox chkModbus4UseSetting;
+        private System.Windows.Forms.ComboBox cmbModbus4FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus4SlaveAddrSetting;
+        private System.Windows.Forms.Label lblModbusMeter4SettingStatus;
+        private System.Windows.Forms.TextBox txtReadModbus4UseSetting;
+        private System.Windows.Forms.Label label130;
+        private System.Windows.Forms.TextBox txtReadModbus4FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus4SerialSetting;
+        private System.Windows.Forms.Label label131;
+        private System.Windows.Forms.Label label132;
+        private System.Windows.Forms.TextBox txtReadModbus4FrameFormatSetting;
+        private System.Windows.Forms.TextBox txtReadModbus4BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus4SerialSetting;
+        private System.Windows.Forms.Label label133;
+        private System.Windows.Forms.Label label134;
+        private System.Windows.Forms.ComboBox cmbModbus4FrameFormatSetting;
+        private System.Windows.Forms.ComboBox cmbModbus4BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus4SlaveAddrSetting;
+        private System.Windows.Forms.Label label135;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.TextBox txtReadFlow3MultiplierSetting;
+        private System.Windows.Forms.Label label136;
+        private System.Windows.Forms.CheckBox chkFlow3UseSetting;
+        private System.Windows.Forms.Label label137;
+        private System.Windows.Forms.Label label138;
+        private System.Windows.Forms.Label label139;
+        private System.Windows.Forms.TextBox txtReadFlow3UseSetting;
+        private System.Windows.Forms.TextBox txtReadFlow3WordSwapSetting;
+        private System.Windows.Forms.Label label140;
+        private System.Windows.Forms.TextBox txtReadFlow3RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow3WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadFlow3DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow3MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteFlow3RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbFlow3DataTypeSetting;
+        private System.Windows.Forms.Button btnReadModbusMeter3Setting;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.TextBox txtReadReverse3MultiplierSetting;
+        private System.Windows.Forms.Label label141;
+        private System.Windows.Forms.CheckBox chkReverse3UseSetting;
+        private System.Windows.Forms.Label label142;
+        private System.Windows.Forms.Label label143;
+        private System.Windows.Forms.Label label144;
+        private System.Windows.Forms.TextBox txtReadReverse3UseSetting;
+        private System.Windows.Forms.TextBox txtReadReverse3WordSwapSetting;
+        private System.Windows.Forms.Label label145;
+        private System.Windows.Forms.TextBox txtReadReverse3RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse3WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadReverse3DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse3MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteReverse3RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbReverse3DataTypeSetting;
+        private System.Windows.Forms.Button btnWriteModbusMeter3Setting;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.TextBox txtReadForward3MultiplierSetting;
+        private System.Windows.Forms.Label label146;
+        private System.Windows.Forms.CheckBox chkForward3UseSetting;
+        private System.Windows.Forms.Label label147;
+        private System.Windows.Forms.Label label148;
+        private System.Windows.Forms.Label label149;
+        private System.Windows.Forms.TextBox txtReadForward3UseSetting;
+        private System.Windows.Forms.TextBox txtReadForward3WordSwapSetting;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.TextBox txtReadForward3RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbForward3WordSwapSetting;
+        private System.Windows.Forms.TextBox txtReadForward3DataTypeSetting;
+        private System.Windows.Forms.TextBox txtWriteForward3MultiplierSetting;
+        private System.Windows.Forms.TextBox txtWriteForward3RegAddrSetting;
+        private System.Windows.Forms.ComboBox cmbForward3DataTypeSetting;
+        private System.Windows.Forms.CheckBox chkModbus3UseSetting;
+        private System.Windows.Forms.ComboBox cmbModbus3FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus3SlaveAddrSetting;
+        private System.Windows.Forms.Label lblModbusMeter3SettingStatus;
+        private System.Windows.Forms.TextBox txtReadModbus3UseSetting;
+        private System.Windows.Forms.Label label152;
+        private System.Windows.Forms.TextBox txtReadModbus3FunctionCodeSetting;
+        private System.Windows.Forms.TextBox txtReadModbus3SerialSetting;
+        private System.Windows.Forms.Label label153;
+        private System.Windows.Forms.Label label154;
+        private System.Windows.Forms.TextBox txtReadModbus3FrameFormatSetting;
+        private System.Windows.Forms.TextBox txtReadModbus3BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus3SerialSetting;
+        private System.Windows.Forms.Label label155;
+        private System.Windows.Forms.Label label156;
+        private System.Windows.Forms.ComboBox cmbModbus3FrameFormatSetting;
+        private System.Windows.Forms.ComboBox cmbModbus3BaudSetting;
+        private System.Windows.Forms.TextBox txtWriteModbus3SlaveAddrSetting;
+        private System.Windows.Forms.Label label157;
+        private System.Windows.Forms.Button btnModbusMeter4CopySetting;
+        private System.Windows.Forms.Button btnModbusMeter3CopySetting;
+        private System.Windows.Forms.Button btnModbusMeter2CopySetting;
+        private System.Windows.Forms.Button btnModbusMeter1CopySetting;
+        private System.Windows.Forms.Button btnPulseMeter4CopySetting;
+        private System.Windows.Forms.Button btnPulseMeter3CopySetting;
+        private System.Windows.Forms.Button btnPulseMeter2CopySetting;
+        private System.Windows.Forms.Button btnPulseMeter1CopySetting;
     }
 }
