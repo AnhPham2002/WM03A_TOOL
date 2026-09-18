@@ -46,6 +46,7 @@ namespace WM03A
             lblPulseMeter2SettingStatus.Text = string.Empty;
             lblPulseMeter3SettingStatus.Text = string.Empty;
             lblPulseMeter4SettingStatus.Text = string.Empty;
+            lblModbusMeter1SettingStatus.Text = string.Empty;
 
             cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
             cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
@@ -67,10 +68,22 @@ namespace WM03A
             cmbPulseMeter4TypeSetting.SelectedIndex = 0;
             cmbPulseMeter4EdgeSetting.SelectedIndex = 0;
 
+            cmbModbus1BaudSetting.SelectedIndex = 0;
+            cmbModbus1FrameFormatSetting.SelectedIndex = 0;
+            cmbModbus1FunctionCodeSetting.SelectedIndex = 0;
+            cmbForward1DataTypeSetting.SelectedIndex = 0;
+            cmbForward1WordSwapSetting.SelectedIndex = 0;
+            cmbReverse1DataTypeSetting.SelectedIndex = 0;
+            cmbReverse1WordSwapSetting.SelectedIndex= 0;
+            cmbFlow1DataTypeSetting.SelectedIndex = 0;
+            cmbFlow1WordSwapSetting.SelectedIndex = 0;
+
             UpdatePulseMeter1Control();
             UpdatePulseMeter2Control();
             UpdatePulseMeter3Control();
             UpdatePulseMeter4Control();
+
+            UpdateModbusMeter1Control();
         }
 
         private void ApplyAccessControl()
@@ -1124,6 +1137,121 @@ namespace WM03A
         }
 
 
+        //-----------------------Modbus Meter Setting--------------------------------//
+
+        private void chkModbus1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void chkForward1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void chkReverse1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private void chkFlow1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateModbusMeter1Control();
+        }
+
+        private async void btnReadModbusMeter1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+                (byte)ConfigModbusMeterId.MeterEnable,
+                (byte)ConfigModbusMeterId.SerialNumber,
+                (byte)ConfigModbusMeterId.SlaveAddress,
+                (byte)ConfigModbusMeterId.Baudrate,
+                (byte)ConfigModbusMeterId.SerialConfig,
+                (byte)ConfigModbusMeterId.ReadFuncCode,
+                (byte)ConfigModbusMeterId.ForwardTotalEnable,
+                (byte)ConfigModbusMeterId.ForwardTotalRegAddr,
+                (byte)ConfigModbusMeterId.ForwardTotalDataType,
+                (byte)ConfigModbusMeterId.ForwardTotalWordSwap,
+                (byte)ConfigModbusMeterId.ForwardTotalMultiplier,
+                (byte)ConfigModbusMeterId.ReverseTotalEnable,
+                (byte)ConfigModbusMeterId.ReverseTotalRegAddr,
+                (byte)ConfigModbusMeterId.ReverseTotalDataType,
+                (byte)ConfigModbusMeterId.ReverseTotalWordSwap,
+                (byte)ConfigModbusMeterId.ReverseTotalMultiplier,
+                (byte)ConfigModbusMeterId.FlowRateEnable,
+                (byte)ConfigModbusMeterId.FlowRateRegAddr,
+                (byte)ConfigModbusMeterId.FlowRateDataType,
+                (byte)ConfigModbusMeterId.FlowRateWordSwap,
+                (byte)ConfigModbusMeterId.FlowRateMultiplier
+            };
+
+            txtReadModbus1UseSetting.Clear();
+            txtReadModbus1SerialSetting.Clear();
+            txtReadModbus1SlaveAddrSetting.Clear();
+            txtReadModbus1BaudSetting.Clear();
+            txtReadModbus1FrameFormatSetting.Clear();
+            txtReadModbus1FunctionCodeSetting.Clear();
+            txtReadForward1UseSetting.Clear();
+            txtReadForward1RegAddrSetting.Clear();
+            txtReadForward1DataTypeSetting.Clear();
+            txtReadForward1WordSwapSetting.Clear();
+            txtReadForward1MultiplierSetting.Clear();
+            txtReadReverse1UseSetting.Clear();
+            txtReadReverse1RegAddrSetting.Clear();
+            txtReadReverse1DataTypeSetting.Clear();
+            txtReadReverse1WordSwapSetting.Clear();
+            txtReadReverse1MultiplierSetting.Clear();
+            txtReadFlow1UseSetting.Clear();
+            txtReadFlow1RegAddrSetting.Clear();
+            txtReadFlow1DataTypeSetting.Clear();
+            txtReadFlow1WordSwapSetting.Clear();
+            txtReadReverse1MultiplierSetting.Clear();
+
+            GetCommands.ModbusMeter(0, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
+            {
+                if (!modbusMeterConfig.MeterEnable)
+                {
+                    txtReadModbus1UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadModbus1UseSetting.Text = "Đang sử dụng";
+                    txtReadModbus1SerialSetting.Text = modbusMeterConfig.SerialNumber;
+                    txtReadModbus1SlaveAddrSetting.Text = modbusMeterConfig.SlaveAddress.ToString();
+                    txtReadModbus1BaudSetting.Text = modbusMeterConfig.BaudRate.ToString();
+                    //txtReadModbus1FrameFormatSetting.Text
+
+
+                    //if (pulseMeterConfig.PulseType != 0)
+                    //{
+                    //    txtReadPulseMeter4TypeSetting.Text = cmbPulseMeter4TypeSetting.Items[pulseMeterConfig.PulseType].ToString();
+                    //}
+                    //if (pulseMeterConfig.Pin1 != 0)
+                    //{
+                    //    txtReadPulseMeter4Pin1Setting.Text = cmbPulseMeter4Pin1Setting.Items[pulseMeterConfig.Pin1].ToString();
+                    //}
+                    //if (pulseMeterConfig.Pin2 != 0)
+                    //{
+                    //    txtReadPulseMeter4Pin2Setting.Text = cmbPulseMeter4Pin2Setting.Items[pulseMeterConfig.Pin2].ToString();
+                    //}
+                    //if (pulseMeterConfig.EdgeType != 0)
+                    //{
+                    //    txtReadPulseMeter4EdgeSetting.Text = cmbPulseMeter4EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
+                    //}
+                }
+            }
+        }
+
+        private void btnWriteModbusMeter1Setting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
         // ----------------------------------------------------------------------
         // Logic functions
         // ----------------------------------------------------------------------
@@ -1616,34 +1744,29 @@ namespace WM03A
             }
         }
 
-        private void label29_Click(object sender, EventArgs e)
+        private void UpdateModbusMeter1Control()
         {
-
-        }
-
-        private void label28_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
+            bool enabled = chkModbus1UseSetting.Checked;
+            txtWriteModbus1SerialSetting.Enabled = enabled;
+            txtWriteModbus1SlaveAddrSetting.Enabled = enabled;
+            cmbModbus1BaudSetting.Enabled = enabled;
+            cmbModbus1FrameFormatSetting.Enabled = enabled;
+            cmbModbus1FunctionCodeSetting.Enabled = enabled;
+            chkForward1UseSetting.Enabled = enabled;
+            txtWriteForward1RegAddrSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            cmbForward1DataTypeSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            cmbForward1WordSwapSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            txtWriteForward1MultiplierSetting.Enabled = enabled && chkForward1UseSetting.Checked;
+            chkReverse1UseSetting.Enabled = enabled;
+            txtWriteReverse1RegAddrSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            cmbReverse1DataTypeSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            cmbReverse1WordSwapSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            txtWriteReverse1MultiplierSetting.Enabled = enabled && chkReverse1UseSetting.Checked;
+            chkFlow1UseSetting.Enabled = enabled;
+            txtWriteFlow1RegAddrSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
+            cmbFlow1DataTypeSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
+            cmbFlow1WordSwapSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
+            txtWriteFlow1MultiplierSetting.Enabled = enabled && chkFlow1UseSetting.Checked;
         }
     }
 }

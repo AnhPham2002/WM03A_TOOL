@@ -185,10 +185,10 @@ namespace WM03A
             ReverseTotalWordSwap,
             ReverseTotalMultiplier,
             FlowRateEnable,
-            FlowRateTotalRegAddr,
-            FlowRateTotalDataType,
-            FlowRateTotalWordSwap,
-            FlowRateTotalMultiplier
+            FlowRateRegAddr,
+            FlowRateDataType,
+            FlowRateWordSwap,
+            FlowRateMultiplier
         }
 
         public enum ConfigPressureSensorId : byte
