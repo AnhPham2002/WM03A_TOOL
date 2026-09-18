@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Users\Model\PulseMeterConfig.cs" />
     <Compile Include="Users\ProtocolCommands\GetCommands.cs" />
     <Compile Include="Users\ProtocolCommands\QueryCommands.cs" />
     <Compile Include="Users\ProtocolCommands\SetCommands.cs" />

@@ -78,5 +78,115 @@ namespace WM03A
                 return 0.0f;
             return BitConverter.ToSingle(payload, 1);
         }
+
+        public static bool PulseMeter(byte[] frame, out PulseMeterConfig config)
+        {
+            config = new PulseMeterConfig();
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length == 0)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            while (index < payload.Length)
+            {
+                byte parameterId = payload[index++];
+
+                switch (parameterId)
+                {
+                    case (byte)ConfigPulseMeterId.MeterEnable:
+                        {
+                            if (index + 1 > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.MeterEnable = payload[index++] != 0;
+                            break;
+                        }
+
+                    case (byte)ConfigPulseMeterId.SerialNumber:
+                        {
+                            if (index + METER_SERIAL_SIZE > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.SerialNumber = Encoding.ASCII.GetString(
+                                payload,
+                                index,
+                                METER_SERIAL_SIZE).TrimEnd('\0');
+
+                            index += METER_SERIAL_SIZE;
+                            break;
+                        }
+
+                    case (byte)ConfigPulseMeterId.PulseFactor:
+                        {
+                            if (index + sizeof(ushort) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.PulseFactor = BitConverter.ToUInt16(payload, index);
+                            index += sizeof(ushort);
+                            break;
+                        }
+
+                    case (byte)ConfigPulseMeterId.Pin1:
+                        {
+                            if (index + sizeof(byte) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.Pin1 = payload[index++];
+                            break;
+                        }
+
+                    case (byte)ConfigPulseMeterId.Pin2:
+                        {
+                            if (index + sizeof(byte) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.Pin2 = payload[index++];
+                            break;
+                        }
+
+                    case (byte)ConfigPulseMeterId.PulseType:
+                        {
+                            if (index + sizeof(byte) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.PulseType = payload[index++];
+                            break;
+                        }
+
+                    case (byte)ConfigPulseMeterId.EdgeType:
+                        {
+                            if (index + sizeof(byte) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.EdgeType = payload[index++];
+                            break;
+                        }
+
+                    default:
+                        return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

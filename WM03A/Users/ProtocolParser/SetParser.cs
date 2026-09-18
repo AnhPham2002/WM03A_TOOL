@@ -32,5 +32,13 @@ namespace WM03A.Users.ProtocolParser
                 return false;
             return true;
         }
+
+        public static bool PulseMeter(byte[] frame)
+        {
+            ProtocolErrCode errCodeUnpack = UnpackAck(frame, out DateTime dateTime, out byte cmd, out byte id, out ProtocolErrCode errCode);
+            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.PulseMeter))
+                return false;
+            return true;
+        }
     }
 }

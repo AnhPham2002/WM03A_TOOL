@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using WM03A.Users.ProtocolCommands;
 using WM03A.Users.ProtocolParser;
 using static WM03A.Protocol;
+using static WM03A.QueryParser;
 
 namespace WM03A
 {
@@ -41,6 +42,35 @@ namespace WM03A
             rdoPcTimeSetting.Checked = true;
             lblTimeSettingStatus.Text = string.Empty;
             lblModuleSettingStatus.Text = string.Empty;
+            lblPulseMeter1SettingStatus.Text = string.Empty;
+            lblPulseMeter2SettingStatus.Text = string.Empty;
+            lblPulseMeter3SettingStatus.Text = string.Empty;
+            lblPulseMeter4SettingStatus.Text = string.Empty;
+
+            cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
+            cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
+            cmbPulseMeter1TypeSetting.SelectedIndex = 0;
+            cmbPulseMeter1EdgeSetting.SelectedIndex = 0;
+
+            cmbPulseMeter2Pin1Setting.SelectedIndex = 0;
+            cmbPulseMeter2Pin2Setting.SelectedIndex = 0;
+            cmbPulseMeter2TypeSetting.SelectedIndex = 0;
+            cmbPulseMeter2EdgeSetting.SelectedIndex = 0;
+
+            cmbPulseMeter3Pin1Setting.SelectedIndex = 0;
+            cmbPulseMeter3Pin2Setting.SelectedIndex = 0;
+            cmbPulseMeter3TypeSetting.SelectedIndex = 0;
+            cmbPulseMeter3EdgeSetting.SelectedIndex = 0;
+
+            cmbPulseMeter4Pin1Setting.SelectedIndex = 0;
+            cmbPulseMeter4Pin2Setting.SelectedIndex = 0;
+            cmbPulseMeter4TypeSetting.SelectedIndex = 0;
+            cmbPulseMeter4EdgeSetting.SelectedIndex = 0;
+
+            UpdatePulseMeter1Control();
+            UpdatePulseMeter2Control();
+            UpdatePulseMeter3Control();
+            UpdatePulseMeter4Control();
         }
 
         private void ApplyAccessControl()
@@ -238,6 +268,7 @@ namespace WM03A
         // Setting Tab
         // ----------------------------------------------------------------------
 
+        //-----------------------Module Setting--------------------------------//
         private void rdoManualTimeSetting_CheckedChanged(object sender, EventArgs e)
         {
             if (!rdoManualTimeSetting.Checked)
@@ -416,12 +447,7 @@ namespace WM03A
 
             if (!string.IsNullOrWhiteSpace(txtWriteIpSetting.Text) != !string.IsNullOrWhiteSpace(txtWritePortSetting.Text))
             {
-                MessageBox.Show(
-                "Vui lòng nhập đầy đủ IP và Port, hoặc xóa cả hai trường.",
-                "Thông tin không hợp lệ",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-
+                lblModuleSettingStatus.Text = "Vui lòng nhập đầy đủ IP và Port, hoặc xóa cả hai trường.";
                 return;
             }
 
@@ -429,12 +455,7 @@ namespace WM03A
             {
                 if (!ushort.TryParse(txtWriteLatchSetting.Text, out ushort value) || value < 1 || value > 2440)
                 {
-                    MessageBox.Show(
-                        "Chu kỳ chốt phải nằm trong khoảng từ 1 đến 2440.",
-                        "Dữ liệu không hợp lệ",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                    lblModuleSettingStatus.Text = "Chu kỳ chốt phải nằm trong khoảng từ 1 đến 2440.";
                     return;
                 }
             }
@@ -443,24 +464,14 @@ namespace WM03A
             {
                 if (!ushort.TryParse(txtWritePushSetting.Text, out ushort value) || value < 1 || value > 2440)
                 {
-                    MessageBox.Show(
-                        "Chu kỳ đẩy phải nằm trong khoảng từ 1 đến 2440.",
-                        "Dữ liệu không hợp lệ",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-
+                    lblModuleSettingStatus.Text = "Chu kỳ đẩy phải nằm trong khoảng từ 1 đến 2440.";
                     return;
                 }
             }
 
             if (!TryGetTimezone(out string timezone))
             {
-                MessageBox.Show(
-                    "Múi giờ không hợp lệ.",
-                    "Dữ liệu không hợp lệ",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
+                lblModuleSettingStatus.Text = "Múi giờ không hợp lệ.";
                 return;
             }
 
@@ -495,6 +506,623 @@ namespace WM03A
             lblModuleSettingStatus.Text = string.Empty;
             return;
         }
+
+        //-----------------------Pulse Meter Setting--------------------------------//
+
+        private async void btnReadPulseMeter1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+                (byte)ConfigPulseMeterId.MeterEnable,
+                (byte)ConfigPulseMeterId.SerialNumber,
+                (byte)ConfigPulseMeterId.PulseFactor,
+                (byte)ConfigPulseMeterId.Pin1,
+                (byte)ConfigPulseMeterId.Pin2,
+                (byte)ConfigPulseMeterId.PulseType,
+                (byte)ConfigPulseMeterId.EdgeType
+            };
+
+            txtReadPulseMeter1UseSetting.Clear();
+            txtReadPulseMeter1SerialSetting.Clear();
+            txtReadPulseMeter1PulseFactorSetting.Clear();
+            txtReadPulseMeter1TypeSetting.Clear();
+            txtReadPulseMeter1Pin1Setting.Clear();
+            txtReadPulseMeter1Pin2Setting.Clear();
+            txtReadPulseMeter1EdgeSetting.Clear();
+            txtReadPulseMeter1ForwardSetting.Clear();
+            txtReadPulseMeter1ReverseSetting.Clear();
+
+            GetCommands.PulseMeter(0, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
+            {
+                if (!pulseMeterConfig.MeterEnable)
+                {
+                    txtReadPulseMeter1UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadPulseMeter1UseSetting.Text = "Đang sử dụng";
+                    txtReadPulseMeter1SerialSetting.Text = pulseMeterConfig.SerialNumber;
+                    txtReadPulseMeter1PulseFactorSetting.Text = pulseMeterConfig.PulseFactor.ToString();
+                    if (pulseMeterConfig.PulseType != 0)
+                    {
+                        txtReadPulseMeter1TypeSetting.Text = cmbPulseMeter1TypeSetting.Items[pulseMeterConfig.PulseType].ToString();
+                    }
+                    if (pulseMeterConfig.Pin1 != 0)
+                    {
+                        txtReadPulseMeter1Pin1Setting.Text = cmbPulseMeter1Pin1Setting.Items[pulseMeterConfig.Pin1].ToString();
+                    }
+                    if (pulseMeterConfig.Pin2 != 0)
+                    {
+                        txtReadPulseMeter1Pin2Setting.Text = cmbPulseMeter1Pin2Setting.Items[pulseMeterConfig.Pin2].ToString();
+                    }
+                    if (pulseMeterConfig.EdgeType != 0)
+                    {
+                        txtReadPulseMeter1EdgeSetting.Text = cmbPulseMeter1EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
+                    }
+                }
+            }
+
+            QueryCommands.PulseMeterData(0, out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
+            {
+                txtReadPulseMeter1ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
+                txtReadPulseMeter1ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
+            }
+        }
+
+        private void chkPulseMeter1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter1Control();
+        }
+
+        private void cmbPulseMeter1TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter1Control();
+        }
+
+        private async void btnWritePulseMeter1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkPulseMeter1UseSetting.Checked;
+
+            string serialNumber = txtWritePulseMeter1SerialSetting.Text.Trim();
+            ushort? pulseFactor = null;
+            double? forward = null;
+            double? reverse = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblPulseMeter1SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!ushort.TryParse(txtWritePulseMeter1PulseFactorSetting.Text, out ushort pulseFactorValue) || pulseFactorValue < 1)
+                {
+                    lblPulseMeter1SettingStatus.Text = "Pulse Factor phải lớn hơn hoặc bằng 1.";
+                    return;
+                }
+
+                if (cmbPulseMeter1TypeSetting.SelectedIndex == 0 || cmbPulseMeter1Pin1Setting.SelectedIndex == 0 || cmbPulseMeter1EdgeSetting.SelectedIndex == 0)
+                {
+                    lblPulseMeter1SettingStatus.Text = "Vui lòng điền đầy đủ thông tin.";
+                    return;
+                }
+
+                if (cmbPulseMeter1TypeSetting.SelectedIndex == 2 && cmbPulseMeter1Pin2Setting.SelectedIndex == 0)
+                {
+                    lblPulseMeter1SettingStatus.Text = "Vui lòng chọn Pin 2.";
+                    return;
+                }
+
+                string forwardText = txtWritePulseMeter1ForwardSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(forwardText, out double forwardValue) || forwardValue < 0)
+                {
+                    lblPulseMeter1SettingStatus.Text = "Forward phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                string reverseText = txtWritePulseMeter1ReverseSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(reverseText, out double reverseValue) || reverseValue < 0)
+                {
+                    lblPulseMeter1SettingStatus.Text = "Reverse phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                pulseFactor = pulseFactorValue;
+                forward = forwardValue;
+                reverse = reverseValue;
+            }
+
+            byte pulseType = (byte)cmbPulseMeter1TypeSetting.SelectedIndex;
+            byte pin1 = (byte)cmbPulseMeter1Pin1Setting.SelectedIndex;
+            byte pin2 = (byte)cmbPulseMeter1Pin2Setting.SelectedIndex;
+            byte edgeType = (byte)cmbPulseMeter1EdgeSetting.SelectedIndex;
+
+            if (SetCommands.PulseMeter(0, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.PulseMeter(rxFrame))
+                {
+                    lblPulseMeter1SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblPulseMeter1SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblPulseMeter1SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblPulseMeter1SettingStatus.Text = string.Empty;
+        }
+
+
+
+
+        private async void btnReadPulseMeter2Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+                (byte)ConfigPulseMeterId.MeterEnable,
+                (byte)ConfigPulseMeterId.SerialNumber,
+                (byte)ConfigPulseMeterId.PulseFactor,
+                (byte)ConfigPulseMeterId.Pin1,
+                (byte)ConfigPulseMeterId.Pin2,
+                (byte)ConfigPulseMeterId.PulseType,
+                (byte)ConfigPulseMeterId.EdgeType
+            };
+
+            txtReadPulseMeter2UseSetting.Clear();
+            txtReadPulseMeter2SerialSetting.Clear();
+            txtReadPulseMeter2PulseFactorSetting.Clear();
+            txtReadPulseMeter2TypeSetting.Clear();
+            txtReadPulseMeter2Pin1Setting.Clear();
+            txtReadPulseMeter2Pin2Setting.Clear();
+            txtReadPulseMeter2EdgeSetting.Clear();
+            txtReadPulseMeter2ForwardSetting.Clear();
+            txtReadPulseMeter2ReverseSetting.Clear();
+
+            GetCommands.PulseMeter(1, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
+            {
+                if (!pulseMeterConfig.MeterEnable)
+                {
+                    txtReadPulseMeter2UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadPulseMeter2UseSetting.Text = "Đang sử dụng";
+                    txtReadPulseMeter2SerialSetting.Text = pulseMeterConfig.SerialNumber;
+                    txtReadPulseMeter2PulseFactorSetting.Text = pulseMeterConfig.PulseFactor.ToString();
+                    if (pulseMeterConfig.PulseType != 0)
+                    {
+                        txtReadPulseMeter2TypeSetting.Text = cmbPulseMeter2TypeSetting.Items[pulseMeterConfig.PulseType].ToString();
+                    }
+                    if (pulseMeterConfig.Pin1 != 0)
+                    {
+                        txtReadPulseMeter2Pin1Setting.Text = cmbPulseMeter2Pin1Setting.Items[pulseMeterConfig.Pin1].ToString();
+                    }
+                    if (pulseMeterConfig.Pin2 != 0)
+                    {
+                        txtReadPulseMeter2Pin2Setting.Text = cmbPulseMeter2Pin2Setting.Items[pulseMeterConfig.Pin2].ToString();
+                    }
+                    if (pulseMeterConfig.EdgeType != 0)
+                    {
+                        txtReadPulseMeter2EdgeSetting.Text = cmbPulseMeter2EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
+                    }
+                }
+            }
+
+            QueryCommands.PulseMeterData(1, out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
+            {
+                txtReadPulseMeter2ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
+                txtReadPulseMeter2ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
+            }
+        }
+        private void chkPulseMeter2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter2Control();
+        }
+
+        private void cmbPulseMeter2TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter2Control();
+        }
+
+        private async void btnWritePulseMeter2Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkPulseMeter2UseSetting.Checked;
+
+            string serialNumber = txtWritePulseMeter2SerialSetting.Text.Trim();
+            ushort? pulseFactor = null;
+            double? forward = null;
+            double? reverse = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblPulseMeter2SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!ushort.TryParse(txtWritePulseMeter2PulseFactorSetting.Text, out ushort pulseFactorValue) || pulseFactorValue < 1)
+                {
+                    lblPulseMeter2SettingStatus.Text = "Pulse Factor phải lớn hơn hoặc bằng 1.";
+                    return;
+                }
+
+                if (cmbPulseMeter2TypeSetting.SelectedIndex == 0 || cmbPulseMeter2Pin1Setting.SelectedIndex == 0 || cmbPulseMeter2EdgeSetting.SelectedIndex == 0)
+                {
+                    lblPulseMeter2SettingStatus.Text = "Vui lòng điền đầy đủ thông tin.";
+                    return;
+                }
+
+                if (cmbPulseMeter2TypeSetting.SelectedIndex == 2 && cmbPulseMeter2Pin2Setting.SelectedIndex == 0)
+                {
+                    lblPulseMeter2SettingStatus.Text = "Vui lòng chọn Pin 2.";
+                    return;
+                }
+
+                string forwardText = txtWritePulseMeter2ForwardSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(forwardText, out double forwardValue) || forwardValue < 0)
+                {
+                    lblPulseMeter2SettingStatus.Text = "Forward phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                string reverseText = txtWritePulseMeter2ReverseSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(reverseText, out double reverseValue) || reverseValue < 0)
+                {
+                    lblPulseMeter2SettingStatus.Text = "Reverse phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                pulseFactor = pulseFactorValue;
+                forward = forwardValue;
+                reverse = reverseValue;
+            }
+
+            byte pulseType = (byte)cmbPulseMeter2TypeSetting.SelectedIndex;
+            byte pin1 = (byte)cmbPulseMeter2Pin1Setting.SelectedIndex;
+            byte pin2 = (byte)cmbPulseMeter2Pin2Setting.SelectedIndex;
+            byte edgeType = (byte)cmbPulseMeter2EdgeSetting.SelectedIndex;
+
+            if (SetCommands.PulseMeter(1, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.PulseMeter(rxFrame))
+                {
+                    lblPulseMeter2SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblPulseMeter2SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblPulseMeter2SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblPulseMeter2SettingStatus.Text = string.Empty;
+        }
+
+        private async void btnReadPulseMeter3Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+                (byte)ConfigPulseMeterId.MeterEnable,
+                (byte)ConfigPulseMeterId.SerialNumber,
+                (byte)ConfigPulseMeterId.PulseFactor,
+                (byte)ConfigPulseMeterId.Pin1,
+                (byte)ConfigPulseMeterId.Pin2,
+                (byte)ConfigPulseMeterId.PulseType,
+                (byte)ConfigPulseMeterId.EdgeType
+            };
+
+            txtReadPulseMeter3UseSetting.Clear();
+            txtReadPulseMeter3SerialSetting.Clear();
+            txtReadPulseMeter3PulseFactorSetting.Clear();
+            txtReadPulseMeter3TypeSetting.Clear();
+            txtReadPulseMeter3Pin1Setting.Clear();
+            txtReadPulseMeter3Pin2Setting.Clear();
+            txtReadPulseMeter3EdgeSetting.Clear();
+            txtReadPulseMeter3ForwardSetting.Clear();
+            txtReadPulseMeter3ReverseSetting.Clear();
+
+            GetCommands.PulseMeter(2, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
+            {
+                if (!pulseMeterConfig.MeterEnable)
+                {
+                    txtReadPulseMeter3UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadPulseMeter3UseSetting.Text = "Đang sử dụng";
+                    txtReadPulseMeter3SerialSetting.Text = pulseMeterConfig.SerialNumber;
+                    txtReadPulseMeter3PulseFactorSetting.Text = pulseMeterConfig.PulseFactor.ToString();
+                    if (pulseMeterConfig.PulseType != 0)
+                    {
+                        txtReadPulseMeter3TypeSetting.Text = cmbPulseMeter3TypeSetting.Items[pulseMeterConfig.PulseType].ToString();
+                    }
+                    if (pulseMeterConfig.Pin1 != 0)
+                    {
+                        txtReadPulseMeter3Pin1Setting.Text = cmbPulseMeter3Pin1Setting.Items[pulseMeterConfig.Pin1].ToString();
+                    }
+                    if (pulseMeterConfig.Pin2 != 0)
+                    {
+                        txtReadPulseMeter3Pin2Setting.Text = cmbPulseMeter3Pin2Setting.Items[pulseMeterConfig.Pin2].ToString();
+                    }
+                    if (pulseMeterConfig.EdgeType != 0)
+                    {
+                        txtReadPulseMeter3EdgeSetting.Text = cmbPulseMeter3EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
+                    }
+                }
+            }
+
+            QueryCommands.PulseMeterData(2, out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
+            {
+                txtReadPulseMeter3ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
+                txtReadPulseMeter3ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
+            }
+        }
+
+        private void chkPulseMeter3UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter3Control();
+        }
+
+        private void cmbPulseMeter3TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter3Control();
+        }
+
+        private async void btnWritePulseMeter3Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkPulseMeter3UseSetting.Checked;
+
+            string serialNumber = txtWritePulseMeter3SerialSetting.Text.Trim();
+            ushort? pulseFactor = null;
+            double? forward = null;
+            double? reverse = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblPulseMeter3SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!ushort.TryParse(txtWritePulseMeter3PulseFactorSetting.Text, out ushort pulseFactorValue) || pulseFactorValue < 1)
+                {
+                    lblPulseMeter3SettingStatus.Text = "Pulse Factor phải lớn hơn hoặc bằng 1.";
+                    return;
+                }
+
+                if (cmbPulseMeter3TypeSetting.SelectedIndex == 0 || cmbPulseMeter3Pin1Setting.SelectedIndex == 0 || cmbPulseMeter3EdgeSetting.SelectedIndex == 0)
+                {
+                    lblPulseMeter3SettingStatus.Text = "Vui lòng điền đầy đủ thông tin.";
+                    return;
+                }
+
+                if (cmbPulseMeter3TypeSetting.SelectedIndex == 2 && cmbPulseMeter3Pin2Setting.SelectedIndex == 0)
+                {
+                    lblPulseMeter3SettingStatus.Text = "Vui lòng chọn Pin 2.";
+                    return;
+                }
+
+                string forwardText = txtWritePulseMeter3ForwardSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(forwardText, out double forwardValue) || forwardValue < 0)
+                {
+                    lblPulseMeter3SettingStatus.Text = "Forward phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                string reverseText = txtWritePulseMeter3ReverseSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(reverseText, out double reverseValue) || reverseValue < 0)
+                {
+                    lblPulseMeter3SettingStatus.Text = "Reverse phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                pulseFactor = pulseFactorValue;
+                forward = forwardValue;
+                reverse = reverseValue;
+            }
+
+            byte pulseType = (byte)cmbPulseMeter3TypeSetting.SelectedIndex;
+            byte pin1 = (byte)cmbPulseMeter3Pin1Setting.SelectedIndex;
+            byte pin2 = (byte)cmbPulseMeter3Pin2Setting.SelectedIndex;
+            byte edgeType = (byte)cmbPulseMeter3EdgeSetting.SelectedIndex;
+
+            if (SetCommands.PulseMeter(2, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.PulseMeter(rxFrame))
+                {
+                    lblPulseMeter3SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblPulseMeter3SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblPulseMeter3SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblPulseMeter3SettingStatus.Text = string.Empty;
+        }
+
+
+        private async void btnReadPulseMeter4Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+                (byte)ConfigPulseMeterId.MeterEnable,
+                (byte)ConfigPulseMeterId.SerialNumber,
+                (byte)ConfigPulseMeterId.PulseFactor,
+                (byte)ConfigPulseMeterId.Pin1,
+                (byte)ConfigPulseMeterId.Pin2,
+                (byte)ConfigPulseMeterId.PulseType,
+                (byte)ConfigPulseMeterId.EdgeType
+            };
+
+            txtReadPulseMeter4UseSetting.Clear();
+            txtReadPulseMeter4SerialSetting.Clear();
+            txtReadPulseMeter4PulseFactorSetting.Clear();
+            txtReadPulseMeter4TypeSetting.Clear();
+            txtReadPulseMeter4Pin1Setting.Clear();
+            txtReadPulseMeter4Pin2Setting.Clear();
+            txtReadPulseMeter4EdgeSetting.Clear();
+            txtReadPulseMeter4ForwardSetting.Clear();
+            txtReadPulseMeter4ReverseSetting.Clear();
+
+            GetCommands.PulseMeter(3, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
+            {
+                if (!pulseMeterConfig.MeterEnable)
+                {
+                    txtReadPulseMeter4UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadPulseMeter4UseSetting.Text = "Đang sử dụng";
+                    txtReadPulseMeter4SerialSetting.Text = pulseMeterConfig.SerialNumber;
+                    txtReadPulseMeter4PulseFactorSetting.Text = pulseMeterConfig.PulseFactor.ToString();
+                    if (pulseMeterConfig.PulseType != 0)
+                    {
+                        txtReadPulseMeter4TypeSetting.Text = cmbPulseMeter4TypeSetting.Items[pulseMeterConfig.PulseType].ToString();
+                    }
+                    if (pulseMeterConfig.Pin1 != 0)
+                    {
+                        txtReadPulseMeter4Pin1Setting.Text = cmbPulseMeter4Pin1Setting.Items[pulseMeterConfig.Pin1].ToString();
+                    }
+                    if (pulseMeterConfig.Pin2 != 0)
+                    {
+                        txtReadPulseMeter4Pin2Setting.Text = cmbPulseMeter4Pin2Setting.Items[pulseMeterConfig.Pin2].ToString();
+                    }
+                    if (pulseMeterConfig.EdgeType != 0)
+                    {
+                        txtReadPulseMeter4EdgeSetting.Text = cmbPulseMeter4EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
+                    }
+                }
+            }
+
+            QueryCommands.PulseMeterData(3, out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
+            {
+                txtReadPulseMeter4ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
+                txtReadPulseMeter4ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
+            }
+        }
+
+        private void chkPulseMeter4UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter4Control();
+        }
+
+        private void cmbPulseMeter4TypeSetting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatePulseMeter4Control();
+        }
+        private async void btnWritePulseMeter4Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkPulseMeter4UseSetting.Checked;
+
+            string serialNumber = txtWritePulseMeter4SerialSetting.Text.Trim();
+            ushort? pulseFactor = null;
+            double? forward = null;
+            double? reverse = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblPulseMeter4SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                if (!ushort.TryParse(txtWritePulseMeter4PulseFactorSetting.Text, out ushort pulseFactorValue) || pulseFactorValue < 1)
+                {
+                    lblPulseMeter4SettingStatus.Text = "Pulse Factor phải lớn hơn hoặc bằng 1.";
+                    return;
+                }
+
+                if (cmbPulseMeter4TypeSetting.SelectedIndex == 0 || cmbPulseMeter4Pin1Setting.SelectedIndex == 0 || cmbPulseMeter4EdgeSetting.SelectedIndex == 0)
+                {
+                    lblPulseMeter4SettingStatus.Text = "Vui lòng điền đầy đủ thông tin.";
+                    return;
+                }
+
+                if (cmbPulseMeter4TypeSetting.SelectedIndex == 2 && cmbPulseMeter4Pin2Setting.SelectedIndex == 0)
+                {
+                    lblPulseMeter4SettingStatus.Text = "Vui lòng chọn Pin 2.";
+                    return;
+                }
+
+                string forwardText = txtWritePulseMeter4ForwardSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(forwardText, out double forwardValue) || forwardValue < 0)
+                {
+                    lblPulseMeter4SettingStatus.Text = "Forward phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                string reverseText = txtWritePulseMeter4ReverseSetting.Text.Trim().Replace('.', ',');
+                if (!double.TryParse(reverseText, out double reverseValue) || reverseValue < 0)
+                {
+                    lblPulseMeter4SettingStatus.Text = "Reverse phải là số lớn hơn hoặc bằng 0.";
+                    return;
+                }
+
+                pulseFactor = pulseFactorValue;
+                forward = forwardValue;
+                reverse = reverseValue;
+            }
+
+            byte pulseType = (byte)cmbPulseMeter4TypeSetting.SelectedIndex;
+            byte pin1 = (byte)cmbPulseMeter4Pin1Setting.SelectedIndex;
+            byte pin2 = (byte)cmbPulseMeter4Pin2Setting.SelectedIndex;
+            byte edgeType = (byte)cmbPulseMeter4EdgeSetting.SelectedIndex;
+
+            if (SetCommands.PulseMeter(3, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.PulseMeter(rxFrame))
+                {
+                    lblPulseMeter4SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblPulseMeter4SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblPulseMeter4SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblPulseMeter4SettingStatus.Text = string.Empty;
+        }
+
 
         // ----------------------------------------------------------------------
         // Logic functions
@@ -838,6 +1466,154 @@ namespace WM03A
             string sign = timezone < 0 ? "-" : "+";
 
             return $"UTC{sign}{hours:D2}:{minutes:D2}";
+        }
+
+        private void UpdatePulseMeter1Control()
+        {
+            bool enabled = chkPulseMeter1UseSetting.Checked;
+            txtWritePulseMeter1SerialSetting.Enabled = enabled;
+            txtWritePulseMeter1PulseFactorSetting.Enabled = enabled;
+            txtWritePulseMeter1ForwardSetting.Enabled = enabled;
+            txtWritePulseMeter1ReverseSetting.Enabled = enabled;
+            cmbPulseMeter1TypeSetting.Enabled = enabled;
+
+            switch (cmbPulseMeter1TypeSetting.SelectedIndex)
+            {
+                case 0:
+                    cmbPulseMeter1Pin1Setting.Enabled = false;
+                    cmbPulseMeter1Pin2Setting.Enabled = false;
+                    cmbPulseMeter1EdgeSetting.Enabled = false;
+                    break;
+
+                case 1:
+                    cmbPulseMeter1Pin1Setting.Enabled = true;
+                    cmbPulseMeter1Pin2Setting.Enabled = false;
+                    cmbPulseMeter1EdgeSetting.Enabled = true;
+                    break;
+
+                case 2:
+                    cmbPulseMeter1Pin1Setting.Enabled = true;
+                    cmbPulseMeter1Pin2Setting.Enabled = true;
+                    cmbPulseMeter1EdgeSetting.Enabled = true;
+                    break;
+
+                default:
+                    cmbPulseMeter1Pin1Setting.Enabled = false;
+                    cmbPulseMeter1Pin2Setting.Enabled = false;
+                    cmbPulseMeter1EdgeSetting.Enabled = false;
+                    break;
+            }
+        }
+
+        private void UpdatePulseMeter2Control()
+        {
+            bool enabled = chkPulseMeter2UseSetting.Checked;
+            txtWritePulseMeter2SerialSetting.Enabled = enabled;
+            txtWritePulseMeter2PulseFactorSetting.Enabled = enabled;
+            txtWritePulseMeter2ForwardSetting.Enabled = enabled;
+            txtWritePulseMeter2ReverseSetting.Enabled = enabled;
+            cmbPulseMeter2TypeSetting.Enabled = enabled;
+
+            switch (cmbPulseMeter2TypeSetting.SelectedIndex)
+            {
+                case 0:
+                    cmbPulseMeter2Pin1Setting.Enabled = false;
+                    cmbPulseMeter2Pin2Setting.Enabled = false;
+                    cmbPulseMeter2EdgeSetting.Enabled = false;
+                    break;
+
+                case 1:
+                    cmbPulseMeter2Pin1Setting.Enabled = true;
+                    cmbPulseMeter2Pin2Setting.Enabled = false;
+                    cmbPulseMeter2EdgeSetting.Enabled = true;
+                    break;
+
+                case 2:
+                    cmbPulseMeter2Pin1Setting.Enabled = true;
+                    cmbPulseMeter2Pin2Setting.Enabled = true;
+                    cmbPulseMeter2EdgeSetting.Enabled = true;
+                    break;
+
+                default:
+                    cmbPulseMeter2Pin1Setting.Enabled = false;
+                    cmbPulseMeter2Pin2Setting.Enabled = false;
+                    cmbPulseMeter2EdgeSetting.Enabled = false;
+                    break;
+            }
+        }
+
+        private void UpdatePulseMeter3Control()
+        {
+            bool enabled = chkPulseMeter3UseSetting.Checked;
+            txtWritePulseMeter3SerialSetting.Enabled = enabled;
+            txtWritePulseMeter3PulseFactorSetting.Enabled = enabled;
+            txtWritePulseMeter3ForwardSetting.Enabled = enabled;
+            txtWritePulseMeter3ReverseSetting.Enabled = enabled;
+            cmbPulseMeter3TypeSetting.Enabled = enabled;
+
+            switch (cmbPulseMeter3TypeSetting.SelectedIndex)
+            {
+                case 0:
+                    cmbPulseMeter3Pin1Setting.Enabled = false;
+                    cmbPulseMeter3Pin2Setting.Enabled = false;
+                    cmbPulseMeter3EdgeSetting.Enabled = false;
+                    break;
+
+                case 1:
+                    cmbPulseMeter3Pin1Setting.Enabled = true;
+                    cmbPulseMeter3Pin2Setting.Enabled = false;
+                    cmbPulseMeter3EdgeSetting.Enabled = true;
+                    break;
+
+                case 2:
+                    cmbPulseMeter3Pin1Setting.Enabled = true;
+                    cmbPulseMeter3Pin2Setting.Enabled = true;
+                    cmbPulseMeter3EdgeSetting.Enabled = true;
+                    break;
+
+                default:
+                    cmbPulseMeter3Pin1Setting.Enabled = false;
+                    cmbPulseMeter3Pin2Setting.Enabled = false;
+                    cmbPulseMeter3EdgeSetting.Enabled = false;
+                    break;
+            }
+        }
+
+        private void UpdatePulseMeter4Control()
+        {
+            bool enabled = chkPulseMeter4UseSetting.Checked;
+            txtWritePulseMeter4SerialSetting.Enabled = enabled;
+            txtWritePulseMeter4PulseFactorSetting.Enabled = enabled;
+            txtWritePulseMeter4ForwardSetting.Enabled = enabled;
+            txtWritePulseMeter4ReverseSetting.Enabled = enabled;
+            cmbPulseMeter4TypeSetting.Enabled = enabled;
+
+            switch (cmbPulseMeter4TypeSetting.SelectedIndex)
+            {
+                case 0:
+                    cmbPulseMeter4Pin1Setting.Enabled = false;
+                    cmbPulseMeter4Pin2Setting.Enabled = false;
+                    cmbPulseMeter4EdgeSetting.Enabled = false;
+                    break;
+
+                case 1:
+                    cmbPulseMeter4Pin1Setting.Enabled = true;
+                    cmbPulseMeter4Pin2Setting.Enabled = false;
+                    cmbPulseMeter4EdgeSetting.Enabled = true;
+                    break;
+
+                case 2:
+                    cmbPulseMeter4Pin1Setting.Enabled = true;
+                    cmbPulseMeter4Pin2Setting.Enabled = true;
+                    cmbPulseMeter4EdgeSetting.Enabled = true;
+                    break;
+
+                default:
+                    cmbPulseMeter4Pin1Setting.Enabled = false;
+                    cmbPulseMeter4Pin2Setting.Enabled = false;
+                    cmbPulseMeter4EdgeSetting.Enabled = false;
+                    break;
+            }
         }
 
         private void label29_Click(object sender, EventArgs e)

@@ -104,5 +104,126 @@ namespace WM03A.Users.ProtocolCommands
                 payload: payload.ToArray(),
                 out frame);
         }
+
+        public static bool PulseMeter(byte meterIndex, bool? enabled, string serialNumber, ushort? pulseFactor, byte? pulseType, byte? pin1, byte? pin2, byte? edgeType, double? forward, double? reverse, out byte[] frame)
+        {
+            frame = null;
+
+            List<byte> payload = new List<byte>();
+            payload.Add(meterIndex);
+
+            if (enabled.HasValue && !enabled.Value)
+            {
+                payload.Add((byte)ConfigPulseMeterId.MeterEnable);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPulseMeterId.SerialNumber);
+                for (int i = 0; i < METER_SERIAL_SIZE; i++)
+                {
+                    payload.Add(0x00);
+                }
+
+                payload.Add((byte)ConfigPulseMeterId.PulseFactor);
+                payload.Add(0x00);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPulseMeterId.PulseType);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPulseMeterId.Pin1);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPulseMeterId.Pin2);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPulseMeterId.EdgeType);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPulseMeterId.MeterData);
+                payload.AddRange(new byte[sizeof(double)]);
+                payload.AddRange(new byte[sizeof(double)]);
+            }
+            else
+            {
+                if (enabled.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.MeterEnable);
+                    payload.Add(enabled.Value ? (byte)1 : (byte)0);
+                }
+
+                if (!string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    byte[] serialBytes = Encoding.ASCII.GetBytes(serialNumber.Trim());
+
+                    if (serialBytes.Length > METER_SERIAL_SIZE)
+                    {
+                        return false;
+                    }
+
+                    payload.Add((byte)ConfigPulseMeterId.SerialNumber);
+                    payload.AddRange(serialBytes);
+
+                    for (int i = serialBytes.Length; i < METER_SERIAL_SIZE; i++)
+                    {
+                        payload.Add(0x00);
+                    }
+                }
+
+                if (pulseFactor.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.PulseFactor);
+                    payload.AddRange(BitConverter.GetBytes(pulseFactor.Value));
+                }
+
+                if (pulseType.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.PulseType);
+                    payload.Add(pulseType.Value);
+                }
+
+                if (pin1.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.Pin1);
+                    payload.Add(pin1.Value);
+                }
+
+                if (pin2.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.Pin2);
+                    payload.Add(pin2.Value);
+                }
+
+                if (edgeType.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.EdgeType);
+                    payload.Add(edgeType.Value);
+                }
+
+                if (forward.HasValue != reverse.HasValue)
+                {
+                    return false;
+                }
+
+                if (forward.HasValue && reverse.HasValue)
+                {
+                    payload.Add((byte)ConfigPulseMeterId.MeterData);
+                    payload.AddRange(BitConverter.GetBytes(forward.Value));
+                    payload.AddRange(BitConverter.GetBytes(reverse.Value));
+                }
+            }
+
+            if (payload.Count <= 1)
+            {
+                return false;
+            }
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.PulseMeter,
+                payload: payload.ToArray(),
+                out frame);
+        }
     }
 }

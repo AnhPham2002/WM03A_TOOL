@@ -147,8 +147,10 @@
             this.txtFirmwareVersion = new System.Windows.Forms.TextBox();
             this.lblFwVer = new System.Windows.Forms.Label();
             this.tabSetting = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabModuleConfig = new System.Windows.Forms.TabPage();
             this.grpModuleSetting = new System.Windows.Forms.GroupBox();
+            this.cmbWriteTimezoneSetting = new System.Windows.Forms.ComboBox();
             this.lblModuleSettingStatus = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -164,8 +166,6 @@
             this.txtWriteLatchSetting = new System.Windows.Forms.TextBox();
             this.txtReadIpSetting = new System.Windows.Forms.TextBox();
             this.txtReadLatchSetting = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -179,6 +179,135 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.txtReadTimeSetting = new System.Windows.Forms.TextBox();
+            this.tabPulseMeterConfig = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chkPulseMeter4UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbPulseMeter4Pin1Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter4EdgeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter4Pin2Setting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter4PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.lblPulseMeter4SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter4UseSetting = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter4Pin1Setting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter4EdgeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter4SerialSetting = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.btnWritePulseMeter4Setting = new System.Windows.Forms.Button();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.btnReadPulseMeter4Setting = new System.Windows.Forms.Button();
+            this.txtReadPulseMeter4TypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter4SerialSetting = new System.Windows.Forms.TextBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.cmbPulseMeter4TypeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter4ForwardSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter4PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter4ForwardSetting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter4Pin2Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter4ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.txtWritePulseMeter4ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.chkPulseMeter3UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbPulseMeter3Pin1Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter3EdgeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter3Pin2Setting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter3PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.lblPulseMeter3SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter3UseSetting = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter3Pin1Setting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter3EdgeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter3SerialSetting = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.btnWritePulseMeter3Setting = new System.Windows.Forms.Button();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.btnReadPulseMeter3Setting = new System.Windows.Forms.Button();
+            this.txtReadPulseMeter3TypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter3SerialSetting = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.cmbPulseMeter3TypeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter3ForwardSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter3PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter3ForwardSetting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter3Pin2Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter3ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.txtWritePulseMeter3ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkPulseMeter2UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbPulseMeter2Pin1Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter2EdgeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter2Pin2Setting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter2PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.lblPulseMeter2SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter2UseSetting = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter2Pin1Setting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter2EdgeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter2SerialSetting = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.btnWritePulseMeter2Setting = new System.Windows.Forms.Button();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.btnReadPulseMeter2Setting = new System.Windows.Forms.Button();
+            this.txtReadPulseMeter2TypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter2SerialSetting = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.cmbPulseMeter2TypeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter2ForwardSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter2PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter2ForwardSetting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter2Pin2Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter2ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.txtWritePulseMeter2ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkPulseMeter1UseSetting = new System.Windows.Forms.CheckBox();
+            this.cmbPulseMeter1Pin1Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter1EdgeSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter1Pin2Setting = new System.Windows.Forms.TextBox();
+            this.txtReadPulseMeter1PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.lblPulseMeter1SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter1UseSetting = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtReadPulseMeter1Pin1Setting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter1EdgeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter1SerialSetting = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.btnWritePulseMeter1Setting = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.btnReadPulseMeter1Setting = new System.Windows.Forms.Button();
+            this.txtReadPulseMeter1TypeSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter1SerialSetting = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.cmbPulseMeter1TypeSetting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter1ForwardSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter1PulseFactorSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePulseMeter1ForwardSetting = new System.Windows.Forms.TextBox();
+            this.cmbPulseMeter1Pin2Setting = new System.Windows.Forms.ComboBox();
+            this.txtReadPulseMeter1ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.txtWritePulseMeter1ReverseSetting = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.tabModbusMeterConfig = new System.Windows.Forms.TabPage();
+            this.tabPressureSensorConfig = new System.Windows.Forms.TabPage();
             this.tabOTA = new System.Windows.Forms.TabPage();
             this.tabChangePassword = new System.Windows.Forms.TabPage();
             this.tabAdvance = new System.Windows.Forms.TabPage();
@@ -189,30 +318,6 @@
             this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker6 = new System.ComponentModel.BackgroundWorker();
-            this.grpPulseMeterSetting = new System.Windows.Forms.GroupBox();
-            this.grpPulseMeter1Setting = new System.Windows.Forms.GroupBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtReadPulseMeter1SerialSetting = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtReadPulseMeter1PulseFactorSetting = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.cmbPulseMeter1Pin1Setting = new System.Windows.Forms.ComboBox();
-            this.cmbWriteTimezoneSetting = new System.Windows.Forms.ComboBox();
-            this.txtReadPulseMeter1Pin1Setting = new System.Windows.Forms.TextBox();
-            this.txtReadPulseMeter1Pin2Setting = new System.Windows.Forms.TextBox();
-            this.txtReadPulseMeter1TypeSetting = new System.Windows.Forms.TextBox();
-            this.txtReadPulseMeter1EdgeSetting = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.txtReadPulseMeter1UseSetting = new System.Windows.Forms.TextBox();
-            this.chkPulseMeter1UseSetting = new System.Windows.Forms.CheckBox();
-            this.txtWritePulseMeter1SerialSetting = new System.Windows.Forms.TextBox();
-            this.txtWritePulseMeter1PulseFactorSetting = new System.Windows.Forms.TextBox();
-            this.cmbPulseMeter1Pin2Setting = new System.Windows.Forms.ComboBox();
-            this.cmbPulseMeter1TypeSetting = new System.Windows.Forms.ComboBox();
-            this.cmbPulseMeter1EdgeSetting = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -222,11 +327,17 @@
             this.grpInternet.SuspendLayout();
             this.grpModuleOverall.SuspendLayout();
             this.tabSetting.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabModuleConfig.SuspendLayout();
             this.grpModuleSetting.SuspendLayout();
             this.grpTimeSetting.SuspendLayout();
-            this.grpPulseMeterSetting.SuspendLayout();
-            this.grpPulseMeter1Setting.SuspendLayout();
+            this.tabPulseMeterConfig.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -1365,7 +1476,7 @@
             // 
             // tabSetting
             // 
-            this.tabSetting.Controls.Add(this.panel1);
+            this.tabSetting.Controls.Add(this.tabControl2);
             this.tabSetting.Location = new System.Drawing.Point(4, 22);
             this.tabSetting.Name = "tabSetting";
             this.tabSetting.Padding = new System.Windows.Forms.Padding(3);
@@ -1374,17 +1485,30 @@
             this.tabSetting.Text = "Cài đặt";
             this.tabSetting.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // tabControl2
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.grpPulseMeterSetting);
-            this.panel1.Controls.Add(this.grpModuleSetting);
-            this.panel1.Controls.Add(this.grpTimeSetting);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(946, 743);
-            this.panel1.TabIndex = 0;
+            this.tabControl2.Controls.Add(this.tabModuleConfig);
+            this.tabControl2.Controls.Add(this.tabPulseMeterConfig);
+            this.tabControl2.Controls.Add(this.tabModbusMeterConfig);
+            this.tabControl2.Controls.Add(this.tabPressureSensorConfig);
+            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl2.Location = new System.Drawing.Point(3, 3);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(946, 743);
+            this.tabControl2.TabIndex = 3;
+            // 
+            // tabModuleConfig
+            // 
+            this.tabModuleConfig.Controls.Add(this.grpModuleSetting);
+            this.tabModuleConfig.Controls.Add(this.grpTimeSetting);
+            this.tabModuleConfig.Location = new System.Drawing.Point(4, 22);
+            this.tabModuleConfig.Name = "tabModuleConfig";
+            this.tabModuleConfig.Padding = new System.Windows.Forms.Padding(3);
+            this.tabModuleConfig.Size = new System.Drawing.Size(938, 717);
+            this.tabModuleConfig.TabIndex = 0;
+            this.tabModuleConfig.Text = "Thiết bị";
+            this.tabModuleConfig.UseVisualStyleBackColor = true;
             // 
             // grpModuleSetting
             // 
@@ -1404,25 +1528,73 @@
             this.grpModuleSetting.Controls.Add(this.txtWriteLatchSetting);
             this.grpModuleSetting.Controls.Add(this.txtReadIpSetting);
             this.grpModuleSetting.Controls.Add(this.txtReadLatchSetting);
-            this.grpModuleSetting.Controls.Add(this.label34);
-            this.grpModuleSetting.Controls.Add(this.label33);
             this.grpModuleSetting.Controls.Add(this.label30);
             this.grpModuleSetting.Controls.Add(this.label31);
             this.grpModuleSetting.Controls.Add(this.label32);
             this.grpModuleSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpModuleSetting.Location = new System.Drawing.Point(0, 90);
+            this.grpModuleSetting.Location = new System.Drawing.Point(3, 93);
             this.grpModuleSetting.Name = "grpModuleSetting";
-            this.grpModuleSetting.Size = new System.Drawing.Size(946, 177);
+            this.grpModuleSetting.Size = new System.Drawing.Size(932, 177);
             this.grpModuleSetting.TabIndex = 0;
             this.grpModuleSetting.TabStop = false;
             this.grpModuleSetting.Text = "Thiết bị";
+            // 
+            // cmbWriteTimezoneSetting
+            // 
+            this.cmbWriteTimezoneSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWriteTimezoneSetting.FormattingEnabled = true;
+            this.cmbWriteTimezoneSetting.Items.AddRange(new object[] {
+            "-- Chọn múi giờ --",
+            "UTC-12:00",
+            "UTC-11:00",
+            "UTC-10:00",
+            "UTC-09:30",
+            "UTC-09:00",
+            "UTC-08:00",
+            "UTC-07:00",
+            "UTC-06:00",
+            "UTC-05:00",
+            "UTC-04:00",
+            "UTC-03:30",
+            "UTC-03:00",
+            "UTC-02:00",
+            "UTC-01:00",
+            "UTC+00:00",
+            "UTC+01:00",
+            "UTC+02:00",
+            "UTC+03:00",
+            "UTC+03:30",
+            "UTC+04:00",
+            "UTC+04:30",
+            "UTC+05:00",
+            "UTC+05:30",
+            "UTC+05:45",
+            "UTC+06:00",
+            "UTC+06:30",
+            "UTC+07:00",
+            "UTC+08:00",
+            "UTC+08:45",
+            "UTC+09:00",
+            "UTC+09:30",
+            "UTC+10:00",
+            "UTC+10:30",
+            "UTC+11:00",
+            "UTC+12:00",
+            "UTC+12:45",
+            "UTC+13:00",
+            "UTC+14:00"});
+            this.cmbWriteTimezoneSetting.Location = new System.Drawing.Point(559, 121);
+            this.cmbWriteTimezoneSetting.Name = "cmbWriteTimezoneSetting";
+            this.cmbWriteTimezoneSetting.Size = new System.Drawing.Size(194, 21);
+            this.cmbWriteTimezoneSetting.TabIndex = 6;
+            this.cmbWriteTimezoneSetting.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboWriteTimezoneSetting_KeyDown);
             // 
             // lblModuleSettingStatus
             // 
             this.lblModuleSettingStatus.AutoSize = true;
             this.lblModuleSettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModuleSettingStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblModuleSettingStatus.Location = new System.Drawing.Point(708, 149);
+            this.lblModuleSettingStatus.Location = new System.Drawing.Point(430, 12);
             this.lblModuleSettingStatus.Name = "lblModuleSettingStatus";
             this.lblModuleSettingStatus.Size = new System.Drawing.Size(86, 13);
             this.lblModuleSettingStatus.TabIndex = 19;
@@ -1554,24 +1726,6 @@
             this.txtReadLatchSetting.Size = new System.Drawing.Size(194, 20);
             this.txtReadLatchSetting.TabIndex = 12;
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(621, 12);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(70, 13);
-            this.label34.TabIndex = 5;
-            this.label34.Text = "Giá trị cài đặt";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(376, 12);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(71, 13);
-            this.label33.TabIndex = 5;
-            this.label33.Text = "Giá trị hiện tại";
-            // 
             // label30
             // 
             this.label30.AutoSize = true;
@@ -1611,9 +1765,9 @@
             this.grpTimeSetting.Controls.Add(this.label29);
             this.grpTimeSetting.Controls.Add(this.txtReadTimeSetting);
             this.grpTimeSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpTimeSetting.Location = new System.Drawing.Point(0, 0);
+            this.grpTimeSetting.Location = new System.Drawing.Point(3, 3);
             this.grpTimeSetting.Name = "grpTimeSetting";
-            this.grpTimeSetting.Size = new System.Drawing.Size(946, 90);
+            this.grpTimeSetting.Size = new System.Drawing.Size(932, 90);
             this.grpTimeSetting.TabIndex = 1;
             this.grpTimeSetting.TabStop = false;
             this.grpTimeSetting.Text = "Thời gian";
@@ -1711,6 +1865,1338 @@
             this.txtReadTimeSetting.TabIndex = 13;
             this.txtReadTimeSetting.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
+            // tabPulseMeterConfig
+            // 
+            this.tabPulseMeterConfig.Controls.Add(this.panel2);
+            this.tabPulseMeterConfig.Controls.Add(this.panel1);
+            this.tabPulseMeterConfig.Location = new System.Drawing.Point(4, 22);
+            this.tabPulseMeterConfig.Name = "tabPulseMeterConfig";
+            this.tabPulseMeterConfig.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPulseMeterConfig.Size = new System.Drawing.Size(938, 717);
+            this.tabPulseMeterConfig.TabIndex = 1;
+            this.tabPulseMeterConfig.Text = "Đồng hồ xung";
+            this.tabPulseMeterConfig.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox6);
+            this.panel2.Controls.Add(this.groupBox7);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 293);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(932, 290);
+            this.panel2.TabIndex = 4;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.chkPulseMeter4UseSetting);
+            this.groupBox6.Controls.Add(this.cmbPulseMeter4Pin1Setting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4EdgeSetting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4Pin2Setting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4PulseFactorSetting);
+            this.groupBox6.Controls.Add(this.lblPulseMeter4SettingStatus);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4UseSetting);
+            this.groupBox6.Controls.Add(this.label55);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4Pin1Setting);
+            this.groupBox6.Controls.Add(this.cmbPulseMeter4EdgeSetting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4SerialSetting);
+            this.groupBox6.Controls.Add(this.label56);
+            this.groupBox6.Controls.Add(this.label57);
+            this.groupBox6.Controls.Add(this.btnWritePulseMeter4Setting);
+            this.groupBox6.Controls.Add(this.label58);
+            this.groupBox6.Controls.Add(this.label59);
+            this.groupBox6.Controls.Add(this.label60);
+            this.groupBox6.Controls.Add(this.btnReadPulseMeter4Setting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4TypeSetting);
+            this.groupBox6.Controls.Add(this.txtWritePulseMeter4SerialSetting);
+            this.groupBox6.Controls.Add(this.label61);
+            this.groupBox6.Controls.Add(this.cmbPulseMeter4TypeSetting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4ForwardSetting);
+            this.groupBox6.Controls.Add(this.txtWritePulseMeter4PulseFactorSetting);
+            this.groupBox6.Controls.Add(this.txtWritePulseMeter4ForwardSetting);
+            this.groupBox6.Controls.Add(this.cmbPulseMeter4Pin2Setting);
+            this.groupBox6.Controls.Add(this.txtReadPulseMeter4ReverseSetting);
+            this.groupBox6.Controls.Add(this.label62);
+            this.groupBox6.Controls.Add(this.txtWritePulseMeter4ReverseSetting);
+            this.groupBox6.Controls.Add(this.label63);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox6.Location = new System.Drawing.Point(475, 0);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(457, 290);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Đồng hồ 4";
+            // 
+            // chkPulseMeter4UseSetting
+            // 
+            this.chkPulseMeter4UseSetting.AutoSize = true;
+            this.chkPulseMeter4UseSetting.Location = new System.Drawing.Point(315, 32);
+            this.chkPulseMeter4UseSetting.Name = "chkPulseMeter4UseSetting";
+            this.chkPulseMeter4UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkPulseMeter4UseSetting.TabIndex = 14;
+            this.chkPulseMeter4UseSetting.Text = "Sử dụng";
+            this.chkPulseMeter4UseSetting.UseVisualStyleBackColor = true;
+            this.chkPulseMeter4UseSetting.CheckedChanged += new System.EventHandler(this.chkPulseMeter4UseSetting_CheckedChanged);
+            // 
+            // cmbPulseMeter4Pin1Setting
+            // 
+            this.cmbPulseMeter4Pin1Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter4Pin1Setting.FormattingEnabled = true;
+            this.cmbPulseMeter4Pin1Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter4Pin1Setting.Location = new System.Drawing.Point(294, 130);
+            this.cmbPulseMeter4Pin1Setting.Name = "cmbPulseMeter4Pin1Setting";
+            this.cmbPulseMeter4Pin1Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter4Pin1Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter4EdgeSetting
+            // 
+            this.txtReadPulseMeter4EdgeSetting.Location = new System.Drawing.Point(175, 180);
+            this.txtReadPulseMeter4EdgeSetting.Name = "txtReadPulseMeter4EdgeSetting";
+            this.txtReadPulseMeter4EdgeSetting.ReadOnly = true;
+            this.txtReadPulseMeter4EdgeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4EdgeSetting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter4Pin2Setting
+            // 
+            this.txtReadPulseMeter4Pin2Setting.Location = new System.Drawing.Point(175, 155);
+            this.txtReadPulseMeter4Pin2Setting.Name = "txtReadPulseMeter4Pin2Setting";
+            this.txtReadPulseMeter4Pin2Setting.ReadOnly = true;
+            this.txtReadPulseMeter4Pin2Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4Pin2Setting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter4PulseFactorSetting
+            // 
+            this.txtReadPulseMeter4PulseFactorSetting.Location = new System.Drawing.Point(175, 80);
+            this.txtReadPulseMeter4PulseFactorSetting.Name = "txtReadPulseMeter4PulseFactorSetting";
+            this.txtReadPulseMeter4PulseFactorSetting.ReadOnly = true;
+            this.txtReadPulseMeter4PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4PulseFactorSetting.TabIndex = 13;
+            // 
+            // lblPulseMeter4SettingStatus
+            // 
+            this.lblPulseMeter4SettingStatus.AutoSize = true;
+            this.lblPulseMeter4SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPulseMeter4SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblPulseMeter4SettingStatus.Location = new System.Drawing.Point(201, 12);
+            this.lblPulseMeter4SettingStatus.Name = "lblPulseMeter4SettingStatus";
+            this.lblPulseMeter4SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblPulseMeter4SettingStatus.TabIndex = 19;
+            this.lblPulseMeter4SettingStatus.Text = "Trạng thái ghi";
+            // 
+            // txtReadPulseMeter4UseSetting
+            // 
+            this.txtReadPulseMeter4UseSetting.Location = new System.Drawing.Point(175, 30);
+            this.txtReadPulseMeter4UseSetting.Name = "txtReadPulseMeter4UseSetting";
+            this.txtReadPulseMeter4UseSetting.ReadOnly = true;
+            this.txtReadPulseMeter4UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4UseSetting.TabIndex = 13;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(55, 59);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(67, 13);
+            this.label55.TabIndex = 1;
+            this.label55.Text = "Serial thiết bị";
+            // 
+            // txtReadPulseMeter4Pin1Setting
+            // 
+            this.txtReadPulseMeter4Pin1Setting.Location = new System.Drawing.Point(175, 130);
+            this.txtReadPulseMeter4Pin1Setting.Name = "txtReadPulseMeter4Pin1Setting";
+            this.txtReadPulseMeter4Pin1Setting.ReadOnly = true;
+            this.txtReadPulseMeter4Pin1Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4Pin1Setting.TabIndex = 13;
+            // 
+            // cmbPulseMeter4EdgeSetting
+            // 
+            this.cmbPulseMeter4EdgeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter4EdgeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter4EdgeSetting.Items.AddRange(new object[] {
+            "-- Chọn sườn xung --",
+            "RISING",
+            "FALLING"});
+            this.cmbPulseMeter4EdgeSetting.Location = new System.Drawing.Point(294, 180);
+            this.cmbPulseMeter4EdgeSetting.Name = "cmbPulseMeter4EdgeSetting";
+            this.cmbPulseMeter4EdgeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter4EdgeSetting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter4SerialSetting
+            // 
+            this.txtReadPulseMeter4SerialSetting.Location = new System.Drawing.Point(175, 55);
+            this.txtReadPulseMeter4SerialSetting.Name = "txtReadPulseMeter4SerialSetting";
+            this.txtReadPulseMeter4SerialSetting.ReadOnly = true;
+            this.txtReadPulseMeter4SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4SerialSetting.TabIndex = 13;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(55, 34);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(96, 13);
+            this.label56.TabIndex = 1;
+            this.label56.Text = "Trạng thái sử dụng";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(55, 184);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(85, 13);
+            this.label57.TabIndex = 1;
+            this.label57.Text = "Dạng sườn xung";
+            // 
+            // btnWritePulseMeter4Setting
+            // 
+            this.btnWritePulseMeter4Setting.Location = new System.Drawing.Point(311, 255);
+            this.btnWritePulseMeter4Setting.Name = "btnWritePulseMeter4Setting";
+            this.btnWritePulseMeter4Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWritePulseMeter4Setting.TabIndex = 15;
+            this.btnWritePulseMeter4Setting.Text = "Ghi";
+            this.btnWritePulseMeter4Setting.UseVisualStyleBackColor = true;
+            this.btnWritePulseMeter4Setting.Click += new System.EventHandler(this.btnWritePulseMeter4Setting_Click);
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(55, 209);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(77, 13);
+            this.label58.TabIndex = 1;
+            this.label58.Text = "Tổng xuôi (m3)";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(55, 84);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(112, 13);
+            this.label59.TabIndex = 1;
+            this.label59.Text = "Hệ số xung (xung/m3)";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(55, 234);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(88, 13);
+            this.label60.TabIndex = 1;
+            this.label60.Text = "Tổng ngược (m3)";
+            // 
+            // btnReadPulseMeter4Setting
+            // 
+            this.btnReadPulseMeter4Setting.Location = new System.Drawing.Point(192, 255);
+            this.btnReadPulseMeter4Setting.Name = "btnReadPulseMeter4Setting";
+            this.btnReadPulseMeter4Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPulseMeter4Setting.TabIndex = 14;
+            this.btnReadPulseMeter4Setting.Text = "Đọc";
+            this.btnReadPulseMeter4Setting.UseVisualStyleBackColor = true;
+            this.btnReadPulseMeter4Setting.Click += new System.EventHandler(this.btnReadPulseMeter4Setting_Click);
+            // 
+            // txtReadPulseMeter4TypeSetting
+            // 
+            this.txtReadPulseMeter4TypeSetting.Location = new System.Drawing.Point(175, 105);
+            this.txtReadPulseMeter4TypeSetting.Name = "txtReadPulseMeter4TypeSetting";
+            this.txtReadPulseMeter4TypeSetting.ReadOnly = true;
+            this.txtReadPulseMeter4TypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4TypeSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter4SerialSetting
+            // 
+            this.txtWritePulseMeter4SerialSetting.Location = new System.Drawing.Point(294, 55);
+            this.txtWritePulseMeter4SerialSetting.Name = "txtWritePulseMeter4SerialSetting";
+            this.txtWritePulseMeter4SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter4SerialSetting.TabIndex = 12;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(55, 109);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(96, 13);
+            this.label61.TabIndex = 1;
+            this.label61.Text = "Loại đồng hồ xung";
+            // 
+            // cmbPulseMeter4TypeSetting
+            // 
+            this.cmbPulseMeter4TypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter4TypeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter4TypeSetting.Items.AddRange(new object[] {
+            "-- Chọn loại đồng hồ --",
+            "Một xung",
+            "Hai xung encoder A/B"});
+            this.cmbPulseMeter4TypeSetting.Location = new System.Drawing.Point(294, 105);
+            this.cmbPulseMeter4TypeSetting.Name = "cmbPulseMeter4TypeSetting";
+            this.cmbPulseMeter4TypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter4TypeSetting.TabIndex = 6;
+            this.cmbPulseMeter4TypeSetting.SelectedIndexChanged += new System.EventHandler(this.cmbPulseMeter4TypeSetting_SelectedIndexChanged);
+            // 
+            // txtReadPulseMeter4ForwardSetting
+            // 
+            this.txtReadPulseMeter4ForwardSetting.Location = new System.Drawing.Point(175, 205);
+            this.txtReadPulseMeter4ForwardSetting.Name = "txtReadPulseMeter4ForwardSetting";
+            this.txtReadPulseMeter4ForwardSetting.ReadOnly = true;
+            this.txtReadPulseMeter4ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4ForwardSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter4PulseFactorSetting
+            // 
+            this.txtWritePulseMeter4PulseFactorSetting.Location = new System.Drawing.Point(294, 80);
+            this.txtWritePulseMeter4PulseFactorSetting.Name = "txtWritePulseMeter4PulseFactorSetting";
+            this.txtWritePulseMeter4PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter4PulseFactorSetting.TabIndex = 12;
+            // 
+            // txtWritePulseMeter4ForwardSetting
+            // 
+            this.txtWritePulseMeter4ForwardSetting.Location = new System.Drawing.Point(294, 205);
+            this.txtWritePulseMeter4ForwardSetting.Name = "txtWritePulseMeter4ForwardSetting";
+            this.txtWritePulseMeter4ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter4ForwardSetting.TabIndex = 13;
+            // 
+            // cmbPulseMeter4Pin2Setting
+            // 
+            this.cmbPulseMeter4Pin2Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter4Pin2Setting.FormattingEnabled = true;
+            this.cmbPulseMeter4Pin2Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter4Pin2Setting.Location = new System.Drawing.Point(294, 155);
+            this.cmbPulseMeter4Pin2Setting.Name = "cmbPulseMeter4Pin2Setting";
+            this.cmbPulseMeter4Pin2Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter4Pin2Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter4ReverseSetting
+            // 
+            this.txtReadPulseMeter4ReverseSetting.Location = new System.Drawing.Point(175, 230);
+            this.txtReadPulseMeter4ReverseSetting.Name = "txtReadPulseMeter4ReverseSetting";
+            this.txtReadPulseMeter4ReverseSetting.ReadOnly = true;
+            this.txtReadPulseMeter4ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter4ReverseSetting.TabIndex = 13;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(55, 134);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(89, 13);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "Chân đọc xung 1";
+            // 
+            // txtWritePulseMeter4ReverseSetting
+            // 
+            this.txtWritePulseMeter4ReverseSetting.Location = new System.Drawing.Point(294, 230);
+            this.txtWritePulseMeter4ReverseSetting.Name = "txtWritePulseMeter4ReverseSetting";
+            this.txtWritePulseMeter4ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter4ReverseSetting.TabIndex = 13;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(55, 159);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(89, 13);
+            this.label63.TabIndex = 1;
+            this.label63.Text = "Chân đọc xung 2";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.chkPulseMeter3UseSetting);
+            this.groupBox7.Controls.Add(this.cmbPulseMeter3Pin1Setting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3EdgeSetting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3Pin2Setting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3PulseFactorSetting);
+            this.groupBox7.Controls.Add(this.lblPulseMeter3SettingStatus);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3UseSetting);
+            this.groupBox7.Controls.Add(this.label65);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3Pin1Setting);
+            this.groupBox7.Controls.Add(this.cmbPulseMeter3EdgeSetting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3SerialSetting);
+            this.groupBox7.Controls.Add(this.label66);
+            this.groupBox7.Controls.Add(this.label67);
+            this.groupBox7.Controls.Add(this.btnWritePulseMeter3Setting);
+            this.groupBox7.Controls.Add(this.label68);
+            this.groupBox7.Controls.Add(this.label69);
+            this.groupBox7.Controls.Add(this.label70);
+            this.groupBox7.Controls.Add(this.btnReadPulseMeter3Setting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3TypeSetting);
+            this.groupBox7.Controls.Add(this.txtWritePulseMeter3SerialSetting);
+            this.groupBox7.Controls.Add(this.label71);
+            this.groupBox7.Controls.Add(this.cmbPulseMeter3TypeSetting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3ForwardSetting);
+            this.groupBox7.Controls.Add(this.txtWritePulseMeter3PulseFactorSetting);
+            this.groupBox7.Controls.Add(this.txtWritePulseMeter3ForwardSetting);
+            this.groupBox7.Controls.Add(this.cmbPulseMeter3Pin2Setting);
+            this.groupBox7.Controls.Add(this.txtReadPulseMeter3ReverseSetting);
+            this.groupBox7.Controls.Add(this.label72);
+            this.groupBox7.Controls.Add(this.txtWritePulseMeter3ReverseSetting);
+            this.groupBox7.Controls.Add(this.label73);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox7.Location = new System.Drawing.Point(0, 0);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(457, 290);
+            this.groupBox7.TabIndex = 2;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Đồng hồ 3";
+            // 
+            // chkPulseMeter3UseSetting
+            // 
+            this.chkPulseMeter3UseSetting.AutoSize = true;
+            this.chkPulseMeter3UseSetting.Location = new System.Drawing.Point(315, 32);
+            this.chkPulseMeter3UseSetting.Name = "chkPulseMeter3UseSetting";
+            this.chkPulseMeter3UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkPulseMeter3UseSetting.TabIndex = 14;
+            this.chkPulseMeter3UseSetting.Text = "Sử dụng";
+            this.chkPulseMeter3UseSetting.UseVisualStyleBackColor = true;
+            this.chkPulseMeter3UseSetting.CheckedChanged += new System.EventHandler(this.chkPulseMeter3UseSetting_CheckedChanged);
+            // 
+            // cmbPulseMeter3Pin1Setting
+            // 
+            this.cmbPulseMeter3Pin1Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter3Pin1Setting.FormattingEnabled = true;
+            this.cmbPulseMeter3Pin1Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter3Pin1Setting.Location = new System.Drawing.Point(294, 130);
+            this.cmbPulseMeter3Pin1Setting.Name = "cmbPulseMeter3Pin1Setting";
+            this.cmbPulseMeter3Pin1Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter3Pin1Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter3EdgeSetting
+            // 
+            this.txtReadPulseMeter3EdgeSetting.Location = new System.Drawing.Point(175, 180);
+            this.txtReadPulseMeter3EdgeSetting.Name = "txtReadPulseMeter3EdgeSetting";
+            this.txtReadPulseMeter3EdgeSetting.ReadOnly = true;
+            this.txtReadPulseMeter3EdgeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3EdgeSetting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter3Pin2Setting
+            // 
+            this.txtReadPulseMeter3Pin2Setting.Location = new System.Drawing.Point(175, 155);
+            this.txtReadPulseMeter3Pin2Setting.Name = "txtReadPulseMeter3Pin2Setting";
+            this.txtReadPulseMeter3Pin2Setting.ReadOnly = true;
+            this.txtReadPulseMeter3Pin2Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3Pin2Setting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter3PulseFactorSetting
+            // 
+            this.txtReadPulseMeter3PulseFactorSetting.Location = new System.Drawing.Point(175, 80);
+            this.txtReadPulseMeter3PulseFactorSetting.Name = "txtReadPulseMeter3PulseFactorSetting";
+            this.txtReadPulseMeter3PulseFactorSetting.ReadOnly = true;
+            this.txtReadPulseMeter3PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3PulseFactorSetting.TabIndex = 13;
+            // 
+            // lblPulseMeter3SettingStatus
+            // 
+            this.lblPulseMeter3SettingStatus.AutoSize = true;
+            this.lblPulseMeter3SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPulseMeter3SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblPulseMeter3SettingStatus.Location = new System.Drawing.Point(201, 12);
+            this.lblPulseMeter3SettingStatus.Name = "lblPulseMeter3SettingStatus";
+            this.lblPulseMeter3SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblPulseMeter3SettingStatus.TabIndex = 19;
+            this.lblPulseMeter3SettingStatus.Text = "Trạng thái ghi";
+            // 
+            // txtReadPulseMeter3UseSetting
+            // 
+            this.txtReadPulseMeter3UseSetting.Location = new System.Drawing.Point(175, 30);
+            this.txtReadPulseMeter3UseSetting.Name = "txtReadPulseMeter3UseSetting";
+            this.txtReadPulseMeter3UseSetting.ReadOnly = true;
+            this.txtReadPulseMeter3UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3UseSetting.TabIndex = 13;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(55, 59);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(67, 13);
+            this.label65.TabIndex = 1;
+            this.label65.Text = "Serial thiết bị";
+            // 
+            // txtReadPulseMeter3Pin1Setting
+            // 
+            this.txtReadPulseMeter3Pin1Setting.Location = new System.Drawing.Point(175, 130);
+            this.txtReadPulseMeter3Pin1Setting.Name = "txtReadPulseMeter3Pin1Setting";
+            this.txtReadPulseMeter3Pin1Setting.ReadOnly = true;
+            this.txtReadPulseMeter3Pin1Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3Pin1Setting.TabIndex = 13;
+            // 
+            // cmbPulseMeter3EdgeSetting
+            // 
+            this.cmbPulseMeter3EdgeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter3EdgeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter3EdgeSetting.Items.AddRange(new object[] {
+            "-- Chọn sườn xung --",
+            "RISING",
+            "FALLING"});
+            this.cmbPulseMeter3EdgeSetting.Location = new System.Drawing.Point(294, 180);
+            this.cmbPulseMeter3EdgeSetting.Name = "cmbPulseMeter3EdgeSetting";
+            this.cmbPulseMeter3EdgeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter3EdgeSetting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter3SerialSetting
+            // 
+            this.txtReadPulseMeter3SerialSetting.Location = new System.Drawing.Point(175, 55);
+            this.txtReadPulseMeter3SerialSetting.Name = "txtReadPulseMeter3SerialSetting";
+            this.txtReadPulseMeter3SerialSetting.ReadOnly = true;
+            this.txtReadPulseMeter3SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3SerialSetting.TabIndex = 13;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(55, 34);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(96, 13);
+            this.label66.TabIndex = 1;
+            this.label66.Text = "Trạng thái sử dụng";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(55, 184);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(85, 13);
+            this.label67.TabIndex = 1;
+            this.label67.Text = "Dạng sườn xung";
+            // 
+            // btnWritePulseMeter3Setting
+            // 
+            this.btnWritePulseMeter3Setting.Location = new System.Drawing.Point(311, 255);
+            this.btnWritePulseMeter3Setting.Name = "btnWritePulseMeter3Setting";
+            this.btnWritePulseMeter3Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWritePulseMeter3Setting.TabIndex = 15;
+            this.btnWritePulseMeter3Setting.Text = "Ghi";
+            this.btnWritePulseMeter3Setting.UseVisualStyleBackColor = true;
+            this.btnWritePulseMeter3Setting.Click += new System.EventHandler(this.btnWritePulseMeter3Setting_Click);
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(55, 209);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(77, 13);
+            this.label68.TabIndex = 1;
+            this.label68.Text = "Tổng xuôi (m3)";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(55, 84);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(112, 13);
+            this.label69.TabIndex = 1;
+            this.label69.Text = "Hệ số xung (xung/m3)";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(55, 234);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(88, 13);
+            this.label70.TabIndex = 1;
+            this.label70.Text = "Tổng ngược (m3)";
+            // 
+            // btnReadPulseMeter3Setting
+            // 
+            this.btnReadPulseMeter3Setting.Location = new System.Drawing.Point(192, 255);
+            this.btnReadPulseMeter3Setting.Name = "btnReadPulseMeter3Setting";
+            this.btnReadPulseMeter3Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPulseMeter3Setting.TabIndex = 14;
+            this.btnReadPulseMeter3Setting.Text = "Đọc";
+            this.btnReadPulseMeter3Setting.UseVisualStyleBackColor = true;
+            this.btnReadPulseMeter3Setting.Click += new System.EventHandler(this.btnReadPulseMeter3Setting_Click);
+            // 
+            // txtReadPulseMeter3TypeSetting
+            // 
+            this.txtReadPulseMeter3TypeSetting.Location = new System.Drawing.Point(175, 105);
+            this.txtReadPulseMeter3TypeSetting.Name = "txtReadPulseMeter3TypeSetting";
+            this.txtReadPulseMeter3TypeSetting.ReadOnly = true;
+            this.txtReadPulseMeter3TypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3TypeSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter3SerialSetting
+            // 
+            this.txtWritePulseMeter3SerialSetting.Location = new System.Drawing.Point(294, 55);
+            this.txtWritePulseMeter3SerialSetting.Name = "txtWritePulseMeter3SerialSetting";
+            this.txtWritePulseMeter3SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter3SerialSetting.TabIndex = 12;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(55, 109);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(96, 13);
+            this.label71.TabIndex = 1;
+            this.label71.Text = "Loại đồng hồ xung";
+            // 
+            // cmbPulseMeter3TypeSetting
+            // 
+            this.cmbPulseMeter3TypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter3TypeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter3TypeSetting.Items.AddRange(new object[] {
+            "-- Chọn loại đồng hồ --",
+            "Một xung",
+            "Hai xung encoder A/B"});
+            this.cmbPulseMeter3TypeSetting.Location = new System.Drawing.Point(294, 105);
+            this.cmbPulseMeter3TypeSetting.Name = "cmbPulseMeter3TypeSetting";
+            this.cmbPulseMeter3TypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter3TypeSetting.TabIndex = 6;
+            this.cmbPulseMeter3TypeSetting.SelectedIndexChanged += new System.EventHandler(this.cmbPulseMeter3TypeSetting_SelectedIndexChanged);
+            // 
+            // txtReadPulseMeter3ForwardSetting
+            // 
+            this.txtReadPulseMeter3ForwardSetting.Location = new System.Drawing.Point(175, 205);
+            this.txtReadPulseMeter3ForwardSetting.Name = "txtReadPulseMeter3ForwardSetting";
+            this.txtReadPulseMeter3ForwardSetting.ReadOnly = true;
+            this.txtReadPulseMeter3ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3ForwardSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter3PulseFactorSetting
+            // 
+            this.txtWritePulseMeter3PulseFactorSetting.Location = new System.Drawing.Point(294, 80);
+            this.txtWritePulseMeter3PulseFactorSetting.Name = "txtWritePulseMeter3PulseFactorSetting";
+            this.txtWritePulseMeter3PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter3PulseFactorSetting.TabIndex = 12;
+            // 
+            // txtWritePulseMeter3ForwardSetting
+            // 
+            this.txtWritePulseMeter3ForwardSetting.Location = new System.Drawing.Point(294, 205);
+            this.txtWritePulseMeter3ForwardSetting.Name = "txtWritePulseMeter3ForwardSetting";
+            this.txtWritePulseMeter3ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter3ForwardSetting.TabIndex = 13;
+            // 
+            // cmbPulseMeter3Pin2Setting
+            // 
+            this.cmbPulseMeter3Pin2Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter3Pin2Setting.FormattingEnabled = true;
+            this.cmbPulseMeter3Pin2Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter3Pin2Setting.Location = new System.Drawing.Point(294, 155);
+            this.cmbPulseMeter3Pin2Setting.Name = "cmbPulseMeter3Pin2Setting";
+            this.cmbPulseMeter3Pin2Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter3Pin2Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter3ReverseSetting
+            // 
+            this.txtReadPulseMeter3ReverseSetting.Location = new System.Drawing.Point(175, 230);
+            this.txtReadPulseMeter3ReverseSetting.Name = "txtReadPulseMeter3ReverseSetting";
+            this.txtReadPulseMeter3ReverseSetting.ReadOnly = true;
+            this.txtReadPulseMeter3ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter3ReverseSetting.TabIndex = 13;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(55, 134);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(89, 13);
+            this.label72.TabIndex = 1;
+            this.label72.Text = "Chân đọc xung 1";
+            // 
+            // txtWritePulseMeter3ReverseSetting
+            // 
+            this.txtWritePulseMeter3ReverseSetting.Location = new System.Drawing.Point(294, 230);
+            this.txtWritePulseMeter3ReverseSetting.Name = "txtWritePulseMeter3ReverseSetting";
+            this.txtWritePulseMeter3ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter3ReverseSetting.TabIndex = 13;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(55, 159);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(89, 13);
+            this.label73.TabIndex = 1;
+            this.label73.Text = "Chân đọc xung 2";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox5);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(932, 290);
+            this.panel1.TabIndex = 3;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.chkPulseMeter2UseSetting);
+            this.groupBox5.Controls.Add(this.cmbPulseMeter2Pin1Setting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2EdgeSetting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2Pin2Setting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2PulseFactorSetting);
+            this.groupBox5.Controls.Add(this.lblPulseMeter2SettingStatus);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2UseSetting);
+            this.groupBox5.Controls.Add(this.label45);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2Pin1Setting);
+            this.groupBox5.Controls.Add(this.cmbPulseMeter2EdgeSetting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2SerialSetting);
+            this.groupBox5.Controls.Add(this.label46);
+            this.groupBox5.Controls.Add(this.label47);
+            this.groupBox5.Controls.Add(this.btnWritePulseMeter2Setting);
+            this.groupBox5.Controls.Add(this.label48);
+            this.groupBox5.Controls.Add(this.label49);
+            this.groupBox5.Controls.Add(this.label50);
+            this.groupBox5.Controls.Add(this.btnReadPulseMeter2Setting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2TypeSetting);
+            this.groupBox5.Controls.Add(this.txtWritePulseMeter2SerialSetting);
+            this.groupBox5.Controls.Add(this.label51);
+            this.groupBox5.Controls.Add(this.cmbPulseMeter2TypeSetting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2ForwardSetting);
+            this.groupBox5.Controls.Add(this.txtWritePulseMeter2PulseFactorSetting);
+            this.groupBox5.Controls.Add(this.txtWritePulseMeter2ForwardSetting);
+            this.groupBox5.Controls.Add(this.cmbPulseMeter2Pin2Setting);
+            this.groupBox5.Controls.Add(this.txtReadPulseMeter2ReverseSetting);
+            this.groupBox5.Controls.Add(this.label52);
+            this.groupBox5.Controls.Add(this.txtWritePulseMeter2ReverseSetting);
+            this.groupBox5.Controls.Add(this.label53);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox5.Location = new System.Drawing.Point(475, 0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(457, 290);
+            this.groupBox5.TabIndex = 3;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Đồng hồ 2";
+            // 
+            // chkPulseMeter2UseSetting
+            // 
+            this.chkPulseMeter2UseSetting.AutoSize = true;
+            this.chkPulseMeter2UseSetting.Location = new System.Drawing.Point(315, 32);
+            this.chkPulseMeter2UseSetting.Name = "chkPulseMeter2UseSetting";
+            this.chkPulseMeter2UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkPulseMeter2UseSetting.TabIndex = 14;
+            this.chkPulseMeter2UseSetting.Text = "Sử dụng";
+            this.chkPulseMeter2UseSetting.UseVisualStyleBackColor = true;
+            this.chkPulseMeter2UseSetting.CheckedChanged += new System.EventHandler(this.chkPulseMeter2UseSetting_CheckedChanged);
+            // 
+            // cmbPulseMeter2Pin1Setting
+            // 
+            this.cmbPulseMeter2Pin1Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter2Pin1Setting.FormattingEnabled = true;
+            this.cmbPulseMeter2Pin1Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter2Pin1Setting.Location = new System.Drawing.Point(294, 130);
+            this.cmbPulseMeter2Pin1Setting.Name = "cmbPulseMeter2Pin1Setting";
+            this.cmbPulseMeter2Pin1Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter2Pin1Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter2EdgeSetting
+            // 
+            this.txtReadPulseMeter2EdgeSetting.Location = new System.Drawing.Point(175, 180);
+            this.txtReadPulseMeter2EdgeSetting.Name = "txtReadPulseMeter2EdgeSetting";
+            this.txtReadPulseMeter2EdgeSetting.ReadOnly = true;
+            this.txtReadPulseMeter2EdgeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2EdgeSetting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter2Pin2Setting
+            // 
+            this.txtReadPulseMeter2Pin2Setting.Location = new System.Drawing.Point(175, 155);
+            this.txtReadPulseMeter2Pin2Setting.Name = "txtReadPulseMeter2Pin2Setting";
+            this.txtReadPulseMeter2Pin2Setting.ReadOnly = true;
+            this.txtReadPulseMeter2Pin2Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2Pin2Setting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter2PulseFactorSetting
+            // 
+            this.txtReadPulseMeter2PulseFactorSetting.Location = new System.Drawing.Point(175, 80);
+            this.txtReadPulseMeter2PulseFactorSetting.Name = "txtReadPulseMeter2PulseFactorSetting";
+            this.txtReadPulseMeter2PulseFactorSetting.ReadOnly = true;
+            this.txtReadPulseMeter2PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2PulseFactorSetting.TabIndex = 13;
+            // 
+            // lblPulseMeter2SettingStatus
+            // 
+            this.lblPulseMeter2SettingStatus.AutoSize = true;
+            this.lblPulseMeter2SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPulseMeter2SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblPulseMeter2SettingStatus.Location = new System.Drawing.Point(201, 12);
+            this.lblPulseMeter2SettingStatus.Name = "lblPulseMeter2SettingStatus";
+            this.lblPulseMeter2SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblPulseMeter2SettingStatus.TabIndex = 19;
+            this.lblPulseMeter2SettingStatus.Text = "Trạng thái ghi";
+            // 
+            // txtReadPulseMeter2UseSetting
+            // 
+            this.txtReadPulseMeter2UseSetting.Location = new System.Drawing.Point(175, 30);
+            this.txtReadPulseMeter2UseSetting.Name = "txtReadPulseMeter2UseSetting";
+            this.txtReadPulseMeter2UseSetting.ReadOnly = true;
+            this.txtReadPulseMeter2UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2UseSetting.TabIndex = 13;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(55, 59);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(67, 13);
+            this.label45.TabIndex = 1;
+            this.label45.Text = "Serial thiết bị";
+            // 
+            // txtReadPulseMeter2Pin1Setting
+            // 
+            this.txtReadPulseMeter2Pin1Setting.Location = new System.Drawing.Point(175, 130);
+            this.txtReadPulseMeter2Pin1Setting.Name = "txtReadPulseMeter2Pin1Setting";
+            this.txtReadPulseMeter2Pin1Setting.ReadOnly = true;
+            this.txtReadPulseMeter2Pin1Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2Pin1Setting.TabIndex = 13;
+            // 
+            // cmbPulseMeter2EdgeSetting
+            // 
+            this.cmbPulseMeter2EdgeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter2EdgeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter2EdgeSetting.Items.AddRange(new object[] {
+            "-- Chọn sườn xung --",
+            "RISING",
+            "FALLING"});
+            this.cmbPulseMeter2EdgeSetting.Location = new System.Drawing.Point(294, 180);
+            this.cmbPulseMeter2EdgeSetting.Name = "cmbPulseMeter2EdgeSetting";
+            this.cmbPulseMeter2EdgeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter2EdgeSetting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter2SerialSetting
+            // 
+            this.txtReadPulseMeter2SerialSetting.Location = new System.Drawing.Point(175, 55);
+            this.txtReadPulseMeter2SerialSetting.Name = "txtReadPulseMeter2SerialSetting";
+            this.txtReadPulseMeter2SerialSetting.ReadOnly = true;
+            this.txtReadPulseMeter2SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2SerialSetting.TabIndex = 13;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(55, 34);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(96, 13);
+            this.label46.TabIndex = 1;
+            this.label46.Text = "Trạng thái sử dụng";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(55, 184);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(85, 13);
+            this.label47.TabIndex = 1;
+            this.label47.Text = "Dạng sườn xung";
+            // 
+            // btnWritePulseMeter2Setting
+            // 
+            this.btnWritePulseMeter2Setting.Location = new System.Drawing.Point(311, 255);
+            this.btnWritePulseMeter2Setting.Name = "btnWritePulseMeter2Setting";
+            this.btnWritePulseMeter2Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWritePulseMeter2Setting.TabIndex = 15;
+            this.btnWritePulseMeter2Setting.Text = "Ghi";
+            this.btnWritePulseMeter2Setting.UseVisualStyleBackColor = true;
+            this.btnWritePulseMeter2Setting.Click += new System.EventHandler(this.btnWritePulseMeter2Setting_Click);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(55, 209);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(77, 13);
+            this.label48.TabIndex = 1;
+            this.label48.Text = "Tổng xuôi (m3)";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(55, 84);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(112, 13);
+            this.label49.TabIndex = 1;
+            this.label49.Text = "Hệ số xung (xung/m3)";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(55, 234);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(88, 13);
+            this.label50.TabIndex = 1;
+            this.label50.Text = "Tổng ngược (m3)";
+            // 
+            // btnReadPulseMeter2Setting
+            // 
+            this.btnReadPulseMeter2Setting.Location = new System.Drawing.Point(192, 255);
+            this.btnReadPulseMeter2Setting.Name = "btnReadPulseMeter2Setting";
+            this.btnReadPulseMeter2Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPulseMeter2Setting.TabIndex = 14;
+            this.btnReadPulseMeter2Setting.Text = "Đọc";
+            this.btnReadPulseMeter2Setting.UseVisualStyleBackColor = true;
+            this.btnReadPulseMeter2Setting.Click += new System.EventHandler(this.btnReadPulseMeter2Setting_Click);
+            // 
+            // txtReadPulseMeter2TypeSetting
+            // 
+            this.txtReadPulseMeter2TypeSetting.Location = new System.Drawing.Point(175, 105);
+            this.txtReadPulseMeter2TypeSetting.Name = "txtReadPulseMeter2TypeSetting";
+            this.txtReadPulseMeter2TypeSetting.ReadOnly = true;
+            this.txtReadPulseMeter2TypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2TypeSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter2SerialSetting
+            // 
+            this.txtWritePulseMeter2SerialSetting.Location = new System.Drawing.Point(294, 55);
+            this.txtWritePulseMeter2SerialSetting.Name = "txtWritePulseMeter2SerialSetting";
+            this.txtWritePulseMeter2SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter2SerialSetting.TabIndex = 12;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(55, 109);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(96, 13);
+            this.label51.TabIndex = 1;
+            this.label51.Text = "Loại đồng hồ xung";
+            // 
+            // cmbPulseMeter2TypeSetting
+            // 
+            this.cmbPulseMeter2TypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter2TypeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter2TypeSetting.Items.AddRange(new object[] {
+            "-- Chọn loại đồng hồ --",
+            "Một xung",
+            "Hai xung encoder A/B"});
+            this.cmbPulseMeter2TypeSetting.Location = new System.Drawing.Point(294, 105);
+            this.cmbPulseMeter2TypeSetting.Name = "cmbPulseMeter2TypeSetting";
+            this.cmbPulseMeter2TypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter2TypeSetting.TabIndex = 6;
+            this.cmbPulseMeter2TypeSetting.SelectedIndexChanged += new System.EventHandler(this.cmbPulseMeter2TypeSetting_SelectedIndexChanged);
+            // 
+            // txtReadPulseMeter2ForwardSetting
+            // 
+            this.txtReadPulseMeter2ForwardSetting.Location = new System.Drawing.Point(175, 205);
+            this.txtReadPulseMeter2ForwardSetting.Name = "txtReadPulseMeter2ForwardSetting";
+            this.txtReadPulseMeter2ForwardSetting.ReadOnly = true;
+            this.txtReadPulseMeter2ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2ForwardSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter2PulseFactorSetting
+            // 
+            this.txtWritePulseMeter2PulseFactorSetting.Location = new System.Drawing.Point(294, 80);
+            this.txtWritePulseMeter2PulseFactorSetting.Name = "txtWritePulseMeter2PulseFactorSetting";
+            this.txtWritePulseMeter2PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter2PulseFactorSetting.TabIndex = 12;
+            // 
+            // txtWritePulseMeter2ForwardSetting
+            // 
+            this.txtWritePulseMeter2ForwardSetting.Location = new System.Drawing.Point(294, 205);
+            this.txtWritePulseMeter2ForwardSetting.Name = "txtWritePulseMeter2ForwardSetting";
+            this.txtWritePulseMeter2ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter2ForwardSetting.TabIndex = 13;
+            // 
+            // cmbPulseMeter2Pin2Setting
+            // 
+            this.cmbPulseMeter2Pin2Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter2Pin2Setting.FormattingEnabled = true;
+            this.cmbPulseMeter2Pin2Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter2Pin2Setting.Location = new System.Drawing.Point(294, 155);
+            this.cmbPulseMeter2Pin2Setting.Name = "cmbPulseMeter2Pin2Setting";
+            this.cmbPulseMeter2Pin2Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter2Pin2Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter2ReverseSetting
+            // 
+            this.txtReadPulseMeter2ReverseSetting.Location = new System.Drawing.Point(175, 230);
+            this.txtReadPulseMeter2ReverseSetting.Name = "txtReadPulseMeter2ReverseSetting";
+            this.txtReadPulseMeter2ReverseSetting.ReadOnly = true;
+            this.txtReadPulseMeter2ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter2ReverseSetting.TabIndex = 13;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(55, 134);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(89, 13);
+            this.label52.TabIndex = 1;
+            this.label52.Text = "Chân đọc xung 1";
+            // 
+            // txtWritePulseMeter2ReverseSetting
+            // 
+            this.txtWritePulseMeter2ReverseSetting.Location = new System.Drawing.Point(294, 230);
+            this.txtWritePulseMeter2ReverseSetting.Name = "txtWritePulseMeter2ReverseSetting";
+            this.txtWritePulseMeter2ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter2ReverseSetting.TabIndex = 13;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(55, 159);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(89, 13);
+            this.label53.TabIndex = 1;
+            this.label53.Text = "Chân đọc xung 2";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chkPulseMeter1UseSetting);
+            this.groupBox4.Controls.Add(this.cmbPulseMeter1Pin1Setting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1EdgeSetting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1Pin2Setting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1PulseFactorSetting);
+            this.groupBox4.Controls.Add(this.lblPulseMeter1SettingStatus);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1UseSetting);
+            this.groupBox4.Controls.Add(this.label37);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1Pin1Setting);
+            this.groupBox4.Controls.Add(this.cmbPulseMeter1EdgeSetting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1SerialSetting);
+            this.groupBox4.Controls.Add(this.label43);
+            this.groupBox4.Controls.Add(this.label42);
+            this.groupBox4.Controls.Add(this.btnWritePulseMeter1Setting);
+            this.groupBox4.Controls.Add(this.label33);
+            this.groupBox4.Controls.Add(this.label38);
+            this.groupBox4.Controls.Add(this.label34);
+            this.groupBox4.Controls.Add(this.btnReadPulseMeter1Setting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1TypeSetting);
+            this.groupBox4.Controls.Add(this.txtWritePulseMeter1SerialSetting);
+            this.groupBox4.Controls.Add(this.label41);
+            this.groupBox4.Controls.Add(this.cmbPulseMeter1TypeSetting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1ForwardSetting);
+            this.groupBox4.Controls.Add(this.txtWritePulseMeter1PulseFactorSetting);
+            this.groupBox4.Controls.Add(this.txtWritePulseMeter1ForwardSetting);
+            this.groupBox4.Controls.Add(this.cmbPulseMeter1Pin2Setting);
+            this.groupBox4.Controls.Add(this.txtReadPulseMeter1ReverseSetting);
+            this.groupBox4.Controls.Add(this.label39);
+            this.groupBox4.Controls.Add(this.txtWritePulseMeter1ReverseSetting);
+            this.groupBox4.Controls.Add(this.label40);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(457, 290);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Đồng hồ 1";
+            // 
+            // chkPulseMeter1UseSetting
+            // 
+            this.chkPulseMeter1UseSetting.AutoSize = true;
+            this.chkPulseMeter1UseSetting.Location = new System.Drawing.Point(315, 32);
+            this.chkPulseMeter1UseSetting.Name = "chkPulseMeter1UseSetting";
+            this.chkPulseMeter1UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkPulseMeter1UseSetting.TabIndex = 14;
+            this.chkPulseMeter1UseSetting.Text = "Sử dụng";
+            this.chkPulseMeter1UseSetting.UseVisualStyleBackColor = true;
+            this.chkPulseMeter1UseSetting.CheckedChanged += new System.EventHandler(this.chkPulseMeter1UseSetting_CheckedChanged);
+            // 
+            // cmbPulseMeter1Pin1Setting
+            // 
+            this.cmbPulseMeter1Pin1Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter1Pin1Setting.FormattingEnabled = true;
+            this.cmbPulseMeter1Pin1Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter1Pin1Setting.Location = new System.Drawing.Point(294, 130);
+            this.cmbPulseMeter1Pin1Setting.Name = "cmbPulseMeter1Pin1Setting";
+            this.cmbPulseMeter1Pin1Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter1Pin1Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter1EdgeSetting
+            // 
+            this.txtReadPulseMeter1EdgeSetting.Location = new System.Drawing.Point(175, 180);
+            this.txtReadPulseMeter1EdgeSetting.Name = "txtReadPulseMeter1EdgeSetting";
+            this.txtReadPulseMeter1EdgeSetting.ReadOnly = true;
+            this.txtReadPulseMeter1EdgeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1EdgeSetting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter1Pin2Setting
+            // 
+            this.txtReadPulseMeter1Pin2Setting.Location = new System.Drawing.Point(175, 155);
+            this.txtReadPulseMeter1Pin2Setting.Name = "txtReadPulseMeter1Pin2Setting";
+            this.txtReadPulseMeter1Pin2Setting.ReadOnly = true;
+            this.txtReadPulseMeter1Pin2Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1Pin2Setting.TabIndex = 13;
+            // 
+            // txtReadPulseMeter1PulseFactorSetting
+            // 
+            this.txtReadPulseMeter1PulseFactorSetting.Location = new System.Drawing.Point(175, 80);
+            this.txtReadPulseMeter1PulseFactorSetting.Name = "txtReadPulseMeter1PulseFactorSetting";
+            this.txtReadPulseMeter1PulseFactorSetting.ReadOnly = true;
+            this.txtReadPulseMeter1PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1PulseFactorSetting.TabIndex = 13;
+            // 
+            // lblPulseMeter1SettingStatus
+            // 
+            this.lblPulseMeter1SettingStatus.AutoSize = true;
+            this.lblPulseMeter1SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPulseMeter1SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblPulseMeter1SettingStatus.Location = new System.Drawing.Point(201, 12);
+            this.lblPulseMeter1SettingStatus.Name = "lblPulseMeter1SettingStatus";
+            this.lblPulseMeter1SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblPulseMeter1SettingStatus.TabIndex = 19;
+            this.lblPulseMeter1SettingStatus.Text = "Trạng thái ghi";
+            // 
+            // txtReadPulseMeter1UseSetting
+            // 
+            this.txtReadPulseMeter1UseSetting.Location = new System.Drawing.Point(175, 30);
+            this.txtReadPulseMeter1UseSetting.Name = "txtReadPulseMeter1UseSetting";
+            this.txtReadPulseMeter1UseSetting.ReadOnly = true;
+            this.txtReadPulseMeter1UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1UseSetting.TabIndex = 13;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(55, 59);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(67, 13);
+            this.label37.TabIndex = 1;
+            this.label37.Text = "Serial thiết bị";
+            // 
+            // txtReadPulseMeter1Pin1Setting
+            // 
+            this.txtReadPulseMeter1Pin1Setting.Location = new System.Drawing.Point(175, 130);
+            this.txtReadPulseMeter1Pin1Setting.Name = "txtReadPulseMeter1Pin1Setting";
+            this.txtReadPulseMeter1Pin1Setting.ReadOnly = true;
+            this.txtReadPulseMeter1Pin1Setting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1Pin1Setting.TabIndex = 13;
+            // 
+            // cmbPulseMeter1EdgeSetting
+            // 
+            this.cmbPulseMeter1EdgeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter1EdgeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter1EdgeSetting.Items.AddRange(new object[] {
+            "-- Chọn sườn xung --",
+            "RISING",
+            "FALLING"});
+            this.cmbPulseMeter1EdgeSetting.Location = new System.Drawing.Point(294, 180);
+            this.cmbPulseMeter1EdgeSetting.Name = "cmbPulseMeter1EdgeSetting";
+            this.cmbPulseMeter1EdgeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter1EdgeSetting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter1SerialSetting
+            // 
+            this.txtReadPulseMeter1SerialSetting.Location = new System.Drawing.Point(175, 55);
+            this.txtReadPulseMeter1SerialSetting.Name = "txtReadPulseMeter1SerialSetting";
+            this.txtReadPulseMeter1SerialSetting.ReadOnly = true;
+            this.txtReadPulseMeter1SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1SerialSetting.TabIndex = 13;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(55, 34);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(96, 13);
+            this.label43.TabIndex = 1;
+            this.label43.Text = "Trạng thái sử dụng";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(55, 184);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(85, 13);
+            this.label42.TabIndex = 1;
+            this.label42.Text = "Dạng sườn xung";
+            // 
+            // btnWritePulseMeter1Setting
+            // 
+            this.btnWritePulseMeter1Setting.Location = new System.Drawing.Point(311, 255);
+            this.btnWritePulseMeter1Setting.Name = "btnWritePulseMeter1Setting";
+            this.btnWritePulseMeter1Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWritePulseMeter1Setting.TabIndex = 15;
+            this.btnWritePulseMeter1Setting.Text = "Ghi";
+            this.btnWritePulseMeter1Setting.UseVisualStyleBackColor = true;
+            this.btnWritePulseMeter1Setting.Click += new System.EventHandler(this.btnWritePulseMeter1Setting_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(55, 209);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(77, 13);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "Tổng xuôi (m3)";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(55, 84);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(112, 13);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "Hệ số xung (xung/m3)";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(55, 234);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(88, 13);
+            this.label34.TabIndex = 1;
+            this.label34.Text = "Tổng ngược (m3)";
+            // 
+            // btnReadPulseMeter1Setting
+            // 
+            this.btnReadPulseMeter1Setting.Location = new System.Drawing.Point(192, 255);
+            this.btnReadPulseMeter1Setting.Name = "btnReadPulseMeter1Setting";
+            this.btnReadPulseMeter1Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPulseMeter1Setting.TabIndex = 14;
+            this.btnReadPulseMeter1Setting.Text = "Đọc";
+            this.btnReadPulseMeter1Setting.UseVisualStyleBackColor = true;
+            this.btnReadPulseMeter1Setting.Click += new System.EventHandler(this.btnReadPulseMeter1Setting_Click);
+            // 
+            // txtReadPulseMeter1TypeSetting
+            // 
+            this.txtReadPulseMeter1TypeSetting.Location = new System.Drawing.Point(175, 105);
+            this.txtReadPulseMeter1TypeSetting.Name = "txtReadPulseMeter1TypeSetting";
+            this.txtReadPulseMeter1TypeSetting.ReadOnly = true;
+            this.txtReadPulseMeter1TypeSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1TypeSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter1SerialSetting
+            // 
+            this.txtWritePulseMeter1SerialSetting.Location = new System.Drawing.Point(294, 55);
+            this.txtWritePulseMeter1SerialSetting.Name = "txtWritePulseMeter1SerialSetting";
+            this.txtWritePulseMeter1SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter1SerialSetting.TabIndex = 12;
+            this.txtWritePulseMeter1SerialSetting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWriteLatchSetting_KeyPress);
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(55, 109);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(96, 13);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "Loại đồng hồ xung";
+            // 
+            // cmbPulseMeter1TypeSetting
+            // 
+            this.cmbPulseMeter1TypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter1TypeSetting.FormattingEnabled = true;
+            this.cmbPulseMeter1TypeSetting.Items.AddRange(new object[] {
+            "-- Chọn loại đồng hồ --",
+            "Một xung",
+            "Hai xung encoder A/B"});
+            this.cmbPulseMeter1TypeSetting.Location = new System.Drawing.Point(294, 105);
+            this.cmbPulseMeter1TypeSetting.Name = "cmbPulseMeter1TypeSetting";
+            this.cmbPulseMeter1TypeSetting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter1TypeSetting.TabIndex = 6;
+            this.cmbPulseMeter1TypeSetting.SelectedIndexChanged += new System.EventHandler(this.cmbPulseMeter1TypeSetting_SelectedIndexChanged);
+            // 
+            // txtReadPulseMeter1ForwardSetting
+            // 
+            this.txtReadPulseMeter1ForwardSetting.Location = new System.Drawing.Point(175, 205);
+            this.txtReadPulseMeter1ForwardSetting.Name = "txtReadPulseMeter1ForwardSetting";
+            this.txtReadPulseMeter1ForwardSetting.ReadOnly = true;
+            this.txtReadPulseMeter1ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1ForwardSetting.TabIndex = 13;
+            // 
+            // txtWritePulseMeter1PulseFactorSetting
+            // 
+            this.txtWritePulseMeter1PulseFactorSetting.Location = new System.Drawing.Point(294, 80);
+            this.txtWritePulseMeter1PulseFactorSetting.Name = "txtWritePulseMeter1PulseFactorSetting";
+            this.txtWritePulseMeter1PulseFactorSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter1PulseFactorSetting.TabIndex = 12;
+            this.txtWritePulseMeter1PulseFactorSetting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWriteLatchSetting_KeyPress);
+            // 
+            // txtWritePulseMeter1ForwardSetting
+            // 
+            this.txtWritePulseMeter1ForwardSetting.Location = new System.Drawing.Point(294, 205);
+            this.txtWritePulseMeter1ForwardSetting.Name = "txtWritePulseMeter1ForwardSetting";
+            this.txtWritePulseMeter1ForwardSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter1ForwardSetting.TabIndex = 13;
+            // 
+            // cmbPulseMeter1Pin2Setting
+            // 
+            this.cmbPulseMeter1Pin2Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPulseMeter1Pin2Setting.FormattingEnabled = true;
+            this.cmbPulseMeter1Pin2Setting.Items.AddRange(new object[] {
+            "-- Chọn chân --",
+            "Chân 1",
+            "Chân 2",
+            "Chân 3",
+            "Chân 4"});
+            this.cmbPulseMeter1Pin2Setting.Location = new System.Drawing.Point(294, 155);
+            this.cmbPulseMeter1Pin2Setting.Name = "cmbPulseMeter1Pin2Setting";
+            this.cmbPulseMeter1Pin2Setting.Size = new System.Drawing.Size(108, 21);
+            this.cmbPulseMeter1Pin2Setting.TabIndex = 6;
+            // 
+            // txtReadPulseMeter1ReverseSetting
+            // 
+            this.txtReadPulseMeter1ReverseSetting.Location = new System.Drawing.Point(175, 230);
+            this.txtReadPulseMeter1ReverseSetting.Name = "txtReadPulseMeter1ReverseSetting";
+            this.txtReadPulseMeter1ReverseSetting.ReadOnly = true;
+            this.txtReadPulseMeter1ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPulseMeter1ReverseSetting.TabIndex = 13;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(55, 134);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(89, 13);
+            this.label39.TabIndex = 1;
+            this.label39.Text = "Chân đọc xung 1";
+            // 
+            // txtWritePulseMeter1ReverseSetting
+            // 
+            this.txtWritePulseMeter1ReverseSetting.Location = new System.Drawing.Point(294, 230);
+            this.txtWritePulseMeter1ReverseSetting.Name = "txtWritePulseMeter1ReverseSetting";
+            this.txtWritePulseMeter1ReverseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePulseMeter1ReverseSetting.TabIndex = 13;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(55, 159);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(89, 13);
+            this.label40.TabIndex = 1;
+            this.label40.Text = "Chân đọc xung 2";
+            // 
+            // tabModbusMeterConfig
+            // 
+            this.tabModbusMeterConfig.Location = new System.Drawing.Point(4, 22);
+            this.tabModbusMeterConfig.Name = "tabModbusMeterConfig";
+            this.tabModbusMeterConfig.Size = new System.Drawing.Size(938, 717);
+            this.tabModbusMeterConfig.TabIndex = 2;
+            this.tabModbusMeterConfig.Text = "Đồng hồ modbus";
+            this.tabModbusMeterConfig.UseVisualStyleBackColor = true;
+            // 
+            // tabPressureSensorConfig
+            // 
+            this.tabPressureSensorConfig.Location = new System.Drawing.Point(4, 22);
+            this.tabPressureSensorConfig.Name = "tabPressureSensorConfig";
+            this.tabPressureSensorConfig.Size = new System.Drawing.Size(938, 717);
+            this.tabPressureSensorConfig.TabIndex = 3;
+            this.tabPressureSensorConfig.Text = "Cảm biến áp suất";
+            this.tabPressureSensorConfig.UseVisualStyleBackColor = true;
+            // 
             // tabOTA
             // 
             this.tabOTA.Location = new System.Drawing.Point(4, 22);
@@ -1749,299 +3235,6 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // grpPulseMeterSetting
-            // 
-            this.grpPulseMeterSetting.Controls.Add(this.grpPulseMeter1Setting);
-            this.grpPulseMeterSetting.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpPulseMeterSetting.Location = new System.Drawing.Point(0, 267);
-            this.grpPulseMeterSetting.Name = "grpPulseMeterSetting";
-            this.grpPulseMeterSetting.Size = new System.Drawing.Size(946, 288);
-            this.grpPulseMeterSetting.TabIndex = 2;
-            this.grpPulseMeterSetting.TabStop = false;
-            this.grpPulseMeterSetting.Text = "Đồng hồ xung";
-            // 
-            // grpPulseMeter1Setting
-            // 
-            this.grpPulseMeter1Setting.Controls.Add(this.chkPulseMeter1UseSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.cmbPulseMeter1EdgeSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.cmbPulseMeter1TypeSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.cmbPulseMeter1Pin2Setting);
-            this.grpPulseMeter1Setting.Controls.Add(this.cmbPulseMeter1Pin1Setting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1EdgeSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1TypeSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1Pin2Setting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1Pin1Setting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1PulseFactorSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1UseSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtReadPulseMeter1SerialSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.label42);
-            this.grpPulseMeter1Setting.Controls.Add(this.label41);
-            this.grpPulseMeter1Setting.Controls.Add(this.label40);
-            this.grpPulseMeter1Setting.Controls.Add(this.label39);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtWritePulseMeter1PulseFactorSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.txtWritePulseMeter1SerialSetting);
-            this.grpPulseMeter1Setting.Controls.Add(this.label38);
-            this.grpPulseMeter1Setting.Controls.Add(this.label43);
-            this.grpPulseMeter1Setting.Controls.Add(this.label37);
-            this.grpPulseMeter1Setting.Location = new System.Drawing.Point(6, 19);
-            this.grpPulseMeter1Setting.Name = "grpPulseMeter1Setting";
-            this.grpPulseMeter1Setting.Size = new System.Drawing.Size(457, 247);
-            this.grpPulseMeter1Setting.TabIndex = 0;
-            this.grpPulseMeter1Setting.TabStop = false;
-            this.grpPulseMeter1Setting.Text = "Đồng hồ 1";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(16, 54);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(67, 13);
-            this.label37.TabIndex = 1;
-            this.label37.Text = "Serial thiết bị";
-            // 
-            // txtReadPulseMeter1SerialSetting
-            // 
-            this.txtReadPulseMeter1SerialSetting.Location = new System.Drawing.Point(134, 50);
-            this.txtReadPulseMeter1SerialSetting.Name = "txtReadPulseMeter1SerialSetting";
-            this.txtReadPulseMeter1SerialSetting.ReadOnly = true;
-            this.txtReadPulseMeter1SerialSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1SerialSetting.TabIndex = 13;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(16, 80);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(112, 13);
-            this.label38.TabIndex = 1;
-            this.label38.Text = "Hệ số xung (xung/m3)";
-            // 
-            // txtReadPulseMeter1PulseFactorSetting
-            // 
-            this.txtReadPulseMeter1PulseFactorSetting.Location = new System.Drawing.Point(134, 76);
-            this.txtReadPulseMeter1PulseFactorSetting.Name = "txtReadPulseMeter1PulseFactorSetting";
-            this.txtReadPulseMeter1PulseFactorSetting.ReadOnly = true;
-            this.txtReadPulseMeter1PulseFactorSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1PulseFactorSetting.TabIndex = 13;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(16, 106);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(89, 13);
-            this.label39.TabIndex = 1;
-            this.label39.Text = "Chân đọc xung 1";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(16, 132);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(89, 13);
-            this.label40.TabIndex = 1;
-            this.label40.Text = "Chân đọc xung 2";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(16, 158);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(96, 13);
-            this.label41.TabIndex = 1;
-            this.label41.Text = "Loại đồng hồ xung";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(16, 184);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(85, 13);
-            this.label42.TabIndex = 1;
-            this.label42.Text = "Dạng sườn xung";
-            // 
-            // cmbPulseMeter1Pin1Setting
-            // 
-            this.cmbPulseMeter1Pin1Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPulseMeter1Pin1Setting.FormattingEnabled = true;
-            this.cmbPulseMeter1Pin1Setting.Items.AddRange(new object[] {
-            "-- Chọn chân --",
-            "Chân 1",
-            "Chân 2",
-            "Chân 3",
-            "Chân 4"});
-            this.cmbPulseMeter1Pin1Setting.Location = new System.Drawing.Point(294, 102);
-            this.cmbPulseMeter1Pin1Setting.Name = "cmbPulseMeter1Pin1Setting";
-            this.cmbPulseMeter1Pin1Setting.Size = new System.Drawing.Size(119, 21);
-            this.cmbPulseMeter1Pin1Setting.TabIndex = 6;
-            // 
-            // cmbWriteTimezoneSetting
-            // 
-            this.cmbWriteTimezoneSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbWriteTimezoneSetting.FormattingEnabled = true;
-            this.cmbWriteTimezoneSetting.Items.AddRange(new object[] {
-            "-- Chọn múi giờ --",
-            "UTC-12:00",
-            "UTC-11:00",
-            "UTC-10:00",
-            "UTC-09:30",
-            "UTC-09:00",
-            "UTC-08:00",
-            "UTC-07:00",
-            "UTC-06:00",
-            "UTC-05:00",
-            "UTC-04:00",
-            "UTC-03:30",
-            "UTC-03:00",
-            "UTC-02:00",
-            "UTC-01:00",
-            "UTC+00:00",
-            "UTC+01:00",
-            "UTC+02:00",
-            "UTC+03:00",
-            "UTC+03:30",
-            "UTC+04:00",
-            "UTC+04:30",
-            "UTC+05:00",
-            "UTC+05:30",
-            "UTC+05:45",
-            "UTC+06:00",
-            "UTC+06:30",
-            "UTC+07:00",
-            "UTC+08:00",
-            "UTC+08:45",
-            "UTC+09:00",
-            "UTC+09:30",
-            "UTC+10:00",
-            "UTC+10:30",
-            "UTC+11:00",
-            "UTC+12:00",
-            "UTC+12:45",
-            "UTC+13:00",
-            "UTC+14:00"});
-            this.cmbWriteTimezoneSetting.Location = new System.Drawing.Point(559, 121);
-            this.cmbWriteTimezoneSetting.Name = "cmbWriteTimezoneSetting";
-            this.cmbWriteTimezoneSetting.Size = new System.Drawing.Size(194, 21);
-            this.cmbWriteTimezoneSetting.TabIndex = 6;
-            this.cmbWriteTimezoneSetting.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboWriteTimezoneSetting_KeyDown);
-            // 
-            // txtReadPulseMeter1Pin1Setting
-            // 
-            this.txtReadPulseMeter1Pin1Setting.Location = new System.Drawing.Point(134, 102);
-            this.txtReadPulseMeter1Pin1Setting.Name = "txtReadPulseMeter1Pin1Setting";
-            this.txtReadPulseMeter1Pin1Setting.ReadOnly = true;
-            this.txtReadPulseMeter1Pin1Setting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1Pin1Setting.TabIndex = 13;
-            // 
-            // txtReadPulseMeter1Pin2Setting
-            // 
-            this.txtReadPulseMeter1Pin2Setting.Location = new System.Drawing.Point(134, 128);
-            this.txtReadPulseMeter1Pin2Setting.Name = "txtReadPulseMeter1Pin2Setting";
-            this.txtReadPulseMeter1Pin2Setting.ReadOnly = true;
-            this.txtReadPulseMeter1Pin2Setting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1Pin2Setting.TabIndex = 13;
-            // 
-            // txtReadPulseMeter1TypeSetting
-            // 
-            this.txtReadPulseMeter1TypeSetting.Location = new System.Drawing.Point(134, 154);
-            this.txtReadPulseMeter1TypeSetting.Name = "txtReadPulseMeter1TypeSetting";
-            this.txtReadPulseMeter1TypeSetting.ReadOnly = true;
-            this.txtReadPulseMeter1TypeSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1TypeSetting.TabIndex = 13;
-            // 
-            // txtReadPulseMeter1EdgeSetting
-            // 
-            this.txtReadPulseMeter1EdgeSetting.Location = new System.Drawing.Point(134, 180);
-            this.txtReadPulseMeter1EdgeSetting.Name = "txtReadPulseMeter1EdgeSetting";
-            this.txtReadPulseMeter1EdgeSetting.ReadOnly = true;
-            this.txtReadPulseMeter1EdgeSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1EdgeSetting.TabIndex = 13;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(16, 28);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(96, 13);
-            this.label43.TabIndex = 1;
-            this.label43.Text = "Trạng thái sử dụng";
-            // 
-            // txtReadPulseMeter1UseSetting
-            // 
-            this.txtReadPulseMeter1UseSetting.Location = new System.Drawing.Point(134, 24);
-            this.txtReadPulseMeter1UseSetting.Name = "txtReadPulseMeter1UseSetting";
-            this.txtReadPulseMeter1UseSetting.ReadOnly = true;
-            this.txtReadPulseMeter1UseSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtReadPulseMeter1UseSetting.TabIndex = 13;
-            // 
-            // chkPulseMeter1UseSetting
-            // 
-            this.chkPulseMeter1UseSetting.AutoSize = true;
-            this.chkPulseMeter1UseSetting.Location = new System.Drawing.Point(320, 26);
-            this.chkPulseMeter1UseSetting.Name = "chkPulseMeter1UseSetting";
-            this.chkPulseMeter1UseSetting.Size = new System.Drawing.Size(66, 17);
-            this.chkPulseMeter1UseSetting.TabIndex = 14;
-            this.chkPulseMeter1UseSetting.Text = "Sử dụng";
-            this.chkPulseMeter1UseSetting.UseVisualStyleBackColor = true;
-            // 
-            // txtWritePulseMeter1SerialSetting
-            // 
-            this.txtWritePulseMeter1SerialSetting.Location = new System.Drawing.Point(294, 50);
-            this.txtWritePulseMeter1SerialSetting.Name = "txtWritePulseMeter1SerialSetting";
-            this.txtWritePulseMeter1SerialSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtWritePulseMeter1SerialSetting.TabIndex = 12;
-            this.txtWritePulseMeter1SerialSetting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWriteLatchSetting_KeyPress);
-            // 
-            // txtWritePulseMeter1PulseFactorSetting
-            // 
-            this.txtWritePulseMeter1PulseFactorSetting.Location = new System.Drawing.Point(294, 76);
-            this.txtWritePulseMeter1PulseFactorSetting.Name = "txtWritePulseMeter1PulseFactorSetting";
-            this.txtWritePulseMeter1PulseFactorSetting.Size = new System.Drawing.Size(119, 20);
-            this.txtWritePulseMeter1PulseFactorSetting.TabIndex = 12;
-            this.txtWritePulseMeter1PulseFactorSetting.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWriteLatchSetting_KeyPress);
-            // 
-            // cmbPulseMeter1Pin2Setting
-            // 
-            this.cmbPulseMeter1Pin2Setting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPulseMeter1Pin2Setting.FormattingEnabled = true;
-            this.cmbPulseMeter1Pin2Setting.Items.AddRange(new object[] {
-            "-- Chọn chân --",
-            "Chân 1",
-            "Chân 2",
-            "Chân 3",
-            "Chân 4"});
-            this.cmbPulseMeter1Pin2Setting.Location = new System.Drawing.Point(294, 128);
-            this.cmbPulseMeter1Pin2Setting.Name = "cmbPulseMeter1Pin2Setting";
-            this.cmbPulseMeter1Pin2Setting.Size = new System.Drawing.Size(119, 21);
-            this.cmbPulseMeter1Pin2Setting.TabIndex = 6;
-            // 
-            // cmbPulseMeter1TypeSetting
-            // 
-            this.cmbPulseMeter1TypeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPulseMeter1TypeSetting.FormattingEnabled = true;
-            this.cmbPulseMeter1TypeSetting.Items.AddRange(new object[] {
-            "-- Chọn loại đồng hồ --",
-            "Một xung",
-            "Hai xung encoder A/B",
-            "Một xung, một hướng"});
-            this.cmbPulseMeter1TypeSetting.Location = new System.Drawing.Point(294, 154);
-            this.cmbPulseMeter1TypeSetting.Name = "cmbPulseMeter1TypeSetting";
-            this.cmbPulseMeter1TypeSetting.Size = new System.Drawing.Size(119, 21);
-            this.cmbPulseMeter1TypeSetting.TabIndex = 6;
-            // 
-            // cmbPulseMeter1EdgeSetting
-            // 
-            this.cmbPulseMeter1EdgeSetting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPulseMeter1EdgeSetting.FormattingEnabled = true;
-            this.cmbPulseMeter1EdgeSetting.Items.AddRange(new object[] {
-            "-- Chọn sườn xung --",
-            "RISING",
-            "FALLING"});
-            this.cmbPulseMeter1EdgeSetting.Location = new System.Drawing.Point(294, 180);
-            this.cmbPulseMeter1EdgeSetting.Name = "cmbPulseMeter1EdgeSetting";
-            this.cmbPulseMeter1EdgeSetting.Size = new System.Drawing.Size(119, 21);
-            this.cmbPulseMeter1EdgeSetting.TabIndex = 6;
-            // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2066,14 +3259,23 @@
             this.grpModuleOverall.ResumeLayout(false);
             this.grpModuleOverall.PerformLayout();
             this.tabSetting.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabModuleConfig.ResumeLayout(false);
             this.grpModuleSetting.ResumeLayout(false);
             this.grpModuleSetting.PerformLayout();
             this.grpTimeSetting.ResumeLayout(false);
             this.grpTimeSetting.PerformLayout();
-            this.grpPulseMeterSetting.ResumeLayout(false);
-            this.grpPulseMeter1Setting.ResumeLayout(false);
-            this.grpPulseMeter1Setting.PerformLayout();
+            this.tabPulseMeterConfig.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2192,7 +3394,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnPressureSensorDataOverall;
         private System.Windows.Forms.Button btnModbusMeterDataOverall;
@@ -2229,8 +3430,6 @@
         private System.Windows.Forms.TextBox txtWritePortSetting;
         private System.Windows.Forms.TextBox txtWriteIpSetting;
         private System.Windows.Forms.TextBox txtWriteLatchSetting;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.GroupBox grpTimeSetting;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.RadioButton rdoManualTimeSetting;
@@ -2242,8 +3441,6 @@
         private System.Windows.Forms.Label lblModuleSettingStatus;
         private System.Windows.Forms.Button btnWriteModuleSetting;
         private System.Windows.Forms.Button btnReadModuleSetting;
-        private System.Windows.Forms.GroupBox grpPulseMeterSetting;
-        private System.Windows.Forms.GroupBox grpPulseMeter1Setting;
         private System.Windows.Forms.TextBox txtReadPulseMeter1SerialSetting;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
@@ -2266,5 +3463,115 @@
         private System.Windows.Forms.ComboBox cmbPulseMeter1Pin2Setting;
         private System.Windows.Forms.TextBox txtWritePulseMeter1PulseFactorSetting;
         private System.Windows.Forms.TextBox txtWritePulseMeter1SerialSetting;
+        private System.Windows.Forms.Label lblPulseMeter1SettingStatus;
+        private System.Windows.Forms.Button btnReadPulseMeter1Setting;
+        private System.Windows.Forms.Button btnWritePulseMeter1Setting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter1ReverseSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter1ReverseSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter1ForwardSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter1ForwardSetting;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabModuleConfig;
+        private System.Windows.Forms.TabPage tabPulseMeterConfig;
+        private System.Windows.Forms.TabPage tabModbusMeterConfig;
+        private System.Windows.Forms.TabPage tabPressureSensorConfig;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox chkPulseMeter4UseSetting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter4Pin1Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4EdgeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4Pin2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4PulseFactorSetting;
+        private System.Windows.Forms.Label lblPulseMeter4SettingStatus;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4UseSetting;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4Pin1Setting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter4EdgeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4SerialSetting;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Button btnWritePulseMeter4Setting;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Button btnReadPulseMeter4Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4TypeSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter4SerialSetting;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.ComboBox cmbPulseMeter4TypeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4ForwardSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter4PulseFactorSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter4ForwardSetting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter4Pin2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter4ReverseSetting;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TextBox txtWritePulseMeter4ReverseSetting;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox chkPulseMeter3UseSetting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter3Pin1Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3EdgeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3Pin2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3PulseFactorSetting;
+        private System.Windows.Forms.Label lblPulseMeter3SettingStatus;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3UseSetting;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3Pin1Setting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter3EdgeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3SerialSetting;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Button btnWritePulseMeter3Setting;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Button btnReadPulseMeter3Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3TypeSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter3SerialSetting;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.ComboBox cmbPulseMeter3TypeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3ForwardSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter3PulseFactorSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter3ForwardSetting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter3Pin2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter3ReverseSetting;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.TextBox txtWritePulseMeter3ReverseSetting;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.CheckBox chkPulseMeter2UseSetting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter2Pin1Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2EdgeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2Pin2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2PulseFactorSetting;
+        private System.Windows.Forms.Label lblPulseMeter2SettingStatus;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2UseSetting;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2Pin1Setting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter2EdgeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2SerialSetting;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Button btnWritePulseMeter2Setting;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Button btnReadPulseMeter2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2TypeSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter2SerialSetting;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.ComboBox cmbPulseMeter2TypeSetting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2ForwardSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter2PulseFactorSetting;
+        private System.Windows.Forms.TextBox txtWritePulseMeter2ForwardSetting;
+        private System.Windows.Forms.ComboBox cmbPulseMeter2Pin2Setting;
+        private System.Windows.Forms.TextBox txtReadPulseMeter2ReverseSetting;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox txtWritePulseMeter2ReverseSetting;
+        private System.Windows.Forms.Label label53;
     }
 }

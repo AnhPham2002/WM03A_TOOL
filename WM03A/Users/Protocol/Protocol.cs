@@ -11,6 +11,8 @@ namespace WM03A
         public const byte PROTOCOL_MODULE_TYPE = 0x03;
         public const byte PROTOCOL_MODULE_SERIAL_COMMON = 0x00;
 
+        public const int METER_SERIAL_SIZE = 20;
+
         // Key mặc định
         private static readonly byte[] AesKey = new byte[]
         {
@@ -157,10 +159,11 @@ namespace WM03A
             MeterEnable = 0,
             SerialNumber,
             PulseFactor,
+            PulseType,
             Pin1,
             Pin2,
-            PulseType,
-            EdgeType
+            EdgeType,
+            MeterData
         }
 
         public enum ConfigModbusMeterId : byte
