@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WM03A.Users.Model;
 using static WM03A.Protocol;
 
 namespace WM03A
 {
     internal class QueryParser
     {
+        private const int MAX_PULSE_METER_COUNT = 4;
+        private const int MAX_MODBUS_METER_COUNT = 4;
+        private const int MAX_PRESSURE_SENSOR_COUNT = 2;
+
         public struct MeterData
         {
             public byte[] MeterSerial;
@@ -71,6 +76,113 @@ namespace WM03A
             meterSerial = payload.Skip(0).Take(20).ToArray();
             data = BitConverter.ToSingle(payload, 20);
             return true;
+        }
+
+        public static bool Latch(byte[] frame, out LatchData data)
+        {
+            data = new LatchData();
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length < 12)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            try
+            {
+                byte currentYear = payload[index++];
+                byte currentMonth = payload[index++];
+                byte currentDate = payload[index++];
+                byte currentHours = payload[index++];
+                byte currentMinutes = payload[index++];
+                byte currentSeconds = payload[index++];
+
+                data.CurrentDateTime = new DateTime(2000 + currentYear, currentMonth, currentDate, currentHours, currentMinutes, currentSeconds);
+
+                byte recordYear = payload[index++];
+                byte recordMonth = payload[index++];
+                byte recordDate = payload[index++];
+                byte recordHours = payload[index++];
+                byte recordMinutes = payload[index++];
+                byte recordSeconds = payload[index++];
+
+                data.LatchDateTime = new DateTime(2000 + recordYear, recordMonth, recordDate, recordHours, recordMinutes, recordSeconds);
+
+                while (index < payload.Length)
+                {
+                    if (index + 2 > payload.Length)
+                    {
+                        return false;
+                    }
+
+                    byte meterType = payload[index++];
+                    byte serialLength = payload[index++];
+
+                    if (index + serialLength > payload.Length)
+                    {
+                        return false;
+                    }
+
+                    string serialNumber = Encoding.ASCII.GetString(payload, index, serialLength);
+                    index += serialLength;
+
+                    LatchMeterData meterData = new LatchMeterData
+                    {
+                        MeterType = meterType,
+                        SerialNumber = serialNumber
+                    };
+
+                    switch (meterType)
+                    {
+                        case (byte)MeterType.PulseMeterType:
+                        case (byte)MeterType.ModbusMeterType:
+                            {
+                                if (index + 3 * sizeof(double) > payload.Length)
+                                {
+                                    return false;
+                                }
+
+                                meterData.ForwardTotalizer = BitConverter.ToDouble(payload, index);
+                                index += sizeof(double);
+
+                                meterData.ReverseTotalizer = BitConverter.ToDouble(payload, index);
+                                index += sizeof(double);
+
+                                meterData.FlowRate = BitConverter.ToDouble(payload, index);
+                                index += sizeof(double);
+
+                                break;
+                            }
+
+                        case (byte)MeterType.PressureSensorType:
+                            {
+                                if (index + sizeof(float) > payload.Length)
+                                {
+                                    return false;
+                                }
+
+                                meterData.Pressure = BitConverter.ToSingle(payload, index);
+                                index += sizeof(float);
+
+                                break;
+                            }
+
+                        default:
+                            return false;
+                    }
+
+                    data.Meters.Add(meterData);
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return index == payload.Length;
         }
     }
 }

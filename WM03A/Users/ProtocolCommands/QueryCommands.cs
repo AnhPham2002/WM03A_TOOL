@@ -52,5 +52,20 @@ namespace WM03A
                 payload: new byte[] { (byte)meterIndex },
                 out frame);
         }
+
+        public static bool Latch(ushort recordIndex, out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.Latch,
+                payload: new byte[]
+                {
+                    (byte)(recordIndex & 0xFF),
+                    (byte)((recordIndex >> 8) & 0xFF)
+                },
+                out frame);
+        }
     }
 }

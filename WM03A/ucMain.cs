@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,8 @@ namespace WM03A
 
         private const int DEVICE_TIME_HEIGHT_PC = 60;
         private const int DEVICE_TIME_HEIGHT_MANUAL = 90;
+
+        private bool _stopReadLatchData;
 
         public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId)
         {
@@ -53,6 +56,7 @@ namespace WM03A
             lblModbusMeter4SettingStatus.Text = string.Empty;
             lblPressureSensor1SettingStatus.Text = string.Empty;
             lblPressureSensor2SettingStatus.Text = string.Empty;
+            lblLatchDateTime.Text = string.Empty;
 
             cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
             cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
@@ -3214,6 +3218,127 @@ namespace WM03A
         }
 
 
+
+        //-----------------------Query Latch Data--------------------------------//
+
+        private async void btnReadLatchData_Click(object sender, EventArgs e)
+        {
+            if (!ushort.TryParse(txtBeginIndexLatchQuery.Text.Trim(), out ushort beginUserIndex))
+            {
+                if (!string.IsNullOrWhiteSpace(txtBeginIndexLatchQuery.Text))
+                {
+                    MessageBox.Show("Begin Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                beginUserIndex = 1;
+            }
+
+            if (beginUserIndex < 1)
+            {
+                MessageBox.Show("Begin Index phải lớn hơn hoặc bằng 1.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool hasEndIndex = ushort.TryParse(txtEndIndexLatchQuery.Text.Trim(), out ushort endUserIndex);
+
+            if (!string.IsNullOrWhiteSpace(txtEndIndexLatchQuery.Text) && !hasEndIndex)
+            {
+                MessageBox.Show("End Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hasEndIndex && endUserIndex < 1)
+            {
+                MessageBox.Show("End Index phải lớn hơn hoặc bằng 1.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hasEndIndex && beginUserIndex > endUserIndex)
+            {
+                MessageBox.Show("Begin Index phải nhỏ hơn hoặc bằng End Index.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            dgvLatchInfo.Rows.Clear();
+
+            _stopReadLatchData = false;
+            btnReadLatchData.Enabled = false;
+            btnStopReadLatchData.Enabled = true;
+
+            try
+            {
+                for (uint userIndex = beginUserIndex; ; userIndex++)
+                {
+                    if (_stopReadLatchData)
+                    {
+                        break;
+                    }
+
+                    if (hasEndIndex && userIndex > endUserIndex)
+                    {
+                        break;
+                    }
+
+                    ushort latchIndex = (ushort)(userIndex - 1);
+
+                    QueryCommands.Latch(latchIndex, out byte[] txFrame);
+
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                    if (_stopReadLatchData)
+                    {
+                        break;
+                    }
+
+                    if (!ok)
+                    {
+                        break;
+                    }
+
+                    if (!QueryParser.Latch(rxFrame, out LatchData latchData))
+                    {
+                        break;
+                    }
+
+                    int rowIndex = dgvLatchInfo.Rows.Add(latchData.LatchDateTime.ToString("dd/MM/yyyy HH:mm:ss"));
+                    dgvLatchInfo.Rows[rowIndex].HeaderCell.Value = userIndex.ToString();
+                    dgvLatchInfo.Rows[rowIndex].Tag = latchData;
+
+                    if (userIndex >= ushort.MaxValue)
+                    {
+                        break;
+                    }
+                }
+            }
+            finally
+            {
+                btnReadLatchData.Enabled = true;
+                btnStopReadLatchData.Enabled = false;
+            }
+        }
+
+        private void dgvLatchInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            if (!(dgvLatchInfo.Rows[e.RowIndex].Tag is LatchData latchData))
+            {
+                return;
+            }
+
+            DisplayLatchDetail(latchData);
+        }
+
+        private void btnStopReadLatchData_Click(object sender, EventArgs e)
+        {
+            _stopReadLatchData = true;
+        }
+
+
         // ----------------------------------------------------------------------
         // Logic functions
         // ----------------------------------------------------------------------
@@ -3824,6 +3949,61 @@ namespace WM03A
             txtWritePressure2MaxCurrentSetting.Enabled = enabled;
             txtWritePressure2MinPressureSetting.Enabled = enabled;
             txtWritePressure2MaxPressureSetting.Enabled = enabled;
+        }
+
+        private void DisplayLatchDetail(LatchData latchData)
+        {
+            lblLatchDateTime.Text = $"Chi tiết thời gian chốt: {latchData.LatchDateTime:dd/MM/yyyy HH:mm:ss}";
+
+            dgvLatchMeterDetail.Rows.Clear();
+
+            for (int i = 0; i < latchData.Meters.Count; i++)
+            {
+                LatchMeterData meter = latchData.Meters[i];
+
+                string meterType;
+                string forward;
+                string reverse;
+                string flowRate;
+                string pressure;
+
+                switch (meter.MeterType)
+                {
+                    case (byte)MeterType.PulseMeterType:
+                        meterType = "Pulse";
+                        forward = meter.ForwardTotalizer.ToString();
+                        reverse = meter.ReverseTotalizer.ToString();
+                        flowRate = meter.FlowRate.ToString();
+                        pressure = "-";
+                        break;
+
+                    case (byte)MeterType.ModbusMeterType:
+                        meterType = "Modbus";
+                        forward = meter.ForwardTotalizer.ToString();
+                        reverse = meter.ReverseTotalizer.ToString();
+                        flowRate = meter.FlowRate.ToString();
+                        pressure = "-";
+                        break;
+
+                    case (byte)MeterType.PressureSensorType:
+                        meterType = "Pressure";
+                        forward = "-";
+                        reverse = "-";
+                        flowRate = "-";
+                        pressure = meter.Pressure.ToString();
+                        break;
+
+                    default:
+                        meterType = "-";
+                        forward = "-";
+                        reverse = "-";
+                        flowRate = "-";
+                        pressure = "-";
+                        break;
+                }
+
+                dgvLatchMeterDetail.Rows.Add(i + 1, meterType, meter.SerialNumber, forward, reverse, flowRate, pressure);
+            }
         }
     }
 }
