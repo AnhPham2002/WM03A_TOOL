@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WM03A.Users.Model;
 using static WM03A.Protocol;
 
 namespace WM03A
@@ -433,6 +434,108 @@ namespace WM03A
 
                     default:
                         config = null;
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static bool PressureSensor(byte[] frame, out PressureSensorConfig config)
+        {
+            config = new PressureSensorConfig();
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length == 0)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            while (index < payload.Length)
+            {
+                byte parameterId = payload[index++];
+
+                switch (parameterId)
+                {
+                    case (byte)ConfigPressureSensorId.MeterEnable:
+                        {
+                            if (index + sizeof(byte) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.SensorEnable = payload[index++] != 0;
+                            break;
+                        }
+
+                    case (byte)ConfigPressureSensorId.SerialNumber:
+                        {
+                            if (index + METER_SERIAL_SIZE > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.SerialNumber = Encoding.ASCII.GetString(
+                                payload,
+                                index,
+                                METER_SERIAL_SIZE).TrimEnd('\0');
+
+                            index += METER_SERIAL_SIZE;
+                            break;
+                        }
+
+                    case (byte)ConfigPressureSensorId.MinCurrent:
+                        {
+                            if (index + sizeof(float) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.MinCurrent = BitConverter.ToSingle(payload, index);
+                            index += sizeof(float);
+                            break;
+                        }
+
+                    case (byte)ConfigPressureSensorId.MaxCurrent:
+                        {
+                            if (index + sizeof(float) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.MaxCurrent = BitConverter.ToSingle(payload, index);
+                            index += sizeof(float);
+                            break;
+                        }
+
+                    case (byte)ConfigPressureSensorId.MinPressure:
+                        {
+                            if (index + sizeof(float) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.MinPressure = BitConverter.ToSingle(payload, index);
+                            index += sizeof(float);
+                            break;
+                        }
+
+                    case (byte)ConfigPressureSensorId.MaxPressure:
+                        {
+                            if (index + sizeof(float) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.MaxPressure = BitConverter.ToSingle(payload, index);
+                            index += sizeof(float);
+                            break;
+                        }
+
+                    default:
                         return false;
                 }
             }

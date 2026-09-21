@@ -458,5 +458,80 @@ namespace WM03A.Users.ProtocolCommands
                 payload: payload.ToArray(),
                 out frame);
         }
+
+        public static bool PressureSensor(byte meterIndex, bool? enabled, string serialNumber, float? minCurrent, float? maxCurrent, float? minPressure, float? maxPressure, out byte[] frame)
+        {
+            frame = null;
+
+            List<byte> payload = new List<byte>();
+            payload.Add(meterIndex);
+
+            if (enabled.HasValue && !enabled.Value)
+            {
+                payload.Add((byte)ConfigPressureSensorId.MeterEnable);
+                payload.Add(0x00);
+
+                payload.Add((byte)ConfigPressureSensorId.SerialNumber);
+                payload.AddRange(new byte[METER_SERIAL_SIZE]);
+
+                payload.Add((byte)ConfigPressureSensorId.MinCurrent);
+                payload.AddRange(new byte[sizeof(float)]);
+
+                payload.Add((byte)ConfigPressureSensorId.MaxCurrent);
+                payload.AddRange(new byte[sizeof(float)]);
+
+                payload.Add((byte)ConfigPressureSensorId.MinPressure);
+                payload.AddRange(new byte[sizeof(float)]);
+
+                payload.Add((byte)ConfigPressureSensorId.MaxPressure);
+                payload.AddRange(new byte[sizeof(float)]);
+            }
+            else
+            {
+                if (enabled.HasValue)
+                {
+                    payload.Add((byte)ConfigPressureSensorId.MeterEnable);
+                    payload.Add(enabled.Value ? (byte)1 : (byte)0);
+                }
+
+                if (serialNumber != null)
+                {
+                    payload.Add((byte)ConfigPressureSensorId.SerialNumber);
+
+                    byte[] serialBytes = Encoding.ASCII.GetBytes(serialNumber);
+                    Array.Resize(ref serialBytes, METER_SERIAL_SIZE);
+                    payload.AddRange(serialBytes);
+                }
+
+                if (minCurrent.HasValue)
+                {
+                    payload.Add((byte)ConfigPressureSensorId.MinCurrent);
+                    payload.AddRange(BitConverter.GetBytes(minCurrent.Value));
+                }
+
+                if (maxCurrent.HasValue)
+                {
+                    payload.Add((byte)ConfigPressureSensorId.MaxCurrent);
+                    payload.AddRange(BitConverter.GetBytes(maxCurrent.Value));
+                }
+
+                if (minPressure.HasValue)
+                {
+                    payload.Add((byte)ConfigPressureSensorId.MinPressure);
+                    payload.AddRange(BitConverter.GetBytes(minPressure.Value));
+                }
+
+                if (maxPressure.HasValue)
+                {
+                    payload.Add((byte)ConfigPressureSensorId.MaxPressure);
+                    payload.AddRange(BitConverter.GetBytes(maxPressure.Value));
+                }
+            }
+
+            if (payload.Count <= 1)
+                return false;
+
+            return Pack(true, PROTOCOL_MODULE_SERIAL_COMMON, (byte)CmdCode.Set, (byte)ConfigId.PressureSensor, payload.ToArray(), out frame);
+        }
     }
 }

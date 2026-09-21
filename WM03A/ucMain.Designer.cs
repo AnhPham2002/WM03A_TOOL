@@ -608,6 +608,53 @@
             this.btnPulseMeter2CopySetting = new System.Windows.Forms.Button();
             this.btnPulseMeter4CopySetting = new System.Windows.Forms.Button();
             this.btnPulseMeter3CopySetting = new System.Windows.Forms.Button();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.btnPressureSensor1CopySetting = new System.Windows.Forms.Button();
+            this.chkPressure1UseSetting = new System.Windows.Forms.CheckBox();
+            this.txtReadPressure1MaxPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPressure1MinCurrentSetting = new System.Windows.Forms.TextBox();
+            this.lblPressureSensor1SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadPressure1UseSetting = new System.Windows.Forms.TextBox();
+            this.label129 = new System.Windows.Forms.Label();
+            this.txtReadPressure1MinPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPressure1SerialSetting = new System.Windows.Forms.TextBox();
+            this.label151 = new System.Windows.Forms.Label();
+            this.btnWritePressureSensor1Setting = new System.Windows.Forms.Button();
+            this.label160 = new System.Windows.Forms.Label();
+            this.btnReadPressureSensor1Setting = new System.Windows.Forms.Button();
+            this.txtReadPressure1MaxCurrentSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure1SerialSetting = new System.Windows.Forms.TextBox();
+            this.label162 = new System.Windows.Forms.Label();
+            this.txtWritePressure1MinCurrentSetting = new System.Windows.Forms.TextBox();
+            this.label163 = new System.Windows.Forms.Label();
+            this.label164 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.btnPressureSensor2CopySetting = new System.Windows.Forms.Button();
+            this.chkPressure2UseSetting = new System.Windows.Forms.CheckBox();
+            this.txtReadPressure2MaxPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPressure2MinCurrentSetting = new System.Windows.Forms.TextBox();
+            this.lblPressureSensor2SettingStatus = new System.Windows.Forms.Label();
+            this.txtReadPressure2UseSetting = new System.Windows.Forms.TextBox();
+            this.label159 = new System.Windows.Forms.Label();
+            this.txtReadPressure2MinPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtReadPressure2SerialSetting = new System.Windows.Forms.TextBox();
+            this.label161 = new System.Windows.Forms.Label();
+            this.btnWritePressureSensor2Setting = new System.Windows.Forms.Button();
+            this.label165 = new System.Windows.Forms.Label();
+            this.btnReadPressureSensor2Setting = new System.Windows.Forms.Button();
+            this.txtReadPressure2MaxCurrentSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure2SerialSetting = new System.Windows.Forms.TextBox();
+            this.label166 = new System.Windows.Forms.Label();
+            this.txtWritePressure2MinCurrentSetting = new System.Windows.Forms.TextBox();
+            this.label167 = new System.Windows.Forms.Label();
+            this.label168 = new System.Windows.Forms.Label();
+            this.txtWritePressure1MaxCurrentSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure1MinPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure1MaxPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure2MaxCurrentSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure2MinPressureSetting = new System.Windows.Forms.TextBox();
+            this.txtWritePressure2MaxPressureSetting = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -634,6 +681,7 @@
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.tabPressureSensorConfig.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -647,6 +695,9 @@
             this.groupBox21.SuspendLayout();
             this.groupBox22.SuspendLayout();
             this.groupBox23.SuspendLayout();
+            this.groupBox24.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.groupBox25.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -4238,6 +4289,7 @@
             // 
             // tabPressureSensorConfig
             // 
+            this.tabPressureSensorConfig.Controls.Add(this.panel5);
             this.tabPressureSensorConfig.Location = new System.Drawing.Point(4, 22);
             this.tabPressureSensorConfig.Name = "tabPressureSensorConfig";
             this.tabPressureSensorConfig.Size = new System.Drawing.Size(938, 717);
@@ -6569,6 +6621,458 @@
             this.btnPulseMeter3CopySetting.UseVisualStyleBackColor = true;
             this.btnPulseMeter3CopySetting.Click += new System.EventHandler(this.btnPulseMeter3CopySetting_Click);
             // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.btnPressureSensor1CopySetting);
+            this.groupBox24.Controls.Add(this.chkPressure1UseSetting);
+            this.groupBox24.Controls.Add(this.txtReadPressure1MaxPressureSetting);
+            this.groupBox24.Controls.Add(this.txtReadPressure1MinCurrentSetting);
+            this.groupBox24.Controls.Add(this.lblPressureSensor1SettingStatus);
+            this.groupBox24.Controls.Add(this.txtReadPressure1UseSetting);
+            this.groupBox24.Controls.Add(this.label129);
+            this.groupBox24.Controls.Add(this.txtReadPressure1MinPressureSetting);
+            this.groupBox24.Controls.Add(this.txtReadPressure1SerialSetting);
+            this.groupBox24.Controls.Add(this.label151);
+            this.groupBox24.Controls.Add(this.btnWritePressureSensor1Setting);
+            this.groupBox24.Controls.Add(this.label160);
+            this.groupBox24.Controls.Add(this.btnReadPressureSensor1Setting);
+            this.groupBox24.Controls.Add(this.txtReadPressure1MaxCurrentSetting);
+            this.groupBox24.Controls.Add(this.txtWritePressure1SerialSetting);
+            this.groupBox24.Controls.Add(this.label162);
+            this.groupBox24.Controls.Add(this.txtWritePressure1MaxPressureSetting);
+            this.groupBox24.Controls.Add(this.txtWritePressure1MinPressureSetting);
+            this.groupBox24.Controls.Add(this.txtWritePressure1MaxCurrentSetting);
+            this.groupBox24.Controls.Add(this.txtWritePressure1MinCurrentSetting);
+            this.groupBox24.Controls.Add(this.label163);
+            this.groupBox24.Controls.Add(this.label164);
+            this.groupBox24.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox24.Location = new System.Drawing.Point(0, 0);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(457, 213);
+            this.groupBox24.TabIndex = 3;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Cảm biến 1";
+            // 
+            // btnPressureSensor1CopySetting
+            // 
+            this.btnPressureSensor1CopySetting.Location = new System.Drawing.Point(275, 179);
+            this.btnPressureSensor1CopySetting.Name = "btnPressureSensor1CopySetting";
+            this.btnPressureSensor1CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnPressureSensor1CopySetting.TabIndex = 23;
+            this.btnPressureSensor1CopySetting.Text = "→";
+            this.btnPressureSensor1CopySetting.UseVisualStyleBackColor = true;
+            this.btnPressureSensor1CopySetting.Click += new System.EventHandler(this.btnPressureSensor1CopySetting_Click);
+            // 
+            // chkPressure1UseSetting
+            // 
+            this.chkPressure1UseSetting.AutoSize = true;
+            this.chkPressure1UseSetting.Location = new System.Drawing.Point(315, 32);
+            this.chkPressure1UseSetting.Name = "chkPressure1UseSetting";
+            this.chkPressure1UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkPressure1UseSetting.TabIndex = 14;
+            this.chkPressure1UseSetting.Text = "Sử dụng";
+            this.chkPressure1UseSetting.UseVisualStyleBackColor = true;
+            this.chkPressure1UseSetting.CheckedChanged += new System.EventHandler(this.chkPressure1UseSetting_CheckedChanged);
+            // 
+            // txtReadPressure1MaxPressureSetting
+            // 
+            this.txtReadPressure1MaxPressureSetting.Location = new System.Drawing.Point(175, 155);
+            this.txtReadPressure1MaxPressureSetting.Name = "txtReadPressure1MaxPressureSetting";
+            this.txtReadPressure1MaxPressureSetting.ReadOnly = true;
+            this.txtReadPressure1MaxPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure1MaxPressureSetting.TabIndex = 13;
+            // 
+            // txtReadPressure1MinCurrentSetting
+            // 
+            this.txtReadPressure1MinCurrentSetting.Location = new System.Drawing.Point(175, 80);
+            this.txtReadPressure1MinCurrentSetting.Name = "txtReadPressure1MinCurrentSetting";
+            this.txtReadPressure1MinCurrentSetting.ReadOnly = true;
+            this.txtReadPressure1MinCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure1MinCurrentSetting.TabIndex = 13;
+            // 
+            // lblPressureSensor1SettingStatus
+            // 
+            this.lblPressureSensor1SettingStatus.AutoSize = true;
+            this.lblPressureSensor1SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPressureSensor1SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblPressureSensor1SettingStatus.Location = new System.Drawing.Point(201, 12);
+            this.lblPressureSensor1SettingStatus.Name = "lblPressureSensor1SettingStatus";
+            this.lblPressureSensor1SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblPressureSensor1SettingStatus.TabIndex = 19;
+            this.lblPressureSensor1SettingStatus.Text = "Trạng thái ghi";
+            // 
+            // txtReadPressure1UseSetting
+            // 
+            this.txtReadPressure1UseSetting.Location = new System.Drawing.Point(175, 30);
+            this.txtReadPressure1UseSetting.Name = "txtReadPressure1UseSetting";
+            this.txtReadPressure1UseSetting.ReadOnly = true;
+            this.txtReadPressure1UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure1UseSetting.TabIndex = 13;
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Location = new System.Drawing.Point(55, 59);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(67, 13);
+            this.label129.TabIndex = 1;
+            this.label129.Text = "Serial thiết bị";
+            // 
+            // txtReadPressure1MinPressureSetting
+            // 
+            this.txtReadPressure1MinPressureSetting.Location = new System.Drawing.Point(175, 130);
+            this.txtReadPressure1MinPressureSetting.Name = "txtReadPressure1MinPressureSetting";
+            this.txtReadPressure1MinPressureSetting.ReadOnly = true;
+            this.txtReadPressure1MinPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure1MinPressureSetting.TabIndex = 13;
+            // 
+            // txtReadPressure1SerialSetting
+            // 
+            this.txtReadPressure1SerialSetting.Location = new System.Drawing.Point(175, 55);
+            this.txtReadPressure1SerialSetting.Name = "txtReadPressure1SerialSetting";
+            this.txtReadPressure1SerialSetting.ReadOnly = true;
+            this.txtReadPressure1SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure1SerialSetting.TabIndex = 13;
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Location = new System.Drawing.Point(55, 34);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(96, 13);
+            this.label151.TabIndex = 1;
+            this.label151.Text = "Trạng thái sử dụng";
+            // 
+            // btnWritePressureSensor1Setting
+            // 
+            this.btnWritePressureSensor1Setting.Location = new System.Drawing.Point(311, 179);
+            this.btnWritePressureSensor1Setting.Name = "btnWritePressureSensor1Setting";
+            this.btnWritePressureSensor1Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWritePressureSensor1Setting.TabIndex = 15;
+            this.btnWritePressureSensor1Setting.Text = "Ghi";
+            this.btnWritePressureSensor1Setting.UseVisualStyleBackColor = true;
+            this.btnWritePressureSensor1Setting.Click += new System.EventHandler(this.btnWritePressureSensor1Setting_Click);
+            // 
+            // label160
+            // 
+            this.label160.AutoSize = true;
+            this.label160.Location = new System.Drawing.Point(55, 84);
+            this.label160.Name = "label160";
+            this.label160.Size = new System.Drawing.Size(100, 13);
+            this.label160.TabIndex = 1;
+            this.label160.Text = "Dòng điện min (mA)";
+            // 
+            // btnReadPressureSensor1Setting
+            // 
+            this.btnReadPressureSensor1Setting.Location = new System.Drawing.Point(192, 179);
+            this.btnReadPressureSensor1Setting.Name = "btnReadPressureSensor1Setting";
+            this.btnReadPressureSensor1Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPressureSensor1Setting.TabIndex = 14;
+            this.btnReadPressureSensor1Setting.Text = "Đọc";
+            this.btnReadPressureSensor1Setting.UseVisualStyleBackColor = true;
+            this.btnReadPressureSensor1Setting.Click += new System.EventHandler(this.btnReadPressureSensor1Setting_Click);
+            // 
+            // txtReadPressure1MaxCurrentSetting
+            // 
+            this.txtReadPressure1MaxCurrentSetting.Location = new System.Drawing.Point(175, 105);
+            this.txtReadPressure1MaxCurrentSetting.Name = "txtReadPressure1MaxCurrentSetting";
+            this.txtReadPressure1MaxCurrentSetting.ReadOnly = true;
+            this.txtReadPressure1MaxCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure1MaxCurrentSetting.TabIndex = 13;
+            // 
+            // txtWritePressure1SerialSetting
+            // 
+            this.txtWritePressure1SerialSetting.Location = new System.Drawing.Point(294, 55);
+            this.txtWritePressure1SerialSetting.Name = "txtWritePressure1SerialSetting";
+            this.txtWritePressure1SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure1SerialSetting.TabIndex = 12;
+            // 
+            // label162
+            // 
+            this.label162.AutoSize = true;
+            this.label162.Location = new System.Drawing.Point(55, 109);
+            this.label162.Name = "label162";
+            this.label162.Size = new System.Drawing.Size(103, 13);
+            this.label162.TabIndex = 1;
+            this.label162.Text = "Dòng điện max (mA)";
+            // 
+            // txtWritePressure1MinCurrentSetting
+            // 
+            this.txtWritePressure1MinCurrentSetting.Location = new System.Drawing.Point(294, 80);
+            this.txtWritePressure1MinCurrentSetting.Name = "txtWritePressure1MinCurrentSetting";
+            this.txtWritePressure1MinCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure1MinCurrentSetting.TabIndex = 12;
+            // 
+            // label163
+            // 
+            this.label163.AutoSize = true;
+            this.label163.Location = new System.Drawing.Point(55, 134);
+            this.label163.Name = "label163";
+            this.label163.Size = new System.Drawing.Size(86, 13);
+            this.label163.TabIndex = 1;
+            this.label163.Text = "Áp suất min (bar)";
+            // 
+            // label164
+            // 
+            this.label164.AutoSize = true;
+            this.label164.Location = new System.Drawing.Point(55, 159);
+            this.label164.Name = "label164";
+            this.label164.Size = new System.Drawing.Size(89, 13);
+            this.label164.TabIndex = 1;
+            this.label164.Text = "Áp suất max (bar)";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.groupBox25);
+            this.panel5.Controls.Add(this.groupBox24);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(938, 213);
+            this.panel5.TabIndex = 4;
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.btnPressureSensor2CopySetting);
+            this.groupBox25.Controls.Add(this.chkPressure2UseSetting);
+            this.groupBox25.Controls.Add(this.txtReadPressure2MaxPressureSetting);
+            this.groupBox25.Controls.Add(this.txtReadPressure2MinCurrentSetting);
+            this.groupBox25.Controls.Add(this.lblPressureSensor2SettingStatus);
+            this.groupBox25.Controls.Add(this.txtReadPressure2UseSetting);
+            this.groupBox25.Controls.Add(this.label159);
+            this.groupBox25.Controls.Add(this.txtReadPressure2MinPressureSetting);
+            this.groupBox25.Controls.Add(this.txtReadPressure2SerialSetting);
+            this.groupBox25.Controls.Add(this.label161);
+            this.groupBox25.Controls.Add(this.btnWritePressureSensor2Setting);
+            this.groupBox25.Controls.Add(this.label165);
+            this.groupBox25.Controls.Add(this.btnReadPressureSensor2Setting);
+            this.groupBox25.Controls.Add(this.txtReadPressure2MaxCurrentSetting);
+            this.groupBox25.Controls.Add(this.txtWritePressure2SerialSetting);
+            this.groupBox25.Controls.Add(this.label166);
+            this.groupBox25.Controls.Add(this.txtWritePressure2MaxPressureSetting);
+            this.groupBox25.Controls.Add(this.txtWritePressure2MinPressureSetting);
+            this.groupBox25.Controls.Add(this.txtWritePressure2MaxCurrentSetting);
+            this.groupBox25.Controls.Add(this.txtWritePressure2MinCurrentSetting);
+            this.groupBox25.Controls.Add(this.label167);
+            this.groupBox25.Controls.Add(this.label168);
+            this.groupBox25.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox25.Location = new System.Drawing.Point(481, 0);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(457, 213);
+            this.groupBox25.TabIndex = 4;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Cảm biến 2";
+            // 
+            // btnPressureSensor2CopySetting
+            // 
+            this.btnPressureSensor2CopySetting.Location = new System.Drawing.Point(275, 179);
+            this.btnPressureSensor2CopySetting.Name = "btnPressureSensor2CopySetting";
+            this.btnPressureSensor2CopySetting.Size = new System.Drawing.Size(30, 23);
+            this.btnPressureSensor2CopySetting.TabIndex = 23;
+            this.btnPressureSensor2CopySetting.Text = "→";
+            this.btnPressureSensor2CopySetting.UseVisualStyleBackColor = true;
+            this.btnPressureSensor2CopySetting.Click += new System.EventHandler(this.btnPressureSensor2CopySetting_Click);
+            // 
+            // chkPressure2UseSetting
+            // 
+            this.chkPressure2UseSetting.AutoSize = true;
+            this.chkPressure2UseSetting.Location = new System.Drawing.Point(315, 32);
+            this.chkPressure2UseSetting.Name = "chkPressure2UseSetting";
+            this.chkPressure2UseSetting.Size = new System.Drawing.Size(66, 17);
+            this.chkPressure2UseSetting.TabIndex = 14;
+            this.chkPressure2UseSetting.Text = "Sử dụng";
+            this.chkPressure2UseSetting.UseVisualStyleBackColor = true;
+            this.chkPressure2UseSetting.CheckedChanged += new System.EventHandler(this.chkPressure2UseSetting_CheckedChanged);
+            // 
+            // txtReadPressure2MaxPressureSetting
+            // 
+            this.txtReadPressure2MaxPressureSetting.Location = new System.Drawing.Point(175, 155);
+            this.txtReadPressure2MaxPressureSetting.Name = "txtReadPressure2MaxPressureSetting";
+            this.txtReadPressure2MaxPressureSetting.ReadOnly = true;
+            this.txtReadPressure2MaxPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure2MaxPressureSetting.TabIndex = 13;
+            // 
+            // txtReadPressure2MinCurrentSetting
+            // 
+            this.txtReadPressure2MinCurrentSetting.Location = new System.Drawing.Point(175, 80);
+            this.txtReadPressure2MinCurrentSetting.Name = "txtReadPressure2MinCurrentSetting";
+            this.txtReadPressure2MinCurrentSetting.ReadOnly = true;
+            this.txtReadPressure2MinCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure2MinCurrentSetting.TabIndex = 13;
+            // 
+            // lblPressureSensor2SettingStatus
+            // 
+            this.lblPressureSensor2SettingStatus.AutoSize = true;
+            this.lblPressureSensor2SettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPressureSensor2SettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblPressureSensor2SettingStatus.Location = new System.Drawing.Point(201, 12);
+            this.lblPressureSensor2SettingStatus.Name = "lblPressureSensor2SettingStatus";
+            this.lblPressureSensor2SettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblPressureSensor2SettingStatus.TabIndex = 19;
+            this.lblPressureSensor2SettingStatus.Text = "Trạng thái ghi";
+            // 
+            // txtReadPressure2UseSetting
+            // 
+            this.txtReadPressure2UseSetting.Location = new System.Drawing.Point(175, 30);
+            this.txtReadPressure2UseSetting.Name = "txtReadPressure2UseSetting";
+            this.txtReadPressure2UseSetting.ReadOnly = true;
+            this.txtReadPressure2UseSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure2UseSetting.TabIndex = 13;
+            // 
+            // label159
+            // 
+            this.label159.AutoSize = true;
+            this.label159.Location = new System.Drawing.Point(55, 59);
+            this.label159.Name = "label159";
+            this.label159.Size = new System.Drawing.Size(67, 13);
+            this.label159.TabIndex = 1;
+            this.label159.Text = "Serial thiết bị";
+            // 
+            // txtReadPressure2MinPressureSetting
+            // 
+            this.txtReadPressure2MinPressureSetting.Location = new System.Drawing.Point(175, 130);
+            this.txtReadPressure2MinPressureSetting.Name = "txtReadPressure2MinPressureSetting";
+            this.txtReadPressure2MinPressureSetting.ReadOnly = true;
+            this.txtReadPressure2MinPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure2MinPressureSetting.TabIndex = 13;
+            // 
+            // txtReadPressure2SerialSetting
+            // 
+            this.txtReadPressure2SerialSetting.Location = new System.Drawing.Point(175, 55);
+            this.txtReadPressure2SerialSetting.Name = "txtReadPressure2SerialSetting";
+            this.txtReadPressure2SerialSetting.ReadOnly = true;
+            this.txtReadPressure2SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure2SerialSetting.TabIndex = 13;
+            // 
+            // label161
+            // 
+            this.label161.AutoSize = true;
+            this.label161.Location = new System.Drawing.Point(55, 34);
+            this.label161.Name = "label161";
+            this.label161.Size = new System.Drawing.Size(96, 13);
+            this.label161.TabIndex = 1;
+            this.label161.Text = "Trạng thái sử dụng";
+            // 
+            // btnWritePressureSensor2Setting
+            // 
+            this.btnWritePressureSensor2Setting.Location = new System.Drawing.Point(311, 179);
+            this.btnWritePressureSensor2Setting.Name = "btnWritePressureSensor2Setting";
+            this.btnWritePressureSensor2Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnWritePressureSensor2Setting.TabIndex = 15;
+            this.btnWritePressureSensor2Setting.Text = "Ghi";
+            this.btnWritePressureSensor2Setting.UseVisualStyleBackColor = true;
+            this.btnWritePressureSensor2Setting.Click += new System.EventHandler(this.btnWritePressureSensor2Setting_Click);
+            // 
+            // label165
+            // 
+            this.label165.AutoSize = true;
+            this.label165.Location = new System.Drawing.Point(55, 84);
+            this.label165.Name = "label165";
+            this.label165.Size = new System.Drawing.Size(100, 13);
+            this.label165.TabIndex = 1;
+            this.label165.Text = "Dòng điện min (mA)";
+            // 
+            // btnReadPressureSensor2Setting
+            // 
+            this.btnReadPressureSensor2Setting.Location = new System.Drawing.Point(192, 179);
+            this.btnReadPressureSensor2Setting.Name = "btnReadPressureSensor2Setting";
+            this.btnReadPressureSensor2Setting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPressureSensor2Setting.TabIndex = 14;
+            this.btnReadPressureSensor2Setting.Text = "Đọc";
+            this.btnReadPressureSensor2Setting.UseVisualStyleBackColor = true;
+            this.btnReadPressureSensor2Setting.Click += new System.EventHandler(this.btnReadPressureSensor2Setting_Click);
+            // 
+            // txtReadPressure2MaxCurrentSetting
+            // 
+            this.txtReadPressure2MaxCurrentSetting.Location = new System.Drawing.Point(175, 105);
+            this.txtReadPressure2MaxCurrentSetting.Name = "txtReadPressure2MaxCurrentSetting";
+            this.txtReadPressure2MaxCurrentSetting.ReadOnly = true;
+            this.txtReadPressure2MaxCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtReadPressure2MaxCurrentSetting.TabIndex = 13;
+            // 
+            // txtWritePressure2SerialSetting
+            // 
+            this.txtWritePressure2SerialSetting.Location = new System.Drawing.Point(294, 55);
+            this.txtWritePressure2SerialSetting.Name = "txtWritePressure2SerialSetting";
+            this.txtWritePressure2SerialSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure2SerialSetting.TabIndex = 12;
+            // 
+            // label166
+            // 
+            this.label166.AutoSize = true;
+            this.label166.Location = new System.Drawing.Point(55, 109);
+            this.label166.Name = "label166";
+            this.label166.Size = new System.Drawing.Size(103, 13);
+            this.label166.TabIndex = 1;
+            this.label166.Text = "Dòng điện max (mA)";
+            // 
+            // txtWritePressure2MinCurrentSetting
+            // 
+            this.txtWritePressure2MinCurrentSetting.Location = new System.Drawing.Point(294, 80);
+            this.txtWritePressure2MinCurrentSetting.Name = "txtWritePressure2MinCurrentSetting";
+            this.txtWritePressure2MinCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure2MinCurrentSetting.TabIndex = 12;
+            // 
+            // label167
+            // 
+            this.label167.AutoSize = true;
+            this.label167.Location = new System.Drawing.Point(55, 134);
+            this.label167.Name = "label167";
+            this.label167.Size = new System.Drawing.Size(86, 13);
+            this.label167.TabIndex = 1;
+            this.label167.Text = "Áp suất min (bar)";
+            // 
+            // label168
+            // 
+            this.label168.AutoSize = true;
+            this.label168.Location = new System.Drawing.Point(55, 159);
+            this.label168.Name = "label168";
+            this.label168.Size = new System.Drawing.Size(89, 13);
+            this.label168.TabIndex = 1;
+            this.label168.Text = "Áp suất max (bar)";
+            // 
+            // txtWritePressure1MaxCurrentSetting
+            // 
+            this.txtWritePressure1MaxCurrentSetting.Location = new System.Drawing.Point(294, 105);
+            this.txtWritePressure1MaxCurrentSetting.Name = "txtWritePressure1MaxCurrentSetting";
+            this.txtWritePressure1MaxCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure1MaxCurrentSetting.TabIndex = 12;
+            // 
+            // txtWritePressure1MinPressureSetting
+            // 
+            this.txtWritePressure1MinPressureSetting.Location = new System.Drawing.Point(294, 130);
+            this.txtWritePressure1MinPressureSetting.Name = "txtWritePressure1MinPressureSetting";
+            this.txtWritePressure1MinPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure1MinPressureSetting.TabIndex = 12;
+            // 
+            // txtWritePressure1MaxPressureSetting
+            // 
+            this.txtWritePressure1MaxPressureSetting.Location = new System.Drawing.Point(294, 155);
+            this.txtWritePressure1MaxPressureSetting.Name = "txtWritePressure1MaxPressureSetting";
+            this.txtWritePressure1MaxPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure1MaxPressureSetting.TabIndex = 12;
+            // 
+            // txtWritePressure2MaxCurrentSetting
+            // 
+            this.txtWritePressure2MaxCurrentSetting.Location = new System.Drawing.Point(294, 105);
+            this.txtWritePressure2MaxCurrentSetting.Name = "txtWritePressure2MaxCurrentSetting";
+            this.txtWritePressure2MaxCurrentSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure2MaxCurrentSetting.TabIndex = 12;
+            // 
+            // txtWritePressure2MinPressureSetting
+            // 
+            this.txtWritePressure2MinPressureSetting.Location = new System.Drawing.Point(294, 130);
+            this.txtWritePressure2MinPressureSetting.Name = "txtWritePressure2MinPressureSetting";
+            this.txtWritePressure2MinPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure2MinPressureSetting.TabIndex = 12;
+            // 
+            // txtWritePressure2MaxPressureSetting
+            // 
+            this.txtWritePressure2MaxPressureSetting.Location = new System.Drawing.Point(294, 155);
+            this.txtWritePressure2MaxPressureSetting.Name = "txtWritePressure2MaxPressureSetting";
+            this.txtWritePressure2MaxPressureSetting.Size = new System.Drawing.Size(108, 20);
+            this.txtWritePressure2MaxPressureSetting.TabIndex = 12;
+            // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6620,6 +7124,7 @@
             this.groupBox10.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.tabPressureSensorConfig.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox13.ResumeLayout(false);
@@ -6645,6 +7150,11 @@
             this.groupBox22.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7232,5 +7742,52 @@
         private System.Windows.Forms.Button btnPulseMeter3CopySetting;
         private System.Windows.Forms.Button btnPulseMeter2CopySetting;
         private System.Windows.Forms.Button btnPulseMeter1CopySetting;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.Button btnPressureSensor1CopySetting;
+        private System.Windows.Forms.CheckBox chkPressure1UseSetting;
+        private System.Windows.Forms.TextBox txtReadPressure1MaxPressureSetting;
+        private System.Windows.Forms.TextBox txtReadPressure1MinCurrentSetting;
+        private System.Windows.Forms.Label lblPressureSensor1SettingStatus;
+        private System.Windows.Forms.TextBox txtReadPressure1UseSetting;
+        private System.Windows.Forms.Label label129;
+        private System.Windows.Forms.TextBox txtReadPressure1MinPressureSetting;
+        private System.Windows.Forms.TextBox txtReadPressure1SerialSetting;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.Button btnWritePressureSensor1Setting;
+        private System.Windows.Forms.Label label160;
+        private System.Windows.Forms.Button btnReadPressureSensor1Setting;
+        private System.Windows.Forms.TextBox txtReadPressure1MaxCurrentSetting;
+        private System.Windows.Forms.TextBox txtWritePressure1SerialSetting;
+        private System.Windows.Forms.Label label162;
+        private System.Windows.Forms.TextBox txtWritePressure1MinCurrentSetting;
+        private System.Windows.Forms.Label label163;
+        private System.Windows.Forms.Label label164;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.Button btnPressureSensor2CopySetting;
+        private System.Windows.Forms.CheckBox chkPressure2UseSetting;
+        private System.Windows.Forms.TextBox txtReadPressure2MaxPressureSetting;
+        private System.Windows.Forms.TextBox txtReadPressure2MinCurrentSetting;
+        private System.Windows.Forms.Label lblPressureSensor2SettingStatus;
+        private System.Windows.Forms.TextBox txtReadPressure2UseSetting;
+        private System.Windows.Forms.Label label159;
+        private System.Windows.Forms.TextBox txtReadPressure2MinPressureSetting;
+        private System.Windows.Forms.TextBox txtReadPressure2SerialSetting;
+        private System.Windows.Forms.Label label161;
+        private System.Windows.Forms.Button btnWritePressureSensor2Setting;
+        private System.Windows.Forms.Label label165;
+        private System.Windows.Forms.Button btnReadPressureSensor2Setting;
+        private System.Windows.Forms.TextBox txtReadPressure2MaxCurrentSetting;
+        private System.Windows.Forms.TextBox txtWritePressure2SerialSetting;
+        private System.Windows.Forms.Label label166;
+        private System.Windows.Forms.TextBox txtWritePressure2MinCurrentSetting;
+        private System.Windows.Forms.Label label167;
+        private System.Windows.Forms.Label label168;
+        private System.Windows.Forms.TextBox txtWritePressure2MaxPressureSetting;
+        private System.Windows.Forms.TextBox txtWritePressure2MinPressureSetting;
+        private System.Windows.Forms.TextBox txtWritePressure2MaxCurrentSetting;
+        private System.Windows.Forms.TextBox txtWritePressure1MaxPressureSetting;
+        private System.Windows.Forms.TextBox txtWritePressure1MinPressureSetting;
+        private System.Windows.Forms.TextBox txtWritePressure1MaxCurrentSetting;
     }
 }

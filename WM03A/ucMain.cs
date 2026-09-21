@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WM03A.Users.Model;
 using WM03A.Users.ProtocolCommands;
 using WM03A.Users.ProtocolParser;
 using static WM03A.Protocol;
@@ -50,6 +51,8 @@ namespace WM03A
             lblModbusMeter2SettingStatus.Text = string.Empty;
             lblModbusMeter3SettingStatus.Text = string.Empty;
             lblModbusMeter4SettingStatus.Text = string.Empty;
+            lblPressureSensor1SettingStatus.Text = string.Empty;
+            lblPressureSensor2SettingStatus.Text = string.Empty;
 
             cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
             cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
@@ -120,6 +123,9 @@ namespace WM03A
             UpdateModbusMeter2Control();
             UpdateModbusMeter3Control();
             UpdateModbusMeter4Control();
+
+            UpdatePressureSensor1Control();
+            UpdatePressureSensor2Control();
         }
 
         private void ApplyAccessControl()
@@ -2928,6 +2934,286 @@ namespace WM03A
         }
 
 
+        //-----------------------Pressure Sensor Setting--------------------------------//
+
+        private void chkPressure1UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePressureSensor1Control();
+        }
+        private void btnPressureSensor1CopySetting_Click(object sender, EventArgs e)
+        {
+            chkPressure1UseSetting.Checked = txtReadPressure1UseSetting.Text == "Đang sử dụng";
+
+            txtWritePressure1SerialSetting.Text = txtReadPressure1SerialSetting.Text;
+            txtWritePressure1MinCurrentSetting.Text = txtReadPressure1MinCurrentSetting.Text;
+            txtWritePressure1MaxCurrentSetting.Text = txtReadPressure1MaxCurrentSetting.Text;
+            txtWritePressure1MinPressureSetting.Text = txtReadPressure1MinPressureSetting.Text;
+            txtWritePressure1MaxPressureSetting.Text = txtReadPressure1MaxPressureSetting.Text;
+
+            UpdatePressureSensor1Control();
+        }
+        private async void btnReadPressureSensor1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+        (byte)ConfigPressureSensorId.MeterEnable,
+        (byte)ConfigPressureSensorId.SerialNumber,
+        (byte)ConfigPressureSensorId.MinCurrent,
+        (byte)ConfigPressureSensorId.MaxCurrent,
+        (byte)ConfigPressureSensorId.MinPressure,
+        (byte)ConfigPressureSensorId.MaxPressure
+    };
+
+            txtReadPressure1UseSetting.Clear();
+            txtReadPressure1SerialSetting.Clear();
+            txtReadPressure1MinCurrentSetting.Clear();
+            txtReadPressure1MaxCurrentSetting.Clear();
+            txtReadPressure1MinPressureSetting.Clear();
+            txtReadPressure1MaxPressureSetting.Clear();
+
+            GetCommands.PressureSensor(0, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.PressureSensor(rxFrame, out PressureSensorConfig pressureSensorConfig))
+            {
+                if (!pressureSensorConfig.SensorEnable)
+                {
+                    txtReadPressure1UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadPressure1UseSetting.Text = "Đang sử dụng";
+                    txtReadPressure1SerialSetting.Text = pressureSensorConfig.SerialNumber;
+                    txtReadPressure1MinCurrentSetting.Text = pressureSensorConfig.MinCurrent.ToString();
+                    txtReadPressure1MaxCurrentSetting.Text = pressureSensorConfig.MaxCurrent.ToString();
+                    txtReadPressure1MinPressureSetting.Text = pressureSensorConfig.MinPressure.ToString();
+                    txtReadPressure1MaxPressureSetting.Text = pressureSensorConfig.MaxPressure.ToString();
+                }
+            }
+        }
+        private async void btnWritePressureSensor1Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkPressure1UseSetting.Checked;
+
+            string serialNumber = txtWritePressure1SerialSetting.Text.Trim();
+            float? minCurrent = null;
+            float? maxCurrent = null;
+            float? minPressure = null;
+            float? maxPressure = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblPressureSensor1SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                string minCurrentText = txtWritePressure1MinCurrentSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(minCurrentText, out float minCurrentValue))
+                {
+                    lblPressureSensor1SettingStatus.Text = "Min Current không hợp lệ.";
+                    return;
+                }
+
+                string maxCurrentText = txtWritePressure1MaxCurrentSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(maxCurrentText, out float maxCurrentValue))
+                {
+                    lblPressureSensor1SettingStatus.Text = "Max Current không hợp lệ.";
+                    return;
+                }
+
+                string minPressureText = txtWritePressure1MinPressureSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(minPressureText, out float minPressureValue))
+                {
+                    lblPressureSensor1SettingStatus.Text = "Min Pressure không hợp lệ.";
+                    return;
+                }
+
+                string maxPressureText = txtWritePressure1MaxPressureSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(maxPressureText, out float maxPressureValue))
+                {
+                    lblPressureSensor1SettingStatus.Text = "Max Pressure không hợp lệ.";
+                    return;
+                }
+
+                if (minCurrentValue >= maxCurrentValue)
+                {
+                    lblPressureSensor1SettingStatus.Text = "Min Current phải nhỏ hơn Max Current.";
+                    return;
+                }
+
+                if (minPressureValue >= maxPressureValue)
+                {
+                    lblPressureSensor1SettingStatus.Text = "Min Pressure phải nhỏ hơn Max Pressure.";
+                    return;
+                }
+
+                minCurrent = minCurrentValue;
+                maxCurrent = maxCurrentValue;
+                minPressure = minPressureValue;
+                maxPressure = maxPressureValue;
+            }
+
+            if (SetCommands.PressureSensor(0, enabled, serialNumber, minCurrent, maxCurrent, minPressure, maxPressure, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.PressureSensor(rxFrame))
+                {
+                    lblPressureSensor1SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblPressureSensor1SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblPressureSensor1SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblPressureSensor1SettingStatus.Text = string.Empty;
+        }
+
+
+        private void chkPressure2UseSetting_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdatePressureSensor2Control();
+        }
+        private void btnPressureSensor2CopySetting_Click(object sender, EventArgs e)
+        {
+            chkPressure2UseSetting.Checked = txtReadPressure2UseSetting.Text == "Đang sử dụng";
+
+            txtWritePressure2SerialSetting.Text = txtReadPressure2SerialSetting.Text;
+            txtWritePressure2MinCurrentSetting.Text = txtReadPressure2MinCurrentSetting.Text;
+            txtWritePressure2MaxCurrentSetting.Text = txtReadPressure2MaxCurrentSetting.Text;
+            txtWritePressure2MinPressureSetting.Text = txtReadPressure2MinPressureSetting.Text;
+            txtWritePressure2MaxPressureSetting.Text = txtReadPressure2MaxPressureSetting.Text;
+
+            UpdatePressureSensor2Control();
+        }
+        private async void btnReadPressureSensor2Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+            {
+        (byte)ConfigPressureSensorId.MeterEnable,
+        (byte)ConfigPressureSensorId.SerialNumber,
+        (byte)ConfigPressureSensorId.MinCurrent,
+        (byte)ConfigPressureSensorId.MaxCurrent,
+        (byte)ConfigPressureSensorId.MinPressure,
+        (byte)ConfigPressureSensorId.MaxPressure
+    };
+
+            txtReadPressure2UseSetting.Clear();
+            txtReadPressure2SerialSetting.Clear();
+            txtReadPressure2MinCurrentSetting.Clear();
+            txtReadPressure2MaxCurrentSetting.Clear();
+            txtReadPressure2MinPressureSetting.Clear();
+            txtReadPressure2MaxPressureSetting.Clear();
+
+            GetCommands.PressureSensor(1, parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+            if (ok && GetParser.PressureSensor(rxFrame, out PressureSensorConfig pressureSensorConfig))
+            {
+                if (!pressureSensorConfig.SensorEnable)
+                {
+                    txtReadPressure2UseSetting.Text = "Không sử dụng";
+                }
+                else
+                {
+                    txtReadPressure2UseSetting.Text = "Đang sử dụng";
+                    txtReadPressure2SerialSetting.Text = pressureSensorConfig.SerialNumber;
+                    txtReadPressure2MinCurrentSetting.Text = pressureSensorConfig.MinCurrent.ToString();
+                    txtReadPressure2MaxCurrentSetting.Text = pressureSensorConfig.MaxCurrent.ToString();
+                    txtReadPressure2MinPressureSetting.Text = pressureSensorConfig.MinPressure.ToString();
+                    txtReadPressure2MaxPressureSetting.Text = pressureSensorConfig.MaxPressure.ToString();
+                }
+            }
+        }
+        private async void btnWritePressureSensor2Setting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            bool enabled = chkPressure2UseSetting.Checked;
+
+            string serialNumber = txtWritePressure2SerialSetting.Text.Trim();
+            float? minCurrent = null;
+            float? maxCurrent = null;
+            float? minPressure = null;
+            float? maxPressure = null;
+
+            if (enabled)
+            {
+                if (string.IsNullOrWhiteSpace(serialNumber))
+                {
+                    lblPressureSensor2SettingStatus.Text = "Serial Number không được để trống.";
+                    return;
+                }
+
+                string minCurrentText = txtWritePressure2MinCurrentSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(minCurrentText, out float minCurrentValue))
+                {
+                    lblPressureSensor2SettingStatus.Text = "Min Current không hợp lệ.";
+                    return;
+                }
+
+                string maxCurrentText = txtWritePressure2MaxCurrentSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(maxCurrentText, out float maxCurrentValue))
+                {
+                    lblPressureSensor2SettingStatus.Text = "Max Current không hợp lệ.";
+                    return;
+                }
+
+                string minPressureText = txtWritePressure2MinPressureSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(minPressureText, out float minPressureValue))
+                {
+                    lblPressureSensor2SettingStatus.Text = "Min Pressure không hợp lệ.";
+                    return;
+                }
+
+                string maxPressureText = txtWritePressure2MaxPressureSetting.Text.Trim().Replace('.', ',');
+                if (!float.TryParse(maxPressureText, out float maxPressureValue))
+                {
+                    lblPressureSensor2SettingStatus.Text = "Max Pressure không hợp lệ.";
+                    return;
+                }
+
+                if (minCurrentValue >= maxCurrentValue)
+                {
+                    lblPressureSensor2SettingStatus.Text = "Min Current phải nhỏ hơn Max Current.";
+                    return;
+                }
+
+                if (minPressureValue >= maxPressureValue)
+                {
+                    lblPressureSensor2SettingStatus.Text = "Min Pressure phải nhỏ hơn Max Pressure.";
+                    return;
+                }
+
+                minCurrent = minCurrentValue;
+                maxCurrent = maxCurrentValue;
+                minPressure = minPressureValue;
+                maxPressure = maxPressureValue;
+            }
+
+            if (SetCommands.PressureSensor(1, enabled, serialNumber, minCurrent, maxCurrent, minPressure, maxPressure, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                if (ok && SetParser.PressureSensor(rxFrame))
+                {
+                    lblPressureSensor2SettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblPressureSensor2SettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblPressureSensor2SettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblPressureSensor2SettingStatus.Text = string.Empty;
+        }
+
+
         // ----------------------------------------------------------------------
         // Logic functions
         // ----------------------------------------------------------------------
@@ -3518,6 +3804,26 @@ namespace WM03A
             cmbFlow4DataTypeSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
             cmbFlow4WordSwapSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
             txtWriteFlow4MultiplierSetting.Enabled = enabled && chkFlow4UseSetting.Checked;
+        }
+
+        private void UpdatePressureSensor1Control()
+        {
+            bool enabled = chkPressure1UseSetting.Checked;
+            txtWritePressure1SerialSetting.Enabled = enabled;
+            txtWritePressure1MinCurrentSetting.Enabled = enabled;
+            txtWritePressure1MaxCurrentSetting.Enabled = enabled;
+            txtWritePressure1MinPressureSetting.Enabled = enabled;
+            txtWritePressure1MaxPressureSetting.Enabled = enabled;
+        }
+
+        private void UpdatePressureSensor2Control()
+        {
+            bool enabled = chkPressure2UseSetting.Checked;
+            txtWritePressure2SerialSetting.Enabled = enabled;
+            txtWritePressure2MinCurrentSetting.Enabled = enabled;
+            txtWritePressure2MaxCurrentSetting.Enabled = enabled;
+            txtWritePressure2MinPressureSetting.Enabled = enabled;
+            txtWritePressure2MaxPressureSetting.Enabled = enabled;
         }
     }
 }

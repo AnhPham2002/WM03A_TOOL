@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Users\Model\ModbusMeterConfig.cs" />
+    <Compile Include="Users\Model\PressureSensorConfig.cs" />
     <Compile Include="Users\Model\PulseMeterConfig.cs" />
     <Compile Include="Users\ProtocolCommands\GetCommands.cs" />
     <Compile Include="Users\ProtocolCommands\QueryCommands.cs" />
