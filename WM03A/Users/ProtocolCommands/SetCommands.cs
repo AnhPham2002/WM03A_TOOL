@@ -592,10 +592,10 @@ namespace WM03A.Users.ProtocolCommands
         {
             frame = null;
 
-            byte value = byte.Parse(count);
-
             if (string.IsNullOrWhiteSpace(count))
                 return false;
+
+            byte value = byte.Parse(count);
 
             return Pack(
                 encrypt: true,
@@ -650,14 +650,21 @@ namespace WM03A.Users.ProtocolCommands
                 out frame);
         }
 
-        public static bool EventCreate(byte eventCode, out byte[] frame)
+        public static bool EventCreate(byte meterType, byte meterIndex, byte eventCode, out byte[] frame)
         {
+            byte[] payload =
+            {
+                meterType,
+                meterIndex,
+                eventCode
+            };
+
             return Pack(
                 encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Set,
                 id: (byte)ConfigId.EventCreate,
-                payload: new byte[] { eventCode },
+                payload: payload,
                 out frame);
         }
 

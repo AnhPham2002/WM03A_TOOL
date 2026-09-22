@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WM03A.Users.Model
+namespace WM03A
 {
     public enum MeterType : byte
     {

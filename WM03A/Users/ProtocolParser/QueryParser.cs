@@ -184,5 +184,66 @@ namespace WM03A
 
             return index == payload.Length;
         }
+
+        public static bool Event(byte[] frame, out EventData data)
+        {
+            data = null;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length < 15)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            byte currentYear = payload[index++];
+            byte currentMonth = payload[index++];
+            byte currentDate = payload[index++];
+            byte currentHours = payload[index++];
+            byte currentMinutes = payload[index++];
+            byte currentSeconds = payload[index++];
+
+            DateTime currentDateTime = new DateTime(2000 + currentYear, currentMonth, currentDate, currentHours, currentMinutes, currentSeconds);
+
+            byte eventYear = payload[index++];
+            byte eventMonth = payload[index++];
+            byte eventDate = payload[index++];
+            byte eventHours = payload[index++];
+            byte eventMinutes = payload[index++];
+            byte eventSeconds = payload[index++];
+
+            DateTime eventDateTime = new DateTime(2000 + eventYear, eventMonth, eventDate, eventHours, eventMinutes, eventSeconds);
+
+            byte meterType = payload[index++];
+            byte serialLength = payload[index++];
+
+            if (index + serialLength + 1 > payload.Length)
+            {
+                return false;
+            }
+
+            string serialNumber = Encoding.ASCII.GetString(payload, index, serialLength);
+            index += serialLength;
+
+            byte eventCode = payload[index++];
+
+            if (index != payload.Length)
+            {
+                return false;
+            }
+
+            data = new EventData
+            {
+                CurrentDateTime = currentDateTime,
+                EventDateTime = eventDateTime,
+                MeterType = meterType,
+                SerialNumber = serialNumber,
+                EventCode = eventCode
+            };
+
+            return true;
+        }
     }
 }

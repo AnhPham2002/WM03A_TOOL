@@ -67,5 +67,20 @@ namespace WM03A
                 },
                 out frame);
         }
+
+        public static bool Event(ushort eventIndex, out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.Event,
+                payload: new byte[]
+                {
+                    (byte)(eventIndex & 0xFF),
+                    (byte)((eventIndex >> 8) & 0xFF)
+                },
+                out frame);
+        }
     }
 }

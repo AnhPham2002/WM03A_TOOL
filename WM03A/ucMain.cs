@@ -10,6 +10,7 @@ using System.Xml;
 using WM03A.Users.Model;
 using WM03A.Users.ProtocolCommands;
 using WM03A.Users.ProtocolParser;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using static WM03A.Protocol;
 using static WM03A.QueryParser;
 
@@ -29,6 +30,7 @@ namespace WM03A
         private const int DEVICE_TIME_HEIGHT_MANUAL = 90;
 
         private bool _stopReadLatchData;
+        private bool _stopReadEventData;
 
         public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId)
         {
@@ -3306,8 +3308,7 @@ namespace WM03A
                         break;
                     }
 
-                    int rowIndex = dgvLatchInfo.Rows.Add(latchData.LatchDateTime.ToString("dd/MM/yyyy HH:mm:ss"));
-                    dgvLatchInfo.Rows[rowIndex].HeaderCell.Value = userIndex.ToString();
+                    int rowIndex = dgvLatchInfo.Rows.Add(userIndex, latchData.LatchDateTime.ToString("dd/MM/yyyy HH:mm:ss"));
                     dgvLatchInfo.Rows[rowIndex].Tag = latchData;
 
                     if (userIndex >= ushort.MaxValue)
@@ -3343,6 +3344,132 @@ namespace WM03A
             _stopReadLatchData = true;
         }
 
+
+
+        //-----------------------Query Event Data--------------------------------//
+
+        private async void btnReadEventData_Click(object sender, EventArgs e)
+        {
+            if (!ushort.TryParse(txtBeginIndexEventQuery.Text.Trim(), out ushort beginUserIndex))
+            {
+                if (!string.IsNullOrWhiteSpace(txtBeginIndexEventQuery.Text))
+                {
+                    MessageBox.Show("Begin Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                beginUserIndex = 1;
+            }
+
+            bool hasEndIndex = ushort.TryParse(txtEndIndexEventQuery.Text.Trim(), out ushort endUserIndex);
+
+            if (!string.IsNullOrWhiteSpace(txtEndIndexEventQuery.Text) && !hasEndIndex)
+            {
+                MessageBox.Show("End Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hasEndIndex && beginUserIndex > endUserIndex)
+            {
+                MessageBox.Show("Begin Index phải nhỏ hơn hoặc bằng End Index.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            dgvEventData.Rows.Clear();
+
+            _stopReadEventData = false;
+            btnReadEventData.Enabled = false;
+            btnStopReadEventData.Enabled = true;
+
+            try
+            {
+                for (uint userIndex = beginUserIndex; ; userIndex++)
+                {
+                    if (_stopReadEventData)
+                    {
+                        break;
+                    }
+
+                    if (hasEndIndex && userIndex > endUserIndex)
+                    {
+                        break;
+                    }
+
+                    ushort eventIndex = (ushort)(userIndex - 1);
+
+                    if (!QueryCommands.Event(eventIndex, out byte[] txFrame))
+                    {
+                        break;
+                    }
+
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+
+                    if (_stopReadEventData)
+                    {
+                        break;
+                    }
+
+                    if (!ok)
+                    {
+                        break;
+                    }
+
+                    if (!QueryParser.Event(rxFrame, out EventData eventData))
+                    {
+                        break;
+                    }
+
+                    string meterType;
+
+                    switch (eventData.MeterType)
+                    {
+                        case 0:
+                            meterType = "Module";
+                            break;
+
+                        case 1:
+                            meterType = "Pulse";
+                            break;
+
+                        case 2:
+                            meterType = "Modbus";
+                            break;
+
+                        case 3:
+                            meterType = "Pressure";
+                            break;
+
+                        default:
+                            meterType = "-";
+                            break;
+                    }
+
+                    int rowIndex = dgvEventData.Rows.Add(
+                        userIndex,
+                        meterType,
+                        eventData.SerialNumber,
+                        eventData.EventCode.ToString(),
+                        eventData.EventDateTime.ToString("dd/MM/yyyy HH:mm:ss"));
+
+                    dgvEventData.Rows[rowIndex].Tag = eventData;
+
+                    if (userIndex >= ushort.MaxValue)
+                    {
+                        break;
+                    }
+                }
+            }
+            finally
+            {
+                btnReadEventData.Enabled = true;
+                btnStopReadEventData.Enabled = false;
+            }
+        }
+
+        private void btnStopReadEventData_Click(object sender, EventArgs e)
+        {
+            _stopReadEventData = true;
+        }
 
         //-----------------------Advanced Setting--------------------------------//
 
@@ -3451,7 +3578,11 @@ namespace WM03A
 
         private async void btnWriteEvent_Click(object sender, EventArgs e)
         {
-            SetCommands.EventCreate((byte)cmbEventCreate.SelectedIndex, out byte[] txFrame);
+            if (string.IsNullOrWhiteSpace(txtEventMeterIndex.Text))
+                return;
+
+            byte value = byte.Parse(txtEventMeterIndex.Text);
+            SetCommands.EventCreate((byte)cmbEventMeter.SelectedIndex, value, (byte)cmbEventCreate.SelectedIndex, out byte[] txFrame);
             var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
         }
 
