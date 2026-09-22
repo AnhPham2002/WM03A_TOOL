@@ -682,6 +682,61 @@
             this.colLatchMeterReverse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLatchMeterFlowRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLatchMeterPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtWriteSerialAdvCfg = new System.Windows.Forms.TextBox();
+            this.txtReadSerialAdvCfg = new System.Windows.Forms.TextBox();
+            this.label171 = new System.Windows.Forms.Label();
+            this.btnWriteSerialAdvCfg = new System.Windows.Forms.Button();
+            this.btnReadSerialAdvCfg = new System.Windows.Forms.Button();
+            this.label172 = new System.Windows.Forms.Label();
+            this.txtReadDeviceStatusAdvCfg = new System.Windows.Forms.TextBox();
+            this.btnReadDeviceStatusAdvCfg = new System.Windows.Forms.Button();
+            this.btnWriteDeviceStatusAdvCfg = new System.Windows.Forms.Button();
+            this.label173 = new System.Windows.Forms.Label();
+            this.btnRebootDevice = new System.Windows.Forms.Button();
+            this.label174 = new System.Windows.Forms.Label();
+            this.btnTurnOffDevice = new System.Windows.Forms.Button();
+            this.label175 = new System.Windows.Forms.Label();
+            this.btnResetConfig = new System.Windows.Forms.Button();
+            this.label176 = new System.Windows.Forms.Label();
+            this.btnResetPassword = new System.Windows.Forms.Button();
+            this.label177 = new System.Windows.Forms.Label();
+            this.txtReadMcuReset = new System.Windows.Forms.TextBox();
+            this.txtWriteMcuReset = new System.Windows.Forms.TextBox();
+            this.btnReadMcuReset = new System.Windows.Forms.Button();
+            this.btnWriteMcuReset = new System.Windows.Forms.Button();
+            this.label178 = new System.Windows.Forms.Label();
+            this.btnEraseLatchData = new System.Windows.Forms.Button();
+            this.label179 = new System.Windows.Forms.Label();
+            this.btnEraseEventData = new System.Windows.Forms.Button();
+            this.label180 = new System.Windows.Forms.Label();
+            this.btnEraseErrLog = new System.Windows.Forms.Button();
+            this.label181 = new System.Windows.Forms.Label();
+            this.btnLatchActive = new System.Windows.Forms.Button();
+            this.label182 = new System.Windows.Forms.Label();
+            this.btnWriteEvent = new System.Windows.Forms.Button();
+            this.cmbEventCreate = new System.Windows.Forms.ComboBox();
+            this.label183 = new System.Windows.Forms.Label();
+            this.btnPushActive = new System.Windows.Forms.Button();
+            this.label184 = new System.Windows.Forms.Label();
+            this.btnFactoryReset = new System.Windows.Forms.Button();
+            this.lblWriteSerialStatus = new System.Windows.Forms.Label();
+            this.cmbDeviceStatusAdvCfg = new System.Windows.Forms.ComboBox();
+            this.lblWriteDeviceStatusAdvCfgStatus = new System.Windows.Forms.Label();
+            this.lblWriteMcuResetStatus = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.colEventStt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventMeterType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventMeterSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label185 = new System.Windows.Forms.Label();
+            this.label186 = new System.Windows.Forms.Label();
+            this.label187 = new System.Windows.Forms.Label();
+            this.label188 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -729,11 +784,14 @@
             this.tabControl3.SuspendLayout();
             this.tabLatchData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLatchInfo)).BeginInit();
+            this.tabEventData.SuspendLayout();
+            this.tabAdvance.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLatchMeterDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -7133,9 +7191,9 @@
             this.label170.AutoSize = true;
             this.label170.Location = new System.Drawing.Point(20, 52);
             this.label170.Name = "label170";
-            this.label170.Size = new System.Drawing.Size(266, 13);
+            this.label170.Size = new System.Drawing.Size(276, 13);
             this.label170.TabIndex = 16;
-            this.label170.Text = "Không nhập ô thứ hai nếu muốn đọc từ bản tin xa nhất";
+            this.label170.Text = "Không nhập ô thứ hai nếu muốn đọc đến bản tin xa nhất";
             // 
             // label169
             // 
@@ -7200,6 +7258,15 @@
             // 
             // tabEventData
             // 
+            this.tabEventData.Controls.Add(this.label185);
+            this.tabEventData.Controls.Add(this.label186);
+            this.tabEventData.Controls.Add(this.label187);
+            this.tabEventData.Controls.Add(this.label188);
+            this.tabEventData.Controls.Add(this.button1);
+            this.tabEventData.Controls.Add(this.button2);
+            this.tabEventData.Controls.Add(this.textBox1);
+            this.tabEventData.Controls.Add(this.textBox2);
+            this.tabEventData.Controls.Add(this.dataGridView1);
             this.tabEventData.Location = new System.Drawing.Point(4, 22);
             this.tabEventData.Name = "tabEventData";
             this.tabEventData.Padding = new System.Windows.Forms.Padding(3);
@@ -7228,6 +7295,47 @@
             // 
             // tabAdvance
             // 
+            this.tabAdvance.Controls.Add(this.lblWriteMcuResetStatus);
+            this.tabAdvance.Controls.Add(this.lblWriteDeviceStatusAdvCfgStatus);
+            this.tabAdvance.Controls.Add(this.lblWriteSerialStatus);
+            this.tabAdvance.Controls.Add(this.cmbDeviceStatusAdvCfg);
+            this.tabAdvance.Controls.Add(this.cmbEventCreate);
+            this.tabAdvance.Controls.Add(this.btnWriteEvent);
+            this.tabAdvance.Controls.Add(this.btnFactoryReset);
+            this.tabAdvance.Controls.Add(this.btnPushActive);
+            this.tabAdvance.Controls.Add(this.btnLatchActive);
+            this.tabAdvance.Controls.Add(this.btnEraseErrLog);
+            this.tabAdvance.Controls.Add(this.btnEraseEventData);
+            this.tabAdvance.Controls.Add(this.btnEraseLatchData);
+            this.tabAdvance.Controls.Add(this.btnResetPassword);
+            this.tabAdvance.Controls.Add(this.btnResetConfig);
+            this.tabAdvance.Controls.Add(this.btnTurnOffDevice);
+            this.tabAdvance.Controls.Add(this.btnRebootDevice);
+            this.tabAdvance.Controls.Add(this.btnWriteMcuReset);
+            this.tabAdvance.Controls.Add(this.btnWriteDeviceStatusAdvCfg);
+            this.tabAdvance.Controls.Add(this.btnWriteSerialAdvCfg);
+            this.tabAdvance.Controls.Add(this.btnReadMcuReset);
+            this.tabAdvance.Controls.Add(this.btnReadDeviceStatusAdvCfg);
+            this.tabAdvance.Controls.Add(this.btnReadSerialAdvCfg);
+            this.tabAdvance.Controls.Add(this.label184);
+            this.tabAdvance.Controls.Add(this.txtWriteMcuReset);
+            this.tabAdvance.Controls.Add(this.label183);
+            this.tabAdvance.Controls.Add(this.label182);
+            this.tabAdvance.Controls.Add(this.label181);
+            this.tabAdvance.Controls.Add(this.label180);
+            this.tabAdvance.Controls.Add(this.label179);
+            this.tabAdvance.Controls.Add(this.label178);
+            this.tabAdvance.Controls.Add(this.label176);
+            this.tabAdvance.Controls.Add(this.txtReadMcuReset);
+            this.tabAdvance.Controls.Add(this.label175);
+            this.tabAdvance.Controls.Add(this.txtReadDeviceStatusAdvCfg);
+            this.tabAdvance.Controls.Add(this.label174);
+            this.tabAdvance.Controls.Add(this.txtWriteSerialAdvCfg);
+            this.tabAdvance.Controls.Add(this.label177);
+            this.tabAdvance.Controls.Add(this.label173);
+            this.tabAdvance.Controls.Add(this.label172);
+            this.tabAdvance.Controls.Add(this.txtReadSerialAdvCfg);
+            this.tabAdvance.Controls.Add(this.label171);
             this.tabAdvance.Location = new System.Drawing.Point(4, 22);
             this.tabAdvance.Name = "tabAdvance";
             this.tabAdvance.Size = new System.Drawing.Size(952, 749);
@@ -7329,37 +7437,543 @@
             // 
             this.colLatchMeterStt.HeaderText = "STT";
             this.colLatchMeterStt.Name = "colLatchMeterStt";
+            this.colLatchMeterStt.ReadOnly = true;
             this.colLatchMeterStt.Width = 50;
             // 
             // colLatchMeterType
             // 
             this.colLatchMeterType.HeaderText = "Loại";
             this.colLatchMeterType.Name = "colLatchMeterType";
+            this.colLatchMeterType.ReadOnly = true;
             // 
             // colLatchMeterSerial
             // 
             this.colLatchMeterSerial.HeaderText = "Serial Number";
             this.colLatchMeterSerial.Name = "colLatchMeterSerial";
+            this.colLatchMeterSerial.ReadOnly = true;
             // 
             // colLatchMeterForward
             // 
             this.colLatchMeterForward.HeaderText = "Tổng xuôi (m3)";
             this.colLatchMeterForward.Name = "colLatchMeterForward";
+            this.colLatchMeterForward.ReadOnly = true;
             // 
             // colLatchMeterReverse
             // 
             this.colLatchMeterReverse.HeaderText = "Tổng ngược (m3)";
             this.colLatchMeterReverse.Name = "colLatchMeterReverse";
+            this.colLatchMeterReverse.ReadOnly = true;
             // 
             // colLatchMeterFlowRate
             // 
             this.colLatchMeterFlowRate.HeaderText = "Lưu lượng (m3/s)";
             this.colLatchMeterFlowRate.Name = "colLatchMeterFlowRate";
+            this.colLatchMeterFlowRate.ReadOnly = true;
             // 
             // colLatchMeterPressure
             // 
             this.colLatchMeterPressure.HeaderText = "Áp suất (bar)";
             this.colLatchMeterPressure.Name = "colLatchMeterPressure";
+            this.colLatchMeterPressure.ReadOnly = true;
+            // 
+            // txtWriteSerialAdvCfg
+            // 
+            this.txtWriteSerialAdvCfg.Location = new System.Drawing.Point(471, 25);
+            this.txtWriteSerialAdvCfg.Name = "txtWriteSerialAdvCfg";
+            this.txtWriteSerialAdvCfg.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteSerialAdvCfg.TabIndex = 15;
+            // 
+            // txtReadSerialAdvCfg
+            // 
+            this.txtReadSerialAdvCfg.Location = new System.Drawing.Point(140, 25);
+            this.txtReadSerialAdvCfg.Name = "txtReadSerialAdvCfg";
+            this.txtReadSerialAdvCfg.ReadOnly = true;
+            this.txtReadSerialAdvCfg.Size = new System.Drawing.Size(194, 20);
+            this.txtReadSerialAdvCfg.TabIndex = 14;
+            // 
+            // label171
+            // 
+            this.label171.AutoSize = true;
+            this.label171.Location = new System.Drawing.Point(15, 29);
+            this.label171.Name = "label171";
+            this.label171.Size = new System.Drawing.Size(67, 13);
+            this.label171.TabIndex = 13;
+            this.label171.Text = "Serial thiết bị";
+            // 
+            // btnWriteSerialAdvCfg
+            // 
+            this.btnWriteSerialAdvCfg.Location = new System.Drawing.Point(696, 24);
+            this.btnWriteSerialAdvCfg.Name = "btnWriteSerialAdvCfg";
+            this.btnWriteSerialAdvCfg.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteSerialAdvCfg.TabIndex = 17;
+            this.btnWriteSerialAdvCfg.Text = "Ghi";
+            this.btnWriteSerialAdvCfg.UseVisualStyleBackColor = true;
+            this.btnWriteSerialAdvCfg.Click += new System.EventHandler(this.btnWriteSerialAdvCfg_Click);
+            // 
+            // btnReadSerialAdvCfg
+            // 
+            this.btnReadSerialAdvCfg.Location = new System.Drawing.Point(365, 24);
+            this.btnReadSerialAdvCfg.Name = "btnReadSerialAdvCfg";
+            this.btnReadSerialAdvCfg.Size = new System.Drawing.Size(75, 23);
+            this.btnReadSerialAdvCfg.TabIndex = 16;
+            this.btnReadSerialAdvCfg.Text = "Đọc";
+            this.btnReadSerialAdvCfg.UseVisualStyleBackColor = true;
+            this.btnReadSerialAdvCfg.Click += new System.EventHandler(this.btnReadSerialAdvCfg_Click);
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Location = new System.Drawing.Point(15, 65);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(89, 13);
+            this.label172.TabIndex = 13;
+            this.label172.Text = "Trạng thái thiết bị";
+            // 
+            // txtReadDeviceStatusAdvCfg
+            // 
+            this.txtReadDeviceStatusAdvCfg.Location = new System.Drawing.Point(140, 61);
+            this.txtReadDeviceStatusAdvCfg.Name = "txtReadDeviceStatusAdvCfg";
+            this.txtReadDeviceStatusAdvCfg.ReadOnly = true;
+            this.txtReadDeviceStatusAdvCfg.Size = new System.Drawing.Size(194, 20);
+            this.txtReadDeviceStatusAdvCfg.TabIndex = 14;
+            // 
+            // btnReadDeviceStatusAdvCfg
+            // 
+            this.btnReadDeviceStatusAdvCfg.Location = new System.Drawing.Point(365, 60);
+            this.btnReadDeviceStatusAdvCfg.Name = "btnReadDeviceStatusAdvCfg";
+            this.btnReadDeviceStatusAdvCfg.Size = new System.Drawing.Size(75, 23);
+            this.btnReadDeviceStatusAdvCfg.TabIndex = 16;
+            this.btnReadDeviceStatusAdvCfg.Text = "Đọc";
+            this.btnReadDeviceStatusAdvCfg.UseVisualStyleBackColor = true;
+            // 
+            // btnWriteDeviceStatusAdvCfg
+            // 
+            this.btnWriteDeviceStatusAdvCfg.Location = new System.Drawing.Point(696, 60);
+            this.btnWriteDeviceStatusAdvCfg.Name = "btnWriteDeviceStatusAdvCfg";
+            this.btnWriteDeviceStatusAdvCfg.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteDeviceStatusAdvCfg.TabIndex = 17;
+            this.btnWriteDeviceStatusAdvCfg.Text = "Ghi";
+            this.btnWriteDeviceStatusAdvCfg.UseVisualStyleBackColor = true;
+            // 
+            // label173
+            // 
+            this.label173.AutoSize = true;
+            this.label173.Location = new System.Drawing.Point(15, 146);
+            this.label173.Name = "label173";
+            this.label173.Size = new System.Drawing.Size(103, 13);
+            this.label173.TabIndex = 13;
+            this.label173.Text = "Khởi động lại thiết bị";
+            // 
+            // btnRebootDevice
+            // 
+            this.btnRebootDevice.Location = new System.Drawing.Point(176, 141);
+            this.btnRebootDevice.Name = "btnRebootDevice";
+            this.btnRebootDevice.Size = new System.Drawing.Size(75, 23);
+            this.btnRebootDevice.TabIndex = 17;
+            this.btnRebootDevice.Text = "Ghi";
+            this.btnRebootDevice.UseVisualStyleBackColor = true;
+            this.btnRebootDevice.Click += new System.EventHandler(this.btnRebootDevice_Click);
+            // 
+            // label174
+            // 
+            this.label174.AutoSize = true;
+            this.label174.Location = new System.Drawing.Point(15, 181);
+            this.label174.Name = "label174";
+            this.label174.Size = new System.Drawing.Size(90, 13);
+            this.label174.TabIndex = 13;
+            this.label174.Text = "Tắt nguồn thiết bị";
+            // 
+            // btnTurnOffDevice
+            // 
+            this.btnTurnOffDevice.Location = new System.Drawing.Point(176, 176);
+            this.btnTurnOffDevice.Name = "btnTurnOffDevice";
+            this.btnTurnOffDevice.Size = new System.Drawing.Size(75, 23);
+            this.btnTurnOffDevice.TabIndex = 17;
+            this.btnTurnOffDevice.Text = "Ghi";
+            this.btnTurnOffDevice.UseVisualStyleBackColor = true;
+            // 
+            // label175
+            // 
+            this.label175.AutoSize = true;
+            this.label175.Location = new System.Drawing.Point(15, 219);
+            this.label175.Name = "label175";
+            this.label175.Size = new System.Drawing.Size(126, 13);
+            this.label175.TabIndex = 13;
+            this.label175.Text = "Reset cấu hình mặc định";
+            // 
+            // btnResetConfig
+            // 
+            this.btnResetConfig.Location = new System.Drawing.Point(176, 214);
+            this.btnResetConfig.Name = "btnResetConfig";
+            this.btnResetConfig.Size = new System.Drawing.Size(75, 23);
+            this.btnResetConfig.TabIndex = 17;
+            this.btnResetConfig.Text = "Ghi";
+            this.btnResetConfig.UseVisualStyleBackColor = true;
+            this.btnResetConfig.Click += new System.EventHandler(this.btnResetConfig_Click);
+            // 
+            // label176
+            // 
+            this.label176.AutoSize = true;
+            this.label176.Location = new System.Drawing.Point(15, 250);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(82, 13);
+            this.label176.TabIndex = 13;
+            this.label176.Text = "Reset mật khẩu";
+            // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.Location = new System.Drawing.Point(176, 245);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(75, 23);
+            this.btnResetPassword.TabIndex = 17;
+            this.btnResetPassword.Text = "Ghi";
+            this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
+            // 
+            // label177
+            // 
+            this.label177.AutoSize = true;
+            this.label177.Location = new System.Drawing.Point(15, 105);
+            this.label177.Name = "label177";
+            this.label177.Size = new System.Drawing.Size(90, 13);
+            this.label177.TabIndex = 13;
+            this.label177.Text = "Số lần reset MCU";
+            // 
+            // txtReadMcuReset
+            // 
+            this.txtReadMcuReset.Location = new System.Drawing.Point(140, 101);
+            this.txtReadMcuReset.Name = "txtReadMcuReset";
+            this.txtReadMcuReset.ReadOnly = true;
+            this.txtReadMcuReset.Size = new System.Drawing.Size(194, 20);
+            this.txtReadMcuReset.TabIndex = 14;
+            // 
+            // txtWriteMcuReset
+            // 
+            this.txtWriteMcuReset.Location = new System.Drawing.Point(471, 101);
+            this.txtWriteMcuReset.Name = "txtWriteMcuReset";
+            this.txtWriteMcuReset.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteMcuReset.TabIndex = 15;
+            // 
+            // btnReadMcuReset
+            // 
+            this.btnReadMcuReset.Location = new System.Drawing.Point(365, 100);
+            this.btnReadMcuReset.Name = "btnReadMcuReset";
+            this.btnReadMcuReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReadMcuReset.TabIndex = 16;
+            this.btnReadMcuReset.Text = "Đọc";
+            this.btnReadMcuReset.UseVisualStyleBackColor = true;
+            this.btnReadMcuReset.Click += new System.EventHandler(this.btnReadMcuReset_Click);
+            // 
+            // btnWriteMcuReset
+            // 
+            this.btnWriteMcuReset.Location = new System.Drawing.Point(696, 100);
+            this.btnWriteMcuReset.Name = "btnWriteMcuReset";
+            this.btnWriteMcuReset.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteMcuReset.TabIndex = 17;
+            this.btnWriteMcuReset.Text = "Ghi";
+            this.btnWriteMcuReset.UseVisualStyleBackColor = true;
+            this.btnWriteMcuReset.Click += new System.EventHandler(this.btnWriteMcuReset_Click);
+            // 
+            // label178
+            // 
+            this.label178.AutoSize = true;
+            this.label178.Location = new System.Drawing.Point(15, 280);
+            this.label178.Name = "label178";
+            this.label178.Size = new System.Drawing.Size(84, 13);
+            this.label178.TabIndex = 13;
+            this.label178.Text = "Xoá dữ liệu chốt";
+            // 
+            // btnEraseLatchData
+            // 
+            this.btnEraseLatchData.Location = new System.Drawing.Point(176, 275);
+            this.btnEraseLatchData.Name = "btnEraseLatchData";
+            this.btnEraseLatchData.Size = new System.Drawing.Size(75, 23);
+            this.btnEraseLatchData.TabIndex = 17;
+            this.btnEraseLatchData.Text = "Ghi";
+            this.btnEraseLatchData.UseVisualStyleBackColor = true;
+            this.btnEraseLatchData.Click += new System.EventHandler(this.btnEraseLatchData_Click);
+            // 
+            // label179
+            // 
+            this.label179.AutoSize = true;
+            this.label179.Location = new System.Drawing.Point(15, 312);
+            this.label179.Name = "label179";
+            this.label179.Size = new System.Drawing.Size(97, 13);
+            this.label179.TabIndex = 13;
+            this.label179.Text = "Xoá dữ liệu sự kiện";
+            // 
+            // btnEraseEventData
+            // 
+            this.btnEraseEventData.Location = new System.Drawing.Point(176, 307);
+            this.btnEraseEventData.Name = "btnEraseEventData";
+            this.btnEraseEventData.Size = new System.Drawing.Size(75, 23);
+            this.btnEraseEventData.TabIndex = 17;
+            this.btnEraseEventData.Text = "Ghi";
+            this.btnEraseEventData.UseVisualStyleBackColor = true;
+            this.btnEraseEventData.Click += new System.EventHandler(this.btnEraseEventData_Click);
+            // 
+            // label180
+            // 
+            this.label180.AutoSize = true;
+            this.label180.Location = new System.Drawing.Point(15, 344);
+            this.label180.Name = "label180";
+            this.label180.Size = new System.Drawing.Size(56, 13);
+            this.label180.TabIndex = 13;
+            this.label180.Text = "Xoá log lỗi";
+            // 
+            // btnEraseErrLog
+            // 
+            this.btnEraseErrLog.Location = new System.Drawing.Point(176, 339);
+            this.btnEraseErrLog.Name = "btnEraseErrLog";
+            this.btnEraseErrLog.Size = new System.Drawing.Size(75, 23);
+            this.btnEraseErrLog.TabIndex = 17;
+            this.btnEraseErrLog.Text = "Ghi";
+            this.btnEraseErrLog.UseVisualStyleBackColor = true;
+            this.btnEraseErrLog.Click += new System.EventHandler(this.btnEraseErrLog_Click);
+            // 
+            // label181
+            // 
+            this.label181.AutoSize = true;
+            this.label181.Location = new System.Drawing.Point(15, 382);
+            this.label181.Name = "label181";
+            this.label181.Size = new System.Drawing.Size(116, 13);
+            this.label181.TabIndex = 13;
+            this.label181.Text = "Kích hoạt chốt tức thời";
+            // 
+            // btnLatchActive
+            // 
+            this.btnLatchActive.Location = new System.Drawing.Point(176, 377);
+            this.btnLatchActive.Name = "btnLatchActive";
+            this.btnLatchActive.Size = new System.Drawing.Size(75, 23);
+            this.btnLatchActive.TabIndex = 17;
+            this.btnLatchActive.Text = "Ghi";
+            this.btnLatchActive.UseVisualStyleBackColor = true;
+            this.btnLatchActive.Click += new System.EventHandler(this.btnLatchActive_Click);
+            // 
+            // label182
+            // 
+            this.label182.AutoSize = true;
+            this.label182.Location = new System.Drawing.Point(15, 415);
+            this.label182.Name = "label182";
+            this.label182.Size = new System.Drawing.Size(80, 13);
+            this.label182.TabIndex = 13;
+            this.label182.Text = "Tạo sự kiện giả";
+            // 
+            // btnWriteEvent
+            // 
+            this.btnWriteEvent.Location = new System.Drawing.Point(365, 415);
+            this.btnWriteEvent.Name = "btnWriteEvent";
+            this.btnWriteEvent.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteEvent.TabIndex = 17;
+            this.btnWriteEvent.Text = "Ghi";
+            this.btnWriteEvent.UseVisualStyleBackColor = true;
+            this.btnWriteEvent.Click += new System.EventHandler(this.btnWriteEvent_Click);
+            // 
+            // cmbEventCreate
+            // 
+            this.cmbEventCreate.FormattingEnabled = true;
+            this.cmbEventCreate.Items.AddRange(new object[] {
+            "Reset MCU"});
+            this.cmbEventCreate.Location = new System.Drawing.Point(140, 416);
+            this.cmbEventCreate.Name = "cmbEventCreate";
+            this.cmbEventCreate.Size = new System.Drawing.Size(194, 21);
+            this.cmbEventCreate.TabIndex = 18;
+            // 
+            // label183
+            // 
+            this.label183.AutoSize = true;
+            this.label183.Location = new System.Drawing.Point(15, 460);
+            this.label183.Name = "label183";
+            this.label183.Size = new System.Drawing.Size(113, 13);
+            this.label183.TabIndex = 13;
+            this.label183.Text = "Kích hoạt đẩy tức thời";
+            // 
+            // btnPushActive
+            // 
+            this.btnPushActive.Location = new System.Drawing.Point(176, 455);
+            this.btnPushActive.Name = "btnPushActive";
+            this.btnPushActive.Size = new System.Drawing.Size(75, 23);
+            this.btnPushActive.TabIndex = 17;
+            this.btnPushActive.Text = "Ghi";
+            this.btnPushActive.UseVisualStyleBackColor = true;
+            this.btnPushActive.Click += new System.EventHandler(this.btnPushActive_Click);
+            // 
+            // label184
+            // 
+            this.label184.AutoSize = true;
+            this.label184.Location = new System.Drawing.Point(15, 505);
+            this.label184.Name = "label184";
+            this.label184.Size = new System.Drawing.Size(68, 13);
+            this.label184.TabIndex = 13;
+            this.label184.Text = "Factory reset";
+            // 
+            // btnFactoryReset
+            // 
+            this.btnFactoryReset.Location = new System.Drawing.Point(176, 500);
+            this.btnFactoryReset.Name = "btnFactoryReset";
+            this.btnFactoryReset.Size = new System.Drawing.Size(75, 23);
+            this.btnFactoryReset.TabIndex = 17;
+            this.btnFactoryReset.Text = "Ghi";
+            this.btnFactoryReset.UseVisualStyleBackColor = true;
+            this.btnFactoryReset.Click += new System.EventHandler(this.btnFactoryReset_Click);
+            // 
+            // lblWriteSerialStatus
+            // 
+            this.lblWriteSerialStatus.AutoSize = true;
+            this.lblWriteSerialStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWriteSerialStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblWriteSerialStatus.Location = new System.Drawing.Point(789, 28);
+            this.lblWriteSerialStatus.Name = "lblWriteSerialStatus";
+            this.lblWriteSerialStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblWriteSerialStatus.TabIndex = 20;
+            this.lblWriteSerialStatus.Text = "Trạng thái ghi";
+            // 
+            // cmbDeviceStatusAdvCfg
+            // 
+            this.cmbDeviceStatusAdvCfg.FormattingEnabled = true;
+            this.cmbDeviceStatusAdvCfg.Location = new System.Drawing.Point(471, 62);
+            this.cmbDeviceStatusAdvCfg.Name = "cmbDeviceStatusAdvCfg";
+            this.cmbDeviceStatusAdvCfg.Size = new System.Drawing.Size(194, 21);
+            this.cmbDeviceStatusAdvCfg.TabIndex = 18;
+            // 
+            // lblWriteDeviceStatusAdvCfgStatus
+            // 
+            this.lblWriteDeviceStatusAdvCfgStatus.AutoSize = true;
+            this.lblWriteDeviceStatusAdvCfgStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWriteDeviceStatusAdvCfgStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblWriteDeviceStatusAdvCfgStatus.Location = new System.Drawing.Point(789, 65);
+            this.lblWriteDeviceStatusAdvCfgStatus.Name = "lblWriteDeviceStatusAdvCfgStatus";
+            this.lblWriteDeviceStatusAdvCfgStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblWriteDeviceStatusAdvCfgStatus.TabIndex = 20;
+            this.lblWriteDeviceStatusAdvCfgStatus.Text = "Trạng thái ghi";
+            // 
+            // lblWriteMcuResetStatus
+            // 
+            this.lblWriteMcuResetStatus.AutoSize = true;
+            this.lblWriteMcuResetStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWriteMcuResetStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblWriteMcuResetStatus.Location = new System.Drawing.Point(789, 104);
+            this.lblWriteMcuResetStatus.Name = "lblWriteMcuResetStatus";
+            this.lblWriteMcuResetStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblWriteMcuResetStatus.TabIndex = 20;
+            this.lblWriteMcuResetStatus.Text = "Trạng thái ghi";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colEventStt,
+            this.colEventMeterType,
+            this.colEventMeterSerial,
+            this.colEventData,
+            this.colEventTime});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 76);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(938, 644);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // colEventStt
+            // 
+            this.colEventStt.HeaderText = "STT";
+            this.colEventStt.Name = "colEventStt";
+            this.colEventStt.Width = 50;
+            // 
+            // colEventMeterType
+            // 
+            this.colEventMeterType.HeaderText = "Loại";
+            this.colEventMeterType.Name = "colEventMeterType";
+            this.colEventMeterType.Width = 150;
+            // 
+            // colEventMeterSerial
+            // 
+            this.colEventMeterSerial.HeaderText = "Serial number";
+            this.colEventMeterSerial.Name = "colEventMeterSerial";
+            this.colEventMeterSerial.Width = 200;
+            // 
+            // colEventData
+            // 
+            this.colEventData.HeaderText = "Sự kiện";
+            this.colEventData.Name = "colEventData";
+            this.colEventData.Width = 300;
+            // 
+            // colEventTime
+            // 
+            this.colEventTime.HeaderText = "Thời gian";
+            this.colEventTime.Name = "colEventTime";
+            this.colEventTime.Width = 200;
+            // 
+            // label185
+            // 
+            this.label185.AutoSize = true;
+            this.label185.Location = new System.Drawing.Point(20, 48);
+            this.label185.Name = "label185";
+            this.label185.Size = new System.Drawing.Size(278, 13);
+            this.label185.TabIndex = 21;
+            this.label185.Text = "Không nhập ô thứ hai nếu muốn đọc đến sự kiện xa nhất";
+            // 
+            // label186
+            // 
+            this.label186.AutoSize = true;
+            this.label186.Location = new System.Drawing.Point(20, 32);
+            this.label186.Name = "label186";
+            this.label186.Size = new System.Drawing.Size(282, 13);
+            this.label186.TabIndex = 22;
+            this.label186.Text = "Không nhập ô thứ nhất nếu muốn đọc từ sự kiện gần nhất";
+            // 
+            // label187
+            // 
+            this.label187.AutoSize = true;
+            this.label187.Location = new System.Drawing.Point(216, 16);
+            this.label187.Name = "label187";
+            this.label187.Size = new System.Drawing.Size(63, 13);
+            this.label187.TabIndex = 23;
+            this.label187.Text = "đến sự kiện";
+            // 
+            // label188
+            // 
+            this.label188.AutoSize = true;
+            this.label188.Location = new System.Drawing.Point(20, 16);
+            this.label188.Name = "label188";
+            this.label188.Size = new System.Drawing.Size(76, 13);
+            this.label188.TabIndex = 24;
+            this.label188.Text = "Đọc từ sự kiện";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(485, 11);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Dừng";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(399, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Đọc";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(288, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(105, 12);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 18;
             // 
             // ucMain
             // 
@@ -7448,12 +8062,17 @@
             this.tabLatchData.ResumeLayout(false);
             this.tabLatchData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLatchInfo)).EndInit();
+            this.tabEventData.ResumeLayout(false);
+            this.tabEventData.PerformLayout();
+            this.tabAdvance.ResumeLayout(false);
+            this.tabAdvance.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.groupBox28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLatchMeterDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8115,5 +8734,60 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLatchMeterReverse;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLatchMeterFlowRate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLatchMeterPressure;
+        private System.Windows.Forms.Button btnWriteSerialAdvCfg;
+        private System.Windows.Forms.Button btnReadSerialAdvCfg;
+        private System.Windows.Forms.TextBox txtWriteSerialAdvCfg;
+        private System.Windows.Forms.TextBox txtReadSerialAdvCfg;
+        private System.Windows.Forms.Label label171;
+        private System.Windows.Forms.Button btnWriteDeviceStatusAdvCfg;
+        private System.Windows.Forms.Button btnReadDeviceStatusAdvCfg;
+        private System.Windows.Forms.TextBox txtReadDeviceStatusAdvCfg;
+        private System.Windows.Forms.Label label172;
+        private System.Windows.Forms.Button btnTurnOffDevice;
+        private System.Windows.Forms.Button btnRebootDevice;
+        private System.Windows.Forms.Label label174;
+        private System.Windows.Forms.Label label173;
+        private System.Windows.Forms.Button btnResetConfig;
+        private System.Windows.Forms.Label label175;
+        private System.Windows.Forms.Label label176;
+        private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.Button btnWriteMcuReset;
+        private System.Windows.Forms.Button btnReadMcuReset;
+        private System.Windows.Forms.TextBox txtWriteMcuReset;
+        private System.Windows.Forms.TextBox txtReadMcuReset;
+        private System.Windows.Forms.Label label177;
+        private System.Windows.Forms.Button btnEraseErrLog;
+        private System.Windows.Forms.Button btnEraseEventData;
+        private System.Windows.Forms.Button btnEraseLatchData;
+        private System.Windows.Forms.Label label180;
+        private System.Windows.Forms.Label label179;
+        private System.Windows.Forms.Label label178;
+        private System.Windows.Forms.Button btnWriteEvent;
+        private System.Windows.Forms.Button btnLatchActive;
+        private System.Windows.Forms.Label label182;
+        private System.Windows.Forms.Label label181;
+        private System.Windows.Forms.ComboBox cmbEventCreate;
+        private System.Windows.Forms.Button btnPushActive;
+        private System.Windows.Forms.Label label183;
+        private System.Windows.Forms.Button btnFactoryReset;
+        private System.Windows.Forms.Label label184;
+        private System.Windows.Forms.Label lblWriteSerialStatus;
+        private System.Windows.Forms.ComboBox cmbDeviceStatusAdvCfg;
+        private System.Windows.Forms.Label lblWriteMcuResetStatus;
+        private System.Windows.Forms.Label lblWriteDeviceStatusAdvCfgStatus;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventStt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventMeterType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventMeterSerial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventTime;
+        private System.Windows.Forms.Label label185;
+        private System.Windows.Forms.Label label186;
+        private System.Windows.Forms.Label label187;
+        private System.Windows.Forms.Label label188;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

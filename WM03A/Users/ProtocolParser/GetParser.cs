@@ -542,5 +542,15 @@ namespace WM03A
 
             return true;
         }
+
+        public static bool McuResetCount(byte[] frame, out byte count)
+        {
+            count = 0;
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+            if (payload.Length < 1)
+                return false;
+            count = payload[0];
+            return true;
+        }
     }
 }

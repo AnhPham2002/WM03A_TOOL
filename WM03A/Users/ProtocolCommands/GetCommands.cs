@@ -154,5 +154,16 @@ namespace WM03A
                 payload: payload,
                 out frame);
         }
+
+        public static bool McuResetCount(out byte[] frame)
+        {
+            return Protocol.Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Get,
+                id: (byte)ConfigId.McuResetCount,
+                payload: null,
+                out frame);
+        }
     }
 }

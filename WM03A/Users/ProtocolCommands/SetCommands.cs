@@ -10,6 +10,27 @@ namespace WM03A.Users.ProtocolCommands
 {
     internal class SetCommands
     {
+        public static bool ModuleSerial(string serial, out byte[] frame)
+        {
+            frame = null;
+
+            if (serial.Length != 12 || !serial.All(char.IsDigit))
+            {
+                return false;
+            }
+
+            ulong value = ulong.Parse(serial);
+            byte[] payload = BitConverter.GetBytes(value);
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.ModuleSerial,
+                payload: payload,
+                out frame);
+        }
+
         public static bool DateTime(DateTime dateTime, out byte[] frame)
         {
             byte[] payload =
@@ -532,6 +553,134 @@ namespace WM03A.Users.ProtocolCommands
                 return false;
 
             return Pack(true, PROTOCOL_MODULE_SERIAL_COMMON, (byte)CmdCode.Set, (byte)ConfigId.PressureSensor, payload.ToArray(), out frame);
+        }
+
+        public static bool Reboot(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.Reboot,
+                payload: null,
+                out frame);
+        }
+
+        public static bool ResetSetting(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.ResetSetting,
+                payload: null,
+                out frame);
+        }
+
+        public static bool ResetPassword(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.ResetPassword,
+                payload: null,
+                out frame);
+        }
+
+        public static bool McuResetCount(string count, out byte[] frame)
+        {
+            frame = null;
+
+            byte value = byte.Parse(count);
+
+            if (string.IsNullOrWhiteSpace(count))
+                return false;
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.McuResetCount,
+                payload: new byte[] { value },
+                out frame);
+        }
+
+        public static bool EraseLatchData(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.EraseMeasurementData,
+                payload: null,
+                out frame);
+        }
+
+        public static bool EraseEventData(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.EraseEventData,
+                payload: null,
+                out frame);
+        }
+
+        public static bool EraseErrLog(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.EraseLogData,
+                payload: null,
+                out frame);
+        }
+
+        public static bool LatchActive(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.LatchImmediately,
+                payload: null,
+                out frame);
+        }
+
+        public static bool EventCreate(byte eventCode, out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.EventCreate,
+                payload: new byte[] { eventCode },
+                out frame);
+        }
+
+        public static bool PushActive(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.PushImmediately,
+                payload: null,
+                out frame);
+        }
+
+        public static bool FactoryReset(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.FactoryReset,
+                payload: null,
+                out frame);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using WM03A.Users.Model;
 using WM03A.Users.ProtocolCommands;
 using WM03A.Users.ProtocolParser;
@@ -57,6 +58,10 @@ namespace WM03A
             lblPressureSensor1SettingStatus.Text = string.Empty;
             lblPressureSensor2SettingStatus.Text = string.Empty;
             lblLatchDateTime.Text = string.Empty;
+
+            lblWriteSerialStatus.Text = string.Empty;
+            lblWriteDeviceStatusAdvCfgStatus.Text = string.Empty;
+            lblWriteMcuResetStatus.Text = string.Empty;
 
             cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
             cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
@@ -3338,6 +3343,129 @@ namespace WM03A
             _stopReadLatchData = true;
         }
 
+
+        //-----------------------Advanced Setting--------------------------------//
+
+        private async void btnReadSerialAdvCfg_Click(object sender, EventArgs e)
+        {
+            GetCommands.ModuleSerial(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok)
+            {
+                ulong serial = GetParser.ModuleSerial(rxFrame);
+                txtReadSerialAdvCfg.Text = serial.ToString("D12");
+            }
+        }
+
+        private async void btnWriteSerialAdvCfg_Click(object sender, EventArgs e)
+        {
+            if (SetCommands.ModuleSerial(txtWriteSerialAdvCfg.Text, out byte[] txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+                if (ok && SetParser.ModuleSerial(rxFrame))
+                {
+                    lblWriteSerialStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblWriteSerialStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblWriteSerialStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblWriteSerialStatus.Text = string.Empty;
+            return;
+        }
+
+        private async void btnReadMcuReset_Click(object sender, EventArgs e)
+        {
+            GetCommands.McuResetCount(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+            if (ok && GetParser.McuResetCount(rxFrame, out byte count))
+            {
+                txtReadMcuReset.Text = count.ToString();
+            }
+        }
+
+        private async void btnWriteMcuReset_Click(object sender, EventArgs e)
+        {
+            if (SetCommands.McuResetCount(txtWriteMcuReset.Text, out byte[] txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+                if (ok && SetParser.McuResetCount(rxFrame))
+                {
+                    lblWriteMcuResetStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblWriteMcuResetStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblWriteMcuResetStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblWriteMcuResetStatus.Text = string.Empty;
+            return;
+        }
+
+        private async void btnRebootDevice_Click(object sender, EventArgs e)
+        {
+            SetCommands.Reboot(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 1);
+        }
+
+        private async void btnResetConfig_Click(object sender, EventArgs e)
+        {
+            SetCommands.ResetSetting(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            SetCommands.ResetPassword(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnEraseLatchData_Click(object sender, EventArgs e)
+        {
+            SetCommands.EraseLatchData(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnEraseEventData_Click(object sender, EventArgs e)
+        {
+            SetCommands.EraseEventData(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnEraseErrLog_Click(object sender, EventArgs e)
+        {
+            SetCommands.EraseErrLog(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnLatchActive_Click(object sender, EventArgs e)
+        {
+            SetCommands.LatchActive(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnWriteEvent_Click(object sender, EventArgs e)
+        {
+            SetCommands.EventCreate((byte)cmbEventCreate.SelectedIndex, out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnPushActive_Click(object sender, EventArgs e)
+        {
+            SetCommands.PushActive(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
+
+        private async void btnFactoryReset_Click(object sender, EventArgs e)
+        {
+            SetCommands.FactoryReset(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 500);
+        }
 
         // ----------------------------------------------------------------------
         // Logic functions
