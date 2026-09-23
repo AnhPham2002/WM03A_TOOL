@@ -9,6 +9,28 @@ namespace WM03A
 {
     internal class QueryCommands
     {
+        public static bool BootloaderVersion(out byte[] frame)
+        {
+            return Pack(
+                encrypt: false,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.BootloaderVersion,
+                payload: null,
+                out frame);
+        }
+
+        public static bool FirmwareVersion(out byte[] frame)
+        {
+            return Pack(
+                encrypt: false,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.FirmwareVersion,
+                payload: null,
+                out frame);
+        }
+
         public static bool SimNetworkInfo(out byte[] frame)
         {
             return Pack(

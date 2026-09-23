@@ -10,13 +10,11 @@ namespace WM03A
 {
     internal class QueryParser
     {
-        private const int MAX_PULSE_METER_COUNT = 4;
-        private const int MAX_MODBUS_METER_COUNT = 4;
-        private const int MAX_PRESSURE_SENSOR_COUNT = 2;
-
         private const int MAX_PULSE_GATE_COUNT = 4;
         private const int EEPROM_METADATA_SIZE = 16;
         private const int PULSE_COUNT_SIZE = 16;
+
+        private const int VERSION_SIZE = 10;
 
         public struct MeterData
         {
@@ -24,6 +22,26 @@ namespace WM03A
             public double ForwardTotalizer;
             public double ReverseTotalizer;
             public double FlowRate;
+        }
+
+        public static bool BootloaderVersion(byte[] frame, out string version)
+        {
+            version = null;
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+            if (payload.Length < VERSION_SIZE)
+                return false;
+            version = Encoding.ASCII.GetString(payload, 0, VERSION_SIZE);
+            return true;
+        }
+
+        public static bool FirmwareVersion(byte[] frame, out string version)
+        {
+            version = null;
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+            if (payload.Length < VERSION_SIZE)
+                return false;
+            version = Encoding.ASCII.GetString(payload, 0, VERSION_SIZE);
+            return true;
         }
 
         public static bool SimNetworkInfo(byte[] frame, out byte[] ccid, out sbyte rssi, out sbyte rsrp, out sbyte rsrq, out sbyte rssnr)

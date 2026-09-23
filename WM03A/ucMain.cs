@@ -3661,6 +3661,22 @@ if (userIndex >= ushort.MaxValue)
                 txtModuleSerialOverall.Text = serial.ToString("D12");
             }
 
+            // Read Bootloader version
+            QueryCommands.BootloaderVersion(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            if (ok && QueryParser.BootloaderVersion(rxFrame, out string bootVer))
+            {
+                txtBootloaderVersion.Text = bootVer;
+            }
+
+            // Read Firmware version
+            QueryCommands.FirmwareVersion(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            if (ok && QueryParser.FirmwareVersion(rxFrame, out string fwVer))
+            {
+                txtFirmwareVersion.Text = fwVer;
+            }
+
             // Read Date Time
             GetCommands.DateTime(out txFrame);
             (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
