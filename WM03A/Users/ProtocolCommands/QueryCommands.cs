@@ -82,5 +82,16 @@ namespace WM03A
                 },
                 out frame);
         }
+
+        public static bool Metadata(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.Metadata,
+                payload: null,
+                out frame);
+        }
     }
 }

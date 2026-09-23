@@ -14,6 +14,10 @@ namespace WM03A
         private const int MAX_MODBUS_METER_COUNT = 4;
         private const int MAX_PRESSURE_SENSOR_COUNT = 2;
 
+        private const int MAX_PULSE_GATE_COUNT = 4;
+        private const int EEPROM_METADATA_SIZE = 16;
+        private const int PULSE_COUNT_SIZE = 16;
+
         public struct MeterData
         {
             public byte[] MeterSerial;
@@ -241,6 +245,99 @@ namespace WM03A
                 MeterType = meterType,
                 SerialNumber = serialNumber,
                 EventCode = eventCode
+            };
+
+            return true;
+        }
+
+        public static bool Metadata(byte[] frame, out MetadataData data)
+        {
+            data = null;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null)
+            {
+                return false;
+            }
+
+            int expectedLength = sizeof(ulong) + EEPROM_METADATA_SIZE + sizeof(ulong) + sizeof(byte) + (MAX_PULSE_GATE_COUNT * PULSE_COUNT_SIZE);
+
+            if (payload.Length != expectedLength)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            ulong sequenceMeta = BitConverter.ToUInt64(payload, index);
+            index += sizeof(ulong);
+
+            ushort nextLatchSaveIndex = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort nextLatchLoadIndex = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort latchCount = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort nextEventSaveIndex = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort nextEventLoadIndex = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort eventCount = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort nextLogSaveIndex = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort logCount = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ulong sequenceRuntime = BitConverter.ToUInt64(payload, index);
+            index += sizeof(ulong);
+
+            byte resetCount = payload[index++];
+
+            var pulseCounts = new List<PulseCountData>();
+
+            for (int i = 0; i < MAX_PULSE_GATE_COUNT; i++)
+            {
+                ulong forwardPulseCount = BitConverter.ToUInt64(payload, index);
+                index += sizeof(ulong);
+
+                ulong reversePulseCount = BitConverter.ToUInt64(payload, index);
+                index += sizeof(ulong);
+
+                pulseCounts.Add(new PulseCountData
+                {
+                    ForwardPulseCount = forwardPulseCount,
+                    ReversePulseCount = reversePulseCount
+                });
+            }
+
+            if (index != payload.Length)
+            {
+                return false;
+            }
+
+            data = new MetadataData
+            {
+                SequenceMeta = sequenceMeta,
+                NextLatchSaveIndex = nextLatchSaveIndex,
+                NextLatchLoadIndex = nextLatchLoadIndex,
+                LatchCount = latchCount,
+                NextEventSaveIndex = nextEventSaveIndex,
+                NextEventLoadIndex = nextEventLoadIndex,
+                EventCount = eventCount,
+                NextLogSaveIndex = nextLogSaveIndex,
+                LogCount = logCount,
+                SequenceRuntime = sequenceRuntime,
+                ResetCount = resetCount,
+                PulseCounts = pulseCounts
             };
 
             return true;

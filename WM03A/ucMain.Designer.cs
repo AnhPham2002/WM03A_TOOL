@@ -660,6 +660,8 @@
             this.colLatchMeterPressure = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblLatchDateTime = new System.Windows.Forms.Label();
             this.dgvLatchInfo = new System.Windows.Forms.DataGridView();
+            this.colSttLatchInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTimeLatchInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox28 = new System.Windows.Forms.GroupBox();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label170 = new System.Windows.Forms.Label();
@@ -680,6 +682,11 @@
             this.txtEndIndexEventQuery = new System.Windows.Forms.TextBox();
             this.txtBeginIndexEventQuery = new System.Windows.Forms.TextBox();
             this.dgvEventData = new System.Windows.Forms.DataGridView();
+            this.colEventStt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventMeterType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventMeterSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabOTA = new System.Windows.Forms.TabPage();
             this.tabChangePassword = new System.Windows.Forms.TabPage();
             this.tabAdvance = new System.Windows.Forms.TabPage();
@@ -687,6 +694,7 @@
             this.lblWriteDeviceStatusAdvCfgStatus = new System.Windows.Forms.Label();
             this.lblWriteSerialStatus = new System.Windows.Forms.Label();
             this.cmbDeviceStatusAdvCfg = new System.Windows.Forms.ComboBox();
+            this.cmbEventMeter = new System.Windows.Forms.ComboBox();
             this.cmbEventCreate = new System.Windows.Forms.ComboBox();
             this.btnWriteEvent = new System.Windows.Forms.Button();
             this.btnFactoryReset = new System.Windows.Forms.Button();
@@ -706,6 +714,7 @@
             this.btnReadDeviceStatusAdvCfg = new System.Windows.Forms.Button();
             this.btnReadSerialAdvCfg = new System.Windows.Forms.Button();
             this.label184 = new System.Windows.Forms.Label();
+            this.txtEventMeterIndex = new System.Windows.Forms.TextBox();
             this.txtWriteMcuReset = new System.Windows.Forms.TextBox();
             this.label183 = new System.Windows.Forms.Label();
             this.label182 = new System.Windows.Forms.Label();
@@ -731,15 +740,44 @@
             this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker6 = new System.ComponentModel.BackgroundWorker();
-            this.cmbEventMeter = new System.Windows.Forms.ComboBox();
-            this.txtEventMeterIndex = new System.Windows.Forms.TextBox();
-            this.colEventStt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEventMeterType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEventMeterSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEventData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEventTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSttLatchInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTimeLatchInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabMetadata = new System.Windows.Forms.TabPage();
+            this.txtNextSaveLatchIndex = new System.Windows.Forms.TextBox();
+            this.label189 = new System.Windows.Forms.Label();
+            this.btnReadMetadata = new System.Windows.Forms.Button();
+            this.txtNextLoadLatchIndex = new System.Windows.Forms.TextBox();
+            this.label190 = new System.Windows.Forms.Label();
+            this.txtLatchCount = new System.Windows.Forms.TextBox();
+            this.label191 = new System.Windows.Forms.Label();
+            this.txtNextSaveEventIndex = new System.Windows.Forms.TextBox();
+            this.label192 = new System.Windows.Forms.Label();
+            this.txtNextLoadEventIndex = new System.Windows.Forms.TextBox();
+            this.label193 = new System.Windows.Forms.Label();
+            this.txtEventCount = new System.Windows.Forms.TextBox();
+            this.label194 = new System.Windows.Forms.Label();
+            this.txtNextSaveErrLogIndex = new System.Windows.Forms.TextBox();
+            this.label195 = new System.Windows.Forms.Label();
+            this.txtErrLogCount = new System.Windows.Forms.TextBox();
+            this.label196 = new System.Windows.Forms.Label();
+            this.txtPulseForwardTotal1 = new System.Windows.Forms.TextBox();
+            this.label197 = new System.Windows.Forms.Label();
+            this.txtPulseReverseTotal1 = new System.Windows.Forms.TextBox();
+            this.label198 = new System.Windows.Forms.Label();
+            this.txtPulseForwardTotal2 = new System.Windows.Forms.TextBox();
+            this.label199 = new System.Windows.Forms.Label();
+            this.txtPulseReverseTotal2 = new System.Windows.Forms.TextBox();
+            this.label200 = new System.Windows.Forms.Label();
+            this.txtPulseForwardTotal3 = new System.Windows.Forms.TextBox();
+            this.label201 = new System.Windows.Forms.Label();
+            this.txtPulseReverseTotal3 = new System.Windows.Forms.TextBox();
+            this.label202 = new System.Windows.Forms.Label();
+            this.txtPulseForwardTotal4 = new System.Windows.Forms.TextBox();
+            this.label203 = new System.Windows.Forms.Label();
+            this.txtPulseReverseTotal4 = new System.Windows.Forms.TextBox();
+            this.label204 = new System.Windows.Forms.Label();
+            this.txtMetadataSeq = new System.Windows.Forms.TextBox();
+            this.label205 = new System.Windows.Forms.Label();
+            this.txtRuntimeSeq = new System.Windows.Forms.TextBox();
+            this.label206 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -795,6 +833,7 @@
             this.tabEventData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventData)).BeginInit();
             this.tabAdvance.SuspendLayout();
+            this.tabMetadata.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -7147,6 +7186,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabLatchData);
             this.tabControl3.Controls.Add(this.tabEventData);
+            this.tabControl3.Controls.Add(this.tabMetadata);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.Location = new System.Drawing.Point(0, 0);
             this.tabControl3.Name = "tabControl3";
@@ -7284,6 +7324,21 @@
             this.dgvLatchInfo.Size = new System.Drawing.Size(248, 635);
             this.dgvLatchInfo.TabIndex = 17;
             this.dgvLatchInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLatchInfo_CellClick);
+            // 
+            // colSttLatchInfo
+            // 
+            this.colSttLatchInfo.HeaderText = "STT";
+            this.colSttLatchInfo.Name = "colSttLatchInfo";
+            this.colSttLatchInfo.ReadOnly = true;
+            this.colSttLatchInfo.Width = 50;
+            // 
+            // colTimeLatchInfo
+            // 
+            this.colTimeLatchInfo.DataPropertyName = "Thời gian chốt";
+            this.colTimeLatchInfo.HeaderText = "Thời gian chốt";
+            this.colTimeLatchInfo.Name = "colTimeLatchInfo";
+            this.colTimeLatchInfo.ReadOnly = true;
+            this.colTimeLatchInfo.Width = 200;
             // 
             // groupBox28
             // 
@@ -7482,6 +7537,41 @@
             this.dgvEventData.Size = new System.Drawing.Size(938, 644);
             this.dgvEventData.TabIndex = 0;
             // 
+            // colEventStt
+            // 
+            this.colEventStt.HeaderText = "STT";
+            this.colEventStt.Name = "colEventStt";
+            this.colEventStt.ReadOnly = true;
+            this.colEventStt.Width = 50;
+            // 
+            // colEventMeterType
+            // 
+            this.colEventMeterType.HeaderText = "Loại";
+            this.colEventMeterType.Name = "colEventMeterType";
+            this.colEventMeterType.ReadOnly = true;
+            this.colEventMeterType.Width = 150;
+            // 
+            // colEventMeterSerial
+            // 
+            this.colEventMeterSerial.HeaderText = "Serial number";
+            this.colEventMeterSerial.Name = "colEventMeterSerial";
+            this.colEventMeterSerial.ReadOnly = true;
+            this.colEventMeterSerial.Width = 200;
+            // 
+            // colEventData
+            // 
+            this.colEventData.HeaderText = "Sự kiện";
+            this.colEventData.Name = "colEventData";
+            this.colEventData.ReadOnly = true;
+            this.colEventData.Width = 300;
+            // 
+            // colEventTime
+            // 
+            this.colEventTime.HeaderText = "Thời gian";
+            this.colEventTime.Name = "colEventTime";
+            this.colEventTime.ReadOnly = true;
+            this.colEventTime.Width = 200;
+            // 
             // tabOTA
             // 
             this.tabOTA.Location = new System.Drawing.Point(4, 22);
@@ -7592,6 +7682,19 @@
             this.cmbDeviceStatusAdvCfg.Name = "cmbDeviceStatusAdvCfg";
             this.cmbDeviceStatusAdvCfg.Size = new System.Drawing.Size(194, 21);
             this.cmbDeviceStatusAdvCfg.TabIndex = 18;
+            // 
+            // cmbEventMeter
+            // 
+            this.cmbEventMeter.FormattingEnabled = true;
+            this.cmbEventMeter.Items.AddRange(new object[] {
+            "Module",
+            "Pulse meter",
+            "Modbus meter",
+            "Pressure sensor"});
+            this.cmbEventMeter.Location = new System.Drawing.Point(160, 412);
+            this.cmbEventMeter.Name = "cmbEventMeter";
+            this.cmbEventMeter.Size = new System.Drawing.Size(118, 21);
+            this.cmbEventMeter.TabIndex = 18;
             // 
             // cmbEventCreate
             // 
@@ -7779,6 +7882,13 @@
             this.label184.TabIndex = 13;
             this.label184.Text = "Factory reset";
             // 
+            // txtEventMeterIndex
+            // 
+            this.txtEventMeterIndex.Location = new System.Drawing.Point(284, 411);
+            this.txtEventMeterIndex.Name = "txtEventMeterIndex";
+            this.txtEventMeterIndex.Size = new System.Drawing.Size(37, 20);
+            this.txtEventMeterIndex.TabIndex = 15;
+            // 
             // txtWriteMcuReset
             // 
             this.txtWriteMcuReset.Location = new System.Drawing.Point(471, 101);
@@ -7945,75 +8055,368 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // cmbEventMeter
+            // tabMetadata
             // 
-            this.cmbEventMeter.FormattingEnabled = true;
-            this.cmbEventMeter.Items.AddRange(new object[] {
-            "Module",
-            "Pulse meter",
-            "Modbus meter",
-            "Pressure sensor"});
-            this.cmbEventMeter.Location = new System.Drawing.Point(160, 412);
-            this.cmbEventMeter.Name = "cmbEventMeter";
-            this.cmbEventMeter.Size = new System.Drawing.Size(118, 21);
-            this.cmbEventMeter.TabIndex = 18;
+            this.tabMetadata.Controls.Add(this.btnReadMetadata);
+            this.tabMetadata.Controls.Add(this.label204);
+            this.tabMetadata.Controls.Add(this.label196);
+            this.tabMetadata.Controls.Add(this.txtPulseReverseTotal4);
+            this.tabMetadata.Controls.Add(this.txtErrLogCount);
+            this.tabMetadata.Controls.Add(this.label203);
+            this.tabMetadata.Controls.Add(this.label195);
+            this.tabMetadata.Controls.Add(this.txtPulseForwardTotal4);
+            this.tabMetadata.Controls.Add(this.label202);
+            this.tabMetadata.Controls.Add(this.txtNextSaveErrLogIndex);
+            this.tabMetadata.Controls.Add(this.txtPulseReverseTotal3);
+            this.tabMetadata.Controls.Add(this.label194);
+            this.tabMetadata.Controls.Add(this.label201);
+            this.tabMetadata.Controls.Add(this.txtEventCount);
+            this.tabMetadata.Controls.Add(this.txtPulseForwardTotal3);
+            this.tabMetadata.Controls.Add(this.label193);
+            this.tabMetadata.Controls.Add(this.label200);
+            this.tabMetadata.Controls.Add(this.txtNextLoadEventIndex);
+            this.tabMetadata.Controls.Add(this.txtPulseReverseTotal2);
+            this.tabMetadata.Controls.Add(this.label192);
+            this.tabMetadata.Controls.Add(this.label199);
+            this.tabMetadata.Controls.Add(this.txtNextSaveEventIndex);
+            this.tabMetadata.Controls.Add(this.txtPulseForwardTotal2);
+            this.tabMetadata.Controls.Add(this.label191);
+            this.tabMetadata.Controls.Add(this.label198);
+            this.tabMetadata.Controls.Add(this.txtLatchCount);
+            this.tabMetadata.Controls.Add(this.txtPulseReverseTotal1);
+            this.tabMetadata.Controls.Add(this.label190);
+            this.tabMetadata.Controls.Add(this.label197);
+            this.tabMetadata.Controls.Add(this.txtNextLoadLatchIndex);
+            this.tabMetadata.Controls.Add(this.txtPulseForwardTotal1);
+            this.tabMetadata.Controls.Add(this.label206);
+            this.tabMetadata.Controls.Add(this.label205);
+            this.tabMetadata.Controls.Add(this.label189);
+            this.tabMetadata.Controls.Add(this.txtRuntimeSeq);
+            this.tabMetadata.Controls.Add(this.txtMetadataSeq);
+            this.tabMetadata.Controls.Add(this.txtNextSaveLatchIndex);
+            this.tabMetadata.Location = new System.Drawing.Point(4, 22);
+            this.tabMetadata.Name = "tabMetadata";
+            this.tabMetadata.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMetadata.Size = new System.Drawing.Size(944, 723);
+            this.tabMetadata.TabIndex = 2;
+            this.tabMetadata.Text = "Metadata";
+            this.tabMetadata.UseVisualStyleBackColor = true;
             // 
-            // txtEventMeterIndex
+            // txtNextSaveLatchIndex
             // 
-            this.txtEventMeterIndex.Location = new System.Drawing.Point(284, 411);
-            this.txtEventMeterIndex.Name = "txtEventMeterIndex";
-            this.txtEventMeterIndex.Size = new System.Drawing.Size(37, 20);
-            this.txtEventMeterIndex.TabIndex = 15;
+            this.txtNextSaveLatchIndex.Location = new System.Drawing.Point(250, 75);
+            this.txtNextSaveLatchIndex.Name = "txtNextSaveLatchIndex";
+            this.txtNextSaveLatchIndex.ReadOnly = true;
+            this.txtNextSaveLatchIndex.Size = new System.Drawing.Size(98, 20);
+            this.txtNextSaveLatchIndex.TabIndex = 12;
             // 
-            // colEventStt
+            // label189
             // 
-            this.colEventStt.HeaderText = "STT";
-            this.colEventStt.Name = "colEventStt";
-            this.colEventStt.ReadOnly = true;
-            this.colEventStt.Width = 50;
+            this.label189.AutoSize = true;
+            this.label189.Location = new System.Drawing.Point(46, 78);
+            this.label189.Name = "label189";
+            this.label189.Size = new System.Drawing.Size(152, 13);
+            this.label189.TabIndex = 17;
+            this.label189.Text = "Index ghi dữ liệu chốt tiếp theo";
             // 
-            // colEventMeterType
+            // btnReadMetadata
             // 
-            this.colEventMeterType.HeaderText = "Loại";
-            this.colEventMeterType.Name = "colEventMeterType";
-            this.colEventMeterType.ReadOnly = true;
-            this.colEventMeterType.Width = 150;
+            this.btnReadMetadata.Location = new System.Drawing.Point(428, 442);
+            this.btnReadMetadata.Name = "btnReadMetadata";
+            this.btnReadMetadata.Size = new System.Drawing.Size(75, 23);
+            this.btnReadMetadata.TabIndex = 21;
+            this.btnReadMetadata.Text = "Đọc";
+            this.btnReadMetadata.UseVisualStyleBackColor = true;
+            this.btnReadMetadata.Click += new System.EventHandler(this.btnReadMetadata_Click);
             // 
-            // colEventMeterSerial
+            // txtNextLoadLatchIndex
             // 
-            this.colEventMeterSerial.HeaderText = "Serial number";
-            this.colEventMeterSerial.Name = "colEventMeterSerial";
-            this.colEventMeterSerial.ReadOnly = true;
-            this.colEventMeterSerial.Width = 200;
+            this.txtNextLoadLatchIndex.Location = new System.Drawing.Point(250, 105);
+            this.txtNextLoadLatchIndex.Name = "txtNextLoadLatchIndex";
+            this.txtNextLoadLatchIndex.ReadOnly = true;
+            this.txtNextLoadLatchIndex.Size = new System.Drawing.Size(98, 20);
+            this.txtNextLoadLatchIndex.TabIndex = 12;
             // 
-            // colEventData
+            // label190
             // 
-            this.colEventData.HeaderText = "Sự kiện";
-            this.colEventData.Name = "colEventData";
-            this.colEventData.ReadOnly = true;
-            this.colEventData.Width = 300;
+            this.label190.AutoSize = true;
+            this.label190.Location = new System.Drawing.Point(46, 108);
+            this.label190.Name = "label190";
+            this.label190.Size = new System.Drawing.Size(157, 13);
+            this.label190.TabIndex = 17;
+            this.label190.Text = "Index đọc dữ liệu chốt tiếp theo";
             // 
-            // colEventTime
+            // txtLatchCount
             // 
-            this.colEventTime.HeaderText = "Thời gian";
-            this.colEventTime.Name = "colEventTime";
-            this.colEventTime.ReadOnly = true;
-            this.colEventTime.Width = 200;
+            this.txtLatchCount.Location = new System.Drawing.Point(250, 137);
+            this.txtLatchCount.Name = "txtLatchCount";
+            this.txtLatchCount.ReadOnly = true;
+            this.txtLatchCount.Size = new System.Drawing.Size(98, 20);
+            this.txtLatchCount.TabIndex = 12;
             // 
-            // colSttLatchInfo
+            // label191
             // 
-            this.colSttLatchInfo.HeaderText = "STT";
-            this.colSttLatchInfo.Name = "colSttLatchInfo";
-            this.colSttLatchInfo.ReadOnly = true;
-            this.colSttLatchInfo.Width = 50;
+            this.label191.AutoSize = true;
+            this.label191.Location = new System.Drawing.Point(46, 140);
+            this.label191.Name = "label191";
+            this.label191.Size = new System.Drawing.Size(104, 13);
+            this.label191.TabIndex = 17;
+            this.label191.Text = "Tổng số dữ liệu chốt";
             // 
-            // colTimeLatchInfo
+            // txtNextSaveEventIndex
             // 
-            this.colTimeLatchInfo.DataPropertyName = "Thời gian chốt";
-            this.colTimeLatchInfo.HeaderText = "Thời gian chốt";
-            this.colTimeLatchInfo.Name = "colTimeLatchInfo";
-            this.colTimeLatchInfo.ReadOnly = true;
-            this.colTimeLatchInfo.Width = 200;
+            this.txtNextSaveEventIndex.Location = new System.Drawing.Point(250, 170);
+            this.txtNextSaveEventIndex.Name = "txtNextSaveEventIndex";
+            this.txtNextSaveEventIndex.ReadOnly = true;
+            this.txtNextSaveEventIndex.Size = new System.Drawing.Size(98, 20);
+            this.txtNextSaveEventIndex.TabIndex = 12;
+            // 
+            // label192
+            // 
+            this.label192.AutoSize = true;
+            this.label192.Location = new System.Drawing.Point(46, 173);
+            this.label192.Name = "label192";
+            this.label192.Size = new System.Drawing.Size(165, 13);
+            this.label192.TabIndex = 17;
+            this.label192.Text = "Index ghi dữ liệu sự kiện tiếp theo";
+            // 
+            // txtNextLoadEventIndex
+            // 
+            this.txtNextLoadEventIndex.Location = new System.Drawing.Point(250, 204);
+            this.txtNextLoadEventIndex.Name = "txtNextLoadEventIndex";
+            this.txtNextLoadEventIndex.ReadOnly = true;
+            this.txtNextLoadEventIndex.Size = new System.Drawing.Size(98, 20);
+            this.txtNextLoadEventIndex.TabIndex = 12;
+            // 
+            // label193
+            // 
+            this.label193.AutoSize = true;
+            this.label193.Location = new System.Drawing.Point(46, 207);
+            this.label193.Name = "label193";
+            this.label193.Size = new System.Drawing.Size(170, 13);
+            this.label193.TabIndex = 17;
+            this.label193.Text = "Index đọc dữ liệu sự kiện tiếp theo";
+            // 
+            // txtEventCount
+            // 
+            this.txtEventCount.Location = new System.Drawing.Point(250, 238);
+            this.txtEventCount.Name = "txtEventCount";
+            this.txtEventCount.ReadOnly = true;
+            this.txtEventCount.Size = new System.Drawing.Size(98, 20);
+            this.txtEventCount.TabIndex = 12;
+            // 
+            // label194
+            // 
+            this.label194.AutoSize = true;
+            this.label194.Location = new System.Drawing.Point(46, 241);
+            this.label194.Name = "label194";
+            this.label194.Size = new System.Drawing.Size(117, 13);
+            this.label194.TabIndex = 17;
+            this.label194.Text = "Tổng số dữ liệu sự kiện";
+            // 
+            // txtNextSaveErrLogIndex
+            // 
+            this.txtNextSaveErrLogIndex.Location = new System.Drawing.Point(250, 271);
+            this.txtNextSaveErrLogIndex.Name = "txtNextSaveErrLogIndex";
+            this.txtNextSaveErrLogIndex.ReadOnly = true;
+            this.txtNextSaveErrLogIndex.Size = new System.Drawing.Size(98, 20);
+            this.txtNextSaveErrLogIndex.TabIndex = 12;
+            // 
+            // label195
+            // 
+            this.label195.AutoSize = true;
+            this.label195.Location = new System.Drawing.Point(46, 274);
+            this.label195.Name = "label195";
+            this.label195.Size = new System.Drawing.Size(124, 13);
+            this.label195.TabIndex = 17;
+            this.label195.Text = "Index ghi log lỗi tiếp theo";
+            // 
+            // txtErrLogCount
+            // 
+            this.txtErrLogCount.Location = new System.Drawing.Point(250, 303);
+            this.txtErrLogCount.Name = "txtErrLogCount";
+            this.txtErrLogCount.ReadOnly = true;
+            this.txtErrLogCount.Size = new System.Drawing.Size(98, 20);
+            this.txtErrLogCount.TabIndex = 12;
+            // 
+            // label196
+            // 
+            this.label196.AutoSize = true;
+            this.label196.Location = new System.Drawing.Point(46, 306);
+            this.label196.Name = "label196";
+            this.label196.Size = new System.Drawing.Size(62, 13);
+            this.label196.TabIndex = 17;
+            this.label196.Text = "Tổng log lỗi";
+            // 
+            // txtPulseForwardTotal1
+            // 
+            this.txtPulseForwardTotal1.Location = new System.Drawing.Point(691, 71);
+            this.txtPulseForwardTotal1.Name = "txtPulseForwardTotal1";
+            this.txtPulseForwardTotal1.ReadOnly = true;
+            this.txtPulseForwardTotal1.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseForwardTotal1.TabIndex = 12;
+            // 
+            // label197
+            // 
+            this.label197.AutoSize = true;
+            this.label197.Location = new System.Drawing.Point(588, 74);
+            this.label197.Name = "label197";
+            this.label197.Size = new System.Drawing.Size(63, 13);
+            this.label197.TabIndex = 17;
+            this.label197.Text = "Xung xuôi 1";
+            // 
+            // txtPulseReverseTotal1
+            // 
+            this.txtPulseReverseTotal1.Location = new System.Drawing.Point(691, 101);
+            this.txtPulseReverseTotal1.Name = "txtPulseReverseTotal1";
+            this.txtPulseReverseTotal1.ReadOnly = true;
+            this.txtPulseReverseTotal1.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseReverseTotal1.TabIndex = 12;
+            // 
+            // label198
+            // 
+            this.label198.AutoSize = true;
+            this.label198.Location = new System.Drawing.Point(588, 104);
+            this.label198.Name = "label198";
+            this.label198.Size = new System.Drawing.Size(74, 13);
+            this.label198.TabIndex = 17;
+            this.label198.Text = "Xung ngược 1";
+            // 
+            // txtPulseForwardTotal2
+            // 
+            this.txtPulseForwardTotal2.Location = new System.Drawing.Point(691, 133);
+            this.txtPulseForwardTotal2.Name = "txtPulseForwardTotal2";
+            this.txtPulseForwardTotal2.ReadOnly = true;
+            this.txtPulseForwardTotal2.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseForwardTotal2.TabIndex = 12;
+            // 
+            // label199
+            // 
+            this.label199.AutoSize = true;
+            this.label199.Location = new System.Drawing.Point(588, 136);
+            this.label199.Name = "label199";
+            this.label199.Size = new System.Drawing.Size(63, 13);
+            this.label199.TabIndex = 17;
+            this.label199.Text = "Xung xuôi 2";
+            // 
+            // txtPulseReverseTotal2
+            // 
+            this.txtPulseReverseTotal2.Location = new System.Drawing.Point(691, 166);
+            this.txtPulseReverseTotal2.Name = "txtPulseReverseTotal2";
+            this.txtPulseReverseTotal2.ReadOnly = true;
+            this.txtPulseReverseTotal2.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseReverseTotal2.TabIndex = 12;
+            // 
+            // label200
+            // 
+            this.label200.AutoSize = true;
+            this.label200.Location = new System.Drawing.Point(588, 169);
+            this.label200.Name = "label200";
+            this.label200.Size = new System.Drawing.Size(74, 13);
+            this.label200.TabIndex = 17;
+            this.label200.Text = "Xung ngược 2";
+            // 
+            // txtPulseForwardTotal3
+            // 
+            this.txtPulseForwardTotal3.Location = new System.Drawing.Point(691, 200);
+            this.txtPulseForwardTotal3.Name = "txtPulseForwardTotal3";
+            this.txtPulseForwardTotal3.ReadOnly = true;
+            this.txtPulseForwardTotal3.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseForwardTotal3.TabIndex = 12;
+            // 
+            // label201
+            // 
+            this.label201.AutoSize = true;
+            this.label201.Location = new System.Drawing.Point(588, 203);
+            this.label201.Name = "label201";
+            this.label201.Size = new System.Drawing.Size(63, 13);
+            this.label201.TabIndex = 17;
+            this.label201.Text = "Xung xuôi 3";
+            // 
+            // txtPulseReverseTotal3
+            // 
+            this.txtPulseReverseTotal3.Location = new System.Drawing.Point(691, 234);
+            this.txtPulseReverseTotal3.Name = "txtPulseReverseTotal3";
+            this.txtPulseReverseTotal3.ReadOnly = true;
+            this.txtPulseReverseTotal3.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseReverseTotal3.TabIndex = 12;
+            // 
+            // label202
+            // 
+            this.label202.AutoSize = true;
+            this.label202.Location = new System.Drawing.Point(588, 237);
+            this.label202.Name = "label202";
+            this.label202.Size = new System.Drawing.Size(74, 13);
+            this.label202.TabIndex = 17;
+            this.label202.Text = "Xung ngược 3";
+            // 
+            // txtPulseForwardTotal4
+            // 
+            this.txtPulseForwardTotal4.Location = new System.Drawing.Point(691, 267);
+            this.txtPulseForwardTotal4.Name = "txtPulseForwardTotal4";
+            this.txtPulseForwardTotal4.ReadOnly = true;
+            this.txtPulseForwardTotal4.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseForwardTotal4.TabIndex = 12;
+            // 
+            // label203
+            // 
+            this.label203.AutoSize = true;
+            this.label203.Location = new System.Drawing.Point(588, 270);
+            this.label203.Name = "label203";
+            this.label203.Size = new System.Drawing.Size(63, 13);
+            this.label203.TabIndex = 17;
+            this.label203.Text = "Xung xuôi 4";
+            // 
+            // txtPulseReverseTotal4
+            // 
+            this.txtPulseReverseTotal4.Location = new System.Drawing.Point(691, 299);
+            this.txtPulseReverseTotal4.Name = "txtPulseReverseTotal4";
+            this.txtPulseReverseTotal4.ReadOnly = true;
+            this.txtPulseReverseTotal4.Size = new System.Drawing.Size(98, 20);
+            this.txtPulseReverseTotal4.TabIndex = 12;
+            // 
+            // label204
+            // 
+            this.label204.AutoSize = true;
+            this.label204.Location = new System.Drawing.Point(588, 302);
+            this.label204.Name = "label204";
+            this.label204.Size = new System.Drawing.Size(74, 13);
+            this.label204.TabIndex = 17;
+            this.label204.Text = "Xung ngược 4";
+            // 
+            // txtMetadataSeq
+            // 
+            this.txtMetadataSeq.Location = new System.Drawing.Point(250, 49);
+            this.txtMetadataSeq.Name = "txtMetadataSeq";
+            this.txtMetadataSeq.ReadOnly = true;
+            this.txtMetadataSeq.Size = new System.Drawing.Size(98, 20);
+            this.txtMetadataSeq.TabIndex = 12;
+            // 
+            // label205
+            // 
+            this.label205.AutoSize = true;
+            this.label205.Location = new System.Drawing.Point(46, 52);
+            this.label205.Name = "label205";
+            this.label205.Size = new System.Drawing.Size(56, 13);
+            this.label205.TabIndex = 17;
+            this.label205.Text = "Sequence";
+            // 
+            // txtRuntimeSeq
+            // 
+            this.txtRuntimeSeq.Location = new System.Drawing.Point(691, 45);
+            this.txtRuntimeSeq.Name = "txtRuntimeSeq";
+            this.txtRuntimeSeq.ReadOnly = true;
+            this.txtRuntimeSeq.Size = new System.Drawing.Size(98, 20);
+            this.txtRuntimeSeq.TabIndex = 12;
+            // 
+            // label206
+            // 
+            this.label206.AutoSize = true;
+            this.label206.Location = new System.Drawing.Point(588, 49);
+            this.label206.Name = "label206";
+            this.label206.Size = new System.Drawing.Size(56, 13);
+            this.label206.TabIndex = 17;
+            this.label206.Text = "Sequence";
             // 
             // ucMain
             // 
@@ -8113,6 +8516,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventData)).EndInit();
             this.tabAdvance.ResumeLayout(false);
             this.tabAdvance.PerformLayout();
+            this.tabMetadata.ResumeLayout(false);
+            this.tabMetadata.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8832,5 +9237,43 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEventTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSttLatchInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLatchInfo;
+        private System.Windows.Forms.TabPage tabMetadata;
+        private System.Windows.Forms.Button btnReadMetadata;
+        private System.Windows.Forms.Label label189;
+        private System.Windows.Forms.TextBox txtNextSaveLatchIndex;
+        private System.Windows.Forms.Label label196;
+        private System.Windows.Forms.TextBox txtErrLogCount;
+        private System.Windows.Forms.Label label195;
+        private System.Windows.Forms.TextBox txtNextSaveErrLogIndex;
+        private System.Windows.Forms.Label label194;
+        private System.Windows.Forms.TextBox txtEventCount;
+        private System.Windows.Forms.Label label193;
+        private System.Windows.Forms.TextBox txtNextLoadEventIndex;
+        private System.Windows.Forms.Label label192;
+        private System.Windows.Forms.TextBox txtNextSaveEventIndex;
+        private System.Windows.Forms.Label label191;
+        private System.Windows.Forms.TextBox txtLatchCount;
+        private System.Windows.Forms.Label label190;
+        private System.Windows.Forms.TextBox txtNextLoadLatchIndex;
+        private System.Windows.Forms.Label label204;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal4;
+        private System.Windows.Forms.Label label203;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal4;
+        private System.Windows.Forms.Label label202;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal3;
+        private System.Windows.Forms.Label label201;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal3;
+        private System.Windows.Forms.Label label200;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal2;
+        private System.Windows.Forms.Label label199;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal2;
+        private System.Windows.Forms.Label label198;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal1;
+        private System.Windows.Forms.Label label197;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal1;
+        private System.Windows.Forms.Label label206;
+        private System.Windows.Forms.Label label205;
+        private System.Windows.Forms.TextBox txtRuntimeSeq;
+        private System.Windows.Forms.TextBox txtMetadataSeq;
     }
 }

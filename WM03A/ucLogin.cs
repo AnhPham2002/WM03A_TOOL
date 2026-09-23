@@ -142,7 +142,7 @@ namespace WM03A
                     out txFrame);
 
                 // Không nhận được frame
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
                 if (!ok)
                 {
                     MessageBox.Show(

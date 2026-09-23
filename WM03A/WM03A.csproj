@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Users\Model\EventData.cs" />
     <Compile Include="Users\Model\LatchData.cs" />
+    <Compile Include="Users\Model\Metadata.cs" />
     <Compile Include="Users\Model\ModbusMeterConfig.cs" />
     <Compile Include="Users\Model\PressureSensorConfig.cs" />
     <Compile Include="Users\Model\PulseMeterConfig.cs" />

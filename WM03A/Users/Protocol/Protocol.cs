@@ -117,7 +117,8 @@ namespace WM03A
             Latch = 0x07,
             Event = 0x08,
             PushStatus = 0x09,
-            Log = 0x0A
+            Log = 0x0A,
+            Metadata = 0x0B
         }
 
         // ============================================================
@@ -224,25 +225,34 @@ namespace WM03A
             }
             else
             {
-                // Plaintext = 2 bytes length + payload + 2 bytes inner CRC16 
-                int plaintextLen = sizeof(ushort) + payload.Length + sizeof(ushort);
-                ciphertextBuf = new byte[Align16(plaintextLen)]; // đủ chỗ cho padding 
-
-                // Copy length (little-endian) 
-                BitConverter.GetBytes((ushort)payload.Length).CopyTo(ciphertextBuf, 0);
-                // Copy payload 
-                Buffer.BlockCopy(payload, 0, ciphertextBuf, sizeof(ushort), payload.Length);
-                // Calculate and copy inner CRC16 
-                ciphertextCrc = Crc.CalculateCrc16(ciphertextBuf, (ushort)(sizeof(ushort) + payload.Length));
-                BitConverter.GetBytes(ciphertextCrc).CopyTo(ciphertextBuf, sizeof(ushort) + payload.Length);
-
                 if (encrypt)
                 {
+                    // Plaintext = 2 bytes length + payload + 2 bytes inner CRC16 
+                    int plaintextLen = sizeof(ushort) + payload.Length + sizeof(ushort);
+                    ciphertextBuf = new byte[Align16(plaintextLen)]; // đủ chỗ cho padding 
+
+                    // Copy length (little-endian) 
+                    BitConverter.GetBytes((ushort)payload.Length).CopyTo(ciphertextBuf, 0);
+                    // Copy payload 
+                    Buffer.BlockCopy(payload, 0, ciphertextBuf, sizeof(ushort), payload.Length);
+                    // Calculate and copy inner CRC16 
+                    ciphertextCrc = Crc.CalculateCrc16(ciphertextBuf, (ushort)(sizeof(ushort) + payload.Length));
+                    BitConverter.GetBytes(ciphertextCrc).CopyTo(ciphertextBuf, sizeof(ushort) + payload.Length);
+
                     ciphertextLen = (ushort)Align16(plaintextLen);
                     Aes128.Encrypt(AesKey, ciphertextBuf, (ushort)plaintextLen);
                 }
                 else
                 {
+                    // Plaintext = 2 bytes length + payload
+                    int plaintextLen = sizeof(ushort) + payload.Length;
+                    ciphertextBuf = new byte[plaintextLen];
+
+                    // Copy length (little-endian) 
+                    BitConverter.GetBytes((ushort)payload.Length).CopyTo(ciphertextBuf, 0);
+                    // Copy payload 
+                    Buffer.BlockCopy(payload, 0, ciphertextBuf, sizeof(ushort), payload.Length);
+
                     ciphertextLen = (ushort)plaintextLen;
                 }
             }
@@ -330,27 +340,44 @@ namespace WM03A
             if (header.CiphertextLen >= 16)
             {
                 Aes128.Decrypt(AesKey, temp, header.CiphertextLen);
+
+                // Lấy payload length (2 byte đầu) 
+                if (temp.Length < sizeof(ushort))
+                    return ProtocolErrCode.FrameInvalid;
+
+                ushort payloadLen = BitConverter.ToUInt16(temp, 0);
+
+                // Bảo vệ overflow và kiểm tra vị trí CRC trong
+                if ((uint)sizeof(ushort) + payloadLen + sizeof(ushort) > temp.Length)
+                    return ProtocolErrCode.FrameInvalid;
+
+                // Kiểm tra inner CRC16 
+                ushort crcInnerCalc = Crc.CalculateCrc16(temp, (ushort)(sizeof(ushort) + payloadLen));
+                ushort crcInner = BitConverter.ToUInt16(temp, sizeof(ushort) + payloadLen);
+
+                if (crcInnerCalc != crcInner)
+                    return ProtocolErrCode.FrameInvalid;
+
+                // Copy payload thật 
+                payload = new byte[payloadLen];
+                Buffer.BlockCopy(temp, sizeof(ushort), payload, 0, payloadLen);
             }
+            else
+            {
+                // Không mã hóa: chỉ có Length + Payload, không có inner CRC
+                if (temp.Length < sizeof(ushort))
+                    return ProtocolErrCode.FrameInvalid;
 
-            // Lấy payload length (2 byte đầu) 
-            if (temp.Length < sizeof(ushort))
-                return ProtocolErrCode.FrameInvalid;
+                ushort payloadLen = BitConverter.ToUInt16(temp, 0);
 
-            ushort payloadLen = BitConverter.ToUInt16(temp, 0);
+                // Bảo vệ overflow
+                if ((uint)sizeof(ushort) + payloadLen > temp.Length)
+                    return ProtocolErrCode.FrameInvalid;
 
-            // Bảo vệ overflow 
-            if (payloadLen >= header.CiphertextLen)
-                return ProtocolErrCode.FrameInvalid;
-
-            // Kiểm tra inner CRC16 
-            ushort crcInnerCalc = Crc.CalculateCrc16(temp, (ushort)(sizeof(ushort) + payloadLen));
-            ushort crcInner = BitConverter.ToUInt16(temp, sizeof(ushort) + payloadLen);
-            if (crcInnerCalc != crcInner)
-                return ProtocolErrCode.FrameInvalid;
-
-            // Copy payload thật 
-            payload = new byte[payloadLen];
-            Buffer.BlockCopy(temp, sizeof(ushort), payload, 0, payloadLen);
+                // Copy payload thật 
+                payload = new byte[payloadLen];
+                Buffer.BlockCopy(temp, sizeof(ushort), payload, 0, payloadLen);
+            }
 
             return ProtocolErrCode.Success;
         }
