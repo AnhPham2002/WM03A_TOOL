@@ -48,15 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Users\Model\EventData.cs" />
+    <Compile Include="Users\Model\FirmwareMetadata.cs" />
     <Compile Include="Users\Model\LatchData.cs" />
     <Compile Include="Users\Model\Metadata.cs" />
     <Compile Include="Users\Model\ModbusMeterConfig.cs" />
     <Compile Include="Users\Model\PressureSensorConfig.cs" />
     <Compile Include="Users\Model\PulseMeterConfig.cs" />
     <Compile Include="Users\ProtocolCommands\GetCommands.cs" />
+    <Compile Include="Users\ProtocolCommands\OtaCommands.cs" />
     <Compile Include="Users\ProtocolCommands\QueryCommands.cs" />
     <Compile Include="Users\ProtocolCommands\SetCommands.cs" />
     <Compile Include="Users\ProtocolParser\GetParser.cs" />
+    <Compile Include="Users\ProtocolParser\OtaParser.cs" />
     <Compile Include="Users\ProtocolParser\QueryParser.cs" />
     <Compile Include="Users\ProtocolParser\SetParser.cs" />
     <Compile Include="Users\Protocol\Aes128.cs" />

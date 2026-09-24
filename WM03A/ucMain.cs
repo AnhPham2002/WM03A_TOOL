@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,6 +33,19 @@ namespace WM03A
 
         private bool _stopReadLatchData;
         private bool _stopReadEventData;
+
+        private const int OTA_METADATA_A_OFFSET = 0x08008000 - 0x08008000;
+        private const int OTA_METADATA_B_OFFSET = 0x08024000 - 0x08008000;
+
+        private const int OTA_FIRMWARE_A_OFFSET = 0x08008800 - 0x08008000;
+        private const int OTA_FIRMWARE_B_OFFSET = 0x08024800 - 0x08008000;
+
+        private const int VERSION_SIZE = 10;
+
+        private const int OTA_PACKET_SIZE = 1024;
+        private const int OTA_METADATA_SIZE = 28;
+
+        private bool _stopFirmwareUpdate;
 
         public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId)
         {
@@ -3309,12 +3324,12 @@ namespace WM03A
                     }
 
                     int rowIndex = dgvLatchInfo.Rows.Add(userIndex, latchData.LatchDateTime.ToString("dd/MM/yyyy HH:mm:ss"));
-dgvLatchInfo.Rows[rowIndex].Tag = latchData;
+                    dgvLatchInfo.Rows[rowIndex].Tag = latchData;
 
-if (userIndex >= ushort.MaxValue)
-{
-    break;
-}
+                    if (userIndex >= ushort.MaxValue)
+                    {
+                        break;
+                    }
                 }
             }
             finally
@@ -3499,6 +3514,207 @@ if (userIndex >= ushort.MaxValue)
                 txtPulseReverseTotal4.Text = metadata.PulseCounts[3].ReversePulseCount.ToString();
             }
         }
+
+
+        //----------------------------OTA----------------------------------------//
+
+        private void btnBrowseOtaFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Chọn Firmware";
+                openFileDialog.Filter = "Firmware (*.bin)|*.bin|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.Multiselect = false;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtFirmwareFile.Text = openFileDialog.FileName;
+                }
+            }
+        }
+
+        private async void btnFirmwareUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _stopFirmwareUpdate = false;
+                prgOtaProgress.Value = 0;
+
+                string filePath = txtFirmwareFile.Text.Trim();
+
+                if (string.IsNullOrEmpty(filePath))
+                {
+                    MessageBox.Show("Chưa chọn file firmware.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("Không tìm thấy file firmware.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                btnFirmwareUpdate.Enabled = false;
+
+                // Read firmware file
+                byte[] firmwareFile = await Task.Run(() => File.ReadAllBytes(filePath));
+
+                // Read Metadata A
+                if (!ReadFirmwareMetadata(firmwareFile, OTA_METADATA_A_OFFSET, out FirmwareMetadata metadataA))
+                {
+                    MessageBox.Show("Không đọc được Firmware Metadata A.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Read Metadata B
+                if (!ReadFirmwareMetadata(firmwareFile, OTA_METADATA_B_OFFSET, out FirmwareMetadata metadataB))
+                {
+                    MessageBox.Show("Không đọc được Firmware Metadata B.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Compare firmware version
+                if (metadataA.Version != metadataB.Version)
+                {
+                    MessageBox.Show(
+                        $"Firmware version không hợp lệ.\r\n\r\nMetadata A: {metadataA.Version}\r\nMetadata B: {metadataB.Version}",
+                        "OTA",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                // Get Firmware A
+                if (!GetFirmwareData(firmwareFile, OTA_FIRMWARE_A_OFFSET, metadataA.Size, out byte[] firmwareA))
+                {
+                    MessageBox.Show("Không đọc được Firmware A.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Get Firmware B
+                if (!GetFirmwareData(firmwareFile, OTA_FIRMWARE_B_OFFSET, metadataB.Size, out byte[] firmwareB))
+                {
+                    MessageBox.Show("Không đọc được Firmware B.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Send OTA Request
+                if (!OtaCommands.Request(metadataA.Version, metadataA.Size, metadataA.Crc, metadataB.Size, metadataB.Crc, out byte[] requestFrame))
+                {
+                    MessageBox.Show("Không tạo được OTA Request frame.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var (ok, requestResponse) = await _serialPortManager.CommunicateAsync(requestFrame, 5000);
+
+                if (!ok)
+                {
+                    MessageBox.Show("Không nhận được ACK từ thiết bị.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Parse OTA Request response
+                if (!OtaParser.Request(requestResponse, out byte otaSlot, out ushort packetIndex))
+                {
+                    MessageBox.Show("OTA Request response không hợp lệ.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (otaSlot == 0)
+                {
+                    MessageBox.Show("Thiết bị không chấp nhận cập nhật firmware.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Select firmware according to OTA slot
+                byte[] firmware;
+
+                if (otaSlot == 1)
+                {
+                    firmware = firmwareA;
+                }
+                else if (otaSlot == 2)
+                {
+                    firmware = firmwareB;
+                }
+                else
+                {
+                    MessageBox.Show($"OTA Slot không hợp lệ: {otaSlot}.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Calculate packet count
+                int totalPacketCount = (firmware.Length + OTA_PACKET_SIZE - 1) / OTA_PACKET_SIZE;
+
+                if (packetIndex >= totalPacketCount)
+                {
+                    MessageBox.Show("Packet index từ thiết bị không hợp lệ.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                prgOtaProgress.Minimum = 0;
+                prgOtaProgress.Maximum = totalPacketCount;
+                prgOtaProgress.Value = packetIndex;
+
+                // Send firmware packets
+                while (packetIndex < totalPacketCount)
+                {
+                    if (_stopFirmwareUpdate)
+                    {
+                        MessageBox.Show("Đã dừng cập nhật firmware.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    int offset = packetIndex * OTA_PACKET_SIZE;
+                    int packetSize = Math.Min(OTA_PACKET_SIZE, firmware.Length - offset);
+
+                    byte[] packet = new byte[packetSize];
+                    Array.Copy(firmware, offset, packet, 0, packetSize);
+
+                    if (!OtaCommands.SendPacket(packetIndex, packet, out byte[] packetFrame))
+                    {
+                        MessageBox.Show($"Không tạo được packet {packetIndex}.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    var (packetOk, packetResponse) = await _serialPortManager.CommunicateAsync(packetFrame, 5000);
+
+                    if (!packetOk)
+                    {
+                        MessageBox.Show($"Không nhận được ACK packet {packetIndex}.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (!OtaParser.SendPacket(packetResponse))
+                    {
+                        MessageBox.Show($"Packet {packetIndex} cập nhật thất bại.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    packetIndex++;
+
+                    prgOtaProgress.Value = Math.Min(packetIndex, totalPacketCount);
+                }
+
+                MessageBox.Show("Cập nhật firmware thành công.", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi OTA:\r\n{ex.Message}", "OTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnFirmwareUpdate.Enabled = true;
+            }
+        }
+
+        private void btnStopFirmwareUpdate_Click(object sender, EventArgs e)
+        {
+            _stopFirmwareUpdate = true;
+        }
+
 
         //-----------------------Advanced Setting--------------------------------//
 
@@ -4308,6 +4524,63 @@ if (userIndex >= ushort.MaxValue)
 
                 dgvLatchMeterDetail.Rows.Add(i + 1, meterType, meter.SerialNumber, forward, reverse, flowRate, pressure);
             }
+        }
+
+        private bool ReadFirmwareMetadata(byte[] firmwareFile, int offset, out FirmwareMetadata metadata)
+        {
+            metadata = null;
+
+            if (firmwareFile == null || offset < 0 || offset + OTA_METADATA_SIZE > firmwareFile.Length)
+            {
+                return false;
+            }
+
+            int index = offset;
+
+            uint sequence = BitConverter.ToUInt32(firmwareFile, index);
+            index += sizeof(uint);
+
+            byte[] versionBytes = new byte[12];
+            Array.Copy(firmwareFile, index, versionBytes, 0, versionBytes.Length);
+            index += versionBytes.Length;
+
+            index += sizeof(uint); // Firmware_Status_t
+
+            uint size = BitConverter.ToUInt32(firmwareFile, index);
+            index += sizeof(uint);
+
+            uint crc = BitConverter.ToUInt32(firmwareFile, index);
+
+            metadata = new FirmwareMetadata
+            {
+                Sequence = sequence,
+                Version = Encoding.ASCII.GetString(versionBytes).TrimEnd('\0'),
+                Size = size,
+                Crc = crc
+            };
+
+            return true;
+        }
+
+        private bool GetFirmwareData(byte[] firmwareFile, int offset, uint size, out byte[] firmware)
+        {
+            firmware = null;
+
+            if (size == 0 || size > int.MaxValue)
+            {
+                return false;
+            }
+
+            if (offset < 0 || offset + (long)size > firmwareFile.Length)
+            {
+                return false;
+            }
+
+            firmware = new byte[size];
+
+            Array.Copy(firmwareFile, offset, firmware, 0, (int)size);
+
+            return true;
         }
     }
 }

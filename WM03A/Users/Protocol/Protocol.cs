@@ -141,8 +141,7 @@ namespace WM03A
         public enum OtaId : byte
         {
             UpdateRequest = 0x00,
-            SendInfo = 0x01,
-            SendPacket = 0x02
+            SendPacket = 0x01
         }
 
         // ============================================================
