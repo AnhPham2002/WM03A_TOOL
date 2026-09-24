@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Management;
 using System.Text;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WM03A
@@ -9,7 +9,12 @@ namespace WM03A
     public partial class ucLogin : UserControl
     {
         private SerialPortManager _serialPortManager;
+
+        private Protocol.AccessId _accessId;
+        private byte[] _password;
+
         public event EventHandler<Protocol.AccessId> LoginSucceeded;
+
         public ucLogin(SerialPortManager serialPortManager)
         {
             InitializeComponent();
@@ -21,16 +26,15 @@ namespace WM03A
         {
             LoadComPorts();
 
-            cmbRole.SelectedIndex = 0;
+            cmbRole.SelectedIndex = 2;
+            txtModulePassword.Text = "33333333";
         }
 
         private void LoadComPorts()
         {
             cmbCom.Items.Clear();
 
-            using (ManagementObjectSearcher searcher =
-                   new ManagementObjectSearcher(
-                       "SELECT Name FROM Win32_PnPEntity WHERE Name LIKE '%(COM%'"))
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT Name FROM Win32_PnPEntity WHERE Name LIKE '%(COM%'"))
             {
                 foreach (ManagementObject device in searcher.Get())
                 {
@@ -49,10 +53,7 @@ namespace WM03A
                         continue;
                     }
 
-                    string portName = name.Substring(
-                        start + 1,
-                        end - start - 1);
-
+                    string portName = name.Substring(start + 1, end - start - 1);
                     string description = name.Substring(0, start).Trim();
 
                     cmbCom.Items.Add(new ComPortInfo
@@ -105,11 +106,7 @@ namespace WM03A
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"Không thể mở {port.PortName}.\n{ex.Message}",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show($"Không thể mở {port.PortName}.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -117,103 +114,78 @@ namespace WM03A
         {
             if (!_serialPortManager.IsOpen)
             {
-                MessageBox.Show(
-                    "COM chưa được mở.",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
+                MessageBox.Show("COM chưa được mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                Protocol.AccessId accessId =
-                    (Protocol.AccessId)cmbRole.SelectedIndex;
+                Protocol.AccessId accessId = (Protocol.AccessId)cmbRole.SelectedIndex;
+                byte[] password = Encoding.ASCII.GetBytes(txtModulePassword.Text);
 
-                byte[] password =
-                    Encoding.ASCII.GetBytes(txtModulePassword.Text);
+                bool success = await LoginAsync(accessId, password);
 
-                byte[] txFrame;
-
-                Protocol.Access(
-                    accessId,
-                    password,
-                    out txFrame);
-
-                // Không nhận được frame
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
-                if (!ok)
+                if (success)
                 {
-                    MessageBox.Show(
-                        "Không nhận được phản hồi từ thiết bị.",
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    _accessId = accessId;
+                    _password = (byte[])password.Clone();
 
-                    return;
-                }
-
-                // Unpack frame
-                ulong serial;
-                byte cmd;
-                byte id;
-                byte[] payload;
-
-                Protocol.Unpack(
-                    rxFrame,
-                    out serial,
-                    out cmd,
-                    out id,
-                    out payload);
-
-                // Kiểm tra payload
-                if (payload == null || payload.Length <= 6)
-                {
-                    MessageBox.Show(
-                        "Frame phản hồi không hợp lệ.",
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    return;
-                }
-
-                // Kiểm tra command và access ID
-                if (cmd != (byte)Protocol.CmdCode.Access ||
-                    id != (byte)accessId)
-                {
-                    MessageBox.Show(
-                        "Đăng nhập thất bại.",
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
-                    return;
-                }
-
-                // Kiểm tra kết quả Access
-                if (payload[6] == (byte)Protocol.ProtocolErrCode.Success)
-                {
                     LoginSucceeded?.Invoke(this, accessId);
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Sai mật khẩu.",
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show("Sai mật khẩu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(
-                    $"Lỗi khi kết nối.\n{ex.Message}",
-                    "Lỗi",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi khi kết nối.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async Task<bool> LoginAsync(Protocol.AccessId accessId, byte[] password)
+        {
+            byte[] txFrame;
+
+            Protocol.Access(accessId, password, out txFrame);
+
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+
+            if (!ok)
+            {
+                MessageBox.Show("Không nhận được phản hồi từ thiết bị.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            Protocol.Unpack(rxFrame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length <= 6)
+            {
+                MessageBox.Show("Frame phản hồi không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (cmd != (byte)Protocol.CmdCode.Access || id != (byte)accessId)
+            {
+                return false;
+            }
+
+            return payload[6] == (byte)Protocol.ProtocolErrCode.Success;
+        }
+
+        public async Task<bool> ReconnectAsync()
+        {
+            if (!_serialPortManager.IsOpen)
+            {
+                return false;
+            }
+
+            if (_password == null)
+            {
+                return false;
+            }
+
+            return await LoginAsync(_accessId, _password);
         }
     }
 }

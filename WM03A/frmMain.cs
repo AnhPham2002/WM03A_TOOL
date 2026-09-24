@@ -7,6 +7,7 @@ namespace WM03A
     {
         private SerialPortManager _serialPortManager;
         private frmSerialMonitor _serialMonitor;
+        private ucLogin _login;
 
         public frmMain()
         {
@@ -27,17 +28,15 @@ namespace WM03A
         {
             pnlContent.Controls.Clear();
 
-            ucLogin login = new ucLogin(_serialPortManager);
+            _login = new ucLogin(_serialPortManager);
 
-            login.Dock = DockStyle.Fill;
-            login.LoginSucceeded += Login_LoginSucceeded;
+            _login.Dock = DockStyle.Fill;
+            _login.LoginSucceeded += Login_LoginSucceeded;
 
-            pnlContent.Controls.Add(login);
+            pnlContent.Controls.Add(_login);
         }
 
-        private void Login_LoginSucceeded(
-            object sender,
-            Protocol.AccessId accessId)
+        private void Login_LoginSucceeded(object sender, Protocol.AccessId accessId)
         {
             ShowMain(accessId);
         }
@@ -46,7 +45,7 @@ namespace WM03A
         {
             pnlContent.Controls.Clear();
 
-            ucMain main = new ucMain(_serialPortManager, accessId);
+            ucMain main = new ucMain(_serialPortManager, accessId, _login);
 
             main.Dock = DockStyle.Fill;
             main.LogoutRequested += Main_LogoutRequested;
@@ -54,9 +53,7 @@ namespace WM03A
             pnlContent.Controls.Add(main);
         }
 
-        private void Main_LogoutRequested(
-            object sender,
-            EventArgs e)
+        private void Main_LogoutRequested(object sender, EventArgs e)
         {
             ShowLogin();
         }

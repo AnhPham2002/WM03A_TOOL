@@ -20,6 +20,8 @@ namespace WM03A
 {
     public partial class ucMain : UserControl
     {
+        private ucLogin _ucLogin;
+
         private Protocol.AccessId _accessId;
 
         public event EventHandler LogoutRequested;
@@ -47,7 +49,7 @@ namespace WM03A
 
         private bool _stopFirmwareUpdate;
 
-        public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId)
+        public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId, ucLogin ucLogin)
         {
             InitializeComponent();
 
@@ -56,11 +58,14 @@ namespace WM03A
             ApplyAccessControl();
 
             _serialPortManager = serialPortManager;
+
+            _ucLogin = ucLogin;
         }
 
         private void ucMain_Load(object sender, EventArgs e)
         {
             cmbWriteTimezoneSetting.SelectedIndex = 0;
+            lblReconnectStatus.Text = string.Empty;
             rdoPcTimeSetting.Checked = true;
             lblTimeSettingStatus.Text = string.Empty;
             lblModuleSettingStatus.Text = string.Empty;
@@ -166,6 +171,31 @@ namespace WM03A
 
                 case Protocol.AccessId.Admin:
                     break;
+            }
+        }
+
+        private async void btnReconnect_Click(object sender, EventArgs e)
+        {
+            btnReconnect.Enabled = false;
+
+            try
+            {
+                bool success = await _ucLogin.ReconnectAsync();
+
+                if (success)
+                {
+                    lblReconnectStatus.Text = "Kết nối lại thành công";
+                    await Task.Delay(1000);
+                    lblReconnectStatus.Text = string.Empty;
+                }
+                else
+                {
+                    MessageBox.Show("Kết nối lại thất bại.", "Reconnect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            finally
+            {
+                btnReconnect.Enabled = true;
             }
         }
 

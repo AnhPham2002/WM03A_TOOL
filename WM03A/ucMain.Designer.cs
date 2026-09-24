@@ -726,6 +726,11 @@
             this.txtMetadataSeq = new System.Windows.Forms.TextBox();
             this.txtNextSaveLatchIndex = new System.Windows.Forms.TextBox();
             this.tabOTA = new System.Windows.Forms.TabPage();
+            this.btnStopFirmwareUpdate = new System.Windows.Forms.Button();
+            this.btnFirmwareUpdate = new System.Windows.Forms.Button();
+            this.btnBrowseOtaFile = new System.Windows.Forms.Button();
+            this.txtFirmwareFile = new System.Windows.Forms.TextBox();
+            this.prgOtaProgress = new System.Windows.Forms.ProgressBar();
             this.tabChangePassword = new System.Windows.Forms.TabPage();
             this.tabAdvance = new System.Windows.Forms.TabPage();
             this.lblWriteMcuResetStatus = new System.Windows.Forms.Label();
@@ -778,11 +783,9 @@
             this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker6 = new System.ComponentModel.BackgroundWorker();
-            this.prgOtaProgress = new System.Windows.Forms.ProgressBar();
-            this.txtFirmwareFile = new System.Windows.Forms.TextBox();
-            this.btnBrowseOtaFile = new System.Windows.Forms.Button();
-            this.btnFirmwareUpdate = new System.Windows.Forms.Button();
-            this.btnStopFirmwareUpdate = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnReconnect = new System.Windows.Forms.Button();
+            this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -840,6 +843,7 @@
             this.tabMetadata.SuspendLayout();
             this.tabOTA.SuspendLayout();
             this.tabAdvance.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -7955,6 +7959,50 @@
             this.tabOTA.Text = "Cập nhật phần mềm";
             this.tabOTA.UseVisualStyleBackColor = true;
             // 
+            // btnStopFirmwareUpdate
+            // 
+            this.btnStopFirmwareUpdate.Location = new System.Drawing.Point(585, 144);
+            this.btnStopFirmwareUpdate.Name = "btnStopFirmwareUpdate";
+            this.btnStopFirmwareUpdate.Size = new System.Drawing.Size(124, 48);
+            this.btnStopFirmwareUpdate.TabIndex = 2;
+            this.btnStopFirmwareUpdate.Text = "Dừng cập nhật";
+            this.btnStopFirmwareUpdate.UseVisualStyleBackColor = true;
+            this.btnStopFirmwareUpdate.Click += new System.EventHandler(this.btnStopFirmwareUpdate_Click);
+            // 
+            // btnFirmwareUpdate
+            // 
+            this.btnFirmwareUpdate.Location = new System.Drawing.Point(244, 144);
+            this.btnFirmwareUpdate.Name = "btnFirmwareUpdate";
+            this.btnFirmwareUpdate.Size = new System.Drawing.Size(124, 48);
+            this.btnFirmwareUpdate.TabIndex = 2;
+            this.btnFirmwareUpdate.Text = "Cập nhật firmware";
+            this.btnFirmwareUpdate.UseVisualStyleBackColor = true;
+            this.btnFirmwareUpdate.Click += new System.EventHandler(this.btnFirmwareUpdate_Click);
+            // 
+            // btnBrowseOtaFile
+            // 
+            this.btnBrowseOtaFile.Location = new System.Drawing.Point(823, 88);
+            this.btnBrowseOtaFile.Name = "btnBrowseOtaFile";
+            this.btnBrowseOtaFile.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowseOtaFile.TabIndex = 2;
+            this.btnBrowseOtaFile.Text = "Chọn file";
+            this.btnBrowseOtaFile.UseVisualStyleBackColor = true;
+            this.btnBrowseOtaFile.Click += new System.EventHandler(this.btnBrowseOtaFile_Click);
+            // 
+            // txtFirmwareFile
+            // 
+            this.txtFirmwareFile.Location = new System.Drawing.Point(40, 88);
+            this.txtFirmwareFile.Name = "txtFirmwareFile";
+            this.txtFirmwareFile.Size = new System.Drawing.Size(762, 20);
+            this.txtFirmwareFile.TabIndex = 1;
+            // 
+            // prgOtaProgress
+            // 
+            this.prgOtaProgress.Location = new System.Drawing.Point(40, 36);
+            this.prgOtaProgress.Name = "prgOtaProgress";
+            this.prgOtaProgress.Size = new System.Drawing.Size(858, 23);
+            this.prgOtaProgress.TabIndex = 0;
+            // 
             // tabChangePassword
             // 
             this.tabChangePassword.Location = new System.Drawing.Point(4, 22);
@@ -8420,64 +8468,54 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.Location = new System.Drawing.Point(0, 777);
+            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnLogout.Location = new System.Drawing.Point(613, 0);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(960, 23);
+            this.btnLogout.Size = new System.Drawing.Size(347, 23);
             this.btnLogout.TabIndex = 0;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // prgOtaProgress
+            // panel8
             // 
-            this.prgOtaProgress.Location = new System.Drawing.Point(40, 36);
-            this.prgOtaProgress.Name = "prgOtaProgress";
-            this.prgOtaProgress.Size = new System.Drawing.Size(858, 23);
-            this.prgOtaProgress.TabIndex = 0;
+            this.panel8.Controls.Add(this.lblReconnectStatus);
+            this.panel8.Controls.Add(this.btnReconnect);
+            this.panel8.Controls.Add(this.btnLogout);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 777);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(960, 23);
+            this.panel8.TabIndex = 2;
             // 
-            // txtFirmwareFile
+            // btnReconnect
             // 
-            this.txtFirmwareFile.Location = new System.Drawing.Point(40, 88);
-            this.txtFirmwareFile.Name = "txtFirmwareFile";
-            this.txtFirmwareFile.Size = new System.Drawing.Size(762, 20);
-            this.txtFirmwareFile.TabIndex = 1;
+            this.btnReconnect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnReconnect.Location = new System.Drawing.Point(0, 0);
+            this.btnReconnect.Name = "btnReconnect";
+            this.btnReconnect.Size = new System.Drawing.Size(347, 23);
+            this.btnReconnect.TabIndex = 1;
+            this.btnReconnect.Text = "Kết nối lại";
+            this.btnReconnect.UseVisualStyleBackColor = true;
+            this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
-            // btnBrowseOtaFile
+            // lblReconnectStatus
             // 
-            this.btnBrowseOtaFile.Location = new System.Drawing.Point(823, 88);
-            this.btnBrowseOtaFile.Name = "btnBrowseOtaFile";
-            this.btnBrowseOtaFile.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowseOtaFile.TabIndex = 2;
-            this.btnBrowseOtaFile.Text = "Chọn file";
-            this.btnBrowseOtaFile.UseVisualStyleBackColor = true;
-            this.btnBrowseOtaFile.Click += new System.EventHandler(this.btnBrowseOtaFile_Click);
-            // 
-            // btnFirmwareUpdate
-            // 
-            this.btnFirmwareUpdate.Location = new System.Drawing.Point(244, 144);
-            this.btnFirmwareUpdate.Name = "btnFirmwareUpdate";
-            this.btnFirmwareUpdate.Size = new System.Drawing.Size(124, 48);
-            this.btnFirmwareUpdate.TabIndex = 2;
-            this.btnFirmwareUpdate.Text = "Cập nhật firmware";
-            this.btnFirmwareUpdate.UseVisualStyleBackColor = true;
-            this.btnFirmwareUpdate.Click += new System.EventHandler(this.btnFirmwareUpdate_Click);
-            // 
-            // btnStopFirmwareUpdate
-            // 
-            this.btnStopFirmwareUpdate.Location = new System.Drawing.Point(585, 144);
-            this.btnStopFirmwareUpdate.Name = "btnStopFirmwareUpdate";
-            this.btnStopFirmwareUpdate.Size = new System.Drawing.Size(124, 48);
-            this.btnStopFirmwareUpdate.TabIndex = 2;
-            this.btnStopFirmwareUpdate.Text = "Dừng cập nhật";
-            this.btnStopFirmwareUpdate.UseVisualStyleBackColor = true;
-            this.btnStopFirmwareUpdate.Click += new System.EventHandler(this.btnStopFirmwareUpdate_Click);
+            this.lblReconnectStatus.AutoSize = true;
+            this.lblReconnectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReconnectStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblReconnectStatus.Location = new System.Drawing.Point(414, 5);
+            this.lblReconnectStatus.Name = "lblReconnectStatus";
+            this.lblReconnectStatus.Size = new System.Drawing.Size(125, 13);
+            this.lblReconnectStatus.TabIndex = 20;
+            this.lblReconnectStatus.Text = "Trạng thái kết nối lại";
+            this.lblReconnectStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Name = "ucMain";
@@ -8575,6 +8613,8 @@
             this.tabOTA.PerformLayout();
             this.tabAdvance.ResumeLayout(false);
             this.tabAdvance.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9337,5 +9377,8 @@
         private System.Windows.Forms.TextBox txtFirmwareFile;
         private System.Windows.Forms.Button btnFirmwareUpdate;
         private System.Windows.Forms.Button btnStopFirmwareUpdate;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnReconnect;
+        private System.Windows.Forms.Label lblReconnectStatus;
     }
 }
