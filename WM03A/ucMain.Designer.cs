@@ -784,8 +784,18 @@
             this.backgroundWorker5 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker6 = new System.ComponentModel.BackgroundWorker();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnReconnect = new System.Windows.Forms.Button();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
+            this.btnReconnect = new System.Windows.Forms.Button();
+            this.label207 = new System.Windows.Forms.Label();
+            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.cmbRoleNewPassword = new System.Windows.Forms.ComboBox();
+            this.label208 = new System.Windows.Forms.Label();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.label209 = new System.Windows.Forms.Label();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.lblChangePasswordStatus = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -842,6 +852,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventData)).BeginInit();
             this.tabMetadata.SuspendLayout();
             this.tabOTA.SuspendLayout();
+            this.tabChangePassword.SuspendLayout();
             this.tabAdvance.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
@@ -8005,6 +8016,16 @@
             // 
             // tabChangePassword
             // 
+            this.tabChangePassword.Controls.Add(this.lblChangePasswordStatus);
+            this.tabChangePassword.Controls.Add(this.btnChangePassword);
+            this.tabChangePassword.Controls.Add(this.cmbRoleNewPassword);
+            this.tabChangePassword.Controls.Add(this.lblRole);
+            this.tabChangePassword.Controls.Add(this.txtConfirmPassword);
+            this.tabChangePassword.Controls.Add(this.txtNewPassword);
+            this.tabChangePassword.Controls.Add(this.txtCurrentPassword);
+            this.tabChangePassword.Controls.Add(this.label209);
+            this.tabChangePassword.Controls.Add(this.label208);
+            this.tabChangePassword.Controls.Add(this.label207);
             this.tabChangePassword.Location = new System.Drawing.Point(4, 22);
             this.tabChangePassword.Name = "tabChangePassword";
             this.tabChangePassword.Size = new System.Drawing.Size(952, 749);
@@ -8488,17 +8509,6 @@
             this.panel8.Size = new System.Drawing.Size(960, 23);
             this.panel8.TabIndex = 2;
             // 
-            // btnReconnect
-            // 
-            this.btnReconnect.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnReconnect.Location = new System.Drawing.Point(0, 0);
-            this.btnReconnect.Name = "btnReconnect";
-            this.btnReconnect.Size = new System.Drawing.Size(347, 23);
-            this.btnReconnect.TabIndex = 1;
-            this.btnReconnect.Text = "Kết nối lại";
-            this.btnReconnect.UseVisualStyleBackColor = true;
-            this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
-            // 
             // lblReconnectStatus
             // 
             this.lblReconnectStatus.AutoSize = true;
@@ -8510,6 +8520,115 @@
             this.lblReconnectStatus.TabIndex = 20;
             this.lblReconnectStatus.Text = "Trạng thái kết nối lại";
             this.lblReconnectStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnReconnect
+            // 
+            this.btnReconnect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnReconnect.Location = new System.Drawing.Point(0, 0);
+            this.btnReconnect.Name = "btnReconnect";
+            this.btnReconnect.Size = new System.Drawing.Size(347, 23);
+            this.btnReconnect.TabIndex = 1;
+            this.btnReconnect.Text = "Kết nối lại";
+            this.btnReconnect.UseVisualStyleBackColor = true;
+            this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
+            // 
+            // label207
+            // 
+            this.label207.AutoSize = true;
+            this.label207.Location = new System.Drawing.Point(41, 29);
+            this.label207.Name = "label207";
+            this.label207.Size = new System.Drawing.Size(117, 13);
+            this.label207.TabIndex = 18;
+            this.label207.Text = "Nhập mật khẩu hiện tại";
+            // 
+            // txtCurrentPassword
+            // 
+            this.txtCurrentPassword.Location = new System.Drawing.Point(175, 26);
+            this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.PasswordChar = '*';
+            this.txtCurrentPassword.Size = new System.Drawing.Size(542, 20);
+            this.txtCurrentPassword.TabIndex = 19;
+            this.txtCurrentPassword.UseSystemPasswordChar = true;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(41, 87);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(130, 13);
+            this.lblRole.TabIndex = 20;
+            this.lblRole.Text = "Chọn vai trò mật khẩu mới";
+            // 
+            // cmbRoleNewPassword
+            // 
+            this.cmbRoleNewPassword.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoleNewPassword.FormattingEnabled = true;
+            this.cmbRoleNewPassword.Items.AddRange(new object[] {
+            "--Chọn vai trò--",
+            "Người xem",
+            "Kỹ thuật viên",
+            "Quản trị viên"});
+            this.cmbRoleNewPassword.Location = new System.Drawing.Point(177, 84);
+            this.cmbRoleNewPassword.Name = "cmbRoleNewPassword";
+            this.cmbRoleNewPassword.Size = new System.Drawing.Size(540, 21);
+            this.cmbRoleNewPassword.TabIndex = 21;
+            // 
+            // label208
+            // 
+            this.label208.AutoSize = true;
+            this.label208.Location = new System.Drawing.Point(41, 132);
+            this.label208.Name = "label208";
+            this.label208.Size = new System.Drawing.Size(99, 13);
+            this.label208.TabIndex = 18;
+            this.label208.Text = "Nhập mật khẩu mới";
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.Location = new System.Drawing.Point(175, 129);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '*';
+            this.txtNewPassword.Size = new System.Drawing.Size(542, 20);
+            this.txtNewPassword.TabIndex = 19;
+            this.txtNewPassword.UseSystemPasswordChar = true;
+            // 
+            // label209
+            // 
+            this.label209.AutoSize = true;
+            this.label209.Location = new System.Drawing.Point(41, 170);
+            this.label209.Name = "label209";
+            this.label209.Size = new System.Drawing.Size(119, 13);
+            this.label209.TabIndex = 18;
+            this.label209.Text = "Xác nhận mật khẩu mới";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.Location = new System.Drawing.Point(175, 167);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(542, 20);
+            this.txtConfirmPassword.TabIndex = 19;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(336, 219);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(75, 23);
+            this.btnChangePassword.TabIndex = 22;
+            this.btnChangePassword.Text = "Xác nhận";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
+            // lblChangePasswordStatus
+            // 
+            this.lblChangePasswordStatus.AutoSize = true;
+            this.lblChangePasswordStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangePasswordStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblChangePasswordStatus.Location = new System.Drawing.Point(449, 224);
+            this.lblChangePasswordStatus.Name = "lblChangePasswordStatus";
+            this.lblChangePasswordStatus.Size = new System.Drawing.Size(65, 13);
+            this.lblChangePasswordStatus.TabIndex = 23;
+            this.lblChangePasswordStatus.Text = "Trạng thái";
             // 
             // ucMain
             // 
@@ -8611,6 +8730,8 @@
             this.tabMetadata.PerformLayout();
             this.tabOTA.ResumeLayout(false);
             this.tabOTA.PerformLayout();
+            this.tabChangePassword.ResumeLayout(false);
+            this.tabChangePassword.PerformLayout();
             this.tabAdvance.ResumeLayout(false);
             this.tabAdvance.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -9380,5 +9501,15 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnReconnect;
         private System.Windows.Forms.Label lblReconnectStatus;
+        private System.Windows.Forms.Label label207;
+        private System.Windows.Forms.TextBox txtCurrentPassword;
+        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.ComboBox cmbRoleNewPassword;
+        private System.Windows.Forms.TextBox txtConfirmPassword;
+        private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.Label label209;
+        private System.Windows.Forms.Label label208;
+        private System.Windows.Forms.Label lblChangePasswordStatus;
+        private System.Windows.Forms.Button btnChangePassword;
     }
 }

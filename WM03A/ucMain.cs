@@ -85,6 +85,9 @@ namespace WM03A
             lblWriteDeviceStatusAdvCfgStatus.Text = string.Empty;
             lblWriteMcuResetStatus.Text = string.Empty;
 
+            lblChangePasswordStatus.Text = string.Empty;
+            cmbRoleNewPassword.SelectedIndex = 0;
+
             cmbPulseMeter1Pin1Setting.SelectedIndex = 0;
             cmbPulseMeter1Pin2Setting.SelectedIndex = 0;
             cmbPulseMeter1TypeSetting.SelectedIndex = 0;
@@ -3543,6 +3546,59 @@ namespace WM03A
                 txtPulseForwardTotal4.Text = metadata.PulseCounts[3].ForwardPulseCount.ToString();
                 txtPulseReverseTotal4.Text = metadata.PulseCounts[3].ReversePulseCount.ToString();
             }
+        }
+
+        //----------------------------Change password----------------------------------------//
+
+        private async void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtNewPassword.Text) ||
+                string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
+            {
+                lblChangePasswordStatus.Text = "Không được để trống.";
+                await Task.Delay(1000);
+                lblChangePasswordStatus.Text = string.Empty;
+                return;
+            }
+
+            if (cmbRoleNewPassword.SelectedIndex == 0)
+            {
+                lblChangePasswordStatus.Text = "Vui lòng chọn quyền.";
+                await Task.Delay(1000);
+                lblChangePasswordStatus.Text = string.Empty;
+                return;
+            }
+
+            if (txtNewPassword.Text != txtConfirmPassword.Text)
+            {
+                lblChangePasswordStatus.Text = "Mật khẩu xác nhận không khớp.";
+                await Task.Delay(1000);
+                lblChangePasswordStatus.Text = string.Empty;
+                return;
+            }
+
+            if (!SetCommands.ChangePassword(txtCurrentPassword.Text, (byte)cmbRoleNewPassword.SelectedIndex, txtNewPassword.Text, out byte[] txFrame))
+            {
+                lblChangePasswordStatus.Text = "Thất bại.";
+                await Task.Delay(1000);
+                lblChangePasswordStatus.Text = string.Empty;
+                return;
+            }
+
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+
+            if (ok && SetParser.ChangePassword(rxFrame))
+            {
+                lblChangePasswordStatus.Text = "Thành công";
+            }
+            else
+            {
+                lblChangePasswordStatus.Text = "Thất bại";
+            }
+
+            await Task.Delay(1000);
+            lblChangePasswordStatus.Text = string.Empty;
         }
 
 

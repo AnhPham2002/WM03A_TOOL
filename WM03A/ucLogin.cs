@@ -26,7 +26,7 @@ namespace WM03A
         {
             LoadComPorts();
 
-            cmbRole.SelectedIndex = 2;
+            cmbRole.SelectedIndex = 3;
             txtModulePassword.Text = "33333333";
         }
 
@@ -112,6 +112,12 @@ namespace WM03A
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            if (cmbRole.SelectedIndex == 0)
+            {
+                MessageBox.Show("Vui lòng chọn quyền đăng nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (!_serialPortManager.IsOpen)
             {
                 MessageBox.Show("COM chưa được mở.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

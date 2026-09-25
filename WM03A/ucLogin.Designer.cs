@@ -110,6 +110,7 @@
             this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRole.FormattingEnabled = true;
             this.cmbRole.Items.AddRange(new object[] {
+            "--Chọn vai trò--",
             "Người xem",
             "Kỹ thuật viên",
             "Quản trị viên"});

@@ -10,6 +10,8 @@ namespace WM03A.Users.ProtocolCommands
 {
     internal class SetCommands
     {
+
+        private const int PASSWORD_LENGTH = 8;
         public static bool ModuleSerial(string serial, out byte[] frame)
         {
             frame = null;
@@ -574,6 +576,38 @@ namespace WM03A.Users.ProtocolCommands
                 cmd: (byte)CmdCode.Set,
                 id: (byte)ConfigId.ResetSetting,
                 payload: null,
+                out frame);
+        }
+
+        public static bool ChangePassword(string currentPassword, byte role, string newPassword, out byte[] frame)
+        {
+            frame = null;
+
+            byte[] currentPasswordBytes = Encoding.ASCII.GetBytes(currentPassword);
+            byte[] newPasswordBytes = Encoding.ASCII.GetBytes(newPassword);
+
+            if (currentPasswordBytes.Length != PASSWORD_LENGTH || newPasswordBytes.Length != PASSWORD_LENGTH)
+            {
+                return false;
+            }
+
+            byte[] payload = new byte[PASSWORD_LENGTH + sizeof(byte) + PASSWORD_LENGTH];
+
+            int index = 0;
+
+            Array.Copy(currentPasswordBytes, 0, payload, index, PASSWORD_LENGTH);
+            index += PASSWORD_LENGTH;
+
+            payload[index++] = role;
+
+            Array.Copy(newPasswordBytes, 0, payload, index, PASSWORD_LENGTH);
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.ChangePassword,
+                payload: payload,
                 out frame);
         }
 
