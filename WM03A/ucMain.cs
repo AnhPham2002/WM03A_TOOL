@@ -47,6 +47,8 @@ namespace WM03A
         private const int OTA_PACKET_SIZE = 1024;
         private const int OTA_METADATA_SIZE = 28;
 
+        private const int PASSWORD_LENGTH = 8;
+
         private bool _stopFirmwareUpdate;
 
         public ucMain(SerialPortManager serialPortManager, Protocol.AccessId accessId, ucLogin ucLogin)
@@ -202,9 +204,19 @@ namespace WM03A
             }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private async void btnLogout_Click(object sender, EventArgs e)
         {
             LogoutRequested?.Invoke(this, EventArgs.Empty);
+            byte[] payload = new byte[PASSWORD_LENGTH];
+            Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Access,
+                id: (byte)AccessId.Logout,
+                payload: payload,
+                out byte[] txFrame);
+
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
         }
 
         // ----------------------------------------------------------------------

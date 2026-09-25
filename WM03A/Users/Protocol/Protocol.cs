@@ -70,9 +70,10 @@ namespace WM03A
         // ============================================================
         public enum AccessId : byte
         {
-            User = 0x00,
-            Technician = 0x01,
-            Admin = 0x02
+            Logout = 0x00,
+            User = 0x01,
+            Technician = 0x02,
+            Admin = 0x03
         }
 
         // ============================================================
