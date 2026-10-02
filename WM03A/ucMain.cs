@@ -71,6 +71,7 @@ namespace WM03A
             rdoPcTimeSetting.Checked = true;
             lblTimeSettingStatus.Text = string.Empty;
             lblModuleSettingStatus.Text = string.Empty;
+            lblChargeSettingStatus.Text = string.Empty;
             lblPulseMeter1SettingStatus.Text = string.Empty;
             lblPulseMeter2SettingStatus.Text = string.Empty;
             lblPulseMeter3SettingStatus.Text = string.Empty;
@@ -632,6 +633,91 @@ namespace WM03A
             lblModuleSettingStatus.Text = string.Empty;
             return;
         }
+
+
+        //-----------------------Charge Setting--------------------------------//
+
+        private async void btnReadChargeSetting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+            byte[] parameterIds =
+                    {
+                (byte)ConfigChargeId.IinLim,
+                (byte)ConfigChargeId.Voltage,
+                (byte)ConfigChargeId.Current,
+                (byte)ConfigChargeId.Led
+            };
+
+            txtReadChargeIinLim.Clear();
+            txtReadChargeVoltage.Clear();
+            txtReadChargeCurrent.Clear();
+            txtReadChargeStatus.Clear();
+
+            GetCommands.Charge(parameterIds, out txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+
+            if (ok && GetParser.Charge(rxFrame, out ChargeConfig chargeConfig))
+            {
+                txtReadChargeIinLim.Text = chargeConfig.IinLimMa.ToString();
+                txtReadChargeVoltage.Text = chargeConfig.ChargeVoltageMv.ToString();
+                txtReadChargeCurrent.Text = chargeConfig.ChargeCurrentMa.ToString();
+
+                if (chargeConfig.ChargeLedEnable)
+                {
+                    txtReadChargeStatus.Text = "Bật";
+                }
+                else
+                {
+                    txtReadChargeStatus.Text = "Tắt";
+                }
+            }
+        }
+
+        private async void btnWriteChargeSetting_Click(object sender, EventArgs e)
+        {
+            byte[] txFrame;
+
+            if (!ushort.TryParse(txtWriteChargeIinLim.Text, out ushort iinLimValue) || iinLimValue < 1)
+            {
+                lblChargeSettingStatus.Text = "Input Current Limit phải lớn hơn hoặc bằng 1.";
+                return;
+            }
+
+            if (!ushort.TryParse(txtWriteChargeVoltage.Text, out ushort chargeVoltageValue) || chargeVoltageValue < 1)
+            {
+                lblChargeSettingStatus.Text = "Điện áp sạc phải lớn hơn hoặc bằng 1.";
+                return;
+            }
+
+            if (!ushort.TryParse(txtWriteChargeCurrent.Text, out ushort chargeCurrentValue) || chargeCurrentValue < 1)
+            {
+                lblChargeSettingStatus.Text = "Dòng sạc phải lớn hơn hoặc bằng 1.";
+                return;
+            }
+
+            string iinLim = iinLimValue.ToString();
+            string chargeVoltage = chargeVoltageValue.ToString();
+            string chargeCurrent = chargeCurrentValue.ToString();
+            string chargeLed = chkChargeStatus.Checked ? "1" : "0";
+
+            if (SetCommands.Charge(iinLim, chargeVoltage, chargeCurrent, chargeLed, out txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+
+                if (ok && SetParser.Charge(rxFrame))
+                {
+                    lblChargeSettingStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblChargeSettingStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblChargeSettingStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblChargeSettingStatus.Text = string.Empty;
+        }
+
 
         //-----------------------Pulse Meter Setting--------------------------------//
 

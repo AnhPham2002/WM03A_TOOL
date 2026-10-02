@@ -80,6 +80,80 @@ namespace WM03A
             return BitConverter.ToSingle(payload, 1);
         }
 
+        public static bool Charge(byte[] frame, out ChargeConfig config)
+        {
+            config = new ChargeConfig();
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length == 0)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            while (index < payload.Length)
+            {
+                byte parameterId = payload[index++];
+
+                switch (parameterId)
+                {
+                    case (byte)ConfigChargeId.IinLim:
+                        {
+                            if (index + sizeof(ushort) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.IinLimMa = BitConverter.ToUInt16(payload, index);
+                            index += sizeof(ushort);
+                            break;
+                        }
+
+                    case (byte)ConfigChargeId.Voltage:
+                        {
+                            if (index + sizeof(ushort) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.ChargeVoltageMv = BitConverter.ToUInt16(payload, index);
+                            index += sizeof(ushort);
+                            break;
+                        }
+
+                    case (byte)ConfigChargeId.Current:
+                        {
+                            if (index + sizeof(ushort) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.ChargeCurrentMa = BitConverter.ToUInt16(payload, index);
+                            index += sizeof(ushort);
+                            break;
+                        }
+
+                    case (byte)ConfigChargeId.Led:
+                        {
+                            if (index + sizeof(byte) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.ChargeLedEnable = payload[index++] != 0;
+                            break;
+                        }
+
+                    default:
+                        return false;
+                }
+            }
+
+            return true;
+        }
+
         public static bool PulseMeter(byte[] frame, out PulseMeterConfig config)
         {
             config = new PulseMeterConfig();

@@ -732,6 +732,16 @@
             this.txtFirmwareFile = new System.Windows.Forms.TextBox();
             this.prgOtaProgress = new System.Windows.Forms.ProgressBar();
             this.tabChangePassword = new System.Windows.Forms.TabPage();
+            this.lblChangePasswordStatus = new System.Windows.Forms.Label();
+            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.cmbRoleNewPassword = new System.Windows.Forms.ComboBox();
+            this.lblRole = new System.Windows.Forms.Label();
+            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
+            this.label209 = new System.Windows.Forms.Label();
+            this.label208 = new System.Windows.Forms.Label();
+            this.label207 = new System.Windows.Forms.Label();
             this.tabAdvance = new System.Windows.Forms.TabPage();
             this.lblWriteMcuResetStatus = new System.Windows.Forms.Label();
             this.lblWriteDeviceStatusAdvCfgStatus = new System.Windows.Forms.Label();
@@ -786,16 +796,22 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.btnReconnect = new System.Windows.Forms.Button();
-            this.label207 = new System.Windows.Forms.Label();
-            this.txtCurrentPassword = new System.Windows.Forms.TextBox();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.cmbRoleNewPassword = new System.Windows.Forms.ComboBox();
-            this.label208 = new System.Windows.Forms.Label();
-            this.txtNewPassword = new System.Windows.Forms.TextBox();
-            this.label209 = new System.Windows.Forms.Label();
-            this.txtConfirmPassword = new System.Windows.Forms.TextBox();
-            this.btnChangePassword = new System.Windows.Forms.Button();
-            this.lblChangePasswordStatus = new System.Windows.Forms.Label();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.lblChargeSettingStatus = new System.Windows.Forms.Label();
+            this.label213 = new System.Windows.Forms.Label();
+            this.btnWriteChargeSetting = new System.Windows.Forms.Button();
+            this.txtWriteChargeCurrent = new System.Windows.Forms.TextBox();
+            this.btnReadChargeSetting = new System.Windows.Forms.Button();
+            this.txtReadChargeStatus = new System.Windows.Forms.TextBox();
+            this.txtReadChargeCurrent = new System.Windows.Forms.TextBox();
+            this.txtWriteChargeIinLim = new System.Windows.Forms.TextBox();
+            this.txtWriteChargeVoltage = new System.Windows.Forms.TextBox();
+            this.txtReadChargeIinLim = new System.Windows.Forms.TextBox();
+            this.txtReadChargeVoltage = new System.Windows.Forms.TextBox();
+            this.label214 = new System.Windows.Forms.Label();
+            this.label215 = new System.Windows.Forms.Label();
+            this.label216 = new System.Windows.Forms.Label();
+            this.chkChargeStatus = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -855,6 +871,7 @@
             this.tabChangePassword.SuspendLayout();
             this.tabAdvance.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.groupBox26.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -2018,6 +2035,7 @@
             // 
             // tabModuleConfig
             // 
+            this.tabModuleConfig.Controls.Add(this.groupBox26);
             this.tabModuleConfig.Controls.Add(this.grpModuleSetting);
             this.tabModuleConfig.Controls.Add(this.grpTimeSetting);
             this.tabModuleConfig.Location = new System.Drawing.Point(4, 22);
@@ -8033,6 +8051,104 @@
             this.tabChangePassword.Text = "Đổi mật khẩu";
             this.tabChangePassword.UseVisualStyleBackColor = true;
             // 
+            // lblChangePasswordStatus
+            // 
+            this.lblChangePasswordStatus.AutoSize = true;
+            this.lblChangePasswordStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangePasswordStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblChangePasswordStatus.Location = new System.Drawing.Point(449, 224);
+            this.lblChangePasswordStatus.Name = "lblChangePasswordStatus";
+            this.lblChangePasswordStatus.Size = new System.Drawing.Size(65, 13);
+            this.lblChangePasswordStatus.TabIndex = 23;
+            this.lblChangePasswordStatus.Text = "Trạng thái";
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Location = new System.Drawing.Point(336, 219);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(75, 23);
+            this.btnChangePassword.TabIndex = 22;
+            this.btnChangePassword.Text = "Xác nhận";
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            // 
+            // cmbRoleNewPassword
+            // 
+            this.cmbRoleNewPassword.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRoleNewPassword.FormattingEnabled = true;
+            this.cmbRoleNewPassword.Items.AddRange(new object[] {
+            "--Chọn vai trò--",
+            "Người xem",
+            "Kỹ thuật viên",
+            "Quản trị viên"});
+            this.cmbRoleNewPassword.Location = new System.Drawing.Point(177, 84);
+            this.cmbRoleNewPassword.Name = "cmbRoleNewPassword";
+            this.cmbRoleNewPassword.Size = new System.Drawing.Size(540, 21);
+            this.cmbRoleNewPassword.TabIndex = 21;
+            // 
+            // lblRole
+            // 
+            this.lblRole.AutoSize = true;
+            this.lblRole.Location = new System.Drawing.Point(41, 87);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(130, 13);
+            this.lblRole.TabIndex = 20;
+            this.lblRole.Text = "Chọn vai trò mật khẩu mới";
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.Location = new System.Drawing.Point(175, 167);
+            this.txtConfirmPassword.Name = "txtConfirmPassword";
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.Size = new System.Drawing.Size(542, 20);
+            this.txtConfirmPassword.TabIndex = 19;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.Location = new System.Drawing.Point(175, 129);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '*';
+            this.txtNewPassword.Size = new System.Drawing.Size(542, 20);
+            this.txtNewPassword.TabIndex = 19;
+            this.txtNewPassword.UseSystemPasswordChar = true;
+            // 
+            // txtCurrentPassword
+            // 
+            this.txtCurrentPassword.Location = new System.Drawing.Point(175, 26);
+            this.txtCurrentPassword.Name = "txtCurrentPassword";
+            this.txtCurrentPassword.PasswordChar = '*';
+            this.txtCurrentPassword.Size = new System.Drawing.Size(542, 20);
+            this.txtCurrentPassword.TabIndex = 19;
+            this.txtCurrentPassword.UseSystemPasswordChar = true;
+            // 
+            // label209
+            // 
+            this.label209.AutoSize = true;
+            this.label209.Location = new System.Drawing.Point(41, 170);
+            this.label209.Name = "label209";
+            this.label209.Size = new System.Drawing.Size(119, 13);
+            this.label209.TabIndex = 18;
+            this.label209.Text = "Xác nhận mật khẩu mới";
+            // 
+            // label208
+            // 
+            this.label208.AutoSize = true;
+            this.label208.Location = new System.Drawing.Point(41, 132);
+            this.label208.Name = "label208";
+            this.label208.Size = new System.Drawing.Size(99, 13);
+            this.label208.TabIndex = 18;
+            this.label208.Text = "Nhập mật khẩu mới";
+            // 
+            // label207
+            // 
+            this.label207.AutoSize = true;
+            this.label207.Location = new System.Drawing.Point(41, 29);
+            this.label207.Name = "label207";
+            this.label207.Size = new System.Drawing.Size(117, 13);
+            this.label207.TabIndex = 18;
+            this.label207.Text = "Nhập mật khẩu hiện tại";
+            // 
             // tabAdvance
             // 
             this.tabAdvance.Controls.Add(this.lblWriteMcuResetStatus);
@@ -8532,103 +8648,160 @@
             this.btnReconnect.UseVisualStyleBackColor = true;
             this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
-            // label207
+            // groupBox26
             // 
-            this.label207.AutoSize = true;
-            this.label207.Location = new System.Drawing.Point(41, 29);
-            this.label207.Name = "label207";
-            this.label207.Size = new System.Drawing.Size(117, 13);
-            this.label207.TabIndex = 18;
-            this.label207.Text = "Nhập mật khẩu hiện tại";
+            this.groupBox26.Controls.Add(this.chkChargeStatus);
+            this.groupBox26.Controls.Add(this.lblChargeSettingStatus);
+            this.groupBox26.Controls.Add(this.label213);
+            this.groupBox26.Controls.Add(this.btnWriteChargeSetting);
+            this.groupBox26.Controls.Add(this.txtWriteChargeCurrent);
+            this.groupBox26.Controls.Add(this.btnReadChargeSetting);
+            this.groupBox26.Controls.Add(this.txtReadChargeStatus);
+            this.groupBox26.Controls.Add(this.txtReadChargeCurrent);
+            this.groupBox26.Controls.Add(this.txtWriteChargeIinLim);
+            this.groupBox26.Controls.Add(this.txtWriteChargeVoltage);
+            this.groupBox26.Controls.Add(this.txtReadChargeIinLim);
+            this.groupBox26.Controls.Add(this.txtReadChargeVoltage);
+            this.groupBox26.Controls.Add(this.label214);
+            this.groupBox26.Controls.Add(this.label215);
+            this.groupBox26.Controls.Add(this.label216);
+            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox26.Location = new System.Drawing.Point(3, 270);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(932, 177);
+            this.groupBox26.TabIndex = 2;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Sạc";
             // 
-            // txtCurrentPassword
+            // lblChargeSettingStatus
             // 
-            this.txtCurrentPassword.Location = new System.Drawing.Point(175, 26);
-            this.txtCurrentPassword.Name = "txtCurrentPassword";
-            this.txtCurrentPassword.PasswordChar = '*';
-            this.txtCurrentPassword.Size = new System.Drawing.Size(542, 20);
-            this.txtCurrentPassword.TabIndex = 19;
-            this.txtCurrentPassword.UseSystemPasswordChar = true;
+            this.lblChargeSettingStatus.AutoSize = true;
+            this.lblChargeSettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChargeSettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblChargeSettingStatus.Location = new System.Drawing.Point(430, 12);
+            this.lblChargeSettingStatus.Name = "lblChargeSettingStatus";
+            this.lblChargeSettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblChargeSettingStatus.TabIndex = 19;
+            this.lblChargeSettingStatus.Text = "Trạng thái ghi";
             // 
-            // lblRole
+            // label213
             // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(41, 87);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(130, 13);
-            this.lblRole.TabIndex = 20;
-            this.lblRole.Text = "Chọn vai trò mật khẩu mới";
+            this.label213.AutoSize = true;
+            this.label213.Location = new System.Drawing.Point(161, 35);
+            this.label213.Name = "label213";
+            this.label213.Size = new System.Drawing.Size(140, 13);
+            this.label213.TabIndex = 3;
+            this.label213.Text = "Giới hạn dòng đầu vào (mA)";
             // 
-            // cmbRoleNewPassword
+            // btnWriteChargeSetting
             // 
-            this.cmbRoleNewPassword.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRoleNewPassword.FormattingEnabled = true;
-            this.cmbRoleNewPassword.Items.AddRange(new object[] {
-            "--Chọn vai trò--",
-            "Người xem",
-            "Kỹ thuật viên",
-            "Quản trị viên"});
-            this.cmbRoleNewPassword.Location = new System.Drawing.Point(177, 84);
-            this.cmbRoleNewPassword.Name = "cmbRoleNewPassword";
-            this.cmbRoleNewPassword.Size = new System.Drawing.Size(540, 21);
-            this.cmbRoleNewPassword.TabIndex = 21;
+            this.btnWriteChargeSetting.Location = new System.Drawing.Point(619, 144);
+            this.btnWriteChargeSetting.Name = "btnWriteChargeSetting";
+            this.btnWriteChargeSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteChargeSetting.TabIndex = 15;
+            this.btnWriteChargeSetting.Text = "Ghi";
+            this.btnWriteChargeSetting.UseVisualStyleBackColor = true;
+            this.btnWriteChargeSetting.Click += new System.EventHandler(this.btnWriteChargeSetting_Click);
             // 
-            // label208
+            // txtWriteChargeCurrent
             // 
-            this.label208.AutoSize = true;
-            this.label208.Location = new System.Drawing.Point(41, 132);
-            this.label208.Name = "label208";
-            this.label208.Size = new System.Drawing.Size(99, 13);
-            this.label208.TabIndex = 18;
-            this.label208.Text = "Nhập mật khẩu mới";
+            this.txtWriteChargeCurrent.Location = new System.Drawing.Point(559, 89);
+            this.txtWriteChargeCurrent.Name = "txtWriteChargeCurrent";
+            this.txtWriteChargeCurrent.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteChargeCurrent.TabIndex = 9;
             // 
-            // txtNewPassword
+            // btnReadChargeSetting
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(175, 129);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.PasswordChar = '*';
-            this.txtNewPassword.Size = new System.Drawing.Size(542, 20);
-            this.txtNewPassword.TabIndex = 19;
-            this.txtNewPassword.UseSystemPasswordChar = true;
+            this.btnReadChargeSetting.Location = new System.Drawing.Point(374, 147);
+            this.btnReadChargeSetting.Name = "btnReadChargeSetting";
+            this.btnReadChargeSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadChargeSetting.TabIndex = 14;
+            this.btnReadChargeSetting.Text = "Đọc";
+            this.btnReadChargeSetting.UseVisualStyleBackColor = true;
+            this.btnReadChargeSetting.Click += new System.EventHandler(this.btnReadChargeSetting_Click);
             // 
-            // label209
+            // txtReadChargeStatus
             // 
-            this.label209.AutoSize = true;
-            this.label209.Location = new System.Drawing.Point(41, 170);
-            this.label209.Name = "label209";
-            this.label209.Size = new System.Drawing.Size(119, 13);
-            this.label209.TabIndex = 18;
-            this.label209.Text = "Xác nhận mật khẩu mới";
+            this.txtReadChargeStatus.Location = new System.Drawing.Point(314, 121);
+            this.txtReadChargeStatus.Name = "txtReadChargeStatus";
+            this.txtReadChargeStatus.ReadOnly = true;
+            this.txtReadChargeStatus.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeStatus.TabIndex = 8;
             // 
-            // txtConfirmPassword
+            // txtReadChargeCurrent
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(175, 167);
-            this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.PasswordChar = '*';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(542, 20);
-            this.txtConfirmPassword.TabIndex = 19;
-            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            this.txtReadChargeCurrent.Location = new System.Drawing.Point(314, 92);
+            this.txtReadChargeCurrent.Name = "txtReadChargeCurrent";
+            this.txtReadChargeCurrent.ReadOnly = true;
+            this.txtReadChargeCurrent.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeCurrent.TabIndex = 9;
             // 
-            // btnChangePassword
+            // txtWriteChargeIinLim
             // 
-            this.btnChangePassword.Location = new System.Drawing.Point(336, 219);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(75, 23);
-            this.btnChangePassword.TabIndex = 22;
-            this.btnChangePassword.Text = "Xác nhận";
-            this.btnChangePassword.UseVisualStyleBackColor = true;
-            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+            this.txtWriteChargeIinLim.Location = new System.Drawing.Point(559, 28);
+            this.txtWriteChargeIinLim.Name = "txtWriteChargeIinLim";
+            this.txtWriteChargeIinLim.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteChargeIinLim.TabIndex = 11;
             // 
-            // lblChangePasswordStatus
+            // txtWriteChargeVoltage
             // 
-            this.lblChangePasswordStatus.AutoSize = true;
-            this.lblChangePasswordStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangePasswordStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblChangePasswordStatus.Location = new System.Drawing.Point(449, 224);
-            this.lblChangePasswordStatus.Name = "lblChangePasswordStatus";
-            this.lblChangePasswordStatus.Size = new System.Drawing.Size(65, 13);
-            this.lblChangePasswordStatus.TabIndex = 23;
-            this.lblChangePasswordStatus.Text = "Trạng thái";
+            this.txtWriteChargeVoltage.Location = new System.Drawing.Point(559, 59);
+            this.txtWriteChargeVoltage.Name = "txtWriteChargeVoltage";
+            this.txtWriteChargeVoltage.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteChargeVoltage.TabIndex = 12;
+            // 
+            // txtReadChargeIinLim
+            // 
+            this.txtReadChargeIinLim.Location = new System.Drawing.Point(314, 31);
+            this.txtReadChargeIinLim.Name = "txtReadChargeIinLim";
+            this.txtReadChargeIinLim.ReadOnly = true;
+            this.txtReadChargeIinLim.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeIinLim.TabIndex = 11;
+            // 
+            // txtReadChargeVoltage
+            // 
+            this.txtReadChargeVoltage.Location = new System.Drawing.Point(314, 62);
+            this.txtReadChargeVoltage.Name = "txtReadChargeVoltage";
+            this.txtReadChargeVoltage.ReadOnly = true;
+            this.txtReadChargeVoltage.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeVoltage.TabIndex = 12;
+            // 
+            // label214
+            // 
+            this.label214.AutoSize = true;
+            this.label214.Location = new System.Drawing.Point(161, 125);
+            this.label214.Name = "label214";
+            this.label214.Size = new System.Drawing.Size(113, 13);
+            this.label214.TabIndex = 5;
+            this.label214.Text = "Led báo trạng thái sạc";
+            // 
+            // label215
+            // 
+            this.label215.AutoSize = true;
+            this.label215.Location = new System.Drawing.Point(161, 96);
+            this.label215.Name = "label215";
+            this.label215.Size = new System.Drawing.Size(77, 13);
+            this.label215.TabIndex = 6;
+            this.label215.Text = "Dòng sạc (mA)";
+            // 
+            // label216
+            // 
+            this.label216.AutoSize = true;
+            this.label216.Location = new System.Drawing.Point(161, 66);
+            this.label216.Name = "label216";
+            this.label216.Size = new System.Drawing.Size(88, 13);
+            this.label216.TabIndex = 7;
+            this.label216.Text = "Điện áp sạc (mV)";
+            // 
+            // chkChargeStatus
+            // 
+            this.chkChargeStatus.AutoSize = true;
+            this.chkChargeStatus.Location = new System.Drawing.Point(623, 123);
+            this.chkChargeStatus.Name = "chkChargeStatus";
+            this.chkChargeStatus.Size = new System.Drawing.Size(66, 17);
+            this.chkChargeStatus.TabIndex = 20;
+            this.chkChargeStatus.Text = "Sử dụng";
+            this.chkChargeStatus.UseVisualStyleBackColor = true;
             // 
             // ucMain
             // 
@@ -8736,6 +8909,8 @@
             this.tabAdvance.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9511,5 +9686,21 @@
         private System.Windows.Forms.Label label208;
         private System.Windows.Forms.Label lblChangePasswordStatus;
         private System.Windows.Forms.Button btnChangePassword;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.Label lblChargeSettingStatus;
+        private System.Windows.Forms.Label label213;
+        private System.Windows.Forms.Button btnWriteChargeSetting;
+        private System.Windows.Forms.TextBox txtWriteChargeCurrent;
+        private System.Windows.Forms.Button btnReadChargeSetting;
+        private System.Windows.Forms.TextBox txtReadChargeStatus;
+        private System.Windows.Forms.TextBox txtReadChargeCurrent;
+        private System.Windows.Forms.TextBox txtWriteChargeIinLim;
+        private System.Windows.Forms.TextBox txtWriteChargeVoltage;
+        private System.Windows.Forms.TextBox txtReadChargeIinLim;
+        private System.Windows.Forms.TextBox txtReadChargeVoltage;
+        private System.Windows.Forms.Label label214;
+        private System.Windows.Forms.Label label215;
+        private System.Windows.Forms.Label label216;
+        private System.Windows.Forms.CheckBox chkChargeStatus;
     }
 }

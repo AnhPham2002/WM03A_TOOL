@@ -86,12 +86,13 @@ namespace WM03A
             Time = 0x02,
             IpEndpoint = 0x03,
             Module = 0x04,
-            PulseMeter = 0x05,
-            ModbusMeter = 0x06,
-            PressureSensor = 0x07,
-            Reboot = 0x08,
-            ResetSetting = 0x09,
-            ChangePassword = 0x0A,
+            Charge = 0x05,
+            PulseMeter = 0x06,
+            ModbusMeter = 0x07,
+            PressureSensor = 0x08,
+            Reboot = 0x09,
+            ResetSetting = 0x0A,
+            ChangePassword = 0x0B,
             ResetPassword = 0x10,
             McuResetCount = 0x11,
             EraseMeasurementData = 0x12,
@@ -153,6 +154,14 @@ namespace WM03A
             LatchPeriod = 0,
             PushPeriod,
             Timezone
+        }
+
+        public enum ConfigChargeId : byte
+        {
+            IinLim = 0,
+            Voltage,
+            Current,
+            Led
         }
 
         public enum ConfigPulseMeterId : byte

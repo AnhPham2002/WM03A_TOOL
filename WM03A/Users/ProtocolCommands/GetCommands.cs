@@ -86,6 +86,28 @@ namespace WM03A
                 out frame);
         }
 
+        public static bool Charge(byte[] parameterIds, out byte[] frame)
+        {
+            frame = null;
+
+            if (parameterIds == null || parameterIds.Length == 0)
+            {
+                return false;
+            }
+
+            byte[] payload = new byte[1 + parameterIds.Length];
+
+            Buffer.BlockCopy(parameterIds, 0, payload, 0, parameterIds.Length);
+
+            return Protocol.Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Get,
+                id: (byte)ConfigId.Charge,
+                payload: payload,
+                out frame);
+        }
+
         public static bool PulseMeter(byte meterIndex, byte[] parameterIds, out byte[] frame)
         {
             frame = null;

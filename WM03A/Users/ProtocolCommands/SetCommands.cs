@@ -84,6 +84,61 @@ namespace WM03A.Users.ProtocolCommands
                 out frame);
         }
 
+        public static bool Charge(string iinLim, string chargeVoltage, string chargeCurrent, string chargeLed, out byte[] frame)
+        {
+            frame = null;
+
+            List<byte> payload = new List<byte>();
+
+            if (string.IsNullOrWhiteSpace(iinLim) &&
+                string.IsNullOrWhiteSpace(chargeVoltage) &&
+                string.IsNullOrWhiteSpace(chargeCurrent) &&
+                string.IsNullOrWhiteSpace(chargeLed))
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrWhiteSpace(iinLim))
+            {
+                ushort value = ushort.Parse(iinLim);
+
+                payload.Add((byte)ConfigChargeId.IinLim);
+                payload.AddRange(BitConverter.GetBytes(value));
+            }
+
+            if (!string.IsNullOrWhiteSpace(chargeVoltage))
+            {
+                ushort value = ushort.Parse(chargeVoltage);
+
+                payload.Add((byte)ConfigChargeId.Voltage);
+                payload.AddRange(BitConverter.GetBytes(value));
+            }
+
+            if (!string.IsNullOrWhiteSpace(chargeCurrent))
+            {
+                ushort value = ushort.Parse(chargeCurrent);
+
+                payload.Add((byte)ConfigChargeId.Current);
+                payload.AddRange(BitConverter.GetBytes(value));
+            }
+
+            if (!string.IsNullOrWhiteSpace(chargeLed))
+            {
+                byte value = byte.Parse(chargeLed);
+
+                payload.Add((byte)ConfigChargeId.Led);
+                payload.Add(value);
+            }
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.Charge,
+                payload: payload.ToArray(),
+                out frame);
+        }
+
         public static bool ModuleConfig(string latchPeriod, string pushPeriod, string timezone, out byte[] frame)
         {
             frame = null;
