@@ -149,6 +149,22 @@
             this.tabSetting = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabModuleConfig = new System.Windows.Forms.TabPage();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.chkChargeStatus = new System.Windows.Forms.CheckBox();
+            this.lblChargeSettingStatus = new System.Windows.Forms.Label();
+            this.label213 = new System.Windows.Forms.Label();
+            this.btnWriteChargeSetting = new System.Windows.Forms.Button();
+            this.txtWriteChargeCurrent = new System.Windows.Forms.TextBox();
+            this.btnReadChargeSetting = new System.Windows.Forms.Button();
+            this.txtReadChargeStatus = new System.Windows.Forms.TextBox();
+            this.txtReadChargeCurrent = new System.Windows.Forms.TextBox();
+            this.txtWriteChargeIinLim = new System.Windows.Forms.TextBox();
+            this.txtWriteChargeVoltage = new System.Windows.Forms.TextBox();
+            this.txtReadChargeIinLim = new System.Windows.Forms.TextBox();
+            this.txtReadChargeVoltage = new System.Windows.Forms.TextBox();
+            this.label214 = new System.Windows.Forms.Label();
+            this.label215 = new System.Windows.Forms.Label();
+            this.label216 = new System.Windows.Forms.Label();
             this.grpModuleSetting = new System.Windows.Forms.GroupBox();
             this.cmbWriteTimezoneSetting = new System.Windows.Forms.ComboBox();
             this.lblModuleSettingStatus = new System.Windows.Forms.Label();
@@ -796,22 +812,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.btnReconnect = new System.Windows.Forms.Button();
-            this.groupBox26 = new System.Windows.Forms.GroupBox();
-            this.lblChargeSettingStatus = new System.Windows.Forms.Label();
-            this.label213 = new System.Windows.Forms.Label();
-            this.btnWriteChargeSetting = new System.Windows.Forms.Button();
-            this.txtWriteChargeCurrent = new System.Windows.Forms.TextBox();
-            this.btnReadChargeSetting = new System.Windows.Forms.Button();
-            this.txtReadChargeStatus = new System.Windows.Forms.TextBox();
-            this.txtReadChargeCurrent = new System.Windows.Forms.TextBox();
-            this.txtWriteChargeIinLim = new System.Windows.Forms.TextBox();
-            this.txtWriteChargeVoltage = new System.Windows.Forms.TextBox();
-            this.txtReadChargeIinLim = new System.Windows.Forms.TextBox();
-            this.txtReadChargeVoltage = new System.Windows.Forms.TextBox();
-            this.label214 = new System.Windows.Forms.Label();
-            this.label215 = new System.Windows.Forms.Label();
-            this.label216 = new System.Windows.Forms.Label();
-            this.chkChargeStatus = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -823,6 +823,7 @@
             this.tabSetting.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabModuleConfig.SuspendLayout();
+            this.groupBox26.SuspendLayout();
             this.grpModuleSetting.SuspendLayout();
             this.grpTimeSetting.SuspendLayout();
             this.tabPulseMeterConfig.SuspendLayout();
@@ -871,7 +872,6 @@
             this.tabChangePassword.SuspendLayout();
             this.tabAdvance.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.groupBox26.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -2045,6 +2045,161 @@
             this.tabModuleConfig.TabIndex = 0;
             this.tabModuleConfig.Text = "Thiết bị";
             this.tabModuleConfig.UseVisualStyleBackColor = true;
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.chkChargeStatus);
+            this.groupBox26.Controls.Add(this.lblChargeSettingStatus);
+            this.groupBox26.Controls.Add(this.label213);
+            this.groupBox26.Controls.Add(this.btnWriteChargeSetting);
+            this.groupBox26.Controls.Add(this.txtWriteChargeCurrent);
+            this.groupBox26.Controls.Add(this.btnReadChargeSetting);
+            this.groupBox26.Controls.Add(this.txtReadChargeStatus);
+            this.groupBox26.Controls.Add(this.txtReadChargeCurrent);
+            this.groupBox26.Controls.Add(this.txtWriteChargeIinLim);
+            this.groupBox26.Controls.Add(this.txtWriteChargeVoltage);
+            this.groupBox26.Controls.Add(this.txtReadChargeIinLim);
+            this.groupBox26.Controls.Add(this.txtReadChargeVoltage);
+            this.groupBox26.Controls.Add(this.label214);
+            this.groupBox26.Controls.Add(this.label215);
+            this.groupBox26.Controls.Add(this.label216);
+            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox26.Location = new System.Drawing.Point(3, 270);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(932, 177);
+            this.groupBox26.TabIndex = 2;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Sạc";
+            // 
+            // chkChargeStatus
+            // 
+            this.chkChargeStatus.AutoSize = true;
+            this.chkChargeStatus.Location = new System.Drawing.Point(623, 123);
+            this.chkChargeStatus.Name = "chkChargeStatus";
+            this.chkChargeStatus.Size = new System.Drawing.Size(66, 17);
+            this.chkChargeStatus.TabIndex = 20;
+            this.chkChargeStatus.Text = "Sử dụng";
+            this.chkChargeStatus.UseVisualStyleBackColor = true;
+            // 
+            // lblChargeSettingStatus
+            // 
+            this.lblChargeSettingStatus.AutoSize = true;
+            this.lblChargeSettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChargeSettingStatus.ForeColor = System.Drawing.Color.Red;
+            this.lblChargeSettingStatus.Location = new System.Drawing.Point(430, 12);
+            this.lblChargeSettingStatus.Name = "lblChargeSettingStatus";
+            this.lblChargeSettingStatus.Size = new System.Drawing.Size(86, 13);
+            this.lblChargeSettingStatus.TabIndex = 19;
+            this.lblChargeSettingStatus.Text = "Trạng thái ghi";
+            // 
+            // label213
+            // 
+            this.label213.AutoSize = true;
+            this.label213.Location = new System.Drawing.Point(161, 35);
+            this.label213.Name = "label213";
+            this.label213.Size = new System.Drawing.Size(140, 13);
+            this.label213.TabIndex = 3;
+            this.label213.Text = "Giới hạn dòng đầu vào (mA)";
+            // 
+            // btnWriteChargeSetting
+            // 
+            this.btnWriteChargeSetting.Location = new System.Drawing.Point(619, 144);
+            this.btnWriteChargeSetting.Name = "btnWriteChargeSetting";
+            this.btnWriteChargeSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnWriteChargeSetting.TabIndex = 15;
+            this.btnWriteChargeSetting.Text = "Ghi";
+            this.btnWriteChargeSetting.UseVisualStyleBackColor = true;
+            this.btnWriteChargeSetting.Click += new System.EventHandler(this.btnWriteChargeSetting_Click);
+            // 
+            // txtWriteChargeCurrent
+            // 
+            this.txtWriteChargeCurrent.Location = new System.Drawing.Point(559, 89);
+            this.txtWriteChargeCurrent.Name = "txtWriteChargeCurrent";
+            this.txtWriteChargeCurrent.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteChargeCurrent.TabIndex = 9;
+            // 
+            // btnReadChargeSetting
+            // 
+            this.btnReadChargeSetting.Location = new System.Drawing.Point(374, 147);
+            this.btnReadChargeSetting.Name = "btnReadChargeSetting";
+            this.btnReadChargeSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnReadChargeSetting.TabIndex = 14;
+            this.btnReadChargeSetting.Text = "Đọc";
+            this.btnReadChargeSetting.UseVisualStyleBackColor = true;
+            this.btnReadChargeSetting.Click += new System.EventHandler(this.btnReadChargeSetting_Click);
+            // 
+            // txtReadChargeStatus
+            // 
+            this.txtReadChargeStatus.Location = new System.Drawing.Point(314, 121);
+            this.txtReadChargeStatus.Name = "txtReadChargeStatus";
+            this.txtReadChargeStatus.ReadOnly = true;
+            this.txtReadChargeStatus.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeStatus.TabIndex = 8;
+            // 
+            // txtReadChargeCurrent
+            // 
+            this.txtReadChargeCurrent.Location = new System.Drawing.Point(314, 92);
+            this.txtReadChargeCurrent.Name = "txtReadChargeCurrent";
+            this.txtReadChargeCurrent.ReadOnly = true;
+            this.txtReadChargeCurrent.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeCurrent.TabIndex = 9;
+            // 
+            // txtWriteChargeIinLim
+            // 
+            this.txtWriteChargeIinLim.Location = new System.Drawing.Point(559, 28);
+            this.txtWriteChargeIinLim.Name = "txtWriteChargeIinLim";
+            this.txtWriteChargeIinLim.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteChargeIinLim.TabIndex = 11;
+            // 
+            // txtWriteChargeVoltage
+            // 
+            this.txtWriteChargeVoltage.Location = new System.Drawing.Point(559, 59);
+            this.txtWriteChargeVoltage.Name = "txtWriteChargeVoltage";
+            this.txtWriteChargeVoltage.Size = new System.Drawing.Size(194, 20);
+            this.txtWriteChargeVoltage.TabIndex = 12;
+            // 
+            // txtReadChargeIinLim
+            // 
+            this.txtReadChargeIinLim.Location = new System.Drawing.Point(314, 31);
+            this.txtReadChargeIinLim.Name = "txtReadChargeIinLim";
+            this.txtReadChargeIinLim.ReadOnly = true;
+            this.txtReadChargeIinLim.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeIinLim.TabIndex = 11;
+            // 
+            // txtReadChargeVoltage
+            // 
+            this.txtReadChargeVoltage.Location = new System.Drawing.Point(314, 62);
+            this.txtReadChargeVoltage.Name = "txtReadChargeVoltage";
+            this.txtReadChargeVoltage.ReadOnly = true;
+            this.txtReadChargeVoltage.Size = new System.Drawing.Size(194, 20);
+            this.txtReadChargeVoltage.TabIndex = 12;
+            // 
+            // label214
+            // 
+            this.label214.AutoSize = true;
+            this.label214.Location = new System.Drawing.Point(161, 125);
+            this.label214.Name = "label214";
+            this.label214.Size = new System.Drawing.Size(113, 13);
+            this.label214.TabIndex = 5;
+            this.label214.Text = "Led báo trạng thái sạc";
+            // 
+            // label215
+            // 
+            this.label215.AutoSize = true;
+            this.label215.Location = new System.Drawing.Point(161, 96);
+            this.label215.Name = "label215";
+            this.label215.Size = new System.Drawing.Size(77, 13);
+            this.label215.TabIndex = 6;
+            this.label215.Text = "Dòng sạc (mA)";
+            // 
+            // label216
+            // 
+            this.label216.AutoSize = true;
+            this.label216.Location = new System.Drawing.Point(161, 66);
+            this.label216.Name = "label216";
+            this.label216.Size = new System.Drawing.Size(88, 13);
+            this.label216.TabIndex = 7;
+            this.label216.Text = "Điện áp sạc (mV)";
             // 
             // grpModuleSetting
             // 
@@ -8236,6 +8391,7 @@
             // 
             // cmbDeviceStatusAdvCfg
             // 
+            this.cmbDeviceStatusAdvCfg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDeviceStatusAdvCfg.FormattingEnabled = true;
             this.cmbDeviceStatusAdvCfg.Location = new System.Drawing.Point(471, 62);
             this.cmbDeviceStatusAdvCfg.Name = "cmbDeviceStatusAdvCfg";
@@ -8244,6 +8400,7 @@
             // 
             // cmbEventMeter
             // 
+            this.cmbEventMeter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEventMeter.FormattingEnabled = true;
             this.cmbEventMeter.Items.AddRange(new object[] {
             "Module",
@@ -8257,17 +8414,27 @@
             // 
             // cmbEventCreate
             // 
+            this.cmbEventCreate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEventCreate.FormattingEnabled = true;
             this.cmbEventCreate.Items.AddRange(new object[] {
-            "Reset MCU"});
+            "--Chọn sự kiện--",
+            "Phát hiện từ trường",
+            "Kết thúc phát hiện từ trường",
+            "Có nguồn ngoài",
+            "Mất nguồn ngoài",
+            "Pin yếu",
+            "Kết thúc pin yếu",
+            "Thay đổi cài đặt",
+            "Thay đổi mật khẩu",
+            "Update firmware thành công"});
             this.cmbEventCreate.Location = new System.Drawing.Point(332, 411);
             this.cmbEventCreate.Name = "cmbEventCreate";
-            this.cmbEventCreate.Size = new System.Drawing.Size(153, 21);
+            this.cmbEventCreate.Size = new System.Drawing.Size(224, 21);
             this.cmbEventCreate.TabIndex = 18;
             // 
             // btnWriteEvent
             // 
-            this.btnWriteEvent.Location = new System.Drawing.Point(501, 411);
+            this.btnWriteEvent.Location = new System.Drawing.Point(562, 411);
             this.btnWriteEvent.Name = "btnWriteEvent";
             this.btnWriteEvent.Size = new System.Drawing.Size(75, 23);
             this.btnWriteEvent.TabIndex = 17;
@@ -8649,161 +8816,6 @@
             this.btnReconnect.UseVisualStyleBackColor = true;
             this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
-            // groupBox26
-            // 
-            this.groupBox26.Controls.Add(this.chkChargeStatus);
-            this.groupBox26.Controls.Add(this.lblChargeSettingStatus);
-            this.groupBox26.Controls.Add(this.label213);
-            this.groupBox26.Controls.Add(this.btnWriteChargeSetting);
-            this.groupBox26.Controls.Add(this.txtWriteChargeCurrent);
-            this.groupBox26.Controls.Add(this.btnReadChargeSetting);
-            this.groupBox26.Controls.Add(this.txtReadChargeStatus);
-            this.groupBox26.Controls.Add(this.txtReadChargeCurrent);
-            this.groupBox26.Controls.Add(this.txtWriteChargeIinLim);
-            this.groupBox26.Controls.Add(this.txtWriteChargeVoltage);
-            this.groupBox26.Controls.Add(this.txtReadChargeIinLim);
-            this.groupBox26.Controls.Add(this.txtReadChargeVoltage);
-            this.groupBox26.Controls.Add(this.label214);
-            this.groupBox26.Controls.Add(this.label215);
-            this.groupBox26.Controls.Add(this.label216);
-            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox26.Location = new System.Drawing.Point(3, 270);
-            this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(932, 177);
-            this.groupBox26.TabIndex = 2;
-            this.groupBox26.TabStop = false;
-            this.groupBox26.Text = "Sạc";
-            // 
-            // lblChargeSettingStatus
-            // 
-            this.lblChargeSettingStatus.AutoSize = true;
-            this.lblChargeSettingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChargeSettingStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblChargeSettingStatus.Location = new System.Drawing.Point(430, 12);
-            this.lblChargeSettingStatus.Name = "lblChargeSettingStatus";
-            this.lblChargeSettingStatus.Size = new System.Drawing.Size(86, 13);
-            this.lblChargeSettingStatus.TabIndex = 19;
-            this.lblChargeSettingStatus.Text = "Trạng thái ghi";
-            // 
-            // label213
-            // 
-            this.label213.AutoSize = true;
-            this.label213.Location = new System.Drawing.Point(161, 35);
-            this.label213.Name = "label213";
-            this.label213.Size = new System.Drawing.Size(140, 13);
-            this.label213.TabIndex = 3;
-            this.label213.Text = "Giới hạn dòng đầu vào (mA)";
-            // 
-            // btnWriteChargeSetting
-            // 
-            this.btnWriteChargeSetting.Location = new System.Drawing.Point(619, 144);
-            this.btnWriteChargeSetting.Name = "btnWriteChargeSetting";
-            this.btnWriteChargeSetting.Size = new System.Drawing.Size(75, 23);
-            this.btnWriteChargeSetting.TabIndex = 15;
-            this.btnWriteChargeSetting.Text = "Ghi";
-            this.btnWriteChargeSetting.UseVisualStyleBackColor = true;
-            this.btnWriteChargeSetting.Click += new System.EventHandler(this.btnWriteChargeSetting_Click);
-            // 
-            // txtWriteChargeCurrent
-            // 
-            this.txtWriteChargeCurrent.Location = new System.Drawing.Point(559, 89);
-            this.txtWriteChargeCurrent.Name = "txtWriteChargeCurrent";
-            this.txtWriteChargeCurrent.Size = new System.Drawing.Size(194, 20);
-            this.txtWriteChargeCurrent.TabIndex = 9;
-            // 
-            // btnReadChargeSetting
-            // 
-            this.btnReadChargeSetting.Location = new System.Drawing.Point(374, 147);
-            this.btnReadChargeSetting.Name = "btnReadChargeSetting";
-            this.btnReadChargeSetting.Size = new System.Drawing.Size(75, 23);
-            this.btnReadChargeSetting.TabIndex = 14;
-            this.btnReadChargeSetting.Text = "Đọc";
-            this.btnReadChargeSetting.UseVisualStyleBackColor = true;
-            this.btnReadChargeSetting.Click += new System.EventHandler(this.btnReadChargeSetting_Click);
-            // 
-            // txtReadChargeStatus
-            // 
-            this.txtReadChargeStatus.Location = new System.Drawing.Point(314, 121);
-            this.txtReadChargeStatus.Name = "txtReadChargeStatus";
-            this.txtReadChargeStatus.ReadOnly = true;
-            this.txtReadChargeStatus.Size = new System.Drawing.Size(194, 20);
-            this.txtReadChargeStatus.TabIndex = 8;
-            // 
-            // txtReadChargeCurrent
-            // 
-            this.txtReadChargeCurrent.Location = new System.Drawing.Point(314, 92);
-            this.txtReadChargeCurrent.Name = "txtReadChargeCurrent";
-            this.txtReadChargeCurrent.ReadOnly = true;
-            this.txtReadChargeCurrent.Size = new System.Drawing.Size(194, 20);
-            this.txtReadChargeCurrent.TabIndex = 9;
-            // 
-            // txtWriteChargeIinLim
-            // 
-            this.txtWriteChargeIinLim.Location = new System.Drawing.Point(559, 28);
-            this.txtWriteChargeIinLim.Name = "txtWriteChargeIinLim";
-            this.txtWriteChargeIinLim.Size = new System.Drawing.Size(194, 20);
-            this.txtWriteChargeIinLim.TabIndex = 11;
-            // 
-            // txtWriteChargeVoltage
-            // 
-            this.txtWriteChargeVoltage.Location = new System.Drawing.Point(559, 59);
-            this.txtWriteChargeVoltage.Name = "txtWriteChargeVoltage";
-            this.txtWriteChargeVoltage.Size = new System.Drawing.Size(194, 20);
-            this.txtWriteChargeVoltage.TabIndex = 12;
-            // 
-            // txtReadChargeIinLim
-            // 
-            this.txtReadChargeIinLim.Location = new System.Drawing.Point(314, 31);
-            this.txtReadChargeIinLim.Name = "txtReadChargeIinLim";
-            this.txtReadChargeIinLim.ReadOnly = true;
-            this.txtReadChargeIinLim.Size = new System.Drawing.Size(194, 20);
-            this.txtReadChargeIinLim.TabIndex = 11;
-            // 
-            // txtReadChargeVoltage
-            // 
-            this.txtReadChargeVoltage.Location = new System.Drawing.Point(314, 62);
-            this.txtReadChargeVoltage.Name = "txtReadChargeVoltage";
-            this.txtReadChargeVoltage.ReadOnly = true;
-            this.txtReadChargeVoltage.Size = new System.Drawing.Size(194, 20);
-            this.txtReadChargeVoltage.TabIndex = 12;
-            // 
-            // label214
-            // 
-            this.label214.AutoSize = true;
-            this.label214.Location = new System.Drawing.Point(161, 125);
-            this.label214.Name = "label214";
-            this.label214.Size = new System.Drawing.Size(113, 13);
-            this.label214.TabIndex = 5;
-            this.label214.Text = "Led báo trạng thái sạc";
-            // 
-            // label215
-            // 
-            this.label215.AutoSize = true;
-            this.label215.Location = new System.Drawing.Point(161, 96);
-            this.label215.Name = "label215";
-            this.label215.Size = new System.Drawing.Size(77, 13);
-            this.label215.TabIndex = 6;
-            this.label215.Text = "Dòng sạc (mA)";
-            // 
-            // label216
-            // 
-            this.label216.AutoSize = true;
-            this.label216.Location = new System.Drawing.Point(161, 66);
-            this.label216.Name = "label216";
-            this.label216.Size = new System.Drawing.Size(88, 13);
-            this.label216.TabIndex = 7;
-            this.label216.Text = "Điện áp sạc (mV)";
-            // 
-            // chkChargeStatus
-            // 
-            this.chkChargeStatus.AutoSize = true;
-            this.chkChargeStatus.Location = new System.Drawing.Point(623, 123);
-            this.chkChargeStatus.Name = "chkChargeStatus";
-            this.chkChargeStatus.Size = new System.Drawing.Size(66, 17);
-            this.chkChargeStatus.TabIndex = 20;
-            this.chkChargeStatus.Text = "Sử dụng";
-            this.chkChargeStatus.UseVisualStyleBackColor = true;
-            // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8830,6 +8842,8 @@
             this.tabSetting.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabModuleConfig.ResumeLayout(false);
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
             this.grpModuleSetting.ResumeLayout(false);
             this.grpModuleSetting.PerformLayout();
             this.grpTimeSetting.ResumeLayout(false);
@@ -8910,8 +8924,6 @@
             this.tabAdvance.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.groupBox26.ResumeLayout(false);
-            this.groupBox26.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

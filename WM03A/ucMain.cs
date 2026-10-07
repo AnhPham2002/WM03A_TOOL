@@ -151,6 +151,9 @@ namespace WM03A
             cmbFlow4DataTypeSetting.SelectedIndex = 0;
             cmbFlow4WordSwapSetting.SelectedIndex = 0;
 
+            cmbEventMeter.SelectedIndex = 0;
+            cmbEventCreate.SelectedIndex = 0;
+
             UpdatePulseMeter1Control();
             UpdatePulseMeter2Control();
             UpdatePulseMeter3Control();
@@ -3590,11 +3593,56 @@ namespace WM03A
                             break;
                     }
 
+                    string eventContent;
+
+                    switch (eventData.EventCode)
+                    {
+                        case 1:
+                            eventContent = "Phát hiện từ trường";
+                            break;
+
+                        case 2:
+                            eventContent = "Kết thúc phát hiện từ trường";
+                            break;
+
+                        case 3:
+                            eventContent = "Có nguồn ngoài";
+                            break;
+
+                        case 4:
+                            eventContent = "Mất nguồn ngoài";
+                            break;
+
+                        case 5:
+                            eventContent = "Pin yếu";
+                            break;
+
+                        case 6:
+                            eventContent = "Kết thúc pin yếu";
+                            break;
+
+                        case 7:
+                            eventContent = "Thay đổi cài đặt";
+                            break;
+
+                        case 8:
+                            eventContent = "Thay đổi mật khẩu";
+                            break;
+
+                        case 9:
+                            eventContent = "Update firmware thành công";
+                            break;
+
+                        default:
+                            eventContent = "-";
+                            break;
+                    }
+
                     int rowIndex = dgvEventData.Rows.Add(
                         userIndex,
                         meterType,
                         eventData.SerialNumber,
-                        eventData.EventCode.ToString(),
+                        eventContent,
                         eventData.EventDateTime.ToString("dd/MM/yyyy HH:mm:ss"));
 
                     dgvEventData.Rows[rowIndex].Tag = eventData;
@@ -4032,7 +4080,7 @@ namespace WM03A
 
         private async void btnWriteEvent_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtEventMeterIndex.Text))
+            if ((string.IsNullOrWhiteSpace(txtEventMeterIndex.Text)) || (cmbEventCreate.SelectedIndex == 0))
                 return;
 
             byte value = byte.Parse(txtEventMeterIndex.Text);
@@ -4208,7 +4256,7 @@ namespace WM03A
             sbyte rssnr;
 
             QueryCommands.SimNetworkInfo(out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 20000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 30000);
             if (ok && QueryParser.SimNetworkInfo(rxFrame, out ccid, out rssi, out rsrp, out rsrq, out rssnr))
             {
                 txtSimCcid.Text = Encoding.ASCII.GetString(ccid).TrimEnd('\0');
