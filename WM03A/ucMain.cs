@@ -3620,6 +3620,25 @@ namespace WM03A
         //-----------------------Query Metadata--------------------------------//
         private async void btnReadMetadata_Click(object sender, EventArgs e)
         {
+            txtMetadataSeq.Clear();
+            txtNextSaveLatchIndex.Clear();
+            txtNextLoadLatchIndex.Clear();
+            txtLatchCount.Clear();
+            txtNextSaveEventIndex.Clear();
+            txtNextLoadEventIndex.Clear();
+            txtEventCount.Clear();
+            txtNextSaveErrLogIndex.Clear();
+            txtErrLogCount.Clear();
+            txtRuntimeSeq.Clear();
+            txtPulseForwardTotal1.Clear();
+            txtPulseReverseTotal1.Clear();
+            txtPulseForwardTotal2.Clear();
+            txtPulseReverseTotal2.Clear();
+            txtPulseForwardTotal3.Clear();
+            txtPulseReverseTotal3.Clear();
+            txtPulseForwardTotal4.Clear();
+            txtPulseReverseTotal4.Clear();
+
             QueryCommands.Metadata(out byte[] txFrame);
             var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
             if (ok && QueryParser.Metadata(rxFrame, out MetadataData metadata))
@@ -3969,6 +3988,12 @@ namespace WM03A
             var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
         }
 
+        private async void btnTurnOffDevice_Click(object sender, EventArgs e)
+        {
+            SetCommands.PowerOff(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+        }
+
         private async void btnResetConfig_Click(object sender, EventArgs e)
         {
             SetCommands.ResetSetting(out byte[] txFrame);
@@ -4119,6 +4144,48 @@ namespace WM03A
             {
                 float Timezone = GetParser.Timezone(rxFrame);
                 txtTimezoneOverall.Text = GetTimezoneText(Timezone);
+            }
+
+            QueryCommands.Power(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            if (ok)
+            {
+                QueryParser.Power(rxFrame, out bool powerStatus, out byte chargeStatus, out ushort batteryVoltage);
+
+                if (powerStatus)
+                {
+                    txtPowerStatus.Text = "Có nguồn";
+                }
+                else
+                {
+                    txtPowerStatus.Text = "Mất nguồn";
+                }
+
+                if (chargeStatus == 0)
+                {
+                    txtChargeStatus.Text = "Không sạc";
+                }
+                else if (chargeStatus == 1 || chargeStatus == 2)
+                {
+                    txtChargeStatus.Text = "Đang sạc";
+                }
+                else if (chargeStatus == 3)
+                {
+                    txtChargeStatus.Text = "Sạc đầy";
+                }
+                else
+                {
+                    txtChargeStatus.Text = "Không xác định";
+                }
+
+                if (batteryVoltage == 0)
+                {
+                    txtBatteryVoltage.Text = "Không có pin";
+                }
+                else
+                {
+                    txtBatteryVoltage.Text = batteryVoltage.ToString();
+                }
             }
         }
 

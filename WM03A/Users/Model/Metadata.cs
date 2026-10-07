@@ -8,7 +8,7 @@ namespace WM03A
 {
     public class MetadataData
     {
-        public ulong SequenceMeta { get; set; }
+        public uint SequenceMeta { get; set; }
         public ushort NextLatchSaveIndex { get; set; }
         public ushort NextLatchLoadIndex { get; set; }
         public ushort LatchCount { get; set; }
@@ -18,7 +18,7 @@ namespace WM03A
         public ushort NextLogSaveIndex { get; set; }
         public ushort LogCount { get; set; }
 
-        public ulong SequenceRuntime { get; set; }
+        public uint SequenceRuntime { get; set; }
         public byte ResetCount { get; set; }
         public List<PulseCountData> PulseCounts { get; set; } = new List<PulseCountData>();
     }

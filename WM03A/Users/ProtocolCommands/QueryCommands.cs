@@ -31,6 +31,17 @@ namespace WM03A
                 out frame);
         }
 
+        public static bool Power(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.PowerInfo,
+                payload: null,
+                out frame);
+        }
+
         public static bool SimNetworkInfo(out byte[] frame)
         {
             return Pack(

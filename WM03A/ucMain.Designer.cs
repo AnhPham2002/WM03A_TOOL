@@ -8363,6 +8363,7 @@
             this.btnTurnOffDevice.TabIndex = 17;
             this.btnTurnOffDevice.Text = "Ghi";
             this.btnTurnOffDevice.UseVisualStyleBackColor = true;
+            this.btnTurnOffDevice.Click += new System.EventHandler(this.btnTurnOffDevice_Click);
             // 
             // btnRebootDevice
             // 

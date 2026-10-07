@@ -623,6 +623,17 @@ namespace WM03A.Users.ProtocolCommands
                 out frame);
         }
 
+        public static bool PowerOff(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.PowerOff,
+                payload: null,
+                out frame);
+        }
+
         public static bool ResetSetting(out byte[] frame)
         {
             return Pack(

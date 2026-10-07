@@ -44,6 +44,26 @@ namespace WM03A
             return true;
         }
 
+        public static bool Power(byte[] frame, out bool input, out byte chargeStatus, out ushort batteryVoltageMv)
+        {
+            input = false;
+            chargeStatus = 0;
+            batteryVoltageMv = 0;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length != 4)
+            {
+                return false;
+            }
+
+            input = payload[0] != 0;
+            chargeStatus = payload[1];
+            batteryVoltageMv = BitConverter.ToUInt16(payload, 2);
+
+            return true;
+        }
+
         public static bool SimNetworkInfo(byte[] frame, out byte[] ccid, out sbyte rssi, out sbyte rsrp, out sbyte rsrq, out sbyte rssnr)
         {
             ccid = null;
@@ -279,7 +299,7 @@ namespace WM03A
                 return false;
             }
 
-            int expectedLength = sizeof(ulong) + EEPROM_METADATA_SIZE + sizeof(ulong) + sizeof(byte) + (MAX_PULSE_GATE_COUNT * PULSE_COUNT_SIZE);
+            int expectedLength = sizeof(uint) + EEPROM_METADATA_SIZE + sizeof(uint) + sizeof(byte) + (MAX_PULSE_GATE_COUNT * PULSE_COUNT_SIZE);
 
             if (payload.Length != expectedLength)
             {
@@ -288,8 +308,8 @@ namespace WM03A
 
             int index = 0;
 
-            ulong sequenceMeta = BitConverter.ToUInt64(payload, index);
-            index += sizeof(ulong);
+            uint sequenceMeta = BitConverter.ToUInt32(payload, index);
+            index += sizeof(uint);
 
             ushort nextLatchSaveIndex = BitConverter.ToUInt16(payload, index);
             index += sizeof(ushort);
@@ -315,8 +335,8 @@ namespace WM03A
             ushort logCount = BitConverter.ToUInt16(payload, index);
             index += sizeof(ushort);
 
-            ulong sequenceRuntime = BitConverter.ToUInt64(payload, index);
-            index += sizeof(ulong);
+            uint sequenceRuntime = BitConverter.ToUInt32(payload, index);
+            index += sizeof(uint);
 
             byte resetCount = payload[index++];
 
