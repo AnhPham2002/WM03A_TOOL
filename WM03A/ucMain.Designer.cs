@@ -703,6 +703,16 @@
             this.colEventMeterSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEventData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEventTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPushStatus = new System.Windows.Forms.TabPage();
+            this.label210 = new System.Windows.Forms.Label();
+            this.label211 = new System.Windows.Forms.Label();
+            this.label212 = new System.Windows.Forms.Label();
+            this.label217 = new System.Windows.Forms.Label();
+            this.btnStopReadPushStatusData = new System.Windows.Forms.Button();
+            this.btnReadPushStatusData = new System.Windows.Forms.Button();
+            this.txtEndIndexPushStatusQuery = new System.Windows.Forms.TextBox();
+            this.txtBeginIndexPushStatusQuery = new System.Windows.Forms.TextBox();
+            this.dgvPushStatusData = new System.Windows.Forms.DataGridView();
             this.tabMetadata = new System.Windows.Forms.TabPage();
             this.btnReadMetadata = new System.Windows.Forms.Button();
             this.label204 = new System.Windows.Forms.Label();
@@ -812,6 +822,15 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.btnReconnect = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -867,6 +886,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.tabEventData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventData)).BeginInit();
+            this.tabPushStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPushStatusData)).BeginInit();
             this.tabMetadata.SuspendLayout();
             this.tabOTA.SuspendLayout();
             this.tabChangePassword.SuspendLayout();
@@ -7380,6 +7401,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabLatchData);
             this.tabControl3.Controls.Add(this.tabEventData);
+            this.tabControl3.Controls.Add(this.tabPushStatus);
             this.tabControl3.Controls.Add(this.tabMetadata);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.Location = new System.Drawing.Point(0, 0);
@@ -7766,6 +7788,117 @@
             this.colEventTime.ReadOnly = true;
             this.colEventTime.Width = 200;
             // 
+            // tabPushStatus
+            // 
+            this.tabPushStatus.Controls.Add(this.label210);
+            this.tabPushStatus.Controls.Add(this.label211);
+            this.tabPushStatus.Controls.Add(this.label212);
+            this.tabPushStatus.Controls.Add(this.label217);
+            this.tabPushStatus.Controls.Add(this.btnStopReadPushStatusData);
+            this.tabPushStatus.Controls.Add(this.btnReadPushStatusData);
+            this.tabPushStatus.Controls.Add(this.txtEndIndexPushStatusQuery);
+            this.tabPushStatus.Controls.Add(this.txtBeginIndexPushStatusQuery);
+            this.tabPushStatus.Controls.Add(this.dgvPushStatusData);
+            this.tabPushStatus.Location = new System.Drawing.Point(4, 22);
+            this.tabPushStatus.Name = "tabPushStatus";
+            this.tabPushStatus.Size = new System.Drawing.Size(944, 723);
+            this.tabPushStatus.TabIndex = 3;
+            this.tabPushStatus.Text = "Trạng thái đẩy";
+            this.tabPushStatus.UseVisualStyleBackColor = true;
+            // 
+            // label210
+            // 
+            this.label210.AutoSize = true;
+            this.label210.Location = new System.Drawing.Point(20, 42);
+            this.label210.Name = "label210";
+            this.label210.Size = new System.Drawing.Size(288, 13);
+            this.label210.TabIndex = 30;
+            this.label210.Text = "Không nhập ô thứ hai nếu muốn đọc đến trạng thái xa nhất";
+            // 
+            // label211
+            // 
+            this.label211.AutoSize = true;
+            this.label211.Location = new System.Drawing.Point(20, 26);
+            this.label211.Name = "label211";
+            this.label211.Size = new System.Drawing.Size(292, 13);
+            this.label211.TabIndex = 31;
+            this.label211.Text = "Không nhập ô thứ nhất nếu muốn đọc từ trạng thái gần nhất";
+            // 
+            // label212
+            // 
+            this.label212.AutoSize = true;
+            this.label212.Location = new System.Drawing.Point(216, 10);
+            this.label212.Name = "label212";
+            this.label212.Size = new System.Drawing.Size(73, 13);
+            this.label212.TabIndex = 32;
+            this.label212.Text = "đến trạng thái";
+            // 
+            // label217
+            // 
+            this.label217.AutoSize = true;
+            this.label217.Location = new System.Drawing.Point(20, 10);
+            this.label217.Name = "label217";
+            this.label217.Size = new System.Drawing.Size(86, 13);
+            this.label217.TabIndex = 33;
+            this.label217.Text = "Đọc từ trạng thái";
+            // 
+            // btnStopReadPushStatusData
+            // 
+            this.btnStopReadPushStatusData.Location = new System.Drawing.Point(485, 5);
+            this.btnStopReadPushStatusData.Name = "btnStopReadPushStatusData";
+            this.btnStopReadPushStatusData.Size = new System.Drawing.Size(75, 23);
+            this.btnStopReadPushStatusData.TabIndex = 28;
+            this.btnStopReadPushStatusData.Text = "Dừng";
+            this.btnStopReadPushStatusData.UseVisualStyleBackColor = true;
+            this.btnStopReadPushStatusData.Click += new System.EventHandler(this.btnStopReadPushStatusData_Click);
+            // 
+            // btnReadPushStatusData
+            // 
+            this.btnReadPushStatusData.Location = new System.Drawing.Point(399, 5);
+            this.btnReadPushStatusData.Name = "btnReadPushStatusData";
+            this.btnReadPushStatusData.Size = new System.Drawing.Size(75, 23);
+            this.btnReadPushStatusData.TabIndex = 29;
+            this.btnReadPushStatusData.Text = "Đọc";
+            this.btnReadPushStatusData.UseVisualStyleBackColor = true;
+            this.btnReadPushStatusData.Click += new System.EventHandler(this.btnReadPushStatusData_Click);
+            // 
+            // txtEndIndexPushStatusQuery
+            // 
+            this.txtEndIndexPushStatusQuery.Location = new System.Drawing.Point(288, 6);
+            this.txtEndIndexPushStatusQuery.Name = "txtEndIndexPushStatusQuery";
+            this.txtEndIndexPushStatusQuery.Size = new System.Drawing.Size(100, 20);
+            this.txtEndIndexPushStatusQuery.TabIndex = 26;
+            // 
+            // txtBeginIndexPushStatusQuery
+            // 
+            this.txtBeginIndexPushStatusQuery.Location = new System.Drawing.Point(105, 6);
+            this.txtBeginIndexPushStatusQuery.Name = "txtBeginIndexPushStatusQuery";
+            this.txtBeginIndexPushStatusQuery.Size = new System.Drawing.Size(100, 20);
+            this.txtBeginIndexPushStatusQuery.TabIndex = 27;
+            // 
+            // dgvPushStatusData
+            // 
+            this.dgvPushStatusData.AllowUserToResizeColumns = false;
+            this.dgvPushStatusData.AllowUserToResizeRows = false;
+            this.dgvPushStatusData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvPushStatusData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPushStatusData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgvPushStatusData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvPushStatusData.Location = new System.Drawing.Point(0, 79);
+            this.dgvPushStatusData.Name = "dgvPushStatusData";
+            this.dgvPushStatusData.ReadOnly = true;
+            this.dgvPushStatusData.Size = new System.Drawing.Size(944, 644);
+            this.dgvPushStatusData.TabIndex = 25;
+            // 
             // tabMetadata
             // 
             this.tabMetadata.Controls.Add(this.btnReadMetadata);
@@ -7837,9 +7970,9 @@
             this.label196.AutoSize = true;
             this.label196.Location = new System.Drawing.Point(46, 306);
             this.label196.Name = "label196";
-            this.label196.Size = new System.Drawing.Size(62, 13);
+            this.label196.Size = new System.Drawing.Size(100, 13);
             this.label196.TabIndex = 17;
-            this.label196.Text = "Tổng log lỗi";
+            this.label196.Text = "Tổng trạng thái đẩy";
             // 
             // txtPulseReverseTotal4
             // 
@@ -7871,9 +8004,9 @@
             this.label195.AutoSize = true;
             this.label195.Location = new System.Drawing.Point(46, 274);
             this.label195.Name = "label195";
-            this.label195.Size = new System.Drawing.Size(124, 13);
+            this.label195.Size = new System.Drawing.Size(162, 13);
             this.label195.TabIndex = 17;
-            this.label195.Text = "Index ghi log lỗi tiếp theo";
+            this.label195.Text = "Index ghi trạng thái đẩy tiếp theo";
             // 
             // txtPulseForwardTotal4
             // 
@@ -8655,9 +8788,9 @@
             this.label180.AutoSize = true;
             this.label180.Location = new System.Drawing.Point(15, 344);
             this.label180.Name = "label180";
-            this.label180.Size = new System.Drawing.Size(56, 13);
+            this.label180.Size = new System.Drawing.Size(94, 13);
             this.label180.TabIndex = 13;
-            this.label180.Text = "Xoá log lỗi";
+            this.label180.Text = "Xoá trạng thái đẩy";
             // 
             // label179
             // 
@@ -8816,6 +8949,68 @@
             this.btnReconnect.UseVisualStyleBackColor = true;
             this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Thời gian đẩy";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Phiên hoạt động (s)";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "RSSI";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 50;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "RSRP";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 50;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "RSRQ";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 50;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "RSSNR";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Lỗi module 4G";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Lỗi giao tiếp server";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 200;
+            // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8914,6 +9109,9 @@
             this.tabEventData.ResumeLayout(false);
             this.tabEventData.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventData)).EndInit();
+            this.tabPushStatus.ResumeLayout(false);
+            this.tabPushStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPushStatusData)).EndInit();
             this.tabMetadata.ResumeLayout(false);
             this.tabMetadata.PerformLayout();
             this.tabOTA.ResumeLayout(false);
@@ -9715,5 +9913,24 @@
         private System.Windows.Forms.Label label215;
         private System.Windows.Forms.Label label216;
         private System.Windows.Forms.CheckBox chkChargeStatus;
+        private System.Windows.Forms.TabPage tabPushStatus;
+        private System.Windows.Forms.Label label210;
+        private System.Windows.Forms.Label label211;
+        private System.Windows.Forms.Label label212;
+        private System.Windows.Forms.Label label217;
+        private System.Windows.Forms.Button btnStopReadPushStatusData;
+        private System.Windows.Forms.Button btnReadPushStatusData;
+        private System.Windows.Forms.TextBox txtEndIndexPushStatusQuery;
+        private System.Windows.Forms.TextBox txtBeginIndexPushStatusQuery;
+        private System.Windows.Forms.DataGridView dgvPushStatusData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
