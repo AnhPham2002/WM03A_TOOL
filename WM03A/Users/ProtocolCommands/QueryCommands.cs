@@ -116,6 +116,21 @@ namespace WM03A
                 out frame);
         }
 
+        public static bool PushStatus(ushort pushStatusIndex, out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.PushStatus,
+                payload: new byte[]
+                {
+                    (byte)(pushStatusIndex & 0xFF),
+                    (byte)((pushStatusIndex >> 8) & 0xFF)
+                },
+                out frame);
+        }
+
         public static bool Metadata(out byte[] frame)
         {
             return Pack(

@@ -35,6 +35,7 @@ namespace WM03A
 
         private bool _stopReadLatchData;
         private bool _stopReadEventData;
+        private bool _stopReadPushStatusData;
 
         private const int OTA_METADATA_A_OFFSET = 0x08008000 - 0x08008000;
         private const int OTA_METADATA_B_OFFSET = 0x08024000 - 0x08008000;
@@ -3664,6 +3665,142 @@ namespace WM03A
         {
             _stopReadEventData = true;
         }
+
+        //-----------------------Query Push Status Data--------------------------------//
+
+        private async void btnReadPushStatusData_Click(object sender, EventArgs e)
+        {
+            if (!ushort.TryParse(txtBeginIndexPushStatusQuery.Text.Trim(), out ushort beginUserIndex))
+            {
+                if (!string.IsNullOrWhiteSpace(txtBeginIndexPushStatusQuery.Text))
+                {
+                    MessageBox.Show("Begin Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                beginUserIndex = 1;
+            }
+
+            bool hasEndIndex = ushort.TryParse(txtEndIndexPushStatusQuery.Text.Trim(), out ushort endUserIndex);
+
+            if (!string.IsNullOrWhiteSpace(txtEndIndexPushStatusQuery.Text) && !hasEndIndex)
+            {
+                MessageBox.Show("End Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hasEndIndex && beginUserIndex > endUserIndex)
+            {
+                MessageBox.Show("Begin Index phải nhỏ hơn hoặc bằng End Index.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            dgvPushStatusData.Rows.Clear();
+
+            _stopReadPushStatusData = false;
+            btnReadPushStatusData.Enabled = false;
+            btnStopReadPushStatusData.Enabled = true;
+
+            try
+            {
+                for (uint userIndex = beginUserIndex; ; userIndex++)
+                {
+                    if (_stopReadPushStatusData || (hasEndIndex && userIndex > endUserIndex))
+                    {
+                        break;
+                    }
+
+                    ushort pushStatusIndex = (ushort)(userIndex - 1);
+
+                    if (!QueryCommands.PushStatus(pushStatusIndex, out byte[] txFrame))
+                    {
+                        MessageBox.Show($"Không thể tạo lệnh đọc trạng thái đẩy tại STT {userIndex}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+
+                    if (_stopReadPushStatusData || !ok)
+                    {
+                        break;
+                    }
+
+                    if (!QueryParser.PushStatus(rxFrame, out PushStatusData pushStatusData))
+                    {
+                        break;
+                    }
+
+                    string cellularErrorText;
+
+                    switch (pushStatusData.CellularError)
+                    {
+                        case 0: cellularErrorText = "Thành công"; break;
+                        case 1: cellularErrorText = "Lỗi bật nguồn"; break;
+                        case 2: cellularErrorText = "Lỗi khởi tạo AT"; break;
+                        case 3: cellularErrorText = "SIM chưa sẵn sàng"; break;
+                        case 4: cellularErrorText = "Chưa đăng ký mạng"; break;
+                        case 5: cellularErrorText = "Dịch vụ socket chưa sẵn sàng"; break;
+                        case 6: cellularErrorText = "Lỗi đồng bộ thời gian"; break;
+                        case 7: cellularErrorText = "Lỗi lấy thời gian"; break;
+                        case 8: cellularErrorText = "Lỗi kết nối TCP"; break;
+                        case 9: cellularErrorText = "Lỗi gửi TCP"; break;
+                        case 10: cellularErrorText = "Lỗi nhận TCP"; break;
+                        default: cellularErrorText = $"Không xác định ({pushStatusData.CellularError})"; break;
+                    }
+
+                    string pushErrorText;
+
+                    if (pushStatusData.CellularError != 0)
+                    {
+                        pushErrorText = "Không xác định";
+                    }
+                    else
+                    {
+                        switch (pushStatusData.PushError)
+                        {
+                            case 0: pushErrorText = "Thành công"; break;
+                            case 1: pushErrorText = "Mất kết nối"; break;
+                            case 2: pushErrorText = "Lỗi đóng gói dữ liệu"; break;
+                            case 3: pushErrorText = "Lỗi gửi thông tin"; break;
+                            case 4: pushErrorText = "Lỗi gửi dữ liệu chốt"; break;
+                            case 5: pushErrorText = "Lỗi gửi sự kiện"; break;
+                            case 6: pushErrorText = "Lỗi xử lý yêu cầu"; break;
+                            default: pushErrorText = $"Không xác định ({pushStatusData.PushError})"; break;
+                        }
+                    }
+
+                    int rowIndex = dgvPushStatusData.Rows.Add(
+                        userIndex,
+                        pushStatusData.PushDateTime.ToString("dd/MM/yyyy HH:mm:ss"),
+                        pushStatusData.SessionDuration,
+                        pushStatusData.Rssi,
+                        pushStatusData.Rsrp,
+                        pushStatusData.Rsrq,
+                        pushStatusData.Rssnr,
+                        cellularErrorText,
+                        pushErrorText);
+
+                    dgvPushStatusData.Rows[rowIndex].Tag = pushStatusData;
+
+                    if (userIndex >= ushort.MaxValue)
+                    {
+                        break;
+                    }
+                }
+            }
+            finally
+            {
+                btnReadPushStatusData.Enabled = true;
+                btnStopReadPushStatusData.Enabled = false;
+            }
+        }
+
+        private void btnStopReadPushStatusData_Click(object sender, EventArgs e)
+        {
+            _stopReadPushStatusData = true;
+            btnStopReadPushStatusData.Enabled = false;
+        }
+
 
         //-----------------------Query Metadata--------------------------------//
         private async void btnReadMetadata_Click(object sender, EventArgs e)

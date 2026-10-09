@@ -120,8 +120,7 @@ namespace WM03A
             Latch = 0x07,
             Event = 0x08,
             PushStatus = 0x09,
-            Log = 0x0A,
-            Metadata = 0x0B
+            Metadata = 0x0A
         }
 
         // ============================================================

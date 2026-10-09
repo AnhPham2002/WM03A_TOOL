@@ -288,6 +288,87 @@ namespace WM03A
             return true;
         }
 
+        public static bool PushStatus(byte[] frame, out PushStatusData data)
+        {
+            data = null;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length != 20)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            byte currentYear = payload[index++];
+            byte currentMonth = payload[index++];
+            byte currentDate = payload[index++];
+            byte currentHours = payload[index++];
+            byte currentMinutes = payload[index++];
+            byte currentSeconds = payload[index++];
+
+            DateTime currentDateTime;
+
+            try
+            {
+                currentDateTime = new DateTime(2000 + currentYear, currentMonth, currentDate, currentHours, currentMinutes, currentSeconds);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
+
+            byte pushYear = payload[index++];
+            byte pushMonth = payload[index++];
+            byte pushDate = payload[index++];
+            byte pushHours = payload[index++];
+            byte pushMinutes = payload[index++];
+            byte pushSeconds = payload[index++];
+
+            DateTime pushDateTime;
+
+            try
+            {
+                pushDateTime = new DateTime(2000 + pushYear, pushMonth, pushDate, pushHours, pushMinutes, pushSeconds);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
+
+            ushort sessionDuration = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            sbyte rssi = unchecked((sbyte)payload[index++]);
+            sbyte rsrp = unchecked((sbyte)payload[index++]);
+            sbyte rsrq = unchecked((sbyte)payload[index++]);
+            sbyte rssnr = unchecked((sbyte)payload[index++]);
+
+            byte cellularError = payload[index++];
+            byte pushError = payload[index++];
+
+            if (index != payload.Length)
+            {
+                return false;
+            }
+
+            data = new PushStatusData
+            {
+                CurrentDateTime = currentDateTime,
+                PushDateTime = pushDateTime,
+                SessionDuration = sessionDuration,
+                Rssi = rssi,
+                Rsrp = rsrp,
+                Rsrq = rsrq,
+                Rssnr = rssnr,
+                CellularError = cellularError,
+                PushError = pushError
+            };
+
+            return true;
+        }
+
         public static bool Metadata(byte[] frame, out MetadataData data)
         {
             data = null;
