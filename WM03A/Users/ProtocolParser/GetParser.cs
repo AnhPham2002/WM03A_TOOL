@@ -16,17 +16,19 @@ namespace WM03A
             return serial;
         }
 
-        //public static bool ModuleActivationStatus(byte[] frame)
-        //{
-        //    ulong serial;
-        //    byte cmd;
-        //    byte id;
-        //    byte[] payload;
-        //    Protocol.Unpack(frame, out serial, out cmd, out id, out payload);
-        //    if (payload.Length < 1)
-        //        throw new ArgumentException("Payload length is less than 1 byte.");
-        //    return payload[0] != 0;
-        //}
+        public static bool ModuleActivationStatus(byte[] frame, out byte status)
+        {
+            ulong serial;
+            byte cmd;
+            byte id;
+            byte[] payload;
+            status = default;
+            Protocol.Unpack(frame, out serial, out cmd, out id, out payload);
+            if (payload.Length < 1)
+                return false;
+            status = payload[0];
+            return true;
+        }
 
         public static bool DateTime(byte[] frame, out DateTime time)
         {

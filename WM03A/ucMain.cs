@@ -152,6 +152,7 @@ namespace WM03A
             cmbFlow4DataTypeSetting.SelectedIndex = 0;
             cmbFlow4WordSwapSetting.SelectedIndex = 0;
 
+            cmbDeviceStatusAdvCfg.SelectedIndex = 0;
             cmbEventMeter.SelectedIndex = 0;
             cmbEventCreate.SelectedIndex = 0;
 
@@ -4137,6 +4138,48 @@ namespace WM03A
             return;
         }
 
+        private async void btnReadDeviceStatusAdvCfg_Click(object sender, EventArgs e)
+        {
+            GetCommands.ModuleActivationStatus(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            if (ok && GetParser.ModuleActivationStatus(rxFrame, out byte activationStatus))
+            {
+                if (activationStatus == 0)
+                {
+                    txtReadDeviceStatusAdvCfg.Text = "Chưa kích hoạt";
+                }
+                else if (activationStatus == 1)
+                {
+                    txtReadDeviceStatusAdvCfg.Text = "Đã kích hoạt";
+                }
+                else
+                {
+                    txtReadDeviceStatusAdvCfg.Text = "Không xác định";
+                }
+
+            }
+        }
+
+        private async void btnWriteDeviceStatusAdvCfg_Click(object sender, EventArgs e)
+        {
+            if (SetCommands.ModuleActivationStatus((byte)cmbDeviceStatusAdvCfg.SelectedIndex, out byte[] txFrame))
+            {
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                if (ok && SetParser.ModuleActivationStatus(rxFrame))
+                {
+                    lblWriteDeviceStatusAdvCfgStatus.Text = "Ghi thành công";
+                    await Task.Delay(1000);
+                    lblWriteDeviceStatusAdvCfgStatus.Text = string.Empty;
+                    return;
+                }
+            }
+
+            lblWriteDeviceStatusAdvCfgStatus.Text = "Ghi thất bại";
+            await Task.Delay(1000);
+            lblWriteDeviceStatusAdvCfgStatus.Text = string.Empty;
+            return;
+        }
+
         private async void btnReadMcuReset_Click(object sender, EventArgs e)
         {
             GetCommands.McuResetCount(out byte[] txFrame);
@@ -4269,6 +4312,26 @@ namespace WM03A
             {
                 ulong serial = GetParser.ModuleSerial(rxFrame);
                 txtModuleSerialOverall.Text = serial.ToString("D12");
+            }
+
+            // Read Module Activation Status
+            GetCommands.ModuleActivationStatus(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            if (ok && GetParser.ModuleActivationStatus(rxFrame, out byte activationStatus))
+            {
+                if (activationStatus == 0)
+                {
+                    txtModuleActivationStatus.Text = "Chưa kích hoạt";
+                }
+                else if (activationStatus == 1)
+                {
+                    txtModuleActivationStatus.Text = "Đã kích hoạt";
+                }
+                else
+                {
+                    txtModuleActivationStatus.Text = "Không xác định";
+                }
+
             }
 
             // Read Bootloader version

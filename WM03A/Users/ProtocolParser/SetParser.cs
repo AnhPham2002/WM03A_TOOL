@@ -17,6 +17,14 @@ namespace WM03A.Users.ProtocolParser
             return true;
         }
 
+        public static bool ModuleActivationStatus(byte[] frame)
+        {
+            ProtocolErrCode errCodeUnpack = UnpackAck(frame, out DateTime dateTime, out byte cmd, out byte id, out ProtocolErrCode errCode);
+            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.ModuleActivationStatus))
+                return false;
+            return true;
+        }
+
         public static bool DateTime(byte[] frame)
         {
             ProtocolErrCode errCodeUnpack = UnpackAck(frame, out DateTime dateTime, out byte cmd, out byte id, out ProtocolErrCode errCode);

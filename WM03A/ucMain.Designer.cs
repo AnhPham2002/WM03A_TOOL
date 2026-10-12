@@ -713,6 +713,15 @@
             this.txtEndIndexPushStatusQuery = new System.Windows.Forms.TextBox();
             this.txtBeginIndexPushStatusQuery = new System.Windows.Forms.TextBox();
             this.dgvPushStatusData = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabMetadata = new System.Windows.Forms.TabPage();
             this.btnReadMetadata = new System.Windows.Forms.Button();
             this.label204 = new System.Windows.Forms.Label();
@@ -822,15 +831,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.btnReconnect = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -7899,6 +7899,69 @@
             this.dgvPushStatusData.Size = new System.Drawing.Size(944, 644);
             this.dgvPushStatusData.TabIndex = 25;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Thời gian đẩy";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Phiên hoạt động (s)";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "RSSI";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 50;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "RSRP";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 50;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "RSRQ";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 50;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "RSSNR";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Lỗi module 4G";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Lỗi giao tiếp server";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 200;
+            // 
             // tabMetadata
             // 
             this.tabMetadata.Controls.Add(this.btnReadMetadata);
@@ -8526,6 +8589,9 @@
             // 
             this.cmbDeviceStatusAdvCfg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDeviceStatusAdvCfg.FormattingEnabled = true;
+            this.cmbDeviceStatusAdvCfg.Items.AddRange(new object[] {
+            "Chưa kích hoạt",
+            "Đã kích hoạt"});
             this.cmbDeviceStatusAdvCfg.Location = new System.Drawing.Point(471, 62);
             this.cmbDeviceStatusAdvCfg.Name = "cmbDeviceStatusAdvCfg";
             this.cmbDeviceStatusAdvCfg.Size = new System.Drawing.Size(194, 21);
@@ -8693,6 +8759,7 @@
             this.btnWriteDeviceStatusAdvCfg.TabIndex = 17;
             this.btnWriteDeviceStatusAdvCfg.Text = "Ghi";
             this.btnWriteDeviceStatusAdvCfg.UseVisualStyleBackColor = true;
+            this.btnWriteDeviceStatusAdvCfg.Click += new System.EventHandler(this.btnWriteDeviceStatusAdvCfg_Click);
             // 
             // btnWriteSerialAdvCfg
             // 
@@ -8722,6 +8789,7 @@
             this.btnReadDeviceStatusAdvCfg.TabIndex = 16;
             this.btnReadDeviceStatusAdvCfg.Text = "Đọc";
             this.btnReadDeviceStatusAdvCfg.UseVisualStyleBackColor = true;
+            this.btnReadDeviceStatusAdvCfg.Click += new System.EventHandler(this.btnReadDeviceStatusAdvCfg_Click);
             // 
             // btnReadSerialAdvCfg
             // 
@@ -8948,69 +9016,6 @@
             this.btnReconnect.Text = "Kết nối lại";
             this.btnReconnect.UseVisualStyleBackColor = true;
             this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "STT";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Thời gian đẩy";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Phiên hoạt động (s)";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "RSSI";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 50;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "RSRP";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 50;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "RSRQ";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 50;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "RSSNR";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Lỗi module 4G";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Lỗi giao tiếp server";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 200;
             // 
             // ucMain
             // 

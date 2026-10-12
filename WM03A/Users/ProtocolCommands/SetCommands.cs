@@ -33,6 +33,19 @@ namespace WM03A.Users.ProtocolCommands
                 out frame);
         }
 
+        public static bool ModuleActivationStatus(byte status, out byte[] frame)
+        {
+            frame = null;
+
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.ModuleActivationStatus,
+                 payload: new byte[] { status },
+                out frame);
+        }
+
         public static bool DateTime(DateTime dateTime, out byte[] frame)
         {
             byte[] payload =
