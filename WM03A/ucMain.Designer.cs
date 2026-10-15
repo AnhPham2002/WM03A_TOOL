@@ -4149,6 +4149,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbFlow4DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -4323,6 +4324,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbReverse4DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -4497,6 +4499,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbForward4DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -4891,6 +4894,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbFlow3DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -5065,6 +5069,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbReverse3DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -5239,6 +5244,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbForward3DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -5643,6 +5649,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbFlow2DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -5817,6 +5824,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbReverse2DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -5991,6 +5999,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbForward2DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -6385,6 +6394,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbFlow1DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -6559,6 +6569,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbReverse1DataTypeSetting.Location = new System.Drawing.Point(250, 69);
@@ -6733,6 +6744,7 @@
             "int32",
             "uint32",
             "float",
+            "int64",
             "uint64",
             "double"});
             this.cmbForward1DataTypeSetting.Location = new System.Drawing.Point(250, 69);
