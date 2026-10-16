@@ -116,7 +116,7 @@ namespace WM03A.Users.ProtocolParser
         public static bool EraseLatchData(byte[] frame)
         {
             ProtocolErrCode errCodeUnpack = UnpackAck(frame, out DateTime dateTime, out byte cmd, out byte id, out ProtocolErrCode errCode);
-            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.EraseMeasurementData))
+            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.EraseLatchData))
                 return false;
             return true;
         }
@@ -132,7 +132,7 @@ namespace WM03A.Users.ProtocolParser
         public static bool EraseErrLog(byte[] frame)
         {
             ProtocolErrCode errCodeUnpack = UnpackAck(frame, out DateTime dateTime, out byte cmd, out byte id, out ProtocolErrCode errCode);
-            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.EraseLogData))
+            if ((errCodeUnpack != ProtocolErrCode.Success) || (errCode != ProtocolErrCode.Success) || (cmd != (byte)CmdCode.Set) || (id != (byte)ConfigId.ErasePushStatusData))
                 return false;
             return true;
         }

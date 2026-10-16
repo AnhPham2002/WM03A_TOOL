@@ -725,7 +725,7 @@ namespace WM03A.Users.ProtocolCommands
                 encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Set,
-                id: (byte)ConfigId.EraseMeasurementData,
+                id: (byte)ConfigId.EraseLatchData,
                 payload: null,
                 out frame);
         }
@@ -747,7 +747,7 @@ namespace WM03A.Users.ProtocolCommands
                 encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Set,
-                id: (byte)ConfigId.EraseLogData,
+                id: (byte)ConfigId.ErasePushStatusData,
                 payload: null,
                 out frame);
         }
