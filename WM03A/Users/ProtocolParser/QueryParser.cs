@@ -64,6 +64,24 @@ namespace WM03A
             return true;
         }
 
+        public static bool OperatingTime(byte[] frame, out uint powerOnSecond, out uint uptimeSecond)
+        {
+            powerOnSecond = 0;
+            uptimeSecond = 0;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length != 8)
+            {
+                return false;
+            }
+
+            powerOnSecond = BitConverter.ToUInt32(payload, 0);
+            uptimeSecond = BitConverter.ToUInt32(payload, 4);
+
+            return true;
+        }
+
         public static bool SimNetworkInfo(byte[] frame, out byte[] ccid, out sbyte rssi, out sbyte rsrp, out sbyte rsrq, out sbyte rssnr)
         {
             ccid = null;

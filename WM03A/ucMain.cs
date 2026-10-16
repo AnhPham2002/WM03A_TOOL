@@ -4300,6 +4300,9 @@ namespace WM03A
             txtPowerStatus.Clear();
             txtChargeStatus.Clear();
             txtBatteryVoltage.Clear();
+
+            txtPowerOnTime.Clear();
+            txtUptimeTime.Clear();
         }
         private async Task ReadModuleInfoOverall()
         {
@@ -4396,10 +4399,8 @@ namespace WM03A
 
             QueryCommands.Power(out txFrame);
             (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
-            if (ok)
+            if (ok && QueryParser.Power(rxFrame, out bool powerStatus, out byte chargeStatus, out ushort batteryVoltage))
             {
-                QueryParser.Power(rxFrame, out bool powerStatus, out byte chargeStatus, out ushort batteryVoltage);
-
                 if (powerStatus)
                 {
                     txtPowerStatus.Text = "Có nguồn";
@@ -4434,6 +4435,14 @@ namespace WM03A
                 {
                     txtBatteryVoltage.Text = batteryVoltage.ToString();
                 }
+            }
+
+            QueryCommands.OperatingTime(out txFrame);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            if (ok && QueryParser.OperatingTime(rxFrame, out uint powerOnSecond, out uint uptimeSecond))
+            {
+                txtPowerOnTime.Text = TimeSpan.FromSeconds(powerOnSecond).ToString(@"dd\.hh\:mm\:ss");
+                txtUptimeTime.Text = TimeSpan.FromSeconds(uptimeSecond).ToString(@"dd\.hh\:mm\:ss");
             }
         }
 

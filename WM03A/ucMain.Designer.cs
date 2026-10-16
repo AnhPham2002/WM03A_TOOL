@@ -831,6 +831,10 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.btnReconnect = new System.Windows.Forms.Button();
+            this.txtUptimeTime = new System.Windows.Forms.TextBox();
+            this.txtPowerOnTime = new System.Windows.Forms.TextBox();
+            this.label218 = new System.Windows.Forms.Label();
+            this.label219 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -945,16 +949,16 @@
             this.groupBox3.Controls.Add(this.btnReadAllOverall);
             this.groupBox3.Controls.Add(this.btnClearOverall);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 666);
+            this.groupBox3.Location = new System.Drawing.Point(3, 672);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(946, 87);
+            this.groupBox3.Size = new System.Drawing.Size(946, 69);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thao tác";
             // 
             // btnPressureSensorDataOverall
             // 
-            this.btnPressureSensorDataOverall.Location = new System.Drawing.Point(764, 14);
+            this.btnPressureSensorDataOverall.Location = new System.Drawing.Point(764, 12);
             this.btnPressureSensorDataOverall.Name = "btnPressureSensorDataOverall";
             this.btnPressureSensorDataOverall.Size = new System.Drawing.Size(175, 27);
             this.btnPressureSensorDataOverall.TabIndex = 1;
@@ -964,7 +968,7 @@
             // 
             // btnModbusMeterDataOverall
             // 
-            this.btnModbusMeterDataOverall.Location = new System.Drawing.Point(575, 14);
+            this.btnModbusMeterDataOverall.Location = new System.Drawing.Point(575, 12);
             this.btnModbusMeterDataOverall.Name = "btnModbusMeterDataOverall";
             this.btnModbusMeterDataOverall.Size = new System.Drawing.Size(175, 27);
             this.btnModbusMeterDataOverall.TabIndex = 1;
@@ -974,7 +978,7 @@
             // 
             // btnPulseMeterDataOverall
             // 
-            this.btnPulseMeterDataOverall.Location = new System.Drawing.Point(386, 14);
+            this.btnPulseMeterDataOverall.Location = new System.Drawing.Point(386, 12);
             this.btnPulseMeterDataOverall.Name = "btnPulseMeterDataOverall";
             this.btnPulseMeterDataOverall.Size = new System.Drawing.Size(175, 27);
             this.btnPulseMeterDataOverall.TabIndex = 1;
@@ -984,7 +988,7 @@
             // 
             // btnReadInternetStatusOverall
             // 
-            this.btnReadInternetStatusOverall.Location = new System.Drawing.Point(197, 14);
+            this.btnReadInternetStatusOverall.Location = new System.Drawing.Point(197, 12);
             this.btnReadInternetStatusOverall.Name = "btnReadInternetStatusOverall";
             this.btnReadInternetStatusOverall.Size = new System.Drawing.Size(175, 27);
             this.btnReadInternetStatusOverall.TabIndex = 1;
@@ -994,7 +998,7 @@
             // 
             // btnReadModuleInfoOverall
             // 
-            this.btnReadModuleInfoOverall.Location = new System.Drawing.Point(8, 14);
+            this.btnReadModuleInfoOverall.Location = new System.Drawing.Point(8, 12);
             this.btnReadModuleInfoOverall.Name = "btnReadModuleInfoOverall";
             this.btnReadModuleInfoOverall.Size = new System.Drawing.Size(175, 27);
             this.btnReadModuleInfoOverall.TabIndex = 1;
@@ -1004,7 +1008,7 @@
             // 
             // btnReadAllOverall
             // 
-            this.btnReadAllOverall.Location = new System.Drawing.Point(45, 47);
+            this.btnReadAllOverall.Location = new System.Drawing.Point(45, 41);
             this.btnReadAllOverall.Name = "btnReadAllOverall";
             this.btnReadAllOverall.Size = new System.Drawing.Size(405, 25);
             this.btnReadAllOverall.TabIndex = 0;
@@ -1014,7 +1018,7 @@
             // 
             // btnClearOverall
             // 
-            this.btnClearOverall.Location = new System.Drawing.Point(450, 47);
+            this.btnClearOverall.Location = new System.Drawing.Point(450, 41);
             this.btnClearOverall.Name = "btnClearOverall";
             this.btnClearOverall.Size = new System.Drawing.Size(405, 25);
             this.btnClearOverall.TabIndex = 0;
@@ -1033,7 +1037,7 @@
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.txtPressure1Overall);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 586);
+            this.groupBox2.Location = new System.Drawing.Point(3, 592);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(946, 80);
             this.groupBox2.TabIndex = 6;
@@ -1140,7 +1144,7 @@
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label26);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(3, 419);
+            this.groupBox1.Location = new System.Drawing.Point(3, 425);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(946, 167);
             this.groupBox1.TabIndex = 3;
@@ -1420,7 +1424,7 @@
             this.grpPulseMeterData.Controls.Add(this.lblPulseForwardTotal);
             this.grpPulseMeterData.Controls.Add(this.lblPulseReverseTotal);
             this.grpPulseMeterData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpPulseMeterData.Location = new System.Drawing.Point(3, 252);
+            this.grpPulseMeterData.Location = new System.Drawing.Point(3, 258);
             this.grpPulseMeterData.Name = "grpPulseMeterData";
             this.grpPulseMeterData.Size = new System.Drawing.Size(946, 167);
             this.grpPulseMeterData.TabIndex = 3;
@@ -1681,9 +1685,9 @@
             this.grpInternet.Controls.Add(this.lblRsrq);
             this.grpInternet.Controls.Add(this.lblRsrp);
             this.grpInternet.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpInternet.Location = new System.Drawing.Point(3, 197);
+            this.grpInternet.Location = new System.Drawing.Point(3, 215);
             this.grpInternet.Name = "grpInternet";
-            this.grpInternet.Size = new System.Drawing.Size(946, 55);
+            this.grpInternet.Size = new System.Drawing.Size(946, 43);
             this.grpInternet.TabIndex = 5;
             this.grpInternet.TabStop = false;
             this.grpInternet.Text = "Thông số SIM và mạng 4G";
@@ -1777,6 +1781,7 @@
             // 
             this.grpModuleOverall.Controls.Add(this.label19);
             this.grpModuleOverall.Controls.Add(this.label20);
+            this.grpModuleOverall.Controls.Add(this.label218);
             this.grpModuleOverall.Controls.Add(this.label18);
             this.grpModuleOverall.Controls.Add(this.lblPower);
             this.grpModuleOverall.Controls.Add(this.lblTime);
@@ -1788,7 +1793,9 @@
             this.grpModuleOverall.Controls.Add(this.txtPortOverall);
             this.grpModuleOverall.Controls.Add(this.txtIPV4Overall);
             this.grpModuleOverall.Controls.Add(this.txtLatchPeriodOverall);
+            this.grpModuleOverall.Controls.Add(this.txtPowerOnTime);
             this.grpModuleOverall.Controls.Add(this.txtTimeOverall);
+            this.grpModuleOverall.Controls.Add(this.txtUptimeTime);
             this.grpModuleOverall.Controls.Add(this.txtBatteryVoltage);
             this.grpModuleOverall.Controls.Add(this.label17);
             this.grpModuleOverall.Controls.Add(this.lblModuleSerial);
@@ -1796,6 +1803,7 @@
             this.grpModuleOverall.Controls.Add(this.txtChargeStatus);
             this.grpModuleOverall.Controls.Add(this.label15);
             this.grpModuleOverall.Controls.Add(this.txtBootloaderVersion);
+            this.grpModuleOverall.Controls.Add(this.label219);
             this.grpModuleOverall.Controls.Add(this.lblBattery);
             this.grpModuleOverall.Controls.Add(this.txtModuleSerialOverall);
             this.grpModuleOverall.Controls.Add(this.lblCharge);
@@ -1804,7 +1812,7 @@
             this.grpModuleOverall.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpModuleOverall.Location = new System.Drawing.Point(3, 3);
             this.grpModuleOverall.Name = "grpModuleOverall";
-            this.grpModuleOverall.Size = new System.Drawing.Size(946, 194);
+            this.grpModuleOverall.Size = new System.Drawing.Size(946, 212);
             this.grpModuleOverall.TabIndex = 4;
             this.grpModuleOverall.TabStop = false;
             this.grpModuleOverall.Text = "Thông tin thiết bị";
@@ -9029,6 +9037,40 @@
             this.btnReconnect.UseVisualStyleBackColor = true;
             this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
+            // txtUptimeTime
+            // 
+            this.txtUptimeTime.Location = new System.Drawing.Point(617, 186);
+            this.txtUptimeTime.Name = "txtUptimeTime";
+            this.txtUptimeTime.ReadOnly = true;
+            this.txtUptimeTime.Size = new System.Drawing.Size(194, 20);
+            this.txtUptimeTime.TabIndex = 1;
+            // 
+            // txtPowerOnTime
+            // 
+            this.txtPowerOnTime.Location = new System.Drawing.Point(190, 186);
+            this.txtPowerOnTime.Name = "txtPowerOnTime";
+            this.txtPowerOnTime.ReadOnly = true;
+            this.txtPowerOnTime.Size = new System.Drawing.Size(194, 20);
+            this.txtPowerOnTime.TabIndex = 1;
+            // 
+            // label218
+            // 
+            this.label218.AutoSize = true;
+            this.label218.Location = new System.Drawing.Point(70, 190);
+            this.label218.Name = "label218";
+            this.label218.Size = new System.Drawing.Size(103, 13);
+            this.label218.TabIndex = 0;
+            this.label218.Text = "Thời gian hoạt động";
+            // 
+            // label219
+            // 
+            this.label219.AutoSize = true;
+            this.label219.Location = new System.Drawing.Point(497, 190);
+            this.label219.Name = "label219";
+            this.label219.Size = new System.Drawing.Size(102, 13);
+            this.label219.TabIndex = 0;
+            this.label219.Text = "Thời gian khởi động";
+            // 
             // ucMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9950,5 +9992,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Label label218;
+        private System.Windows.Forms.TextBox txtPowerOnTime;
+        private System.Windows.Forms.TextBox txtUptimeTime;
+        private System.Windows.Forms.Label label219;
     }
 }
