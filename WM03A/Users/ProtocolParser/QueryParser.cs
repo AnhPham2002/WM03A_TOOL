@@ -11,7 +11,7 @@ namespace WM03A
     internal class QueryParser
     {
         private const int MAX_PULSE_GATE_COUNT = 4;
-        private const int EEPROM_METADATA_SIZE = 16;
+        private const int EEPROM_METADATA_SIZE = 20;
         private const int PULSE_COUNT_SIZE = 16;
 
         private const int VERSION_SIZE = 10;
@@ -387,6 +387,80 @@ namespace WM03A
             return true;
         }
 
+        public static bool ChangedInfo(byte[] frame, out ChangedInfoData data)
+        {
+            data = null;
+
+            Unpack(frame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+
+            if (payload == null || payload.Length != 23)
+            {
+                return false;
+            }
+
+            int index = 0;
+
+            byte currentYear = payload[index++];
+            byte currentMonth = payload[index++];
+            byte currentDate = payload[index++];
+            byte currentHours = payload[index++];
+            byte currentMinutes = payload[index++];
+            byte currentSeconds = payload[index++];
+
+            DateTime currentDateTime;
+
+            try
+            {
+                currentDateTime = new DateTime(2000 + currentYear, currentMonth, currentDate, currentHours, currentMinutes, currentSeconds);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
+
+            byte changedYear = payload[index++];
+            byte changedMonth = payload[index++];
+            byte changedDate = payload[index++];
+            byte changedHours = payload[index++];
+            byte changedMinutes = payload[index++];
+            byte changedSeconds = payload[index++];
+
+            DateTime changedDateTime;
+
+            try
+            {
+                changedDateTime = new DateTime(2000 + changedYear, changedMonth, changedDate, changedHours, changedMinutes, changedSeconds);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return false;
+            }
+
+            byte source = payload[index++];
+            byte level = payload[index++];
+            byte configId = payload[index++];
+
+            ulong newValue = BitConverter.ToUInt64(payload, index);
+            index += sizeof(ulong);
+
+            if (index != payload.Length)
+            {
+                return false;
+            }
+
+            data = new ChangedInfoData
+            {
+                CurrentDateTime = currentDateTime,
+                ChangedDateTime = changedDateTime,
+                Source = source,
+                Level = level,
+                ConfigId = configId,
+                NewValue = newValue
+            };
+
+            return true;
+        }
+
         public static bool Metadata(byte[] frame, out MetadataData data)
         {
             data = null;
@@ -428,10 +502,16 @@ namespace WM03A
             ushort eventCount = BitConverter.ToUInt16(payload, index);
             index += sizeof(ushort);
 
-            ushort nextLogSaveIndex = BitConverter.ToUInt16(payload, index);
+            ushort nextPushStatusSaveIndex = BitConverter.ToUInt16(payload, index);
             index += sizeof(ushort);
 
-            ushort logCount = BitConverter.ToUInt16(payload, index);
+            ushort pushStatusCount = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort nextChangedInfoSaveIndex = BitConverter.ToUInt16(payload, index);
+            index += sizeof(ushort);
+
+            ushort changedInfoCount = BitConverter.ToUInt16(payload, index);
             index += sizeof(ushort);
 
             uint sequenceRuntime = BitConverter.ToUInt32(payload, index);
@@ -470,8 +550,10 @@ namespace WM03A
                 NextEventSaveIndex = nextEventSaveIndex,
                 NextEventLoadIndex = nextEventLoadIndex,
                 EventCount = eventCount,
-                NextLogSaveIndex = nextLogSaveIndex,
-                LogCount = logCount,
+                NextPushStatusSaveIndex = nextPushStatusSaveIndex,
+                PushStatusCount = pushStatusCount,
+                NextChangedInfoSaveIndex = nextChangedInfoSaveIndex,
+                ChangedInfoCount = changedInfoCount,
                 SequenceRuntime = sequenceRuntime,
                 ResetCount = resetCount,
                 PulseCounts = pulseCounts

@@ -741,13 +741,24 @@ namespace WM03A.Users.ProtocolCommands
                 out frame);
         }
 
-        public static bool EraseErrLog(out byte[] frame)
+        public static bool ErasePushStatus(out byte[] frame)
         {
             return Pack(
                 encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Set,
                 id: (byte)ConfigId.ErasePushStatusData,
+                payload: null,
+                out frame);
+        }
+
+        public static bool EraseChangedInfo(out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Set,
+                id: (byte)ConfigId.EraseChangeConfigData,
                 payload: null,
                 out frame);
         }

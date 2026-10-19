@@ -142,6 +142,21 @@ namespace WM03A
                 out frame);
         }
 
+        public static bool ChangedInfo(ushort changedInfoIndex, out byte[] frame)
+        {
+            return Pack(
+                encrypt: true,
+                serial: PROTOCOL_MODULE_SERIAL_COMMON,
+                cmd: (byte)CmdCode.Query,
+                id: (byte)QueryId.ChangeConfig,
+                payload: new byte[]
+                {
+                    (byte)(changedInfoIndex & 0xFF),
+                    (byte)((changedInfoIndex >> 8) & 0xFF)
+                },
+                out frame);
+        }
+
         public static bool Metadata(out byte[] frame)
         {
             return Pack(

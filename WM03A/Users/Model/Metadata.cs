@@ -15,8 +15,10 @@ namespace WM03A
         public ushort NextEventSaveIndex { get; set; }
         public ushort NextEventLoadIndex { get; set; }
         public ushort EventCount { get; set; }
-        public ushort NextLogSaveIndex { get; set; }
-        public ushort LogCount { get; set; }
+        public ushort NextPushStatusSaveIndex { get; set; }
+        public ushort PushStatusCount { get; set; }
+        public ushort NextChangedInfoSaveIndex { get; set; }
+        public ushort ChangedInfoCount { get; set; }
 
         public uint SequenceRuntime { get; set; }
         public byte ResetCount { get; set; }

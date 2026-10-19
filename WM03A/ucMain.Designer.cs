@@ -122,6 +122,7 @@
             this.grpModuleOverall = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label218 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.lblPower = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -133,7 +134,9 @@
             this.txtPortOverall = new System.Windows.Forms.TextBox();
             this.txtIPV4Overall = new System.Windows.Forms.TextBox();
             this.txtLatchPeriodOverall = new System.Windows.Forms.TextBox();
+            this.txtPowerOnTime = new System.Windows.Forms.TextBox();
             this.txtTimeOverall = new System.Windows.Forms.TextBox();
+            this.txtUptimeTime = new System.Windows.Forms.TextBox();
             this.txtBatteryVoltage = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.lblModuleSerial = new System.Windows.Forms.Label();
@@ -141,6 +144,7 @@
             this.txtChargeStatus = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtBootloaderVersion = new System.Windows.Forms.TextBox();
+            this.label219 = new System.Windows.Forms.Label();
             this.lblBattery = new System.Windows.Forms.Label();
             this.txtModuleSerialOverall = new System.Windows.Forms.TextBox();
             this.lblCharge = new System.Windows.Forms.Label();
@@ -722,17 +726,31 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabChangedInfo = new System.Windows.Forms.TabPage();
+            this.dgvChangedInfoData = new System.Windows.Forms.DataGridView();
+            this.label220 = new System.Windows.Forms.Label();
+            this.label221 = new System.Windows.Forms.Label();
+            this.label222 = new System.Windows.Forms.Label();
+            this.label223 = new System.Windows.Forms.Label();
+            this.btnStopReadChangedInfo = new System.Windows.Forms.Button();
+            this.btnReadChangedInfo = new System.Windows.Forms.Button();
+            this.txtEndIndexChangedInfo = new System.Windows.Forms.TextBox();
+            this.txtBeginIndexChangedInfo = new System.Windows.Forms.TextBox();
             this.tabMetadata = new System.Windows.Forms.TabPage();
             this.btnReadMetadata = new System.Windows.Forms.Button();
             this.label204 = new System.Windows.Forms.Label();
+            this.label225 = new System.Windows.Forms.Label();
             this.label196 = new System.Windows.Forms.Label();
             this.txtPulseReverseTotal4 = new System.Windows.Forms.TextBox();
-            this.txtErrLogCount = new System.Windows.Forms.TextBox();
+            this.txtChangedInfoCount = new System.Windows.Forms.TextBox();
+            this.txtPushStatusCount = new System.Windows.Forms.TextBox();
+            this.label224 = new System.Windows.Forms.Label();
             this.label203 = new System.Windows.Forms.Label();
             this.label195 = new System.Windows.Forms.Label();
             this.txtPulseForwardTotal4 = new System.Windows.Forms.TextBox();
+            this.txtNextSaveChangedInfo = new System.Windows.Forms.TextBox();
             this.label202 = new System.Windows.Forms.Label();
-            this.txtNextSaveErrLogIndex = new System.Windows.Forms.TextBox();
+            this.txtNextSavePushStatusIndex = new System.Windows.Forms.TextBox();
             this.txtPulseReverseTotal3 = new System.Windows.Forms.TextBox();
             this.label194 = new System.Windows.Forms.Label();
             this.label201 = new System.Windows.Forms.Label();
@@ -788,7 +806,7 @@
             this.btnFactoryReset = new System.Windows.Forms.Button();
             this.btnPushActive = new System.Windows.Forms.Button();
             this.btnLatchActive = new System.Windows.Forms.Button();
-            this.btnEraseErrLog = new System.Windows.Forms.Button();
+            this.btnErasePushStatus = new System.Windows.Forms.Button();
             this.btnEraseEventData = new System.Windows.Forms.Button();
             this.btnEraseLatchData = new System.Windows.Forms.Button();
             this.btnResetPassword = new System.Windows.Forms.Button();
@@ -831,10 +849,14 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lblReconnectStatus = new System.Windows.Forms.Label();
             this.btnReconnect = new System.Windows.Forms.Button();
-            this.txtUptimeTime = new System.Windows.Forms.TextBox();
-            this.txtPowerOnTime = new System.Windows.Forms.TextBox();
-            this.label218 = new System.Windows.Forms.Label();
-            this.label219 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label226 = new System.Windows.Forms.Label();
+            this.btnEraseChangedInfo = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabOverall.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -892,6 +914,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEventData)).BeginInit();
             this.tabPushStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPushStatusData)).BeginInit();
+            this.tabChangedInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChangedInfoData)).BeginInit();
             this.tabMetadata.SuspendLayout();
             this.tabOTA.SuspendLayout();
             this.tabChangePassword.SuspendLayout();
@@ -1835,6 +1859,15 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "Port";
             // 
+            // label218
+            // 
+            this.label218.AutoSize = true;
+            this.label218.Location = new System.Drawing.Point(70, 190);
+            this.label218.Name = "label218";
+            this.label218.Size = new System.Drawing.Size(103, 13);
+            this.label218.TabIndex = 0;
+            this.label218.Text = "Thời gian hoạt động";
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -1927,6 +1960,14 @@
             this.txtLatchPeriodOverall.Size = new System.Drawing.Size(194, 20);
             this.txtLatchPeriodOverall.TabIndex = 1;
             // 
+            // txtPowerOnTime
+            // 
+            this.txtPowerOnTime.Location = new System.Drawing.Point(190, 186);
+            this.txtPowerOnTime.Name = "txtPowerOnTime";
+            this.txtPowerOnTime.ReadOnly = true;
+            this.txtPowerOnTime.Size = new System.Drawing.Size(194, 20);
+            this.txtPowerOnTime.TabIndex = 1;
+            // 
             // txtTimeOverall
             // 
             this.txtTimeOverall.Location = new System.Drawing.Point(190, 131);
@@ -1934,6 +1975,14 @@
             this.txtTimeOverall.ReadOnly = true;
             this.txtTimeOverall.Size = new System.Drawing.Size(194, 20);
             this.txtTimeOverall.TabIndex = 1;
+            // 
+            // txtUptimeTime
+            // 
+            this.txtUptimeTime.Location = new System.Drawing.Point(617, 186);
+            this.txtUptimeTime.Name = "txtUptimeTime";
+            this.txtUptimeTime.ReadOnly = true;
+            this.txtUptimeTime.Size = new System.Drawing.Size(194, 20);
+            this.txtUptimeTime.TabIndex = 1;
             // 
             // txtBatteryVoltage
             // 
@@ -1994,6 +2043,15 @@
             this.txtBootloaderVersion.ReadOnly = true;
             this.txtBootloaderVersion.Size = new System.Drawing.Size(194, 20);
             this.txtBootloaderVersion.TabIndex = 1;
+            // 
+            // label219
+            // 
+            this.label219.AutoSize = true;
+            this.label219.Location = new System.Drawing.Point(497, 190);
+            this.label219.Name = "label219";
+            this.label219.Size = new System.Drawing.Size(102, 13);
+            this.label219.TabIndex = 0;
+            this.label219.Text = "Thời gian khởi động";
             // 
             // lblBattery
             // 
@@ -7422,6 +7480,7 @@
             this.tabControl3.Controls.Add(this.tabLatchData);
             this.tabControl3.Controls.Add(this.tabEventData);
             this.tabControl3.Controls.Add(this.tabPushStatus);
+            this.tabControl3.Controls.Add(this.tabChangedInfo);
             this.tabControl3.Controls.Add(this.tabMetadata);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.Location = new System.Drawing.Point(0, 0);
@@ -7982,18 +8041,131 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 200;
             // 
+            // tabChangedInfo
+            // 
+            this.tabChangedInfo.Controls.Add(this.dgvChangedInfoData);
+            this.tabChangedInfo.Controls.Add(this.label220);
+            this.tabChangedInfo.Controls.Add(this.label221);
+            this.tabChangedInfo.Controls.Add(this.label222);
+            this.tabChangedInfo.Controls.Add(this.label223);
+            this.tabChangedInfo.Controls.Add(this.btnStopReadChangedInfo);
+            this.tabChangedInfo.Controls.Add(this.btnReadChangedInfo);
+            this.tabChangedInfo.Controls.Add(this.txtEndIndexChangedInfo);
+            this.tabChangedInfo.Controls.Add(this.txtBeginIndexChangedInfo);
+            this.tabChangedInfo.Location = new System.Drawing.Point(4, 22);
+            this.tabChangedInfo.Name = "tabChangedInfo";
+            this.tabChangedInfo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChangedInfo.Size = new System.Drawing.Size(944, 723);
+            this.tabChangedInfo.TabIndex = 4;
+            this.tabChangedInfo.Text = "Lịch sử cài đặt";
+            this.tabChangedInfo.UseVisualStyleBackColor = true;
+            // 
+            // dgvChangedInfoData
+            // 
+            this.dgvChangedInfoData.AllowUserToResizeColumns = false;
+            this.dgvChangedInfoData.AllowUserToResizeRows = false;
+            this.dgvChangedInfoData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvChangedInfoData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChangedInfoData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.Column6,
+            this.Column7,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.dgvChangedInfoData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvChangedInfoData.Location = new System.Drawing.Point(3, 70);
+            this.dgvChangedInfoData.Name = "dgvChangedInfoData";
+            this.dgvChangedInfoData.ReadOnly = true;
+            this.dgvChangedInfoData.Size = new System.Drawing.Size(938, 650);
+            this.dgvChangedInfoData.TabIndex = 42;
+            // 
+            // label220
+            // 
+            this.label220.AutoSize = true;
+            this.label220.Location = new System.Drawing.Point(9, 42);
+            this.label220.Name = "label220";
+            this.label220.Size = new System.Drawing.Size(288, 13);
+            this.label220.TabIndex = 38;
+            this.label220.Text = "Không nhập ô thứ hai nếu muốn đọc đến trạng thái xa nhất";
+            // 
+            // label221
+            // 
+            this.label221.AutoSize = true;
+            this.label221.Location = new System.Drawing.Point(9, 26);
+            this.label221.Name = "label221";
+            this.label221.Size = new System.Drawing.Size(292, 13);
+            this.label221.TabIndex = 39;
+            this.label221.Text = "Không nhập ô thứ nhất nếu muốn đọc từ trạng thái gần nhất";
+            // 
+            // label222
+            // 
+            this.label222.AutoSize = true;
+            this.label222.Location = new System.Drawing.Point(205, 10);
+            this.label222.Name = "label222";
+            this.label222.Size = new System.Drawing.Size(73, 13);
+            this.label222.TabIndex = 40;
+            this.label222.Text = "đến trạng thái";
+            // 
+            // label223
+            // 
+            this.label223.AutoSize = true;
+            this.label223.Location = new System.Drawing.Point(9, 10);
+            this.label223.Name = "label223";
+            this.label223.Size = new System.Drawing.Size(86, 13);
+            this.label223.TabIndex = 41;
+            this.label223.Text = "Đọc từ trạng thái";
+            // 
+            // btnStopReadChangedInfo
+            // 
+            this.btnStopReadChangedInfo.Location = new System.Drawing.Point(474, 5);
+            this.btnStopReadChangedInfo.Name = "btnStopReadChangedInfo";
+            this.btnStopReadChangedInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnStopReadChangedInfo.TabIndex = 36;
+            this.btnStopReadChangedInfo.Text = "Dừng";
+            this.btnStopReadChangedInfo.UseVisualStyleBackColor = true;
+            this.btnStopReadChangedInfo.Click += new System.EventHandler(this.btnStopReadChangedInfo_Click);
+            // 
+            // btnReadChangedInfo
+            // 
+            this.btnReadChangedInfo.Location = new System.Drawing.Point(388, 5);
+            this.btnReadChangedInfo.Name = "btnReadChangedInfo";
+            this.btnReadChangedInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnReadChangedInfo.TabIndex = 37;
+            this.btnReadChangedInfo.Text = "Đọc";
+            this.btnReadChangedInfo.UseVisualStyleBackColor = true;
+            this.btnReadChangedInfo.Click += new System.EventHandler(this.btnReadChangedInfo_Click);
+            // 
+            // txtEndIndexChangedInfo
+            // 
+            this.txtEndIndexChangedInfo.Location = new System.Drawing.Point(277, 6);
+            this.txtEndIndexChangedInfo.Name = "txtEndIndexChangedInfo";
+            this.txtEndIndexChangedInfo.Size = new System.Drawing.Size(100, 20);
+            this.txtEndIndexChangedInfo.TabIndex = 34;
+            // 
+            // txtBeginIndexChangedInfo
+            // 
+            this.txtBeginIndexChangedInfo.Location = new System.Drawing.Point(94, 6);
+            this.txtBeginIndexChangedInfo.Name = "txtBeginIndexChangedInfo";
+            this.txtBeginIndexChangedInfo.Size = new System.Drawing.Size(100, 20);
+            this.txtBeginIndexChangedInfo.TabIndex = 35;
+            // 
             // tabMetadata
             // 
             this.tabMetadata.Controls.Add(this.btnReadMetadata);
             this.tabMetadata.Controls.Add(this.label204);
+            this.tabMetadata.Controls.Add(this.label225);
             this.tabMetadata.Controls.Add(this.label196);
             this.tabMetadata.Controls.Add(this.txtPulseReverseTotal4);
-            this.tabMetadata.Controls.Add(this.txtErrLogCount);
+            this.tabMetadata.Controls.Add(this.txtChangedInfoCount);
+            this.tabMetadata.Controls.Add(this.txtPushStatusCount);
+            this.tabMetadata.Controls.Add(this.label224);
             this.tabMetadata.Controls.Add(this.label203);
             this.tabMetadata.Controls.Add(this.label195);
             this.tabMetadata.Controls.Add(this.txtPulseForwardTotal4);
+            this.tabMetadata.Controls.Add(this.txtNextSaveChangedInfo);
             this.tabMetadata.Controls.Add(this.label202);
-            this.tabMetadata.Controls.Add(this.txtNextSaveErrLogIndex);
+            this.tabMetadata.Controls.Add(this.txtNextSavePushStatusIndex);
             this.tabMetadata.Controls.Add(this.txtPulseReverseTotal3);
             this.tabMetadata.Controls.Add(this.label194);
             this.tabMetadata.Controls.Add(this.label201);
@@ -8048,6 +8220,15 @@
             this.label204.TabIndex = 17;
             this.label204.Text = "Xung ngược 4";
             // 
+            // label225
+            // 
+            this.label225.AutoSize = true;
+            this.label225.Location = new System.Drawing.Point(46, 369);
+            this.label225.Name = "label225";
+            this.label225.Size = new System.Drawing.Size(107, 13);
+            this.label225.TabIndex = 17;
+            this.label225.Text = "Tổng thay đổi dữ liệu";
+            // 
             // label196
             // 
             this.label196.AutoSize = true;
@@ -8065,13 +8246,30 @@
             this.txtPulseReverseTotal4.Size = new System.Drawing.Size(98, 20);
             this.txtPulseReverseTotal4.TabIndex = 12;
             // 
-            // txtErrLogCount
+            // txtChangedInfoCount
             // 
-            this.txtErrLogCount.Location = new System.Drawing.Point(250, 303);
-            this.txtErrLogCount.Name = "txtErrLogCount";
-            this.txtErrLogCount.ReadOnly = true;
-            this.txtErrLogCount.Size = new System.Drawing.Size(98, 20);
-            this.txtErrLogCount.TabIndex = 12;
+            this.txtChangedInfoCount.Location = new System.Drawing.Point(250, 366);
+            this.txtChangedInfoCount.Name = "txtChangedInfoCount";
+            this.txtChangedInfoCount.ReadOnly = true;
+            this.txtChangedInfoCount.Size = new System.Drawing.Size(98, 20);
+            this.txtChangedInfoCount.TabIndex = 12;
+            // 
+            // txtPushStatusCount
+            // 
+            this.txtPushStatusCount.Location = new System.Drawing.Point(250, 303);
+            this.txtPushStatusCount.Name = "txtPushStatusCount";
+            this.txtPushStatusCount.ReadOnly = true;
+            this.txtPushStatusCount.Size = new System.Drawing.Size(98, 20);
+            this.txtPushStatusCount.TabIndex = 12;
+            // 
+            // label224
+            // 
+            this.label224.AutoSize = true;
+            this.label224.Location = new System.Drawing.Point(46, 337);
+            this.label224.Name = "label224";
+            this.label224.Size = new System.Drawing.Size(169, 13);
+            this.label224.TabIndex = 17;
+            this.label224.Text = "Index ghi thay đổi dữ liệu tiếp theo";
             // 
             // label203
             // 
@@ -8099,6 +8297,14 @@
             this.txtPulseForwardTotal4.Size = new System.Drawing.Size(98, 20);
             this.txtPulseForwardTotal4.TabIndex = 12;
             // 
+            // txtNextSaveChangedInfo
+            // 
+            this.txtNextSaveChangedInfo.Location = new System.Drawing.Point(250, 334);
+            this.txtNextSaveChangedInfo.Name = "txtNextSaveChangedInfo";
+            this.txtNextSaveChangedInfo.ReadOnly = true;
+            this.txtNextSaveChangedInfo.Size = new System.Drawing.Size(98, 20);
+            this.txtNextSaveChangedInfo.TabIndex = 12;
+            // 
             // label202
             // 
             this.label202.AutoSize = true;
@@ -8108,13 +8314,13 @@
             this.label202.TabIndex = 17;
             this.label202.Text = "Xung ngược 3";
             // 
-            // txtNextSaveErrLogIndex
+            // txtNextSavePushStatusIndex
             // 
-            this.txtNextSaveErrLogIndex.Location = new System.Drawing.Point(250, 271);
-            this.txtNextSaveErrLogIndex.Name = "txtNextSaveErrLogIndex";
-            this.txtNextSaveErrLogIndex.ReadOnly = true;
-            this.txtNextSaveErrLogIndex.Size = new System.Drawing.Size(98, 20);
-            this.txtNextSaveErrLogIndex.TabIndex = 12;
+            this.txtNextSavePushStatusIndex.Location = new System.Drawing.Point(250, 271);
+            this.txtNextSavePushStatusIndex.Name = "txtNextSavePushStatusIndex";
+            this.txtNextSavePushStatusIndex.ReadOnly = true;
+            this.txtNextSavePushStatusIndex.Size = new System.Drawing.Size(98, 20);
+            this.txtNextSavePushStatusIndex.TabIndex = 12;
             // 
             // txtPulseReverseTotal3
             // 
@@ -8532,7 +8738,8 @@
             this.tabAdvance.Controls.Add(this.btnFactoryReset);
             this.tabAdvance.Controls.Add(this.btnPushActive);
             this.tabAdvance.Controls.Add(this.btnLatchActive);
-            this.tabAdvance.Controls.Add(this.btnEraseErrLog);
+            this.tabAdvance.Controls.Add(this.btnEraseChangedInfo);
+            this.tabAdvance.Controls.Add(this.btnErasePushStatus);
             this.tabAdvance.Controls.Add(this.btnEraseEventData);
             this.tabAdvance.Controls.Add(this.btnEraseLatchData);
             this.tabAdvance.Controls.Add(this.btnResetPassword);
@@ -8551,6 +8758,7 @@
             this.tabAdvance.Controls.Add(this.label183);
             this.tabAdvance.Controls.Add(this.label182);
             this.tabAdvance.Controls.Add(this.label181);
+            this.tabAdvance.Controls.Add(this.label226);
             this.tabAdvance.Controls.Add(this.label180);
             this.tabAdvance.Controls.Add(this.label179);
             this.tabAdvance.Controls.Add(this.label178);
@@ -8626,7 +8834,7 @@
             "Pulse meter",
             "Modbus meter",
             "Pressure sensor"});
-            this.cmbEventMeter.Location = new System.Drawing.Point(160, 412);
+            this.cmbEventMeter.Location = new System.Drawing.Point(160, 437);
             this.cmbEventMeter.Name = "cmbEventMeter";
             this.cmbEventMeter.Size = new System.Drawing.Size(118, 21);
             this.cmbEventMeter.TabIndex = 18;
@@ -8646,14 +8854,14 @@
             "Thay đổi cài đặt",
             "Thay đổi mật khẩu",
             "Update firmware thành công"});
-            this.cmbEventCreate.Location = new System.Drawing.Point(332, 411);
+            this.cmbEventCreate.Location = new System.Drawing.Point(332, 436);
             this.cmbEventCreate.Name = "cmbEventCreate";
             this.cmbEventCreate.Size = new System.Drawing.Size(224, 21);
             this.cmbEventCreate.TabIndex = 18;
             // 
             // btnWriteEvent
             // 
-            this.btnWriteEvent.Location = new System.Drawing.Point(562, 411);
+            this.btnWriteEvent.Location = new System.Drawing.Point(562, 436);
             this.btnWriteEvent.Name = "btnWriteEvent";
             this.btnWriteEvent.Size = new System.Drawing.Size(75, 23);
             this.btnWriteEvent.TabIndex = 17;
@@ -8663,7 +8871,7 @@
             // 
             // btnFactoryReset
             // 
-            this.btnFactoryReset.Location = new System.Drawing.Point(176, 500);
+            this.btnFactoryReset.Location = new System.Drawing.Point(176, 525);
             this.btnFactoryReset.Name = "btnFactoryReset";
             this.btnFactoryReset.Size = new System.Drawing.Size(75, 23);
             this.btnFactoryReset.TabIndex = 17;
@@ -8673,7 +8881,7 @@
             // 
             // btnPushActive
             // 
-            this.btnPushActive.Location = new System.Drawing.Point(176, 455);
+            this.btnPushActive.Location = new System.Drawing.Point(176, 480);
             this.btnPushActive.Name = "btnPushActive";
             this.btnPushActive.Size = new System.Drawing.Size(75, 23);
             this.btnPushActive.TabIndex = 17;
@@ -8683,7 +8891,7 @@
             // 
             // btnLatchActive
             // 
-            this.btnLatchActive.Location = new System.Drawing.Point(176, 377);
+            this.btnLatchActive.Location = new System.Drawing.Point(176, 402);
             this.btnLatchActive.Name = "btnLatchActive";
             this.btnLatchActive.Size = new System.Drawing.Size(75, 23);
             this.btnLatchActive.TabIndex = 17;
@@ -8691,15 +8899,15 @@
             this.btnLatchActive.UseVisualStyleBackColor = true;
             this.btnLatchActive.Click += new System.EventHandler(this.btnLatchActive_Click);
             // 
-            // btnEraseErrLog
+            // btnErasePushStatus
             // 
-            this.btnEraseErrLog.Location = new System.Drawing.Point(176, 339);
-            this.btnEraseErrLog.Name = "btnEraseErrLog";
-            this.btnEraseErrLog.Size = new System.Drawing.Size(75, 23);
-            this.btnEraseErrLog.TabIndex = 17;
-            this.btnEraseErrLog.Text = "Ghi";
-            this.btnEraseErrLog.UseVisualStyleBackColor = true;
-            this.btnEraseErrLog.Click += new System.EventHandler(this.btnEraseErrLog_Click);
+            this.btnErasePushStatus.Location = new System.Drawing.Point(176, 339);
+            this.btnErasePushStatus.Name = "btnErasePushStatus";
+            this.btnErasePushStatus.Size = new System.Drawing.Size(75, 23);
+            this.btnErasePushStatus.TabIndex = 17;
+            this.btnErasePushStatus.Text = "Ghi";
+            this.btnErasePushStatus.UseVisualStyleBackColor = true;
+            this.btnErasePushStatus.Click += new System.EventHandler(this.btnErasePushStatus_Click);
             // 
             // btnEraseEventData
             // 
@@ -8824,7 +9032,7 @@
             // label184
             // 
             this.label184.AutoSize = true;
-            this.label184.Location = new System.Drawing.Point(15, 505);
+            this.label184.Location = new System.Drawing.Point(15, 530);
             this.label184.Name = "label184";
             this.label184.Size = new System.Drawing.Size(68, 13);
             this.label184.TabIndex = 13;
@@ -8832,7 +9040,7 @@
             // 
             // txtEventMeterIndex
             // 
-            this.txtEventMeterIndex.Location = new System.Drawing.Point(284, 411);
+            this.txtEventMeterIndex.Location = new System.Drawing.Point(284, 436);
             this.txtEventMeterIndex.Name = "txtEventMeterIndex";
             this.txtEventMeterIndex.Size = new System.Drawing.Size(37, 20);
             this.txtEventMeterIndex.TabIndex = 15;
@@ -8847,7 +9055,7 @@
             // label183
             // 
             this.label183.AutoSize = true;
-            this.label183.Location = new System.Drawing.Point(15, 460);
+            this.label183.Location = new System.Drawing.Point(15, 485);
             this.label183.Name = "label183";
             this.label183.Size = new System.Drawing.Size(113, 13);
             this.label183.TabIndex = 13;
@@ -8856,7 +9064,7 @@
             // label182
             // 
             this.label182.AutoSize = true;
-            this.label182.Location = new System.Drawing.Point(15, 415);
+            this.label182.Location = new System.Drawing.Point(15, 440);
             this.label182.Name = "label182";
             this.label182.Size = new System.Drawing.Size(80, 13);
             this.label182.TabIndex = 13;
@@ -8865,7 +9073,7 @@
             // label181
             // 
             this.label181.AutoSize = true;
-            this.label181.Location = new System.Drawing.Point(15, 382);
+            this.label181.Location = new System.Drawing.Point(15, 407);
             this.label181.Name = "label181";
             this.label181.Size = new System.Drawing.Size(116, 13);
             this.label181.TabIndex = 13;
@@ -9037,39 +9245,65 @@
             this.btnReconnect.UseVisualStyleBackColor = true;
             this.btnReconnect.Click += new System.EventHandler(this.btnReconnect_Click);
             // 
-            // txtUptimeTime
+            // dataGridViewTextBoxColumn5
             // 
-            this.txtUptimeTime.Location = new System.Drawing.Point(617, 186);
-            this.txtUptimeTime.Name = "txtUptimeTime";
-            this.txtUptimeTime.ReadOnly = true;
-            this.txtUptimeTime.Size = new System.Drawing.Size(194, 20);
-            this.txtUptimeTime.TabIndex = 1;
+            this.dataGridViewTextBoxColumn5.HeaderText = "STT";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 50;
             // 
-            // txtPowerOnTime
+            // dataGridViewTextBoxColumn6
             // 
-            this.txtPowerOnTime.Location = new System.Drawing.Point(190, 186);
-            this.txtPowerOnTime.Name = "txtPowerOnTime";
-            this.txtPowerOnTime.ReadOnly = true;
-            this.txtPowerOnTime.Size = new System.Drawing.Size(194, 20);
-            this.txtPowerOnTime.TabIndex = 1;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Thời gian thay đổi";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
-            // label218
+            // Column6
             // 
-            this.label218.AutoSize = true;
-            this.label218.Location = new System.Drawing.Point(70, 190);
-            this.label218.Name = "label218";
-            this.label218.Size = new System.Drawing.Size(103, 13);
-            this.label218.TabIndex = 0;
-            this.label218.Text = "Thời gian hoạt động";
+            this.Column6.HeaderText = "Nguồn tác động";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 150;
             // 
-            // label219
+            // Column7
             // 
-            this.label219.AutoSize = true;
-            this.label219.Location = new System.Drawing.Point(497, 190);
-            this.label219.Name = "label219";
-            this.label219.Size = new System.Drawing.Size(102, 13);
-            this.label219.TabIndex = 0;
-            this.label219.Text = "Thời gian khởi động";
+            this.Column7.HeaderText = "Level";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Đối tượng thay đổi";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Giá trị sau khi thay đổi";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 250;
+            // 
+            // label226
+            // 
+            this.label226.AutoSize = true;
+            this.label226.Location = new System.Drawing.Point(15, 377);
+            this.label226.Name = "label226";
+            this.label226.Size = new System.Drawing.Size(100, 13);
+            this.label226.TabIndex = 13;
+            this.label226.Text = "Xoá lịch sử thay đổi";
+            // 
+            // btnEraseChangedInfo
+            // 
+            this.btnEraseChangedInfo.Location = new System.Drawing.Point(176, 372);
+            this.btnEraseChangedInfo.Name = "btnEraseChangedInfo";
+            this.btnEraseChangedInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnEraseChangedInfo.TabIndex = 17;
+            this.btnEraseChangedInfo.Text = "Ghi";
+            this.btnEraseChangedInfo.UseVisualStyleBackColor = true;
+            this.btnEraseChangedInfo.Click += new System.EventHandler(this.btnEraseChangedInfo_Click);
             // 
             // ucMain
             // 
@@ -9172,6 +9406,9 @@
             this.tabPushStatus.ResumeLayout(false);
             this.tabPushStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPushStatusData)).EndInit();
+            this.tabChangedInfo.ResumeLayout(false);
+            this.tabChangedInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChangedInfoData)).EndInit();
             this.tabMetadata.ResumeLayout(false);
             this.tabMetadata.PerformLayout();
             this.tabOTA.ResumeLayout(false);
@@ -9864,7 +10101,7 @@
         private System.Windows.Forms.TextBox txtWriteMcuReset;
         private System.Windows.Forms.TextBox txtReadMcuReset;
         private System.Windows.Forms.Label label177;
-        private System.Windows.Forms.Button btnEraseErrLog;
+        private System.Windows.Forms.Button btnErasePushStatus;
         private System.Windows.Forms.Button btnEraseEventData;
         private System.Windows.Forms.Button btnEraseLatchData;
         private System.Windows.Forms.Label label180;
@@ -9901,44 +10138,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEventTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSttLatchInfo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTimeLatchInfo;
-        private System.Windows.Forms.TabPage tabMetadata;
-        private System.Windows.Forms.Button btnReadMetadata;
-        private System.Windows.Forms.Label label189;
-        private System.Windows.Forms.TextBox txtNextSaveLatchIndex;
-        private System.Windows.Forms.Label label196;
-        private System.Windows.Forms.TextBox txtErrLogCount;
-        private System.Windows.Forms.Label label195;
-        private System.Windows.Forms.TextBox txtNextSaveErrLogIndex;
-        private System.Windows.Forms.Label label194;
-        private System.Windows.Forms.TextBox txtEventCount;
-        private System.Windows.Forms.Label label193;
-        private System.Windows.Forms.TextBox txtNextLoadEventIndex;
-        private System.Windows.Forms.Label label192;
-        private System.Windows.Forms.TextBox txtNextSaveEventIndex;
-        private System.Windows.Forms.Label label191;
-        private System.Windows.Forms.TextBox txtLatchCount;
-        private System.Windows.Forms.Label label190;
-        private System.Windows.Forms.TextBox txtNextLoadLatchIndex;
-        private System.Windows.Forms.Label label204;
-        private System.Windows.Forms.TextBox txtPulseReverseTotal4;
-        private System.Windows.Forms.Label label203;
-        private System.Windows.Forms.TextBox txtPulseForwardTotal4;
-        private System.Windows.Forms.Label label202;
-        private System.Windows.Forms.TextBox txtPulseReverseTotal3;
-        private System.Windows.Forms.Label label201;
-        private System.Windows.Forms.TextBox txtPulseForwardTotal3;
-        private System.Windows.Forms.Label label200;
-        private System.Windows.Forms.TextBox txtPulseReverseTotal2;
-        private System.Windows.Forms.Label label199;
-        private System.Windows.Forms.TextBox txtPulseForwardTotal2;
-        private System.Windows.Forms.Label label198;
-        private System.Windows.Forms.TextBox txtPulseReverseTotal1;
-        private System.Windows.Forms.Label label197;
-        private System.Windows.Forms.TextBox txtPulseForwardTotal1;
-        private System.Windows.Forms.Label label206;
-        private System.Windows.Forms.Label label205;
-        private System.Windows.Forms.TextBox txtRuntimeSeq;
-        private System.Windows.Forms.TextBox txtMetadataSeq;
         private System.Windows.Forms.ProgressBar prgOtaProgress;
         private System.Windows.Forms.Button btnBrowseOtaFile;
         private System.Windows.Forms.TextBox txtFirmwareFile;
@@ -9996,5 +10195,65 @@
         private System.Windows.Forms.TextBox txtPowerOnTime;
         private System.Windows.Forms.TextBox txtUptimeTime;
         private System.Windows.Forms.Label label219;
+        private System.Windows.Forms.TabPage tabChangedInfo;
+        private System.Windows.Forms.DataGridView dgvChangedInfoData;
+        private System.Windows.Forms.Label label220;
+        private System.Windows.Forms.Label label221;
+        private System.Windows.Forms.Label label222;
+        private System.Windows.Forms.Label label223;
+        private System.Windows.Forms.Button btnStopReadChangedInfo;
+        private System.Windows.Forms.Button btnReadChangedInfo;
+        private System.Windows.Forms.TextBox txtEndIndexChangedInfo;
+        private System.Windows.Forms.TextBox txtBeginIndexChangedInfo;
+        private System.Windows.Forms.TabPage tabMetadata;
+        private System.Windows.Forms.Button btnReadMetadata;
+        private System.Windows.Forms.Label label204;
+        private System.Windows.Forms.Label label225;
+        private System.Windows.Forms.Label label196;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal4;
+        private System.Windows.Forms.TextBox txtChangedInfoCount;
+        private System.Windows.Forms.TextBox txtPushStatusCount;
+        private System.Windows.Forms.Label label224;
+        private System.Windows.Forms.Label label203;
+        private System.Windows.Forms.Label label195;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal4;
+        private System.Windows.Forms.TextBox txtNextSaveChangedInfo;
+        private System.Windows.Forms.Label label202;
+        private System.Windows.Forms.TextBox txtNextSavePushStatusIndex;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal3;
+        private System.Windows.Forms.Label label194;
+        private System.Windows.Forms.Label label201;
+        private System.Windows.Forms.TextBox txtEventCount;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal3;
+        private System.Windows.Forms.Label label193;
+        private System.Windows.Forms.Label label200;
+        private System.Windows.Forms.TextBox txtNextLoadEventIndex;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal2;
+        private System.Windows.Forms.Label label192;
+        private System.Windows.Forms.Label label199;
+        private System.Windows.Forms.TextBox txtNextSaveEventIndex;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal2;
+        private System.Windows.Forms.Label label191;
+        private System.Windows.Forms.Label label198;
+        private System.Windows.Forms.TextBox txtLatchCount;
+        private System.Windows.Forms.TextBox txtPulseReverseTotal1;
+        private System.Windows.Forms.Label label190;
+        private System.Windows.Forms.Label label197;
+        private System.Windows.Forms.TextBox txtNextLoadLatchIndex;
+        private System.Windows.Forms.TextBox txtPulseForwardTotal1;
+        private System.Windows.Forms.Label label206;
+        private System.Windows.Forms.Label label205;
+        private System.Windows.Forms.Label label189;
+        private System.Windows.Forms.TextBox txtRuntimeSeq;
+        private System.Windows.Forms.TextBox txtMetadataSeq;
+        private System.Windows.Forms.TextBox txtNextSaveLatchIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.Button btnEraseChangedInfo;
+        private System.Windows.Forms.Label label226;
     }
 }

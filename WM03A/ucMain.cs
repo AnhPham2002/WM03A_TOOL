@@ -36,6 +36,7 @@ namespace WM03A
         private bool _stopReadLatchData;
         private bool _stopReadEventData;
         private bool _stopReadPushStatusData;
+        private bool _stopReadChangedInfo;
 
         private const int OTA_METADATA_A_OFFSET = 0x08008000 - 0x08008000;
         private const int OTA_METADATA_B_OFFSET = 0x08024000 - 0x08008000;
@@ -3802,6 +3803,206 @@ namespace WM03A
             btnStopReadPushStatusData.Enabled = false;
         }
 
+        //-----------------------Query Changed Info--------------------------------//
+        private async void btnReadChangedInfo_Click(object sender, EventArgs e)
+        {
+            if (!ushort.TryParse(txtBeginIndexChangedInfo.Text.Trim(), out ushort beginUserIndex))
+            {
+                if (!string.IsNullOrWhiteSpace(txtBeginIndexChangedInfo.Text))
+                {
+                    MessageBox.Show("Begin Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                beginUserIndex = 1;
+            }
+
+            bool hasEndIndex = ushort.TryParse(txtEndIndexChangedInfo.Text.Trim(), out ushort endUserIndex);
+
+            if (!string.IsNullOrWhiteSpace(txtEndIndexChangedInfo.Text) && !hasEndIndex)
+            {
+                MessageBox.Show("End Index không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (hasEndIndex && beginUserIndex > endUserIndex)
+            {
+                MessageBox.Show("Begin Index phải nhỏ hơn hoặc bằng End Index.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            dgvChangedInfoData.Rows.Clear();
+
+            _stopReadChangedInfo = false;
+            btnReadChangedInfo.Enabled = false;
+            btnStopReadChangedInfo.Enabled = true;
+
+            try
+            {
+                for (uint userIndex = beginUserIndex; ; userIndex++)
+                {
+                    if (_stopReadChangedInfo || (hasEndIndex && userIndex > endUserIndex))
+                    {
+                        break;
+                    }
+
+                    ushort changedInfoIndex = (ushort)(userIndex - 1);
+
+                    if (!QueryCommands.ChangedInfo(changedInfoIndex, out byte[] txFrame))
+                    {
+                        MessageBox.Show($"Không thể tạo lệnh đọc lịch sử thay đổi tại STT {userIndex}.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+
+                    if (_stopReadChangedInfo || !ok)
+                    {
+                        break;
+                    }
+
+                    if (!QueryParser.ChangedInfo(rxFrame, out ChangedInfoData changedInfoData))
+                    {
+                        break;
+                    }
+
+                    string source;
+
+                    switch (changedInfoData.Source)
+                    {
+                        case 0:
+                            source = "LTE";
+                            break;
+
+                        case 1:
+                            source = "RS485";
+                            break;
+
+                        default:
+                            source = "Không xác định";
+                            break;
+                    }
+
+                    string level = changedInfoData.Level.ToString();
+
+                    string changedObject;
+                    switch (changedInfoData.ConfigId)
+                    {
+                        case 0: changedObject = "Module Serial"; break;
+                        case 1: changedObject = "Activation Status"; break;
+                        case 2: changedObject = "Time"; break;
+                        case 3: changedObject = "IP Endpoint"; break;
+                        case 4: changedObject = "Latch Period"; break;
+                        case 5: changedObject = "Push Period"; break;
+                        case 6: changedObject = "Timezone"; break;
+                        case 7: changedObject = "Charge"; break;
+                        case 8: changedObject = "Pulse Meter 1"; break;
+                        case 9: changedObject = "Pulse Meter 2"; break;
+                        case 10: changedObject = "Pulse Meter 3"; break;
+                        case 11: changedObject = "Pulse Meter 4"; break;
+                        case 12: changedObject = "Modbus Meter 1"; break;
+                        case 13: changedObject = "Modbus Meter 2"; break;
+                        case 14: changedObject = "Modbus Meter 3"; break;
+                        case 15: changedObject = "Modbus Meter 4"; break;
+                        case 16: changedObject = "Pressure Sensor 1"; break;
+                        case 17: changedObject = "Pressure Sensor 2"; break;
+                        case 18: changedObject = "Reset Setting"; break;
+                        case 19: changedObject = "Password"; break;
+                        case 20: changedObject = "Reset Password"; break;
+                        default: changedObject = "Không xác định"; break;
+                    }
+
+                    string changedValue;
+                    switch (changedInfoData.ConfigId)
+                    {
+                        case 0:
+                        case 4:
+                        case 5:
+                            changedValue = changedInfoData.NewValue.ToString();
+                            break;
+
+                        case 1:
+                            changedValue = changedInfoData.NewValue != 0 ? "Đã kích hoạt" : "Chưa kích hoạt";
+                            break;
+
+                        case 2:
+                            {
+                                byte[] valueBytes = BitConverter.GetBytes(changedInfoData.NewValue);
+
+                                byte year = valueBytes[0];
+                                byte month = valueBytes[1];
+                                byte day = valueBytes[2];
+                                byte hours = valueBytes[3];
+                                byte minutes = valueBytes[4];
+                                byte seconds = valueBytes[5];
+
+                                try
+                                {
+                                    DateTime dateTime = new DateTime(2000 + year, month, day, hours, minutes, seconds);
+                                    changedValue = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
+                                }
+                                catch (ArgumentOutOfRangeException)
+                                {
+                                    changedValue = "Không hợp lệ";
+                                }
+
+                                break;
+                            }
+
+                        case 3:
+                            {
+                                byte[] valueBytes = BitConverter.GetBytes(changedInfoData.NewValue);
+
+                                string ip = $"{valueBytes[0]}.{valueBytes[1]}.{valueBytes[2]}.{valueBytes[3]}";
+                                ushort port = BitConverter.ToUInt16(valueBytes, 4);
+
+                                changedValue = $"{ip}:{port}";
+                                break;
+                            }
+
+                        case 6:
+                            {
+                                byte[] valueBytes = BitConverter.GetBytes(changedInfoData.NewValue);
+                                float timezone = BitConverter.ToSingle(valueBytes, 0);
+
+                                changedValue = timezone.ToString("0.####");
+                                break;
+                            }
+
+                        default:
+                            changedValue = "-";
+                            break;
+                    }
+
+                    int rowIndex = dgvChangedInfoData.Rows.Add(
+                        userIndex,
+                        changedInfoData.ChangedDateTime.ToString("dd/MM/yyyy HH:mm:ss"),
+                        source,
+                        level,
+                        changedObject,
+                        changedValue);
+
+                    dgvChangedInfoData.Rows[rowIndex].Tag = changedInfoData;
+
+                    if (userIndex >= ushort.MaxValue)
+                    {
+                        break;
+                    }
+                }
+            }
+            finally
+            {
+                btnReadChangedInfo.Enabled = true;
+                btnStopReadChangedInfo.Enabled = false;
+            }
+        }
+
+        private void btnStopReadChangedInfo_Click(object sender, EventArgs e)
+        {
+            _stopReadChangedInfo = true;
+            btnStopReadChangedInfo.Enabled = false;
+        }
+
 
         //-----------------------Query Metadata--------------------------------//
         private async void btnReadMetadata_Click(object sender, EventArgs e)
@@ -3813,8 +4014,10 @@ namespace WM03A
             txtNextSaveEventIndex.Clear();
             txtNextLoadEventIndex.Clear();
             txtEventCount.Clear();
-            txtNextSaveErrLogIndex.Clear();
-            txtErrLogCount.Clear();
+            txtNextSavePushStatusIndex.Clear();
+            txtPushStatusCount.Clear();
+            txtNextSaveChangedInfo.Clear();
+            txtChangedInfoCount.Clear();
             txtRuntimeSeq.Clear();
             txtPulseForwardTotal1.Clear();
             txtPulseReverseTotal1.Clear();
@@ -3836,8 +4039,10 @@ namespace WM03A
                 txtNextSaveEventIndex.Text = metadata.NextEventSaveIndex.ToString();
                 txtNextLoadEventIndex.Text = metadata.NextEventLoadIndex.ToString();
                 txtEventCount.Text = metadata.EventCount.ToString();
-                txtNextSaveErrLogIndex.Text = metadata.NextLogSaveIndex.ToString();
-                txtErrLogCount.Text = metadata.LogCount.ToString();
+                txtNextSavePushStatusIndex.Text = metadata.NextPushStatusSaveIndex.ToString();
+                txtPushStatusCount.Text = metadata.PushStatusCount.ToString();
+                txtNextSaveChangedInfo.Text = metadata.NextChangedInfoSaveIndex.ToString();
+                txtChangedInfoCount.Text = metadata.ChangedInfoCount.ToString();
 
                 txtRuntimeSeq.Text = metadata.SequenceRuntime.ToString();
                 txtPulseForwardTotal1.Text = metadata.PulseCounts[0].ForwardPulseCount.ToString();
@@ -4246,9 +4451,15 @@ namespace WM03A
             var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
         }
 
-        private async void btnEraseErrLog_Click(object sender, EventArgs e)
+        private async void btnErasePushStatus_Click(object sender, EventArgs e)
         {
-            SetCommands.EraseErrLog(out byte[] txFrame);
+            SetCommands.ErasePushStatus(out byte[] txFrame);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+        }
+
+        private async void btnEraseChangedInfo_Click(object sender, EventArgs e)
+        {
+            SetCommands.EraseChangedInfo(out byte[] txFrame);
             var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
         }
 
