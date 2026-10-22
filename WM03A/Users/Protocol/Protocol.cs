@@ -476,22 +476,25 @@ namespace WM03A
         // COMMUNICATION FRAME PACKING
         // ============================================================
 
-        /// <summary>
-        /// Pack lệnh Access (CMD = 0x00)
-        /// </summary>
-        /// <param name="id">Access level (Lv2 / Lv3 / Lv4)</param>
-        /// <param name="password">Mật khẩu</param>
-        /// <param name="frame">Frame kết quả</param>
         public static bool Access(AccessId id, byte[] password, out byte[] frame)
         {
+            if (password == null)
+            {
+                password = Array.Empty<byte>();
+            }
+
+            byte[] payload = new byte[1 + password.Length];
+            payload[0] = (byte)password.Length;
+            Buffer.BlockCopy(password, 0, payload, 1, password.Length);
+
             return Pack(
-                encrypt: true,                  // Access thường được mã hóa
+                encrypt: true,
                 serial: PROTOCOL_MODULE_SERIAL_COMMON,
                 cmd: (byte)CmdCode.Access,
                 id: (byte)id,
-                payload: password ?? Array.Empty<byte>(),
+                payload: payload,
                 out frame);
-        }        
+        }
 
         // ============================================================
         // Helper

@@ -4086,7 +4086,10 @@ namespace WM03A
                 return;
             }
 
-            if (!SetCommands.ChangePassword(txtCurrentPassword.Text, (byte)cmbRoleNewPassword.SelectedIndex, txtNewPassword.Text, out byte[] txFrame))
+            byte[] currentPassword = Encoding.ASCII.GetBytes(txtCurrentPassword.Text);
+            byte[] newPassword = Encoding.ASCII.GetBytes(txtNewPassword.Text);
+
+            if (!SetCommands.ChangePassword(currentPassword, (byte)cmbRoleNewPassword.SelectedIndex, newPassword, out byte[] txFrame))
             {
                 lblChangePasswordStatus.Text = "Thất bại.";
                 await Task.Delay(1000);

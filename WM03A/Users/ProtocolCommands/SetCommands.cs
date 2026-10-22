@@ -658,28 +658,32 @@ namespace WM03A.Users.ProtocolCommands
                 out frame);
         }
 
-        public static bool ChangePassword(string currentPassword, byte role, string newPassword, out byte[] frame)
+        public static bool ChangePassword(byte[] currentPassword, byte role, byte[] newPassword, out byte[] frame)
         {
+            int PASSWORD_MIN_LENGTH = 4;
+            int PASSWORD_MAX_LENGTH = 32;
+
             frame = null;
 
-            byte[] currentPasswordBytes = Encoding.ASCII.GetBytes(currentPassword);
-            byte[] newPasswordBytes = Encoding.ASCII.GetBytes(newPassword);
-
-            if (currentPasswordBytes.Length != PASSWORD_LENGTH || newPasswordBytes.Length != PASSWORD_LENGTH)
+            if (currentPassword == null || newPassword == null ||
+                currentPassword.Length < PASSWORD_MIN_LENGTH || currentPassword.Length > PASSWORD_MAX_LENGTH ||
+                newPassword.Length < PASSWORD_MIN_LENGTH || newPassword.Length > PASSWORD_MAX_LENGTH)
             {
                 return false;
             }
 
-            byte[] payload = new byte[PASSWORD_LENGTH + sizeof(byte) + PASSWORD_LENGTH];
+            byte[] payload = new byte[sizeof(byte) + currentPassword.Length + sizeof(byte) + sizeof(byte) + newPassword.Length];
 
             int index = 0;
 
-            Array.Copy(currentPasswordBytes, 0, payload, index, PASSWORD_LENGTH);
-            index += PASSWORD_LENGTH;
+            payload[index++] = (byte)currentPassword.Length;
+            Array.Copy(currentPassword, 0, payload, index, currentPassword.Length);
+            index += currentPassword.Length;
 
             payload[index++] = role;
 
-            Array.Copy(newPasswordBytes, 0, payload, index, PASSWORD_LENGTH);
+            payload[index++] = (byte)newPassword.Length;
+            Array.Copy(newPassword, 0, payload, index, newPassword.Length);
 
             return Pack(
                 encrypt: true,
