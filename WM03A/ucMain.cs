@@ -761,7 +761,8 @@ namespace WM03A
                 (byte)ConfigPulseMeterId.Pin1,
                 (byte)ConfigPulseMeterId.Pin2,
                 (byte)ConfigPulseMeterId.PulseType,
-                (byte)ConfigPulseMeterId.EdgeType
+                (byte)ConfigPulseMeterId.EdgeType,
+                (byte)ConfigPulseMeterId.MeterData
             };
 
             txtReadPulseMeter1UseSetting.Clear();
@@ -803,15 +804,9 @@ namespace WM03A
                     {
                         txtReadPulseMeter1EdgeSetting.Text = cmbPulseMeter1EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
                     }
+                    txtReadPulseMeter1ForwardSetting.Text = pulseMeterConfig.TotalForward.ToString();
+                    txtReadPulseMeter1ReverseSetting.Text = pulseMeterConfig.TotalReverse.ToString();
                 }
-            }
-
-            QueryCommands.PulseMeterData(0, out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
-            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
-            {
-                txtReadPulseMeter1ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
-                txtReadPulseMeter1ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
         private async void btnWritePulseMeter1Setting_Click(object sender, EventArgs e)
@@ -928,7 +923,8 @@ namespace WM03A
                 (byte)ConfigPulseMeterId.Pin1,
                 (byte)ConfigPulseMeterId.Pin2,
                 (byte)ConfigPulseMeterId.PulseType,
-                (byte)ConfigPulseMeterId.EdgeType
+                (byte)ConfigPulseMeterId.EdgeType,
+                (byte)ConfigPulseMeterId.MeterData,
             };
 
             txtReadPulseMeter2UseSetting.Clear();
@@ -970,15 +966,9 @@ namespace WM03A
                     {
                         txtReadPulseMeter2EdgeSetting.Text = cmbPulseMeter2EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
                     }
+                    txtReadPulseMeter2ForwardSetting.Text = pulseMeterConfig.TotalForward.ToString();
+                    txtReadPulseMeter2ReverseSetting.Text = pulseMeterConfig.TotalReverse.ToString();
                 }
-            }
-
-            QueryCommands.PulseMeterData(1, out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
-            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
-            {
-                txtReadPulseMeter2ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
-                txtReadPulseMeter2ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
         private async void btnWritePulseMeter2Setting_Click(object sender, EventArgs e)
@@ -1094,7 +1084,8 @@ namespace WM03A
                 (byte)ConfigPulseMeterId.Pin1,
                 (byte)ConfigPulseMeterId.Pin2,
                 (byte)ConfigPulseMeterId.PulseType,
-                (byte)ConfigPulseMeterId.EdgeType
+                (byte)ConfigPulseMeterId.EdgeType,
+                (byte)ConfigPulseMeterId.MeterData,
             };
 
             txtReadPulseMeter3UseSetting.Clear();
@@ -1136,15 +1127,9 @@ namespace WM03A
                     {
                         txtReadPulseMeter3EdgeSetting.Text = cmbPulseMeter3EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
                     }
+                    txtReadPulseMeter3ForwardSetting.Text = pulseMeterConfig.TotalForward.ToString();
+                    txtReadPulseMeter3ReverseSetting.Text = pulseMeterConfig.TotalReverse.ToString();
                 }
-            }
-
-            QueryCommands.PulseMeterData(2, out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
-            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
-            {
-                txtReadPulseMeter3ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
-                txtReadPulseMeter3ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
         private async void btnWritePulseMeter3Setting_Click(object sender, EventArgs e)
@@ -1261,7 +1246,8 @@ namespace WM03A
                 (byte)ConfigPulseMeterId.Pin1,
                 (byte)ConfigPulseMeterId.Pin2,
                 (byte)ConfigPulseMeterId.PulseType,
-                (byte)ConfigPulseMeterId.EdgeType
+                (byte)ConfigPulseMeterId.EdgeType,
+                (byte)ConfigPulseMeterId.MeterData,
             };
 
             txtReadPulseMeter4UseSetting.Clear();
@@ -1303,15 +1289,9 @@ namespace WM03A
                     {
                         txtReadPulseMeter4EdgeSetting.Text = cmbPulseMeter4EdgeSetting.Items[pulseMeterConfig.EdgeType].ToString();
                     }
+                    txtReadPulseMeter4ForwardSetting.Text = pulseMeterConfig.TotalForward.ToString();
+                    txtReadPulseMeter4ReverseSetting.Text = pulseMeterConfig.TotalReverse.ToString();
                 }
-            }
-
-            QueryCommands.PulseMeterData(3, out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
-            if (ok && QueryParser.PulseMeterData(rxFrame, out QueryParser.MeterData meterData))
-            {
-                txtReadPulseMeter4ForwardSetting.Text = meterData.ForwardTotalizer.ToString();
-                txtReadPulseMeter4ReverseSetting.Text = meterData.ReverseTotalizer.ToString();
             }
         }
         private async void btnWritePulseMeter4Setting_Click(object sender, EventArgs e)

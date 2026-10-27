@@ -258,6 +258,20 @@ namespace WM03A
                             break;
                         }
 
+                    case (byte)ConfigPulseMeterId.MeterData:
+                        {
+                            if (index + 2 * sizeof(double) > payload.Length)
+                            {
+                                return false;
+                            }
+
+                            config.TotalForward = BitConverter.ToDouble(payload, index);
+                            index += sizeof(double);
+                            config.TotalReverse = BitConverter.ToDouble(payload, index);
+                            index += sizeof(double);
+                            break;
+                        }
+
                     default:
                         return false;
                 }

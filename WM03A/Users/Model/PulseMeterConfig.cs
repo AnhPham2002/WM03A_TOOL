@@ -15,5 +15,7 @@ namespace WM03A
         public byte Pin1 { get; set; }
         public byte Pin2 { get; set; }
         public byte EdgeType { get; set; }
+        public double TotalForward { get; set; }
+        public double TotalReverse { get; set; }
     }
 }
