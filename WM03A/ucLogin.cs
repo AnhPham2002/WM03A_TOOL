@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Management;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static WM03A.Protocol;
 
 namespace WM03A
 {
@@ -12,6 +15,7 @@ namespace WM03A
 
         private Protocol.AccessId _accessId;
         private byte[] _password;
+        private const int PROTOCOL_KEY_SIZE = 16;
 
         public event EventHandler<Protocol.AccessId> LoginSucceeded;
 
@@ -124,14 +128,36 @@ namespace WM03A
                 return;
             }
 
+            byte[] password = Encoding.ASCII.GetBytes(txtModulePassword.Text);
+
+            if (password.Length == 0 || password.Length > 32)
+            {
+                MessageBox.Show("Độ dài mật khẩu không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
+                btnLogin.Enabled = false;
+
+                // Step 1: Handshake using Master Key
+                byte[] handshakePayload = new byte[8];
+
+                using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+                {
+                    rng.GetBytes(handshakePayload);
+                }
+
+                if (!await LoginAsync((Protocol.AccessId)0x00, handshakePayload))
+                {
+                    MessageBox.Show("Handshake thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Step 2: Authenticate using Session Key
                 Protocol.AccessId accessId = (Protocol.AccessId)cmbRole.SelectedIndex;
-                byte[] password = Encoding.ASCII.GetBytes(txtModulePassword.Text);
 
-                bool success = await LoginAsync(accessId, password);
-
-                if (success)
+                if (await LoginAsync(accessId, password))
                 {
                     _accessId = accessId;
                     _password = (byte[])password.Clone();
@@ -147,15 +173,56 @@ namespace WM03A
             {
                 MessageBox.Show($"Lỗi khi kết nối.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                btnLogin.Enabled = true;
+            }
         }
 
         private async Task<bool> LoginAsync(Protocol.AccessId accessId, byte[] password)
         {
+            bool isHandshake = (byte)accessId == 0x00;
+            byte[] txPayload;
             byte[] txFrame;
 
-            Protocol.Access(accessId, password, out txFrame);
+            if (isHandshake)
+            {
+                txPayload = password;
+            }
+            else
+            {
+                if (password == null || password.Length == 0 || password.Length > 32)
+                    return false;
 
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                txPayload = new byte[password.Length + 1];
+                txPayload[0] = (byte)password.Length;
+                Buffer.BlockCopy(password, 0, txPayload, 1, password.Length);
+            }
+
+            bool packSuccess = isHandshake
+                ? Protocol.PackMasterKey(true, Protocol.PROTOCOL_MODULE_SERIAL_COMMON, (byte)Protocol.CmdCode.Access, (byte)accessId, txPayload, out txFrame)
+                : Protocol.Pack(true, Protocol.PROTOCOL_MODULE_SERIAL_COMMON, (byte)Protocol.CmdCode.Access, (byte)accessId, txPayload, out txFrame);
+
+            if (!packSuccess)
+                return false;
+
+            Func<byte[], bool> isValidFrame = frame =>
+            {
+                ulong frameSerial;
+                byte frameCmd;
+                byte frameId;
+                byte[] framePayload;
+
+                Protocol.ProtocolErrCode result = isHandshake
+                    ? Protocol.UnpackMasterKey(frame, out frameSerial, out frameCmd, out frameId, out framePayload)
+                    : Protocol.Unpack(frame, out frameSerial, out frameCmd, out frameId, out framePayload);
+
+                return result == Protocol.ProtocolErrCode.Success
+                    && frameCmd == (byte)Protocol.CmdCode.Access
+                    && frameId == (byte)accessId;
+            };
+
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300, isValidFrame);
 
             if (!ok)
             {
@@ -163,34 +230,52 @@ namespace WM03A
                 return false;
             }
 
-            Protocol.Unpack(rxFrame, out ulong serial, out byte cmd, out byte id, out byte[] payload);
+            ulong serial;
+            byte cmd;
+            byte id;
+            byte[] payload;
 
-            if (payload == null || payload.Length <= 6)
-            {
-                MessageBox.Show("Frame phản hồi không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Protocol.ProtocolErrCode unpackResult = isHandshake
+                ? Protocol.UnpackMasterKey(rxFrame, out serial, out cmd, out id, out payload)
+                : Protocol.Unpack(rxFrame, out serial, out cmd, out id, out payload);
+
+            if (unpackResult != Protocol.ProtocolErrCode.Success)
                 return false;
+
+            if (cmd != (byte)Protocol.CmdCode.Access || id != (byte)accessId || payload == null)
+                return false;
+
+            if (isHandshake)
+            {
+                if (payload.Length != 16)
+                    return false;
+
+                return Protocol.ProtocolSetKey(payload);
             }
 
-            if (cmd != (byte)Protocol.CmdCode.Access || id != (byte)accessId)
-            {
+            if (payload.Length <= 6)
                 return false;
-            }
 
             return payload[6] == (byte)Protocol.ProtocolErrCode.Success;
         }
 
         public async Task<bool> ReconnectAsync()
         {
-            if (!_serialPortManager.IsOpen)
-            {
+            if (!_serialPortManager.IsOpen || _password == null)
                 return false;
+
+            // Step 1: Generate a new random number and perform handshake
+            byte[] handshakePayload = new byte[8];
+
+            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(handshakePayload);
             }
 
-            if (_password == null)
-            {
+            if (!await LoginAsync((Protocol.AccessId)0x00, handshakePayload))
                 return false;
-            }
 
+            // Step 2: Authenticate again using the new Session Key
             return await LoginAsync(_accessId, _password);
         }
     }

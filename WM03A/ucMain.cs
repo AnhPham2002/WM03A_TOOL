@@ -211,19 +211,9 @@ namespace WM03A
             }
         }
 
-        private async void btnLogout_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
             LogoutRequested?.Invoke(this, EventArgs.Empty);
-            byte[] payload = new byte[PASSWORD_LENGTH];
-            Pack(
-                encrypt: true,
-                serial: PROTOCOL_MODULE_SERIAL_COMMON,
-                cmd: (byte)CmdCode.Access,
-                id: (byte)AccessId.Logout,
-                payload: payload,
-                out byte[] txFrame);
-
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
         }
 
         // ----------------------------------------------------------------------
@@ -428,7 +418,7 @@ namespace WM03A
         {
             txtReadTimeSetting.Clear();
             GetCommands.DateTime(out byte[] txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.DateTime(rxFrame, out DateTime dateTime))
             {
                 txtReadTimeSetting.Text = dateTime.ToString("dd/MM/yyyy HH:mm:ss");
@@ -448,7 +438,7 @@ namespace WM03A
             }
 
             SetCommands.DateTime(dateTime, out byte[] txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
             if (ok && SetParser.DateTime(rxFrame))
             {
@@ -475,7 +465,7 @@ namespace WM03A
 
             // Read IP Endpoint
             GetCommands.IpEndpoint(out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.IpEndpoint(rxFrame, out string ip, out string port))
             {
                 txtReadIpSetting.Text = ip;
@@ -484,7 +474,7 @@ namespace WM03A
 
             // Read Latch Period
             GetCommands.LatchPeriod(out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok)
             {
                 ushort latchPeriod = GetParser.LatchPeriod(rxFrame);
@@ -493,7 +483,7 @@ namespace WM03A
 
             // Read Push Period
             GetCommands.PushPeriod(out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok)
             {
                 ushort PushPeriod = GetParser.PushPeriod(rxFrame);
@@ -502,7 +492,7 @@ namespace WM03A
 
             // Read Timezone
             GetCommands.Timezone(out txFrame);
-            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok)
             {
                 float Timezone = GetParser.Timezone(rxFrame);
@@ -610,7 +600,7 @@ namespace WM03A
 
             if (SetCommands.IpEndpoint(txtWriteIpSetting.Text, txtWritePortSetting.Text, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
                 if (!ok || !SetParser.IpEndpoint(rxFrame))
                 {
                     writeStatus = false;
@@ -619,7 +609,7 @@ namespace WM03A
 
             if (SetCommands.ModuleConfig(txtWriteLatchSetting.Text, txtWritePushSetting.Text, timezone, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
                 if (!ok || !SetParser.ModuleConfig(rxFrame))
                 {
                     writeStatus = false;
@@ -660,7 +650,7 @@ namespace WM03A
             txtReadChargeStatus.Clear();
 
             GetCommands.Charge(parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
             if (ok && GetParser.Charge(rxFrame, out ChargeConfig chargeConfig))
             {
@@ -708,7 +698,7 @@ namespace WM03A
 
             if (SetCommands.Charge(iinLim, chargeVoltage, chargeCurrent, chargeLed, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.Charge(rxFrame))
                 {
@@ -776,7 +766,7 @@ namespace WM03A
             txtReadPulseMeter1ReverseSetting.Clear();
 
             GetCommands.PulseMeter(0, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
             {
                 if (!pulseMeterConfig.MeterEnable)
@@ -871,7 +861,7 @@ namespace WM03A
 
             if (SetCommands.PulseMeter(0, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.PulseMeter(rxFrame))
                 {
@@ -938,7 +928,7 @@ namespace WM03A
             txtReadPulseMeter2ReverseSetting.Clear();
 
             GetCommands.PulseMeter(1, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
             {
                 if (!pulseMeterConfig.MeterEnable)
@@ -1033,7 +1023,7 @@ namespace WM03A
 
             if (SetCommands.PulseMeter(1, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.PulseMeter(rxFrame))
                 {
@@ -1099,7 +1089,7 @@ namespace WM03A
             txtReadPulseMeter3ReverseSetting.Clear();
 
             GetCommands.PulseMeter(2, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
             {
                 if (!pulseMeterConfig.MeterEnable)
@@ -1194,7 +1184,7 @@ namespace WM03A
 
             if (SetCommands.PulseMeter(2, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.PulseMeter(rxFrame))
                 {
@@ -1261,7 +1251,7 @@ namespace WM03A
             txtReadPulseMeter4ReverseSetting.Clear();
 
             GetCommands.PulseMeter(3, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.PulseMeter(rxFrame, out PulseMeterConfig pulseMeterConfig))
             {
                 if (!pulseMeterConfig.MeterEnable)
@@ -1356,7 +1346,7 @@ namespace WM03A
 
             if (SetCommands.PulseMeter(3, enabled, serialNumber, pulseFactor, pulseType, pin1, pin2, edgeType, forward, reverse, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.PulseMeter(rxFrame))
                 {
@@ -1478,7 +1468,7 @@ namespace WM03A
             txtReadFlow1MultiplierSetting.Clear();
 
             GetCommands.ModbusMeter(0, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
             {
                 if (!modbusMeterConfig.MeterEnable)
@@ -1785,7 +1775,7 @@ namespace WM03A
                 flowMultiplier,
                 out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.ModbusMeter(rxFrame))
                 {
@@ -1904,7 +1894,7 @@ namespace WM03A
             txtReadFlow2MultiplierSetting.Clear();
 
             GetCommands.ModbusMeter(1, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
             {
                 if (!modbusMeterConfig.MeterEnable)
@@ -2210,7 +2200,7 @@ namespace WM03A
                 flowMultiplier,
                 out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.ModbusMeter(rxFrame))
                 {
@@ -2329,7 +2319,7 @@ namespace WM03A
             txtReadFlow3MultiplierSetting.Clear();
 
             GetCommands.ModbusMeter(2, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
             {
                 if (!modbusMeterConfig.MeterEnable)
@@ -2635,7 +2625,7 @@ namespace WM03A
                 flowMultiplier,
                 out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.ModbusMeter(rxFrame))
                 {
@@ -2754,7 +2744,7 @@ namespace WM03A
             txtReadFlow4MultiplierSetting.Clear();
 
             GetCommands.ModbusMeter(3, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.ModbusMeter(rxFrame, out ModbusMeterConfig modbusMeterConfig))
             {
                 if (!modbusMeterConfig.MeterEnable)
@@ -3060,7 +3050,7 @@ namespace WM03A
                 flowMultiplier,
                 out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.ModbusMeter(rxFrame))
                 {
@@ -3116,7 +3106,7 @@ namespace WM03A
             txtReadPressure1MaxPressureSetting.Clear();
 
             GetCommands.PressureSensor(0, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.PressureSensor(rxFrame, out PressureSensorConfig pressureSensorConfig))
             {
                 if (!pressureSensorConfig.SensorEnable)
@@ -3201,7 +3191,7 @@ namespace WM03A
 
             if (SetCommands.PressureSensor(0, enabled, serialNumber, minCurrent, maxCurrent, minPressure, maxPressure, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.PressureSensor(rxFrame))
                 {
@@ -3255,7 +3245,7 @@ namespace WM03A
             txtReadPressure2MaxPressureSetting.Clear();
 
             GetCommands.PressureSensor(1, parameterIds, out txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && GetParser.PressureSensor(rxFrame, out PressureSensorConfig pressureSensorConfig))
             {
                 if (!pressureSensorConfig.SensorEnable)
@@ -3340,7 +3330,7 @@ namespace WM03A
 
             if (SetCommands.PressureSensor(1, enabled, serialNumber, minCurrent, maxCurrent, minPressure, maxPressure, out txFrame))
             {
-                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                 if (ok && SetParser.PressureSensor(rxFrame))
                 {
@@ -3423,7 +3413,7 @@ namespace WM03A
 
                     QueryCommands.Latch(latchIndex, out byte[] txFrame);
 
-                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                     if (_stopReadLatchData)
                     {
@@ -3534,7 +3524,7 @@ namespace WM03A
                         break;
                     }
 
-                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                     if (_stopReadEventData)
                     {
@@ -3700,7 +3690,7 @@ namespace WM03A
                         break;
                     }
 
-                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                     if (_stopReadPushStatusData || !ok)
                     {
@@ -3834,7 +3824,7 @@ namespace WM03A
                         break;
                     }
 
-                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+                    var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
 
                     if (_stopReadChangedInfo || !ok)
                     {
@@ -4009,7 +3999,7 @@ namespace WM03A
             txtPulseReverseTotal4.Clear();
 
             QueryCommands.Metadata(out byte[] txFrame);
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 300);
             if (ok && QueryParser.Metadata(rxFrame, out MetadataData metadata))
             {
                 txtMetadataSeq.Text = metadata.SequenceMeta.ToString();
@@ -4077,7 +4067,7 @@ namespace WM03A
                 return;
             }
 
-            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 5000);
+            var (ok, rxFrame) = await _serialPortManager.CommunicateAsync(txFrame, 1000);
 
             if (ok && SetParser.ChangePassword(rxFrame))
             {
